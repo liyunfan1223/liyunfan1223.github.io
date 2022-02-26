@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            2021牛客多校第一场 | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="A. Alice and Bob题意：给出两堆石子a、b，两名玩家轮流取石子，取法是在一堆石子里取k个，并在另一堆石子里取$s\times k$个$(s\ge 0)$，给定a、b，问先后手谁必胜
+观察得到，对于一堆石子为i个，那么只有最多一个对应的j，使得两堆石子为i、j时为必败态，于是必败态总数不超过n。对于每一个必败态，先枚举k，再枚举s，得到所有能一步达到该状态的必胜态，复杂度为调和级数$O(n\log n)$">
+    <meta name="keywords" content=",XCPC,dp,多校,博弈,FFT,贪心">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="2021牛客多校第一场 | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="A. Alice and Bob题意：给出两堆石子a、b，两名玩家轮流取石子，取法是在一堆石子里取k个，并在另一堆石子里取$s\times k$个$(s\ge 0)$，给定a、b，问先后手谁必胜
+观察得到，对于一堆石子为i个，那么只有最多一个对应的j，使得两堆石子为i、j时为必败态，于是必败态总数不超过n。对于每一个必败态，先枚举k，再枚举s，得到所有能一步达到该状态的必胜态，复杂度为调和级数$O(n\log n)$">
+    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="dp"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="博弈"> <meta property="og:article:tag" content="FFT"> <meta property="og:article:tag" content="贪心"> 
+
+    
+        <meta property="article:published_time" content="Sun Jul 18 2021 23:43:29 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 18:13:37 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/index.html",
+    "headline": "2021牛客多校第一场",
+    "datePublished": "Sun Jul 18 2021 23:43:29 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar/apple-touch-icon.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",XCPC,dp,多校,博弈,FFT,贪心",
+    "description": "A. Alice and Bob题意：给出两堆石子a、b，两名玩家轮流取石子，取法是在一堆石子里取k个，并在另一堆石子里取$s\times k$个$(s\ge 0)$，给定a、b，问先后手谁必胜
+观察得到，对于一堆石子为i个，那么只有最多一个对应的j，使得两堆石子为i、j时为必败态，于是必败态总数不超过n。对于每一个必败态，先枚举k，再枚举s，得到所有能一步达到该状态的必胜态，复杂度为调和级数$O(n\log n)$",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#A-Alice-and-Bob"><span class="post-toc-text">A. Alice and Bob</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#G-Game-of-Swapping-Numbers"><span class="post-toc-text">G. Game of Swapping Numbers</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#H-Hash-Function"><span class="post-toc-text">H. Hash Function</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#I-Increasing-Subsequence"><span class="post-toc-text">I. Increasing Subsequence</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#K-Knowledge-Test-about-Match"><span class="post-toc-text">K. Knowledge Test about Match</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                2021牛客多校第一场
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar/apple-touch-icon.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>7月 18, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/FFT/" rel="tag">FFT</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/XCPC/" rel="tag">XCPC</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/dp/" rel="tag">dp</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%8D%9A%E5%BC%88/" rel="tag">博弈</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%A4%9A%E6%A0%A1/" rel="tag">多校</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2021牛客多校第一场&url=http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2021牛客多校第一场&url=http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="A-Alice-and-Bob"><a href="#A-Alice-and-Bob" class="headerlink" title="A. Alice and Bob"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/A">A. Alice and Bob</a></h1><p>题意：给出两堆石子a、b，两名玩家轮流取石子，取法是在一堆石子里取k个，并在另一堆石子里取$s\times k$个$(s\ge 0)$，给定a、b，问先后手谁必胜</p>
+<p>观察得到，对于一堆石子为i个，那么只有最多一个对应的j，使得两堆石子为i、j时为必败态，于是必败态总数不超过n。对于每一个必败态，先枚举k，再枚举s，得到所有能一步达到该状态的必胜态，复杂度为调和级数$O(n\log n)$</p>
+<span id="more"></span>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+typedef long long LL;
+
+const int N = 5e3 + 5;
+
+int loss[N][N], win[N][N];
+
+int vis[N], to[N];
+
+int main() &#123;
+    for (int i = 2; i &lt;= 5000; i++) &#123;
+        int j = i + 1;
+        for (; j &lt;= 5000; j++) &#123;
+            if (!win[i][j]) break;
+        &#125;
+        if (j &lt;= 5000) &#123;
+            to[i] = j;
+            for (int k = 1; i + k &lt;= 5000; k++) &#123;
+                for (int p = 0; j + p &lt;= 5000; p += k) &#123;
+                    int xx = i + k, yy = j + p;
+                    if (xx &gt; yy) swap(xx, yy);
+                    win[xx][yy] = 1;
+                &#125;
+            &#125;
+            for (int k = 1; j + k &lt;= 5000; k++) &#123;
+                for (int p = 0; i + p &lt;= 5000; p += k) &#123;
+                    int xx = i + p, yy = j + k;
+                    if (xx &gt; yy) swap(xx, yy);
+                    win[xx][yy] = 1;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    int T; scanf(&quot;%d&quot;, &amp;T);
+    while(T--) &#123;
+        int x, y; scanf(&quot;%d %d&quot;, &amp;x, &amp;y);
+        if (x &gt; y) swap(x, y);
+        if (to[x] == y) printf(&quot;Bob\n&quot;);
+        else printf(&quot;Alice\n&quot;);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h1 id="G-Game-of-Swapping-Numbers"><a href="#G-Game-of-Swapping-Numbers" class="headerlink" title="G. Game of Swapping Numbers"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/G">G. Game of Swapping Numbers</a></h1><h1 id="H-Hash-Function"><a href="#H-Hash-Function" class="headerlink" title="H. Hash Function"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/H">H. Hash Function</a></h1><p>题意：给定n个数$(0\le a_i\le 500000)$，求出最小的$seed$，使得每个数$a_i\ mod\ seed$结果不同</p>
+<p>$seed$满足条件的充要条件是，对于任意两个数之差的绝对值$|a_i-a_j|，$$seed$都不是其因数</p>
+<p>fft加速，求出某个数是否是任意两数之差，记录在一个数组里，然后从小到大枚举$seed$，若每个$k\times seed$都不存在，则将$seed$作为答案，复杂度类似于A题中的调和级数</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define fo(i, a, b) for (int i = a; i &lt;= b; i++)
+using namespace std;
+typedef complex&lt;double&gt; cp;
+
+const int N = 3e6 + 5;
+const double pi = acos(-1);
+
+cp a[N], b[N];
+
+int n, m, limit, rev[N];
+
+bool vis[N];
+
+void fft(cp *a, int n, int inv)
+&#123;
+    int bit = 0;
+    while ((1 &lt;&lt; bit) &lt; n) bit++;
+    for (int i = 0; i &lt; n; i++) &#123;
+        rev[i] = (rev[i &gt;&gt; 1] &gt;&gt; 1) | ((i &amp; 1) &lt;&lt; (bit - 1));
+        if (i &lt; rev[i]) swap(a[i], a[rev[i]]);//不加这条if会交换两次（就是没交换）
+    &#125;
+    for (int mid = 1; mid &lt; n; mid *= 2) &#123;//mid是准备合并序列的长度的二分之一
+        cp temp(cos(pi / mid), inv * sin(pi / mid));//单位根，pi的系数2已经约掉了
+        for (int i=0;i&lt;n;i+=mid*2)//mid*2是准备合并序列的长度，i是合并到了哪一位
+        &#123;
+            cp omega(1,0);
+            for (int j=0;j&lt;mid;j++,omega*=temp)//只扫左半部分，得到右半部分的答案
+            &#123;
+                cp x=a[i+j],y=omega*a[i+j+mid];
+                a[i+j]=x+y,a[i+j+mid]=x-y;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+int main() &#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        int x; scanf(&quot;%d&quot;, &amp;x);
+        a[x + 500000].real(1);
+        b[-x + 500000].real(1);
+    &#125;
+    limit = 1; while(limit &lt; 1500000) limit &lt;&lt;= 1;
+    fft(a, limit, 1); fft(b, limit, 1);
+    for (int i = 0; i &lt;= limit; i++) a[i] *= b[i];
+    fft(a, limit, -1);
+
+    for (int i = 500000; i &lt;= 1500000; i++) &#123;
+        int now = (int)(a[i].real() / limit + 0.5);
+        if (now) vis[abs(i - 1000000)] = 1;
+    &#125;
+    for (int i = 1; i &lt;= 1500001; i++) &#123;
+        bool ok = 1;
+        for (int j = i; j &lt;= 1500001; j += i) &#123;
+            if (vis[j]) &#123;
+                ok = 0;
+                break;
+            &#125;
+        &#125;
+        if (ok) &#123;
+            printf(&quot;%d\n&quot;, i);
+            break;
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h1 id="I-Increasing-Subsequence"><a href="#I-Increasing-Subsequence" class="headerlink" title="I. Increasing Subsequence"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/I">I. Increasing Subsequence</a></h1><p>题意：给出排列P，两人轮流取数，要求取出的数比之前任何取的数都大，且在自己上次取的数的右边，若有多种取法则等概率选择，无人可取时终止，问期望轮数。</p>
+<p>首先按照数值大小，从小到大排序，对应位置上的数为该数原来的位置。这样的话，在新的排列上考虑该问题，一个合法的选择方案一定是从左往右依次选择，且方案中奇数和偶数位上的数一定是分别递增的。</p>
+<p>考虑dp，$f[i][j]$表示【最后一次选择j，倒数第二次选择i】这种情况发生的概率，那么下一个选择的k必须满足p[k]&gt;p[i] &amp;&amp; k &gt; j，并且转移时要把$f[i][j]$乘上转移过去的概率【即在j右边，且p[l]&gt;p[i]的l的个数，记作$num[i][j]$，可以$O(n^2)$预处理】，朴素把这个dp做完是$O(n^3)$的。</p>
+<p>进一步优化，考虑从$f[i][j]$到$f[j][k]$的转移，发现在 $ i &lt; j &lt; k $ 的前提下，能够转移到$f[j][k]$的$f[i][j]$只需要满足$p[k] &gt; p[i]$，于是想到在可以每个点都开一个树状数组去协助转移，每次得到$f[i][j]$后，修改j对应的树状数组中的p[i]位置，计算$f[j][k]$则查询j对应的树状数组中$[0,p[k]-1]$的区间和，得到一个$O(n\log n)$的做法，需要常数非常优秀才能通过（例如预处理所有逆元）</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+typedef long long LL;
+
+const int N = 5e3 + 5;
+const int mod = 998244353;
+const int MOD = 998244353;
+const double pi = acos(-1);
+int add(int x, int y)&#123;return x + y &gt;= mod? x + y - mod: x + y;&#125;
+int sub(int x, int y)&#123;return x - y &lt; 0? x - y + mod: x - y;&#125;
+int mul(int x, int y)&#123;return 1ll * x * y % mod;&#125;
+int qpow(int a, int b)
+&#123;
+    int ans = 1;
+    while(b)
+    &#123;
+        if(b &amp; 1)
+            ans = mul(ans,a);
+        b &gt;&gt;= 1;
+        a = mul(a,a);
+    &#125;
+    return ans;
+&#125;
+/////////////////////////////////////////
+
+struct Node &#123;
+    int v, pos;
+    bool operator &lt; (Node &amp;N) const &#123;
+        return v &lt; N.v;
+    &#125;
+&#125;a[N];
+
+int num[N][N], n, p[N];
+
+struct BIT &#123;
+    #define lowbit(x) (x &amp; (-x))
+    int sum[N];
+    void change(int p,int v)
+    &#123;
+        while (p&lt;N)
+        &#123;
+            sum[p]=add(sum[p],v);
+            p+=lowbit(p);
+        &#125;
+    &#125;
+    int query(int p)
+    &#123;
+        int res=0;
+        while (p)
+        &#123;
+            res=add(res,sum[p]);
+            p-=lowbit(p);
+        &#125;
+        return res;
+    &#125;
+&#125;bit[N];
+
+int ans, invn, inv[N];
+
+int main() &#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    invn = qpow(n, MOD - 2);
+    for (int i = 1; i &lt;= n; i++) inv[i] = qpow(i, MOD - 2);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        scanf(&quot;%d&quot;, &amp;a[i].v);
+        a[i].pos = i;
+    &#125;
+    sort(a + 1, a + 1 + n);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        p[i] = a[i].pos;
+    &#125;
+
+    for (int i = n; i &gt;= 1; i--) &#123;
+        for (int j = 1; j &lt;= i; j++) &#123;
+            num[j][i] = num[j][i + 1] + (p[i + 1] &gt; p[j]);
+        &#125;
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        num[0][i] = n - i;
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        for (int j = 0; j &lt;= i - 1; j++) &#123;
+            int pos = 0;
+            if (j == 0) &#123;
+                pos = invn;
+            &#125;
+            else &#123;
+                pos = bit[j].query(p[i] + 1);
+            &#125;
+            ans = add(ans, pos);
+            bit[i].change(p[j] + 2, mul(pos, inv[num[j][i]]));
+        &#125;
+    &#125;
+    printf(&quot;%d\n&quot;, ans);
+    return 0;
+&#125;
+</code></pre>
+<p>实际上还可以用桶替代树状数组，每次外层循环i修改后，重新扫一遍$f[j][i]$，把原先用树状数组记录的信息记录在桶里，同样可以完成转移，复杂度$O(n^2)$</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+typedef long long LL;
+
+const int N = 5e3 + 5;
+const int mod = 998244353;
+const int MOD = 998244353;
+const double pi = acos(-1);
+int add(int x, int y)&#123;return x + y &gt;= mod? x + y - mod: x + y;&#125;
+int sub(int x, int y)&#123;return x - y &lt; 0? x - y + mod: x - y;&#125;
+int mul(int x, int y)&#123;return 1ll * x * y % mod;&#125;
+int qpow(int a, int b)
+&#123;
+    int ans = 1;
+    while(b)
+    &#123;
+        if(b &amp; 1)
+            ans = mul(ans,a);
+        b &gt;&gt;= 1;
+        a = mul(a,a);
+    &#125;
+    return ans;
+&#125;
+/////////////////////////////////////////
+
+struct Node &#123;
+    int v, pos;
+    bool operator &lt; (Node &amp;N) const &#123;
+        return v &lt; N.v;
+    &#125;
+&#125;a[N];
+
+int num[N][N], n, p[N];
+
+int ans, invn, inv[N], sum[N], f[N][N];
+
+int main() &#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    invn = qpow(n, MOD - 2);
+    for (int i = 1; i &lt;= n; i++) inv[i] = qpow(i, MOD - 2);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        scanf(&quot;%d&quot;, &amp;a[i].v);
+        a[i].pos = i;
+    &#125;
+    sort(a + 1, a + 1 + n);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        p[i] = a[i].pos;
+    &#125;
+
+    for (int i = n; i &gt;= 1; i--) &#123;
+        for (int j = 1; j &lt;= i; j++) &#123;
+            num[j][i] = num[j][i + 1] + (p[i + 1] &gt; p[j]);
+        &#125;
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        num[0][i] = n - i;
+        f[0][i] = inv[n];
+    &#125;
+    for (int i = 1; i &lt;= n - 1; i++) &#123;
+        memset(sum, 0, sizeof(sum));
+        for (int j = 0; j &lt; i; j++) &#123;
+            sum[p[j]] = add(sum[p[j]], mul(f[j][i], inv[num[j][i]]));
+        &#125;
+        for (int j = 1; j &lt;= n; j++) sum[j] = add(sum[j - 1], sum[j]);
+        for (int j = i + 1; j &lt;= n; j++) &#123;
+            f[i][j] = sum[p[j] - 1];
+            ans = add(ans, f[i][j]);
+        &#125;
+    &#125;
+    printf(&quot;%d\n&quot;, add(ans, 1));
+    return 0;
+&#125;
+</code></pre>
+<p>其实一开始重新排列也不是必要的，而且也可以从后往前推，并得到一些常数更加优秀的做法</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+typedef long long ll;
+
+const int N = 5010;
+const ll mod = 998244353;
+int n, p[N];
+ll inv[N], f[N][N], sum[N], cnt[N];   //f[i][j]表示上个人选了p[i]，当前应选位置&gt;=j的局面的期望轮数
+
+ll qpow(ll a, ll b = mod - 2) &#123;
+    ll ret = 1;
+    while(b) &#123;
+        if(b &amp; 1) ret = ret * a % mod;
+        b &gt;&gt;= 1; a = a * a % mod;
+    &#125;
+    return ret;
+&#125;
+
+int main()
+&#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    for(int i = 1; i &lt;= n; i++) scanf(&quot;%d&quot;, &amp;p[i]), inv[i] = qpow(i);
+    for(int i = n; i &gt;= 1; i--) &#123;
+        ll sj = 0, cj = 0;
+        for(int j = n; j &gt;= 0; j--) &#123;
+            if(i == j) continue;
+            if(p[i] &gt; p[j]) &#123;
+                f[i][j] = (1 + sj * inv[cj]) %mod;
+                sum[j] = (sum[j] + f[i][j]) % mod;
+                cnt[j]++;
+            &#125;
+            else &#123;  //p[i] &lt; p[j]
+                f[i][j] = (1 + sum[j] * inv[cnt[j]]) % mod;
+                sj = (sj + f[i][j]) % mod;
+                cj++;
+            &#125;
+        &#125;
+    &#125;
+    ll ans = 0;
+    for(int i = 1; i &lt;= n; i++) ans = (ans + f[i][0]) % mod;
+    printf(&quot;%lld&quot;, ans * inv[n] % mod);
+    return 0;
+&#125;
+</code></pre>
+<h1 id="K-Knowledge-Test-about-Match"><a href="#K-Knowledge-Test-about-Match" class="headerlink" title="K. Knowledge Test about Match"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/K">K. Knowledge Test about Match</a></h1><p>题意：随机给一个权值范围为0~n-1的序列，用一个0~n-1和它匹配，要求$\sqrt{|a_i-(i-1)|}$之和最小</p>
+<p>瞎搞题，枚举差值d从0~n-1，优先匹配差值较小的匹配</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int N = 5e3 + 5;
+
+const int MOD = 998244353;
+
+int n, a[N], b[N];
+
+bool vis[N], vis2[N];
+
+int main() &#123;
+    int T; scanf(&quot;%d&quot;, &amp;T);
+    while(T--) &#123;
+        scanf(&quot;%d&quot;, &amp;n);
+        memset(vis, 0, sizeof(vis)); 
+        memset(vis2, 0, sizeof(vis2));
+        memset(b, 0, sizeof(b));
+        for (int i = 0; i &lt;= n - 1; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+        for (int i = 0; i &lt;= 2 * n; i++) &#123;
+            for (int j = 0; j &lt;= n - 1; j++) &#123;
+                if (vis2[j]) continue;
+                if (a[j] + i &lt;= n - 1 &amp;&amp; !b[a[j] + i]) &#123;
+                    b[a[j] + i] = a[j];
+                    vis2[j] = 1;
+                    ans += sqrt(i);
+                    continue;
+                &#125;
+                if (a[j] - i &gt;= 0 &amp;&amp; !b[a[j] - i]) &#123;
+                    b[a[j] - i] = a[j];
+                    vis2[j] = 1;
+                    ans += sqrt(i);
+                    continue;
+                &#125;
+            &#125;
+        &#125;
+        for (int i = 0; i &lt;= n - 1; i++) printf(&quot;%d &quot;, b[i]);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/07/20/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/07/15/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar/apple-touch-icon.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">23</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

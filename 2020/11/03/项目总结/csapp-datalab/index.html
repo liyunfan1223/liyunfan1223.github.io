@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            csapp-datalab | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="要求用位运算的方式实现各种运算功能，同时包括一些浮点数和整数的相互转化，难点是很多基本的运算比如加减乘除都不能用了，很多地方的实现会感觉很别扭，但确实从计算机内部角度来说会更快。">
+    <meta name="keywords" content=",lab,csapp">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2020/11/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/csapp-datalab/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2020/11/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/csapp-datalab/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="csapp-datalab | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="要求用位运算的方式实现各种运算功能，同时包括一些浮点数和整数的相互转化，难点是很多基本的运算比如加减乘除都不能用了，很多地方的实现会感觉很别扭，但确实从计算机内部角度来说会更快。">
+    <meta property="og:article:tag" content="lab"> <meta property="og:article:tag" content="csapp"> 
+
+    
+        <meta property="article:published_time" content="Tue Nov 03 2020 13:51:05 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 18:21:01 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2020/11/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/csapp-datalab/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2020/11/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/csapp-datalab/index.html",
+    "headline": "csapp-datalab",
+    "datePublished": "Tue Nov 03 2020 13:51:05 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar/apple-touch-icon.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",lab,csapp",
+    "description": "要求用位运算的方式实现各种运算功能，同时包括一些浮点数和整数的相互转化，难点是很多基本的运算比如加减乘除都不能用了，很多地方的实现会感觉很别扭，但确实从计算机内部角度来说会更快。",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#bitand"><span class="post-toc-text">bitand</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#getByte"><span class="post-toc-text">getByte</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#logisticShift"><span class="post-toc-text">logisticShift</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#bitCount"><span class="post-toc-text">bitCount</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#bang"><span class="post-toc-text">bang</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#tmin"><span class="post-toc-text">tmin</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#fitsBits"><span class="post-toc-text">fitsBits</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#divpwr2"><span class="post-toc-text">divpwr2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#negate"><span class="post-toc-text">negate</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#isPositive"><span class="post-toc-text">isPositive</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#isLessorEqual"><span class="post-toc-text">isLessorEqual</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ilog2"><span class="post-toc-text">ilog2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#float-neg"><span class="post-toc-text">float_neg</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#float-i2f"><span class="post-toc-text">float_i2f</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#float-twice"><span class="post-toc-text">float_twice</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                csapp-datalab
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar/apple-touch-icon.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>11月 03, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/csapp/" rel="tag">csapp</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/lab/" rel="tag">lab</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=csapp-datalab&url=http://example.com/2020/11/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/csapp-datalab/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=csapp-datalab&url=http://example.com/2020/11/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/csapp-datalab/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/csapp-datalab/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/11/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/csapp-datalab/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>要求用位运算的方式实现各种运算功能，同时包括一些浮点数和整数的相互转化，难点是很多基本的运算比如加减乘除都不能用了，很多地方的实现会感觉很别扭，但确实从计算机内部角度来说会更快。</p>
+<span id="more"></span>
+<h1 id="bitand"><a href="#bitand" class="headerlink" title="bitand"></a>bitand</h1><p>用取反和或代替与，相当于德摩根律</p>
+<pre><code class="lang-c">/* 
+ * bitAnd - x&amp;y using only ~ and | 
+ *   Example: bitAnd(6, 5) = 4
+ *   Legal ops: ~ |
+ *   Max ops: 8
+ *   Rating: 1
+ */
+int bitAnd(int x, int y) &#123;
+  return ~(~x | ~y);
+&#125;
+</code></pre>
+<h1 id="getByte"><a href="#getByte" class="headerlink" title="getByte"></a>getByte</h1><p>取出一个word（4字节）的某个字节</p>
+<p>先把x右移$8n(即n&lt;&lt;3)$位，使目标字节位于最低位，然后用0xFF取出来。</p>
+<pre><code class="lang-c">/* 
+ * getByte - Extract byte n from word x
+ *   Bytes numbered from 0 (LSB) to 3 (MSB)
+ *   Examples: getByte(0x12345678,1) = 0x56
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 6
+ *   Rating: 2
+ */
+int getByte(int x, int n) &#123;
+  return 0xFF &amp; (x &gt;&gt; (n &lt;&lt; 3));
+&#125;
+</code></pre>
+<h1 id="logisticShift"><a href="#logisticShift" class="headerlink" title="logisticShift"></a>logisticShift</h1><p>逻辑右移，和算术右移唯一的区别在于高位填充0而不是填充符号位。</p>
+<p>~(((1 &lt;&lt; 31) &gt;&gt; n) &lt;&lt; 1)相当于造了一个高n位全是0，其他全是1的数。</p>
+<pre><code class="lang-c">/* 
+ * logicalShift - shift x to the right by n, using a logical shift
+ *   Can assume that 0 &lt;= n &lt;= 31
+ *   Examples: logicalShift(0x87654321,4) = 0x08765432
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 20
+ *   Rating: 3 
+ */
+int logicalShift(int x, int n) &#123;
+  return (x &gt;&gt; n) &amp; (~(((1 &lt;&lt; 31) &gt;&gt; n) &lt;&lt; 1));
+&#125;
+</code></pre>
+<h1 id="bitCount"><a href="#bitCount" class="headerlink" title="bitCount"></a>bitCount</h1><p>挺有难度的一个，原理有点类似于分治或者二分，本质上是不断汇总子问题的解，最终求出原问题的解。</p>
+<p>换个角度看待bitCount问题，实际上是把一个数拆成32位个1位，把每一位上的数相加得到的就是1的个数。</p>
+<p>但是一位一位加需要加32次，那肯定会超过操作数上限。那么利用分治的思想，我可以先两位两位看，把问题这个数变成16个2位，对于每个2位，直接将这两位相加，此时，每两位上的数代表的就是这两位中1的个数。</p>
+<p>同样，可以再把2个2位合成1个4位，也就是把这个数看成8个4位，接着看成4个8位，2个16位，最后看成1个32位，这时的x就是我们要的结果了。</p>
+<pre><code class="lang-c">/*
+ * bitCount - returns count of number of 1&#39;s in word
+ *   Examples: bitCount(5) = 2, bitCount(7) = 3
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 40
+ *   Rating: 4
+ */
+int bitCount(int x) &#123;
+  int temp, mask1, mask2, mask3, mask4, mask5;
+  temp = 0x55 | (0x55 &lt;&lt; 8);
+  mask1 = temp | (temp &lt;&lt; 16);
+  temp = 0x33 | (0x33 &lt;&lt; 8);
+  mask2 = temp | (temp &lt;&lt; 16);
+  temp = 0x0f | (0x0f &lt;&lt; 8);
+  mask3 = temp | (temp &lt;&lt; 16);
+  mask4 = 0xff | (0xff &lt;&lt; 16);
+  mask5 = 0xff | (0xff &lt;&lt; 8);
+  x = (x &amp; mask1) + ((x &gt;&gt; 1) &amp; mask1);
+  x = (x &amp; mask2) + ((x &gt;&gt; 2) &amp; mask2);
+  x = (x &amp; mask3) + ((x &gt;&gt; 4) &amp; mask3);
+  x = (x &amp; mask4) + ((x &gt;&gt; 8) &amp; mask4);
+  x = (x &amp; mask5) + ((x &gt;&gt; 16) &amp; mask5);
+  return x;
+&#125;
+</code></pre>
+<h1 id="bang"><a href="#bang" class="headerlink" title="bang"></a>bang</h1><p>取反，非0变成0，0变成1。</p>
+<p>利用性质，只有0取反加1后发生溢出，结果还是0，也就是最高位是0，对于非0的数，(x | (~x + 1))的最高位一定是1。</p>
+<pre><code class="lang-c">/* 
+ * bang - Compute !x without using !
+ *   Examples: bang(3) = 0, bang(0) = 1
+ *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 12
+ *   Rating: 4 
+ */
+int bang(int x) &#123;
+  return (((x | (~x + 1)) &gt;&gt; 31) + 1) &amp; 1;
+&#125;
+</code></pre>
+<h1 id="tmin"><a href="#tmin" class="headerlink" title="tmin"></a>tmin</h1><p> 返回最小的有符号数。</p>
+<pre><code class="lang-c">/* 
+ * tmin - return minimum two&#39;s complement integer 
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 4
+ *   Rating: 1
+ */
+int tmin(void) &#123;
+  return 1 &lt;&lt; 31;
+&#125;
+</code></pre>
+<h1 id="fitsBits"><a href="#fitsBits" class="headerlink" title="fitsBits"></a>fitsBits</h1><p>判断x是否能用n位补码表示。</p>
+<p>n位补码能表示的数范围是$[-2^{n-1}, 2^{n-1}-1]$。于是先通过sign判断x的正负，bian = n - 1。</p>
+<p>分正负情况讨论，正数情况，!(x &gt;&gt; bian)说明$x&lt;=2^{n-1}-1$。</p>
+<p>负数情况，由于~x = -x - 1，于是!(~x &gt;&gt;bian)说明$-x - 1 &lt;= 2^{n-1} - 1$即$x &gt;= -2^{n-1}$</p>
+<pre><code class="lang-c">/* 
+ * fitsBits - return 1 if x can be represented as an 
+ *  n-bit, two&#39;s complement integer.
+ *   1 &lt;= n &lt;= 32
+ *   Examples: fitsBits(5,3) = 0, fitsBits(-4,3) = 1
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 15
+ *   Rating: 2
+ */
+int fitsBits(int x, int n) &#123;
+  int sign = (x &gt;&gt; 31) &amp; 1;
+  int bian = n + (~0);
+  return (!sign &amp; !(x &gt;&gt; bian)) | (sign &amp; !(~x &gt;&gt; bian));
+&#125;
+</code></pre>
+<h1 id="divpwr2"><a href="#divpwr2" class="headerlink" title="divpwr2"></a>divpwr2</h1><p>计算$x/2^n$，向0舍入。</p>
+<p>对于x是正数的情况直接右移就n位就可以，难点在于x是负数的情况。</p>
+<p>因为直接右移对应的是向下舍入，但负数情况的向零舍入实际上是向上舍入。所以通过(((1 &lt;&lt; n) + ~0) &amp; x)把舍去的部分取出来，判断是否为0，如果非零，那么就给最后的结果补1，即从向下舍入变成向上舍入。</p>
+<pre><code class="lang-c">/* 
+ * divpwr2 - Compute x/(2^n), for 0 &lt;= n &lt;= 30
+ *  Round toward zero
+ *   Examples: divpwr2(15,1) = 7, divpwr2(-33,4) = -2
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 15
+ *   Rating: 2
+ */
+int divpwr2(int x, int n) &#123;
+  int sign = (x &gt;&gt; 31) &amp; 1;
+  int offset = ~(((1 &lt;&lt; n) + ~0) &amp; x) + 1;
+  return (x &gt;&gt; n) + (!!offset &amp; sign);
+&#125;
+</code></pre>
+<h1 id="negate"><a href="#negate" class="headerlink" title="negate"></a>negate</h1><p>取反相反数。取反+1即可，前几个操作就一直在用的。</p>
+<pre><code class="lang-c">/* 
+ * negate - return -x 
+ *   Example: negate(1) = -1.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 5
+ *   Rating: 2
+ */
+int negate(int x) &#123;
+  return ~x + 1;
+&#125;
+</code></pre>
+<h1 id="isPositive"><a href="#isPositive" class="headerlink" title="isPositive"></a>isPositive</h1><p>判断x是否为正数，转化为判断是否为负数和是否为0。</p>
+<pre><code class="lang-cpp">/* 
+ * isPositive - return 1 if x &gt; 0, return 0 otherwise 
+ *   Example: isPositive(-1) = 0.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 8
+ *   Rating: 3
+ */
+int isPositive(int x) &#123;
+  return !((x &amp; (1 &lt;&lt; 31)) | (!x));
+&#125;
+</code></pre>
+<h1 id="isLessorEqual"><a href="#isLessorEqual" class="headerlink" title="isLessorEqual"></a>isLessorEqual</h1><p>判断$x&lt;=y$是否成立。</p>
+<p>还是分类讨论，如果x为负，y为正，则成立</p>
+<p>如果x和y同号，那么保证y-x不会溢出，判断，若y-x&gt;=0，则成立</p>
+<p>否则不成立</p>
+<pre><code class="lang-c">/* 
+ * isLessOrEqual - if x &lt;= y  then return 1, else return 0 
+ *   Example: isLessOrEqual(4,5) = 1.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 24
+ *   Rating: 3
+ */
+int isLessOrEqual(int x, int y) &#123;
+  int sig1 = (x &gt;&gt; 31) &amp; 1;
+  int sig2 = (y &gt;&gt; 31) &amp; 1;
+  int gap = ~x + 1 + y;
+  return (!(sig1 ^ sig2) &amp; (!gap |  (!((1 &lt;&lt; 31) &amp; gap)))) | (sig1 &amp; !sig2);
+&#125;
+</code></pre>
+<h1 id="ilog2"><a href="#ilog2" class="headerlink" title="ilog2"></a>ilog2</h1><p>求出整数下的$log_2x$。</p>
+<p>其实就是找到最高位的1所在的位，思路是二分查找，先找高16位，如果有1，那么继续在高16位里找，直接把低16位丢掉并给答案加16，否则到低16位里找。</p>
+<p>思路还挺简单的，但是在只能用位运算，也不能用条件判断的情况下做就像手脚被绑住一样，还是得多动点脑筋。</p>
+<pre><code class="lang-c">/*
+ * ilog2 - return floor(log base 2 of x), where x &gt; 0
+ *   Example: ilog2(16) = 4
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 90
+ *   Rating: 4
+ */
+int ilog2(int x) &#123;
+  int temp, sign, ans, mask_1bit, mask_2bit, mask_4bit, mask_8bit, mask_16bit;
+  ans = 0;
+  temp = 0x55 | (0x55 &lt;&lt; 8);
+  mask_1bit = 0x01; //1
+  mask_2bit = 0x03; //2
+  mask_4bit = 0x0f; //4
+  mask_8bit = 0xff; //8
+  mask_16bit = 0xff | (0xff &lt;&lt; 8); //16
+  temp = x &amp; mask_16bit;
+  sign = !!(temp ^ x);
+  ans += sign &lt;&lt; 4;
+  x &gt;&gt;= sign &lt;&lt; 4;
+  temp = x &amp; mask_8bit;
+  sign = !!(temp ^ x);
+  ans += sign &lt;&lt; 3;
+  x &gt;&gt;= sign &lt;&lt; 3;
+  temp = x &amp; mask_4bit;
+  sign = !!(temp ^ x);
+  ans += sign &lt;&lt; 2;
+  x &gt;&gt;= sign &lt;&lt; 2;
+  temp = x &amp; mask_2bit;
+  sign = !!(temp ^ x);
+  ans += sign &lt;&lt; 1;
+  x &gt;&gt;= sign &lt;&lt; 1;
+  temp = x &amp; mask_1bit;
+  sign = !!(temp ^ x);
+  ans += sign;
+  x &gt;&gt;= sign;
+  return ans;
+&#125;
+</code></pre>
+<h1 id="float-neg"><a href="#float-neg" class="headerlink" title="float_neg"></a>float_neg</h1><p>浮点数取反。</p>
+<p>只要判断是否为NaN，若是则直接返回，否则改变符号位后返回。</p>
+<pre><code class="lang-c">/* 
+ * float_neg - Return bit-level equivalent of expression -f for
+ *   floating point argument f.
+ *   Both the argument and result are passed as unsigned int&#39;s, but
+ *   they are to be interpreted as the bit-level representations of
+ *   single-precision floating point values.
+ *   When argument is NaN, return argument.
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 10
+ *   Rating: 2
+ */
+unsigned float_neg(unsigned uf) &#123;
+  unsigned exp = uf &lt;&lt; 1 &gt;&gt; 24;
+  unsigned frac = uf &lt;&lt; 9 &gt;&gt; 9;
+  if (exp == 255 &amp;&amp; frac != 0) return uf;
+  return uf ^ (1 &lt;&lt; 31);
+&#125;
+</code></pre>
+<h1 id="float-i2f"><a href="#float-i2f" class="headerlink" title="float_i2f"></a>float_i2f</h1><p>整数转浮点数，需要对浮点数舍入和计算规则有充分的了解。</p>
+<p>特判x=0的情况，直接返回0。对于其他情况，$|x|$&gt;=1，所以不需要考虑非规格化浮点数的情况。</p>
+<p>首先记录正负情况并把x转换成正数ux(因为-2147482648会爆精度，所以ux必须是unsigned int)，求出阶数exp，满足$ux/2^{exp}$的范围在$[1,2)$之间。循环求出exp。同时这个exp也是ux最高位1的位数，所以将ux左移31-x位后，低8位就是将要被舍去的部分。</p>
+<p>单精度浮点数精度只有23位，所以当$|x|$较大时肯定会出现舍入的情况，浮点数舍入原则是向偶数舍入。</p>
+<p>所以要将低8位拆成tail_1bit+tail_7bit位分别做判断，当恰好为0.5时（tail_1bit = 1，tail_7bit = 0），还要判断舍入后的奇偶性，根据判断结果决定舍入。</p>
+<p>正常来说这时候第24位一定是1，并且这个1可以被省去（根据浮点数计算方式）。但是有一个非常细节的地方需要判断，考虑这种非常极端的情况，比如x=2147483647，由于舍入要加一，结果导致这加的一位一直被进位到第25位上。但第25位已经属于阶码位了，这肯定是不允许的。</p>
+<p>好在一旦发生这种情况，这意味着低24位一定全是0（只有以上这种不断进位的情况可能导致），否则第24位一定为1。所以只要再把这个数右移一位，然后令阶码+1。这样一来还能保证第24位仍然为1。</p>
+<p>而判断这种情况只要判断第24位是否为1，也就是(ux &amp; (1 &lt;&lt; 23))是否成立。</p>
+<p>最后把符号位和阶码位填上，就得到答案了。</p>
+<pre><code class="lang-c">/* 
+ * float_i2f - Return bit-level equivalent of expression (float) x
+ *   Result is returned as unsigned int, but
+ *   it is to be interpreted as the bit-level representation of a
+ *   single-precision floating point values.
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 30
+ *   Rating: 4
+ */
+unsigned float_i2f(int x) &#123;
+  unsigned ux, sig = (x &gt;&gt; 31) &amp; 1;
+  unsigned exp = 0, t;
+  unsigned tail_1bit, tail_7bit;
+  if (x == 0) return 0;
+  if (x &lt; 0) ux = -x;
+  else ux = x;
+  t = ux;
+  while(t) &#123;
+    exp++;
+    t /= 2;
+  &#125;
+  exp--;
+  ux &lt;&lt;= 31 - exp;
+  tail_1bit = ux &amp; 0x80;
+  tail_7bit = ux &amp; 0x7f;
+  ux &gt;&gt;= 8;
+  if (tail_1bit &amp;&amp; tail_7bit) ux++; 
+  else if (tail_1bit &amp;&amp; !tail_7bit &amp;&amp; (ux &amp; 1)) ux++;
+  if (ux &amp; (1 &lt;&lt; 23)) ux ^= (1 &lt;&lt; 23);
+  else exp++;
+  exp += 127;
+  ux |= sig &lt;&lt; 31;
+  ux |= exp &lt;&lt; 23;
+  return ux;
+&#125;
+</code></pre>
+<h1 id="float-twice"><a href="#float-twice" class="headerlink" title="float_twice"></a>float_twice</h1><p>浮点数乘二。</p>
+<p>对于NaN，无穷大和0，直接返回。</p>
+<p>对于规格化浮点数（阶码非0），阶码加一后返回。</p>
+<p>对于非规格化浮点数的情况，如果存储位$frac&lt;=4194303=2^{22}-1$，也就是保证乘2后还是一个非规格化浮点数，那么存储位乘二后返回。</p>
+<p>否则一定会从一个非规格化浮点数转换成规格化浮点数，因为只需要乘二，说明阶码一定是从0变成1，但这两种情况所对应的实际阶数是一样的，都是E = 1-bias = -126，所以只要保证存储位仍然相等就可以了。区别就在于规格化浮点数最后计算时要加1，那么在存储时减1，反应在存储位上的方法则是减去$8388608=2^{23}$。</p>
+<pre><code class="lang-c">/* 
+ *
+ * float_twice - Return bit-level equivalent of expression 2*f for
+ *   floating point argument f.
+ *   Both the argument and result are passed as unsigned int&#39;s, but
+ *   they are to be interpreted as the bit-level representation of
+ *   single-precision floating point values.
+ *   When argument is NaN, return argument
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 30
+ *   Rating: 4
+ */
+
+unsigned float_twice(unsigned uf) &#123;
+  unsigned sign = (uf &gt;&gt; 31) &amp; 1, exp = (uf &gt;&gt; 23) &amp; 0xff, frac = uf &lt;&lt; 9 &gt;&gt; 9;
+  unsigned ans = 0;
+  if (exp == 255 || (exp == 0 &amp;&amp; frac == 0)) return uf;
+  if (exp != 0) &#123;
+    exp ++;
+    ans = sign &lt;&lt; 31 | exp &lt;&lt; 23 | frac;
+    return ans;
+  &#125;
+  if (frac &lt;= 4194303) frac *= 2;
+    else &#123;
+      exp++;
+      frac = frac * 2 - 8388608;
+    &#125;
+    ans = sign &lt;&lt; 31 | exp &lt;&lt; 23 | frac;
+  return ans;
+&#125;
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/11/16/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E5%85%B3%E4%BA%8Ec-%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6%EF%BC%88delete%EF%BC%89%E5%AF%B9%E7%A8%8B%E5%BA%8F%E6%95%B4%E4%BD%93%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E5%BD%B1%E5%93%8D%E7%9A%84%E7%96%91%E9%97%AE/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/10/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%82%B9%E5%88%86%E6%B2%BB(%E6%A0%91%E5%88%86%E6%B2%BB)%E4%B8%93%E9%A2%98/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar/apple-touch-icon.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">23</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

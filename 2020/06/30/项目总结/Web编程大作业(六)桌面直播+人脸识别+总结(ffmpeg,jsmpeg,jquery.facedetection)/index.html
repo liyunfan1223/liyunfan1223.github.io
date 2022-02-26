@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Web编程大作业(六)桌面直播+人脸识别+总结(ffmpeg,jsmpeg,jquery.facedetection) | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",nodejs,web">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Web编程大作业(六)桌面直播+人脸识别+总结(ffmpeg,jsmpeg,jquery.facedetection) | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="nodejs"> <meta property="og:article:tag" content="web"> 
+
+    
+        <meta property="article:published_time" content="Tue Jun 30 2020 19:15:58 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 18:21:01 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/index.html",
+    "headline": "Web编程大作业(六)桌面直播+人脸识别+总结(ffmpeg,jsmpeg,jquery.facedetection)",
+    "datePublished": "Tue Jun 30 2020 19:15:58 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar/apple-touch-icon.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",nodejs,web",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD"><span class="post-toc-text">桌面直播</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB"><span class="post-toc-text">人脸识别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Web编程大作业(六)桌面直播+人脸识别+总结(ffmpeg,jsmpeg,jquery.facedetection)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar/apple-touch-icon.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>6月 30, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/web/" rel="tag">web</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Web编程大作业(六)桌面直播+人脸识别+总结(ffmpeg,jsmpeg,jquery.facedetection)&url=http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Web编程大作业(六)桌面直播+人脸识别+总结(ffmpeg,jsmpeg,jquery.facedetection)&url=http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><br><br><span id="more"></span></p>
+<h2 id="桌面直播"><a href="#桌面直播" class="headerlink" title="桌面直播"></a>桌面直播</h2><p>只能算是一个基于ffmpeg和jsmpeg的应用。</p>
+<p>首先需要安装的内容有：ffmpeg、jsmpeg、ws模块</p>
+<p>安装过程reference:<a target="_blank" rel="noopener" href="https://my.oschina.net/chengpengvb/blog/1832469">https://my.oschina.net/chengpengvb/blog/1832469</a> （ffmpeg建议在官网装最新的可执行版本）</p>
+<p>直接把下载下来的jsmpeg的代码引入网站后端</p>
+<pre><code class="lang-javascript">var STREAM_SECRET = &#39;supersecret&#39;,
+    STREAM_PORT = 8081,
+    WEBSOCKET_PORT = 8082,
+    RECORD_STREAM = false;
+
+// Websocket Server
+var socketServer = new WebSocket.Server(&#123;port: WEBSOCKET_PORT, perMessageDeflate: false&#125;);
+socketServer.connectionCount = 0;
+socketServer.on(&#39;connection&#39;, function(socket, upgradeReq) &#123;
+    socketServer.connectionCount++;
+    console.log(
+        &#39;New WebSocket Connection: &#39;,
+        (upgradeReq || socket.upgradeReq).socket.remoteAddress,
+        (upgradeReq || socket.upgradeReq).headers[&#39;user-agent&#39;],
+        &#39;(&#39;+socketServer.connectionCount+&#39; total)&#39;
+    );
+    socket.on(&#39;close&#39;, function(code, message)&#123;
+        socketServer.connectionCount--;
+        console.log(
+            &#39;Disconnected WebSocket (&#39;+socketServer.connectionCount+&#39; total)&#39;
+        );
+    &#125;);
+&#125;);
+socketServer.broadcast = function(data) &#123;
+    socketServer.clients.forEach(function each(client) &#123;
+        if (client.readyState === WebSocket.OPEN) &#123;
+            client.send(data);
+        &#125;
+    &#125;);
+&#125;;
+
+// HTTP Server to accept incomming MPEG-TS Stream from ffmpeg
+var streamServer = http.createServer( function(request, response) &#123;
+    var params = request.url.substr(1).split(&#39;/&#39;);
+
+    if (params[0] !== STREAM_SECRET) &#123;
+        console.log(
+            &#39;Failed Stream Connection: &#39;+ request.socket.remoteAddress + &#39;:&#39; +
+            request.socket.remotePort + &#39; - wrong secret.&#39;
+        );
+        response.end();
+    &#125;
+
+    response.connection.setTimeout(0);
+    console.log(
+        &#39;Stream Connected: &#39; +
+        request.socket.remoteAddress + &#39;:&#39; +
+        request.socket.remotePort
+    );
+    request.on(&#39;data&#39;, function(data)&#123;
+        socketServer.broadcast(data);
+        if (request.socket.recording) &#123;
+            request.socket.recording.write(data);
+        &#125;
+    &#125;);
+    request.on(&#39;end&#39;,function()&#123;
+        console.log(&#39;close&#39;);
+        if (request.socket.recording) &#123;
+            request.socket.recording.close();
+        &#125;
+    &#125;);
+
+    // Record the stream to a local file?
+    if (RECORD_STREAM) &#123;
+        var path = &#39;recordings/&#39; + Date.now() + &#39;.ts&#39;;
+        request.socket.recording = fs.createWriteStream(path);
+    &#125;
+&#125;)
+// Keep the socket open for streaming
+streamServer.headersTimeout = 0;
+streamServer.listen(STREAM_PORT);
+</code></pre>
+<p>这段代码大概就是创建了用于接收视频流的服务器和推送视频流的websocket服务器。</p>
+<p>把一些需要输入的参数直接给出定值。也就是把接受视频流端口设为8081，把ws服务器端口设为8082，密码设为supersecret。</p>
+<p>然后教师端先要安装ffmpeg，通过ffmpeg把桌面视频流推送至8081<br>推流的ffmpeg命令参数如下：(参数含义基本可以从录制信息里面反推出来，比如分辨率和码率之类的，虽然很多还是不太理解<del>但是能用就行</del>)</p>
+<pre><code>ffmpeg -f gdigrab -framerate 30 -i desktop -f mpegts -codec:v mpeg1video -s 2560x1440 -b:v 150k -r 30 -bf 0 -ac 1 -b:a 128k http://127.0.0.1:8081/supersecret
+</code></pre><p>（需要注意将最后的ip地址改为网站所在的ip地址）</p>
+<p>学生端通过8082端口获取视频流。（在一个html页面中实现）</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;JSMpeg Stream Client&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        html, body &#123;
+            background-color: #111;
+            text-align: center;
+        &#125;
+        .return_index&#123;
+            color:white;
+        &#125;
+    &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;canvas id=&quot;video-canvas&quot;&gt;&lt;/canvas&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/jsmpeg-master/jsmpeg.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var canvas = document.getElementById(&#39;video-canvas&#39;);
+        var url = &#39;ws://&#39;+window.location.hostname+&#39;:8082/&#39;;
+        var player = new JSMpeg.Player(url, &#123;canvas: canvas&#125;);
+    &lt;/script&gt;
+    &lt;a class=&#39;return_index&#39; href=&#39;/&#39;&gt;返回首页&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>然后把这个页面作为“直播间”做到自己的网站里就算是实现了。<br><img src="https://img-blog.csdnimg.cn/20200630184833718.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200630184841231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h2><p>网上绝大多数人脸识别功能的教程都是用OpenCV+python来实现的。找了半天终于发现一个比较简单而且js能用的插件：jquery.facedetection。不过功能确实也相对比较简单。</p>
+<p>通过npm install jquery.facedetection就能完成安装。通过script标签引入。</p>
+<pre><code class="lang-html">&lt;script src=&quot;https://code.jquery.com/jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;node_modules/jquery.facedetection/src/ccv.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;node_modules/jquery.facedetection/src/jquery.facedetection.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;node_modules/jquery.facedetection/src/cascade.js&quot;&gt;&lt;/script&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        html,body&#123;
+            margin: 0;
+            padding:0;
+        &#125;
+        .drawDiv&#123;
+            position: absolute;
+            border: 3px solid yellow;
+        &#125;
+        #image&#123;
+            float: left;
+        &#125;
+        .imgDiv&#123;
+            float: left;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
+    &lt;div class=&quot;imgDiv&quot;&gt;
+
+        &lt;div class=&quot;draw&quot;&gt;&lt;/div&gt;
+        &lt;br/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;开始识别&quot; onclick=&quot;identifyFace()&quot;&gt;
+        &lt;input type=&quot;file&quot;onchange=&quot;selectImage(this);&quot; /&gt;
+    &lt;/div&gt;
+    &lt;a class=&#39;return_index&#39; href=&#39;/&#39;&gt;返回首页&lt;/a&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;jquery.facedetection/src/ccv.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;jquery.facedetection/src/jquery.facedetection.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;jquery.facedetection/src/cascade.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        //识别框样式
+        var str=&#39;&#39;;
+        //上传图片，使用文件流
+        function selectImage(file)&#123;
+            if(!file.files || !file.files[0])&#123;
+                return;
+            &#125;
+            var reader = new FileReader();
+            reader.onload = function(evt)&#123;
+                console.log(evt);
+                $(&#39;#image&#39;).attr(&#39;src&#39;, evt.target.result);
+            &#125;
+            str = &#39;&#39;;
+            document.getElementsByClassName(&#39;draw&#39;)[0].innerHTML = &#39;&#39;;
+            reader.readAsDataURL(file.files[0]);
+        &#125;
+
+        //开始识别
+        function identifyFace() &#123;
+            str=&#39;&#39;;
+            $(&#39;#image&#39;).faceDetection(
+                function (faces) &#123;
+                    for (var i in faces) &#123;
+                        //识别结果循环传入方法drawFace
+                        console.log(faces[i]);
+                        drawFace(faces[i].x, faces[i].y, faces[i].width, faces[i].height,faces[i].confidence);
+                    &#125;
+                &#125;
+            );
+        &#125;
+        //图片识别区的x,y轴以及宽高,confidence表示自信程度
+        function drawFace(x,y,width,height,confidence)&#123;
+            var confidenceStr=&#39;&#39;;
+            if(confidence&lt;0)&#123;
+                confidenceStr=&#39;自信满满&#39;
+            &#125;else if(confidence&gt;2)&#123;
+                confidenceStr=&#39;很不自信啊&#39;
+            &#125;else&#123;
+                confidenceStr=&#39;一般般&#39;
+            &#125;
+            //将框框套上去
+            str+=&#39;&lt;div class=&quot;drawDiv&quot; style=&quot;left:&#39;+x+&#39;px;top:&#39;+y+&#39;px;width:&#39;+width+&#39;px;height:&#39;+height+&#39;px;&quot;&gt;&#39;+confidenceStr+&#39;&lt;/div&gt;&#39;
+            document.getElementsByClassName(&#39;draw&#39;)[0].innerHTML=str
+        &#125;
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>效果大概是这样<br><img src="https://img-blog.csdnimg.cn/20200630184902574.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>看一下识别后的对象属性<br><img src="https://img-blog.csdnimg.cn/20200630184907706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>除了“脸部区域”的x坐标、y坐标和长宽这些比较基本的信息之外，比较有意思的是还有一个confidence属性来描述这张脸的自信程度。。然后根据自信程度可以给出一个简单的评价，比如“自信”、“一般般”、“不自信”（这个准确度有多少就不知道啦）</p>
+<p>有了这个之后也可以把它做进网站里面，但是很明显这个插件只能检测到图像中“是否有人脸”，但不能识别出“这张脸是谁”，所以离实现“人脸识别签到”这个功能肯定还是有距离的。</p>
+<p>另一个问题是如何用js控制树莓派的摄像头模块。同样，网上的博客教程基本都是用python实现的。。用js实现的我也没找到。。于是我只能想到一个笨办法，就是让树莓派摄像头定时拍摄，将图片存到一个指定的地址，让网页读取固定地址的图片进行识别。</p>
+<p>raspistill在终端控制摄像头 2秒拍摄一次（时间设置一个很大的数，让它一直拍）</p>
+<pre><code>raspistill -o Web_v5/public/images/now.jpg -tl 2000 -t 9999999999
+</code></pre><p>然而这个最后实现的效果。。有点一言难尽。首先是树莓派拍出来照片大小的问题，一张照片大概2-3M，做一次识别要花很长时间，其次虽然照片占的空间很大，但是清晰度又很差，导致很难识别出人脸（这个可能是因为没有把摄像头固定起来导致的）。最后摄像头稍微拍了一分多钟就有点开始发烫了。。应该是我让它拍的太频繁的问题。</p>
+<p>总之这个功能实现的比较失败吧。。以后真的要做人脸识别类似的功能可能还是用OpenCV+python之类的比较好，回头研究了。。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><a target="_blank" rel="noopener" href="https://github.com/liyunfan1223/Web">代码</a></p>
+<p>以上就是这个项目的全部内容。。之前总结的比较多，后面做的这些感觉也没啥好总结的。。</p>
+<p>前半部分从无到有，自己用express和angular写框架和前后端交互的时候花的力气比较多，应该收获也是比较大的。最后做的几个要求比如视频推流和人脸识别这些就稍显敷衍，毕竟以前也没有接触过，主要就是想把这些功能都尝试一下。</p>
+<p>一个感觉就是，整个项目做下来之后在计算机网络方面的知识确实是学到很多，但是好像对于javascript代码本身还是掌握的比较差，比方说如果拿到一个新的模块，基本上只能通过别人的代码来了解具体的用法、写法，很难通过官方文档来直接理解并构建代码。。（说白了就是只能做做增删改查，但是对底层原理一头雾水吧）</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%BA%94)%E5%9C%A8%E7%BA%BF%E9%BB%91%E6%9D%BF&%E5%BC%B9%E5%B9%95%E5%8A%9F%E8%83%BD(canvas+websocket)/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar/apple-touch-icon.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">23</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

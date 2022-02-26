@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            CDQ分治和多维偏序问题 | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="尝试一下写个专题吧。">
+    <meta name="keywords" content=",XCPC,CDQ,多维偏序">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="CDQ分治和多维偏序问题 | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="尝试一下写个专题吧。">
+    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="CDQ"> <meta property="og:article:tag" content="多维偏序"> 
+
+    
+        <meta property="article:published_time" content="Thu Jul 09 2020 01:31:41 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 18:13:37 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/index.html",
+    "headline": "CDQ分治和多维偏序问题",
+    "datePublished": "Thu Jul 09 2020 01:31:41 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar/apple-touch-icon.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",XCPC,CDQ,多维偏序",
+    "description": "尝试一下写个专题吧。",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-CDQ%E5%88%86%E6%B2%BB%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">1. CDQ分治介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E9%80%86%E5%BA%8F%E5%AF%B9%E9%97%AE%E9%A2%98"><span class="post-toc-text">2. 逆序对问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E4%BA%8C%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="post-toc-text">3. 二维偏序问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E4%B8%89%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="post-toc-text">4. 三维偏序问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-CDQ%E5%88%86%E6%B2%BB%E7%9A%84%E7%90%86%E8%A7%A3"><span class="post-toc-text">5. CDQ分治的理解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-CDQ%E5%A5%97CDQ%E8%A7%A3%E5%86%B3%E4%B8%89%E7%BB%B4%E5%81%8F%E5%BA%8F"><span class="post-toc-text">6. CDQ套CDQ解决三维偏序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-%E4%BE%8B%E9%A2%98"><span class="post-toc-text">7. 例题</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                CDQ分治和多维偏序问题
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar/apple-touch-icon.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>7月 09, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/CDQ/" rel="tag">CDQ</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/XCPC/" rel="tag">XCPC</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F/" rel="tag">多维偏序</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=CDQ分治和多维偏序问题&url=http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=CDQ分治和多维偏序问题&url=http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>尝试一下写个专题吧。<br><span id="more"></span></p>
+<h2 id="1-CDQ分治介绍"><a href="#1-CDQ分治介绍" class="headerlink" title="1. CDQ分治介绍"></a>1. CDQ分治介绍</h2><p>CDQ分治与其说是一种算法，不如说是一种思想。分治算法往往可以分成三步：</p>
+<ol>
+<li>分解：将原问题分为若干个子问题</li>
+<li>解决：递归处理分段后的子问题</li>
+<li>合并：通过子问题的解求出原问题的解</li>
+</ol>
+<p>在我看来，CDQ分治与一般的分治算法的区别关键在于<strong>合并</strong>这一步上，也就是merge操作。常见的分治算法（比如归并排序、线段树的merge操作等等）往往只关注合并后的结果，但CDQ分治则会同时关注结果和过程两方面，并在合并过程中计算出答案。</p>
+<h2 id="2-逆序对问题"><a href="#2-逆序对问题" class="headerlink" title="2. 逆序对问题"></a>2. 逆序对问题</h2><p>一个经典的问题是在归并排序过程中计算出逆序对的个数：</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">洛谷P1908 逆序对</a></p>
+<p>按顺序给出n个数，求逆序对的数目（逆序对就是ai&gt;aj且i&lt;j的有序对）。</p>
+<p>归并排序的合并操作过程中，假设左右两段当前头指针分别是j和k，那么需要不断比较a[j]和a[k]的大小关系，并将较小的那个数加入临时队列。</p>
+<p>计算逆序数的方法是，每当加入了一个右段的数，计算左段有几个数能和当前的a[k]构成逆序对。即ans+=mid-j+1。</p>
+<p><strong>归并排序中，任意一对数“分别出现在两个子问题中”的次数恰好为1，于是可以保证所求的结果不重复不遗漏。（我觉得这点在所有CDQ分治的算法中都很重要，但是好像很少被提到）</strong></p>
+<p>逆序对参考代码：</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+const int N=5e5+5;
+
+int T,n,m,a[N],b[N];
+
+ll ans;
+
+void CDQ(int l,int r)
+&#123;
+    if (l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ(l,mid);
+    CDQ(mid+1,r);
+    for (int i=l,j=l,k=mid+1;i&lt;=r;i++)
+    &#123;
+        if (k&gt;r || j&lt;=mid &amp;&amp; a[j]&lt;=a[k])
+            b[i]=a[j++];
+        else
+        &#123;
+            b[i]=a[k++];
+            //计算左段对a[k]的贡献
+            ans+=mid-j+1;
+        &#125;
+    &#125;
+    for (int i=l;i&lt;=r;i++) a[i]=b[i];
+&#125;
+int main()
+&#123;
+    cin&gt;&gt;n;
+    for (int i=1;i&lt;=n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    CDQ(1,n);
+    printf(&quot;%lld\n&quot;,ans);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="3-二维偏序问题"><a href="#3-二维偏序问题" class="headerlink" title="3. 二维偏序问题"></a>3. 二维偏序问题</h2><p>说到CDQ分治就一定会讲到多维偏序的问题。这里先从一个比较简单的二维偏序问题入手。</p>
+<p><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1541">hdu P1541.Stars</a></p>
+<p>给出n个点(x,y)，一个点的level为满足xi&lt;=x且yi&lt;=y的点(xi,yi)的个数（除自身之外），分别求出level为0~n-1的点的个数。</p>
+<p>这道题当然可以用树状数组来解决：先把所有点根据x从小到大排序，然后从前往后扫一遍，通过求出区间[0,y]的和计算出符合条件的个数,并根据y的值修改树状数组。</p>
+<p>不过重点还是讲CDQ分治，因为用CDQ分治的思想同样也可以解决这个问题。（CDQ分治的一个特点就是可以代替树状数组或者树套树之类的数据结构）</p>
+<p>最简单的理解方法就是把二维偏序问题和求逆序对的问题放在一起比较一下。</p>
+<p>逆序对的定义是满足i\<j且ai>aj的一对数，其中就包含了两个约束条件：位置和权值。于是可以发现，逆序对问题本身就是一个二维偏序问题，只不过位置这一条件是根据输入的顺序隐性产生的，并且在输入时就保证了有序性。略微不同的是，上面的这道二维偏序问题直接显性输入了两个约束条件，我们也需要通过排序来维护第一维的有序性，而计算结果的方式也需要作相应的调整。</p>
+<p>于是把逆序对的代码修改一下，就可以得到一个CDQ分治的的解法了。</p>
+<p>hdu P1541.Stars</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+const int N=2e5+5;
+
+int T,n,m;
+
+int ans[N],cnt[N];
+
+struct Point&#123;
+    int x,y,id;
+    bool operator &lt;(Point &amp;t)
+    &#123;
+        if (x!=t.x)
+            return x&lt;t.x;
+        else return y&lt;t.y;
+    &#125;
+&#125;a[N],b[N];
+
+void CDQ(int l,int r)
+&#123;
+    if (l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ(l,mid);
+    CDQ(mid+1,r);
+    for (int i=l,j=l,k=mid+1;i&lt;=r;i++)
+    &#123;
+        if (k&gt;r || j&lt;=mid &amp;&amp; a[j].y&lt;=a[k].y)
+            b[i]=a[j++];
+        else
+        &#123;
+            ans[a[k].id]+=j-l;
+            b[i]=a[k++];
+        &#125;
+    &#125;
+    for (int i=l;i&lt;=r;i++) a[i]=b[i];
+&#125;
+int main()
+&#123;
+    //多组数据
+    while(scanf(&quot;%d&quot;,&amp;n)!=-1)
+    &#123;
+        for (int i=1;i&lt;=n;i++)
+        &#123;
+            scanf(&quot;%d%d&quot;,&amp;a[i].x,&amp;a[i].y);
+            a[i].id=i;
+        &#125;
+        memset(cnt,0,sizeof(cnt));
+        memset(ans,0,sizeof(ans));
+        sort(a+1,a+1+n);
+        CDQ(1,n);
+        for (int i=1;i&lt;=n;i++) cnt[ans[a[i].id]]++;
+        for (int i=0;i&lt;=n-1;i++) printf(&quot;%d\n&quot;,cnt[i]);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<p>值得注意的当某一维数据相同时（即a[i].x=a[j].x或a[i].y=a[j].y）的处理方式。需要根据题意决定该点是否能产生贡献。这道题不存在重合的点，但有时需要对相同的数据点做一些预处理来得到预期的结果（在后面的三维偏序题里会有体现）。</p>
+<p>之所以要用CDQ来解决一道树状数组可以秒切的题主要还是为了理解CDQ分治的本质就是降维。<strong>多维偏序问题中的“维”可以抽象理解为一种约束条件</strong>，这种约束条件有时是显性的，有时是隐含在题意中的，无论排序、分治还是树状数组，其实都是在可以接受的复杂度下处理某一维数据的方式。</p>
+<h2 id="4-三维偏序问题"><a href="#4-三维偏序问题" class="headerlink" title="4. 三维偏序问题"></a>4. 三维偏序问题</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3810">luoguP3810三维偏序（陌上花开）</a></p>
+<p>有n个元素，第i个元素有ai,bi,ci三个属性，f(i)表示满足aj&lt;=ai且bj&lt;=bi且cj&lt;=ci且j!=i的j的数量<br>求f(i)=d的数量。</p>
+<p>解决三维偏序问题应该是CDQ分治最经典的应用了。三维偏序问题解决方法很多，可以通过bitset、树套树等算法来解决，但是这些做法缺点就是难写难调，代码量巨大。（当然这些算法还是要尽量学一下）</p>
+<p>所以我们通常使用CDQ分治+树状数组的解法，比较容易理解，而且能减少代码量，优化常数。</p>
+<p>粗略地说来：</p>
+<p>第一维：排序</p>
+<p>第二维：CDQ分治</p>
+<p>第三维：树状数组</p>
+<p>三维偏序（陌上花开）</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+const int N=1e5+5,SZ=2e5+5;
+
+int n,k,ans[N],cnt[N];
+
+struct BIT&#123;
+    int tr[SZ];
+    int lowbit(int x)&#123; return x&amp;(-x); &#125;
+    void clr(int x)&#123;
+        while(x&lt;SZ)
+        &#123;
+            tr[x]=0;
+            x+=lowbit(x);
+        &#125;
+    &#125;
+    void add(int x,int v)&#123;
+        while(x&lt;SZ)
+        &#123;
+            tr[x]+=v;
+            x+=lowbit(x);
+        &#125;
+    &#125;
+    int sum(int x)&#123;
+        int sum=0;
+        while(x&gt;0)
+        &#123;
+            sum+=tr[x];
+            x-=lowbit(x);
+        &#125;
+        return sum;
+    &#125;
+&#125;bit;
+
+struct Node&#123;
+    int id,x,y,z;
+    bool operator==(Node &amp;t)&#123;
+        return x==t.x &amp;&amp; y==t.y &amp;&amp; z==t.z;
+    &#125;
+&#125;a[N],b[N],tmp[N];
+
+bool cmp(Node &amp;a,Node &amp;b)&#123;
+    if (a.x==b.x &amp;&amp; a.y==b.y)
+        return a.z&lt;b.z;
+    else if(a.x==b.x) return a.y&lt;b.y;
+    else return a.x&lt;b.x;
+&#125;
+
+void CDQ(int l,int r)
+&#123;
+    if (l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ(l,mid);
+    CDQ(mid+1,r);
+    for (int i=l,j=l,k=mid+1;i&lt;=r;i++)
+    &#123;
+        if (k&gt;r || j&lt;=mid &amp;&amp; a[j].y&lt;=a[k].y)
+        &#123;
+            bit.add(a[j].z,1);
+            b[i]=a[j++];
+        &#125;
+        else
+        &#123;
+            ans[a[k].id]+=bit.sum(a[k].z);
+            b[i]=a[k++];
+        &#125;
+    &#125;
+    for (int i=l;i&lt;=mid;i++) bit.clr(a[i].z);
+    for (int i=l;i&lt;=r;i++) a[i]=b[i];
+&#125;
+
+int main()
+&#123;
+    cin&gt;&gt;n&gt;&gt;k;
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        scanf(&quot;%d%d%d&quot;,&amp;a[i].x,&amp;a[i].y,&amp;a[i].z);
+        a[i].id=i;
+    &#125;
+    sort(a+1,a+1+n,cmp);
+    int same=0;
+    for (int i=n;i&gt;=2;i--)
+    &#123;
+        if (a[i]==a[i-1]) ans[a[i-1].id]+=++same;
+        else same=0;
+    &#125;
+    CDQ(1,n);
+    for (int i=1;i&lt;=n;i++) cnt[ans[i]]++;
+    for (int i=0;i&lt;n;i++) printf(&quot;%d\n&quot;,cnt[i]);
+    return 0;
+&#125;
+</code></pre>
+<p>因为在处理相同数据点的时候CDQ其实不是非常灵活（分治过程中无法让两个元素互相产生贡献），所以需要预处理数据相同的情况。</p>
+<p>我觉得CDQ分治的代码是比文字更容易理解的。与其先搞懂CDQ分治的思想，不如先看看现成的代码。</p>
+<p>但是在自己写的时候会发现因为分治算法这种递归的写法，导致程序比较难调试，很可能因为一点细节要改很久。这就需要我们对CDQ分治有比较深刻的理解。</p>
+<h2 id="5-CDQ分治的理解"><a href="#5-CDQ分治的理解" class="headerlink" title="5. CDQ分治的理解"></a>5. CDQ分治的理解</h2><p>嗯。。这部分应该是重点，其实网上关于CDQ分治的代码很多，但是理解性的讨论并不是很多。我尽量把自己的理解讲清楚。</p>
+<p>之前有说到，CDQ分治的核心思想仍然是<strong>在分治过程中，不断处理左段的元素对右段每一个元素的贡献，且因为任意两个元素“分别处于左段和右段”的次数只有一次，保证了统计结果能够不重复不遗漏。</strong> 但是这个过程具体是怎么实现，或者说具体展开的呢？</p>
+<p>我们仍然以最朴素的想法为起点，我们完全可以通过一个O(n^2)的算法，暴力计算出“任意两个元素之间的贡献”。然后想想怎么优化呢？</p>
+<p>首先明确一下，在分治过程中，我们把第一次递归的区间[l,mid]称为左段，把第二次递归区间[mid+1,r]称为右段。把x、y、z这三个属性分别称为第一维、第二维和第三维（实际上这三维的顺序是任意的）。</p>
+<p>“分段”是基于对第一维的排序，通过分治算法，我们相当于已经对原问题做了第一次降维，更具体地说：</p>
+<p>第一次降维：</p>
+<pre><code>原问题：“任意两个元素之间的贡献”
+
+降维成的子问题：“左段元素对右段每一个元素的贡献”
+</code></pre><p>那么假设当前左段和右段的元素个数都为k，我们要计算“左段元素对右段每个元素的贡献”。用朴素的思想解决这个子问题，发现仍然是O(k^2)的复杂度，时间复杂度并没有自动降下来。</p>
+<p>但是既然已经用了分治的思想，那自然可以在分治的过程中对第二维排序。</p>
+<p>于是此时的“左段”和“右段”具备了两个很好的性质：</p>
+<ol>
+<li>在各自区间上对第二维保持有序（属性y有序）</li>
+<li>分别从左段和右段取出任意两个元素，在第一维上同样保持有序（因为此时左右两段还是各自独立的，没有发生过任何两段之间的交换）</li>
+</ol>
+<p>这是第二次降维，因为有了以上的性质后，产生的结果是：</p>
+<p><strong>1. 第二维在两段上各自有序</strong></p>
+<p><strong>2. 完全不需要对第一维再作考虑</strong></p>
+<p>所以此时问题其实已经从三维偏序转化为另一个二维偏序问题了，唯一不同的是要记住只有“左段”的元素才能对“右段”产生贡献。</p>
+<p>至于第三维，最方便理解的解决方法是树状数组。</p>
+<p>从代码上来理解</p>
+<pre><code class="lang-cpp">void CDQ(int l,int r)
+&#123;
+    if (l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ(l,mid);
+    CDQ(mid+1,r);
+    //此时左右两段已满足以上性质
+    //下面所有的内容都是为了计算“左段元素对右段每一个元素的贡献”
+    for (int i=l,j=l,k=mid+1;i&lt;=r;i++)
+    &#123;
+        if (k&gt;r || j&lt;=mid &amp;&amp; a[j].y&lt;=a[k].y)
+        &#123;
+            bit.add(a[j].z,1);
+            b[i]=a[j++];
+        &#125;
+        else
+        &#123;
+            ans[a[k].id]+=bit.sum(a[k].z);
+            b[i]=a[k++];
+        &#125;
+    &#125;
+    for (int i=l;i&lt;=mid;i++) bit.clr(a[i].z);
+    for (int i=l;i&lt;=r;i++) a[i]=b[i];
+&#125;
+</code></pre>
+<h2 id="6-CDQ套CDQ解决三维偏序"><a href="#6-CDQ套CDQ解决三维偏序" class="headerlink" title="6. CDQ套CDQ解决三维偏序"></a>6. CDQ套CDQ解决三维偏序</h2><p>但其实CDQ分治是可以不断嵌套的。无论是树状数组还是再套一层CDQ，本质都是为了计算“左段元素对右段每一个元素的贡献”。</p>
+<p>只需要在进入第二层CDQ前给每个元素加个tag，记录它属于左段还是右段即可（因为用树状数组时不需要再经历“打乱顺序”这一步，所以不需要用tag来记录，并没有本质上的区别）。理论上也可以用类似的方法一直这么嵌套下去解决更高维的问题。</p>
+<p>CDQ套CDQ 三维偏序：</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+const int N=1e5+5,SZ=2e5+5;
+
+struct node&#123;
+    int id,x,y,z,tag;
+    bool operator==(node &amp;t)&#123;
+        return x==t.x &amp;&amp; y==t.y &amp;&amp; z==t.z;
+    &#125;
+&#125;a[N],b[N],c[N];
+
+bool cmp(node &amp;a,node &amp;b)&#123;
+    if (a.x==b.x &amp;&amp; a.y==b.y)
+        return a.z&lt;b.z;
+    else if(a.x==b.x) return a.y&lt;b.y;
+    else return a.x&lt;b.x;
+&#125;
+
+int n,k,ans[N],cnt[N];
+
+void CDQ2(int l,int r)
+&#123;
+    if (l&gt;=r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ2(l,mid);
+    CDQ2(mid+1,r);
+    for (int i=l,j=l,k=mid+1,cnt=0;i&lt;=r;i++)
+    &#123;
+        if ((k&gt;r || b[j].z&lt;=b[k].z) &amp;&amp; j&lt;=mid)
+        &#123;
+            c[i]=b[j++];
+            cnt+=c[i].tag;
+        &#125;
+        else
+        &#123;
+            if (b[k].tag==0) ans[b[k].id]+=cnt;
+            c[i]=b[k++];
+        &#125;
+    &#125;
+    for (int i=l;i&lt;=r;i++) b[i]=c[i];
+&#125;
+
+void CDQ(int l,int r)
+&#123;
+    if (l&gt;=r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ(l,mid);
+    CDQ(mid+1,r);
+    for (int i=l,j=l,k=mid+1;i&lt;=r;i++)
+    &#123;
+        if ((k&gt;r || a[j].y&lt;=a[k].y) &amp;&amp; j&lt;=mid)
+            b[i]=a[j++],b[i].tag=1;
+        else
+            b[i]=a[k++],b[i].tag=0;
+    &#125;
+    for (int i=l;i&lt;=r;i++) a[i]=b[i];
+    CDQ2(l,r);
+&#125;
+
+int main()
+&#123;
+    cin&gt;&gt;n&gt;&gt;k;
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        scanf(&quot;%d%d%d&quot;,&amp;a[i].x,&amp;a[i].y,&amp;a[i].z);
+        a[i].id=i;
+    &#125;
+    sort(a+1,a+1+n,cmp);
+    int same=0;
+    for (int i=n;i&gt;=2;i--)
+    &#123;
+        if (a[i]==a[i-1]) ans[a[i-1].id]+=++same;
+        else same=0;
+    &#125;
+    CDQ(1,n);
+    for (int i=1;i&lt;=n;i++) cnt[ans[i]]++;
+    for (int i=0;i&lt;n;i++) printf(&quot;%d\n&quot;,cnt[i]);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="7-例题"><a href="#7-例题" class="headerlink" title="7. 例题"></a>7. 例题</h2><p><a target="_blank" rel="noopener" href="https://acm.ecnu.edu.cn/contest/273/problem/C/">EOJ 2020”游族杯” C. Coronavirus Battle</a></p>
+<p>虽然这题可以靠5s时限和随机数据用各种方法瞎搞过去，但回过头来看其实也是比较经典的三维偏序问题。只不过树状数组要维护的不是区间和而是区间最大值，而且对分治的顺序是有要求的。</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+
+const int N=1e5+5,SZ=1e5+5;
+
+int n,k,maxans;
+
+ull k1,k2;
+
+struct BIT&#123;
+    int tr[SZ];
+    BIT()&#123;
+        for (int i=0;i&lt;SZ;i++) tr[i]=-1;
+    &#125;
+    int lowbit(int x)&#123; return x&amp;(-x); &#125;
+    void clr(int x)&#123;
+        while(x&lt;SZ)
+        &#123;
+            tr[x]=-1;
+            x+=lowbit(x);
+        &#125;
+    &#125;
+    void add(int v,int x)&#123;
+        while(x&lt;SZ)
+        &#123;
+            tr[x]=max(tr[x],v);
+            x+=lowbit(x);
+        &#125;
+    &#125;
+    int getMax(int x)&#123;
+        int mx=-1;
+        while(x&gt;0)
+        &#123;
+            mx=max(mx,tr[x]);
+            x-=lowbit(x);
+        &#125;
+        return mx;
+    &#125;
+&#125;bit;
+
+struct node&#123;
+    int id,ans;
+    ull x,y,z;
+    bool operator&lt;(node &amp;t)&#123; return y&lt;t.y; &#125;
+&#125;A[N],tmp[N];
+bool cmp(node &amp;a,node &amp;b)&#123; return a.x&lt;b.x; &#125;
+bool cmpx(node &amp;a,node &amp;b)&#123; return a.x&lt;b.x; &#125;
+bool cmpy(node &amp;a,node &amp;b)&#123; return a.y&lt;b.y; &#125;
+bool cmpz(node &amp;a,node &amp;b)&#123; return a.z&lt;b.z; &#125;
+bool cmp_id(node &amp;a,node &amp;b)&#123; return a.id&lt;b.id; &#125;
+
+void CDQ(int l,int r)
+&#123;
+    if (l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ(l,mid);
+    sort(A+mid+1,A+r+1,cmpy);
+    int j=l;
+    for (int i=mid+1;i&lt;=r;i++)
+    &#123;
+        while(j!=mid+1 &amp;&amp; A[j].y&lt;A[i].y)
+        &#123;
+            bit.add(A[j].ans,A[j].z);
+            j++;
+        &#125;
+        A[i].ans=max(A[i].ans,bit.getMax(A[i].z)+1);
+    &#125;
+    for (int i=l;i&lt;=mid;i++) bit.clr(A[i].z);
+    sort(A+mid+1,A+r+1,cmpx);
+    CDQ(mid+1,r);
+    merge(A+l,A+mid+1,A+mid+1,A+r+1,tmp+l);
+    memcpy(A+l,tmp+l,sizeof(A[0])*(r-l+1));
+&#125;
+
+ull CoronavirusBeats() &#123;
+    ull k3 = k1, k4 = k2;
+    k1 = k4;
+    k3 ^= k3 &lt;&lt; 23;
+    k2 = k3 ^ k4 ^ (k3 &gt;&gt; 17) ^ (k4 &gt;&gt; 26);
+    return k2 + k4;
+&#125;
+
+void dataGenerator()
+&#123;
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        A[i].x=CoronavirusBeats();
+        A[i].y=CoronavirusBeats();
+        A[i].z=CoronavirusBeats();
+        A[i].id=i;
+    &#125;
+    sort(A+1,A+1+n,cmpx);
+    for (int i=1;i&lt;=n;i++) A[i].x=i;
+    sort(A+1,A+1+n,cmpy);
+    for (int i=1;i&lt;=n;i++) A[i].y=i;
+    sort(A+1,A+1+n,cmpz);
+    for (int i=1;i&lt;=n;i++) A[i].z=i;
+&#125;
+int main()
+&#123;
+    cin&gt;&gt;n&gt;&gt;k1&gt;&gt;k2;
+    dataGenerator();
+    sort(A+1,A+1+n,cmp);
+    CDQ(1,n);
+    sort(A+1,A+1+n,cmp_id);
+    for (int i=1;i&lt;=n;i++) maxans=max(maxans,A[i].ans);
+    printf(&quot;%d\n&quot;,maxans+1);
+    for (int i=1;i&lt;=n;i++) printf(&quot;%d &quot;,A[i].ans);
+    return 0;
+&#125;
+</code></pre>
+<p>注意到CDQ分治部分的代码，简化一下大概是这样（calculate()表示计算左段对右段的贡献）</p>
+<pre><code class="lang-cpp">void CDQ(int l,int r)
+&#123;
+    if (l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ(l,mid);
+    calculate();
+    CDQ(mid+1,r);
+    merge();
+&#125;
+</code></pre>
+<p>也就是先递归左段，计算好贡献之后再开始递归右段，最后把两段合并。这种顺序可以确保答案是从左到右依次确定的（类比二叉树的中序遍历，对叶子结点的访问也是从左至右的），保证用于计算的左段元素先确定自身的值后才会对其他元素产生贡献。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/07/16/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Nowcoder_summer_2020_1/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar/apple-touch-icon.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">23</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

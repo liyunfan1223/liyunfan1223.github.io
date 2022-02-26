@@ -307,7 +307,7 @@
     
 
         <!-- Post Title -->
-        <p class="article-headline-p"><a href="/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog%E5%AE%A2%E5%88%B6%E5%8C%96%E8%B8%A9%E5%9D%91/">blog客制化踩坑</a></p>
+        <p class="article-headline-p"><a href="/2021/05/30/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog%E5%AE%A2%E5%88%B6%E5%8C%96%E8%B8%A9%E5%9D%91/">blog客制化踩坑</a></p>
     </div>
 
     <!-- Post Excerpt -->
@@ -318,7 +318,7 @@ mathjax下划线冲突解决hexo-next主题和mathjax下划线冲突问题
         
         &nbsp;&nbsp;&nbsp;
         <span>
-            <a href="/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog%E5%AE%A2%E5%88%B6%E5%8C%96%E8%B8%A9%E5%9D%91/" target="_self">阅读全文</a>
+            <a href="/2021/05/30/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog%E5%AE%A2%E5%88%B6%E5%8C%96%E8%B8%A9%E5%9D%91/" target="_self">阅读全文</a>
         </span>
     </div>
     <!-- Post_entry Info-->
@@ -789,6 +789,21 @@ console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viose
 
                 </main>
             </div>
-        </body>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
     
 </html>
