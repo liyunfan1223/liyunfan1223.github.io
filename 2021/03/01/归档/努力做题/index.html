@@ -1294,7 +1294,7 @@ int main() &#123;
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
 <script>
     var gitalk = new Gitalk({
             clientID: 'b8ab854d61e4537d8b06',
@@ -1302,6 +1302,7 @@ int main() &#123;
             repo: 'gitalk-repo',
             owner: 'liyunfan1223',
             admin: ['liyunfan1223'],
+            id: md5(location.pathname),
             // facebook-like distraction free mode
             distractionFreeMode: false
         })
@@ -1568,7 +1569,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2021&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
             
         </div>
 

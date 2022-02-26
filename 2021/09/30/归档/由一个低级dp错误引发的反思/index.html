@@ -593,7 +593,7 @@ f[i][j]=\min\{f[i][l(j,i)-1]+c[i],f[i-1][j]\}</script><p>遗漏了某些可能�
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
 <script>
     var gitalk = new Gitalk({
             clientID: 'b8ab854d61e4537d8b06',
@@ -601,6 +601,7 @@ f[i][j]=\min\{f[i][l(j,i)-1]+c[i],f[i-1][j]\}</script><p>遗漏了某些可能�
             repo: 'gitalk-repo',
             owner: 'liyunfan1223',
             admin: ['liyunfan1223'],
+            id: md5(location.pathname),
             // facebook-like distraction free mode
             distractionFreeMode: false
         })
@@ -867,7 +868,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2021&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
             
         </div>
 
