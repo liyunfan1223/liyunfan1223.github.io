@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            一个nodejs爬虫项目介绍（上） | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="为了完成作业以及让自己看上去没有真的在划水，决定开始写博客了。">
+    <meta name="keywords" content=",nodejs,web">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2020/04/19/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2020/04/19/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="一个nodejs爬虫项目介绍（上） | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="为了完成作业以及让自己看上去没有真的在划水，决定开始写博客了。">
+    <meta property="og:article:tag" content="nodejs"> <meta property="og:article:tag" content="web"> 
+
+    
+        <meta property="article:published_time" content="Sun Apr 19 2020 04:00:06 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jun 03 2021 20:13:06 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2020/04/19/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2020/04/19/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/index.html",
+    "headline": "一个nodejs爬虫项目介绍（上）",
+    "datePublished": "Sun Apr 19 2020 04:00:06 GMT+0800",
+    "dateModified": "Thu Jun 03 2021 20:13:06 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",nodejs,web",
+    "description": "为了完成作业以及让自己看上去没有真的在划水，决定开始写博客了。",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%99%E7%AF%87%E5%8D%9A%E5%AE%A2%E5%88%86%E6%88%90%E4%BB%A5%E4%B8%8B%E9%83%A8%E5%88%86%EF%BC%9A"><span class="post-toc-text">这篇博客分成以下部分：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">项目介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="post-toc-text">实现过程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-%E6%A8%A1%E5%9D%97%E5%BC%95%E7%94%A8"><span class="post-toc-text">1. 模块引用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-Node-js%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">1.1 Node.js模块系统介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E7%9B%B8%E5%85%B3"><span class="post-toc-text">1.2 回调函数相关</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-%E7%88%AC%E5%8F%96%E7%A7%8D%E5%AD%90%E7%BD%91%E9%A1%B5"><span class="post-toc-text">2. 爬取种子网页</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-%E8%8E%B7%E5%8F%96%E7%A7%8D%E5%AD%90%E7%BD%91%E9%A1%B5%E7%BC%96%E7%A0%81"><span class="post-toc-text">2.1 获取种子网页编码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-%E7%BD%91%E9%A1%B5%E7%BC%96%E7%A0%81%EF%BC%88%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%EF%BC%89"><span class="post-toc-text">2.2 网页编码（中文乱码问题）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-%E6%89%8B%E5%8A%A8%E5%88%86%E6%9E%90%E6%BA%90%E7%A0%81"><span class="post-toc-text">2.3 手动分析源码</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-4-%E8%8E%B7%E5%8F%96%E6%96%B0%E9%97%BBurl"><span class="post-toc-text">2.4 获取新闻url</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-1-%E4%BD%BF%E7%94%A8cheerio%E6%A8%A1%E5%9D%97"><span class="post-toc-text">2.4.1 使用cheerio模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-2-%E5%AE%8C%E5%96%84URL"><span class="post-toc-text">2.4.2 完善URL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-3-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AD%9B%E9%80%89URL"><span class="post-toc-text">2.4.3 正则表达式筛选URL</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-%E7%88%AC%E5%8F%96%E6%96%B0%E9%97%BB%E9%A1%B5%E9%9D%A2"><span class="post-toc-text">3. 爬取新闻页面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="post-toc-text">3.1 数据存储方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-cheerio%E9%80%89%E6%8B%A9%E5%99%A8"><span class="post-toc-text">3.2 cheerio选择器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="post-toc-text">3.3 数据处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-%E5%B0%86%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="post-toc-text">3.4 将数据保存到本地</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-%E4%BB%A3%E7%A0%81%E5%AE%8C%E5%96%84%E5%92%8C%E4%BC%98%E5%8C%96"><span class="post-toc-text">4.代码完善和优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-%E9%81%BF%E5%85%8D%E7%A8%8B%E5%BA%8F%E5%B4%A9%E6%BA%83%E7%9A%84%E6%96%B9%E6%B3%95"><span class="post-toc-text">4.1 避免程序崩溃的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%9A"><span class="post-toc-text">1.变量初始化：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E9%9A%8F%E6%97%B6%E6%A3%80%E6%9F%A5error%E5%8F%82%E6%95%B0%E5%92%8Cresponse%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="post-toc-text">2.随时检查error参数和response参数：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E5%AF%B9%E5%AD%98%E5%9C%A8%E6%8A%A5%E9%94%99%E5%8F%AF%E8%83%BD%E6%80%A7%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E4%BD%BF%E7%94%A8try%E2%80%A6catch"><span class="post-toc-text">3.对存在报错可能性的代码，使用try…catch</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="post-toc-text">4.2 代码模块化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-%E4%BB%A3%E7%A0%81%E6%95%88%E7%8E%87%E8%AE%A1%E7%AE%97%E5%92%8C%E4%BC%98%E5%8C%96"><span class="post-toc-text">4.3 代码效率计算和优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="post-toc-text">结语</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                一个nodejs爬虫项目介绍（上）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>4月 19, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/web/" rel="tag">web</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=一个nodejs爬虫项目介绍（上）&url=http://example.com/2020/04/19/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=一个nodejs爬虫项目介绍（上）&url=http://example.com/2020/04/19/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/19/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/04/19/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>为了完成作业以及让自己看上去没有真的在划水，决定开始写博客了。</p>
+<span id="more"></span>
+<p>虽然说写博客这件事的出发点是为了交作业，但博客这种形式说到底是为了给别人看的，是为了尽可能让别人理解的。如果只是自顾自地讲，而不以“让别人理解”为目标，写博客这件事就沦为一种自我满足，其实也就没有什么意义了。所以，既然是要写出来，放到网上的，那么在介绍的过程中，我会尽可能指出所有可能产生疑惑的点，并尽可能还原我在项目过程中遇到的各种问题以及解决的思路（在保证脉络清晰的前提下）。以这种姿态来描述，这只是为了让更多像我这样的初学者明白我在说的是什么，而这也是让读者理解的前提。</p>
+<h2 id="这篇博客分成以下部分："><a href="#这篇博客分成以下部分：" class="headerlink" title="这篇博客分成以下部分："></a>这篇博客分成以下部分：</h2><ul>
+<li>项目介绍</li>
+<li>实现过程</li>
+</ul>
+<ol>
+<li>模块引用<ul>
+<li>1.1 Node.js模块系统介绍</li>
+<li>1.2 回调函数相关</li>
+</ul>
+</li>
+<li>爬取种子网页</li>
+</ol>
+<ul>
+<li>2.1 获取种子网页源码</li>
+<li>2.2 网页编码（中文乱码问题）</li>
+<li>2.3 手动分析源代码</li>
+<li>2.4 获取新闻网页URL<ul>
+<li>2.4.1 cheerio模块</li>
+<li>2.4.2 完善URL</li>
+<li>2.4.3 用正则表达式筛选URL</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>爬取新闻网页</li>
+</ol>
+<ul>
+<li>3.1 数据存储方式</li>
+<li>3.2 cheerio选择器</li>
+<li>3.3 数据处理</li>
+<li>3.4 将数据保存到本地</li>
+</ul>
+<ol>
+<li>代码完善和优化</li>
+</ol>
+<ul>
+<li>4.1 避免程序崩溃的方法</li>
+<li>4.2 代码模块化</li>
+<li>4.3 代码效率计算和优化</li>
+</ul>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p><img src="https://img-blog.csdnimg.cn/20200419034728179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>简而言之，把各种新闻网页的内容爬取到本地，再自己建一个网站，要有搜索和热度分析的功能。当然，作为入门项目，还有一个重要目的应该是通过这个项目来熟悉js、html语法，各种模块的用法以及语言特性吧。</p>
+<p>篇幅原因，这里先介绍前半部分，即爬虫部分。</p>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h1 id="1-模块引用"><a href="#1-模块引用" class="headerlink" title="1. 模块引用"></a>1. 模块引用</h1><h2 id="1-1-Node-js模块系统介绍"><a href="#1-1-Node-js模块系统介绍" class="headerlink" title="1.1 Node.js模块系统介绍"></a>1.1 Node.js模块系统介绍</h2><p>模块通常定义了一些外部接口，我们可以通过调用模块内的成员函数实现需要的功能，这一点和类是相似的。</p>
+<p>为了实现爬虫功能，通常要在代码头部用require函数引入request、cheerio、iconv-lite和fs四个模块，其中fs是node.js内置的，其他三个需要安装，安装命令如下：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install request cheerio iconv-lite</span><br></pre></td></tr></table></figure><br>在代码头部引入模块：（各个模块的基本功能将随实现过程逐个介绍）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myRequest = <span class="built_in">require</span>(<span class="string">&#x27;request&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> myIconv = <span class="built_in">require</span>(<span class="string">&#x27;iconv-lite&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> myCheerio = <span class="built_in">require</span>(<span class="string">&#x27;cheerio&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br></pre></td></tr></table></figure><br>reference：<a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-module-system.html">https://www.runoob.com/nodejs/nodejs-module-system.html</a></p>
+<h2 id="1-2-回调函数相关"><a href="#1-2-回调函数相关" class="headerlink" title="1.2 回调函数相关"></a>1.2 回调函数相关</h2><p>在开始爬取之前我想先讨论一下回调函数是怎么一回事。<br>比如说在调用request时，常见的形式是这样的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">myRequest</span>(url,<span class="keyword">function</span>(<span class="params">err,res,body</span>)&#123;</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><br>myRequest需要传入两个参数，第一个url是将要发送请求的网址，问题是第二个参数，它是一个函数，也就是所谓的回调函数(callback)，初一看可能不太容易理解。</p>
+<p>但是我们知道在编程语言中变量和函数是<strong>同级</strong>的。我们传入一个变量参数，是为了在需要的时候获取变量的值，那么类似地，传入一个函数参数，则是为了在需要的时候调用这个函数。不妨这样通俗地理解，我们提前规定了myRequest在获取了err,res,body三个变量的信息后应该执行的操作，把这一系列操作用回调函数的形式保存下来，那么myRequest就会在执行过程中按照要求执行回调函数了。（至于具体在什么时候执行，可能需要查看request模块的源码）</p>
+<p>从作用上来说，回调函数直接体现了node.js异步编程的特性，能加快代码运行的速度。根据我的理解，因为执行回调函数的过程被视作为request的一部分，并且程序不必等request执行完毕就可以往后执行，那么回调函数的内容就是非阻塞的，对整体时间影响非常小。</p>
+<p>reference：<a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-callback.html">https://www.runoob.com/nodejs/nodejs-callback.html</a></p>
+<h1 id="2-爬取种子网页"><a href="#2-爬取种子网页" class="headerlink" title="2. 爬取种子网页"></a>2. 爬取种子网页</h1><h2 id="2-1-获取种子网页编码"><a href="#2-1-获取种子网页编码" class="headerlink" title="2.1 获取种子网页编码"></a>2.1 获取种子网页编码</h2><p>如上所述，爬取网页内容使用的是request模块。request模块的第一个参数可以是一个对象，除了url属性是必须的，我们还可以根据需要添加其他的属性来控制爬取的方法，例如定义一个options对象，将其作为myRequest的参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options=&#123;</span><br><span class="line">    <span class="attr">url</span>:myURL,      <span class="comment">//设置目标网页的url</span></span><br><span class="line">    <span class="attr">encoding</span>:<span class="literal">null</span>,  <span class="comment">//设置编码方式，null即不进行编码，将编码工作交给iconv模块，详见2.2</span></span><br><span class="line">    <span class="attr">headers</span>:headers,<span class="comment">//设置header，用于防止爬虫被屏蔽，对于大多数网页可以缺省</span></span><br><span class="line">    <span class="attr">timeout</span>:<span class="number">10000</span>   <span class="comment">//设置等待时间，单位为ms，超过等待时间err返回值为错误</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">myRequest</span>(options,<span class="keyword">function</span>(<span class="params">err,res,body</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(body);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样一来，myRequest就能通过一些<del>神奇的操作</del>将网页的源码存储到body变量中了。如果在options中设置过编码方式为null，那么此时执行console.log(body)会看到一串神秘代码：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Buffer 3c 21 44 4f 43 54 59 50 45 20 68 74 6d 6c 3e 3c 21 2d 2d 53 54 41 54 55 53 20 4f 4b 2d 2d 3e 0d 0a 3c 68 74 6d 6c 3e 0d 0a 3c 68 65 61 64 3e 0d 0a 09 ... 14565 more bytes&gt;</span><br></pre></td></tr></table></figure><br>这是进行编码前网页源码的形式，要进一步加工，首先要用iconv进行编码</p>
+<h2 id="2-2-网页编码（中文乱码问题）"><a href="#2-2-网页编码（中文乱码问题）" class="headerlink" title="2.2 网页编码（中文乱码问题）"></a>2.2 网页编码（中文乱码问题）</h2><p>要对网页进行编码，首先要确定目标网页的编码方式。最直接的方法是打开浏览器-&gt;进入目标网页-&gt;F12-&gt;Console控制台-&gt;输入document.charset即可查看。应该也可以从网页head标签中的charset中查看，但有些网站好像和实际不符合，所以还是用控制台比较好。<br><img src="https://img-blog.csdnimg.cn/20200419034814280.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>常见的编码方式有”UTF-8”,”GBK”,”Unicode”等，在不设置编码方式的情况下，request默认以utf-8的方式编码，但request不支持GBK格式的编码，因此如果网页是GBK格式的，我们就需要用iconv来完成转码工作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myEncoding=<span class="string">&#x27;UTF-8&#x27;</span>  <span class="comment">//设置为目标网页编码方式</span></span><br><span class="line">...</span><br><span class="line"><span class="title function_">myRequest</span>(options,<span class="keyword">function</span>(<span class="params">err,res,body</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> html=myIconv.<span class="title function_">decode</span>(body,myEncoding);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>不同编码方式最主要的区别在于对于汉字的表示方式不同，utf-8编码属于国际标准，用三个字节表示汉字，而GBK编码只用两个字节，是专门用来解决中文编码的。如果用错误的方式进行编码，不仅中文汉字无法正常显示，整个源码的结构也会发生变化，导致源码不可读。</p>
+<p>下图是用utf-8对GBK格式的网页编码的结果，汉字显示为乱码。<br><img src="https://img-blog.csdnimg.cn/20200419034751433.png" alt="在这里插入图片描述"><br>改成用GBK格式编码后汉字可以正常显示。<br><img src="https://img-blog.csdnimg.cn/20200419034800192.png" alt="在这里插入图片描述"></p>
+<h2 id="2-3-手动分析源码"><a href="#2-3-手动分析源码" class="headerlink" title="2.3 手动分析源码"></a>2.3 手动分析源码</h2><p>获取到的源码包含了页面中的全部信息，往往很长，而我们需要的仅仅包含新闻链接的那几行代码，因此在开始爬取之前，我们首先要手动分析源码，观察新闻url的存储位置。好在网页的源码都遵循HTML语言的格式，并且大多数结构清晰。我们也可以在浏览器审查元素（F12）中，查看网页的每一个元素所对应的代码。当然，审查元素中的代码并不是源码，而是源码经过js渲染之后生成的，因此有些网页中会出现不一致的情况，此时应该以源码（右键-&gt;查看网页源代码）为准。</p>
+<p>分析源码也就是分析它的层级结构。比如下图中的新闻url我们可以通过\<a>标签href属性的值来定位url的位置，如果需要更准确的定位，可以把\<div class="xwzxdd-xbt">也作为查找的条件。<br><img src="https://img-blog.csdnimg.cn/20200419034837232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="2-4-获取新闻url"><a href="#2-4-获取新闻url" class="headerlink" title="2.4 获取新闻url"></a>2.4 获取新闻url</h1><h3 id="2-4-1-使用cheerio模块"><a href="#2-4-1-使用cheerio模块" class="headerlink" title="2.4.1 使用cheerio模块"></a>2.4.1 使用cheerio模块</h3><p>cheerio模块囊括了对html页面的解析，分块，提取等多个功能，是实现爬虫功能最主要的工具。</p>
+<p>cheerio模块用法很多也很灵活，由于我目前也只使用了其中的一些功能，不太理解它底层的实现原理，暂时只是把它作为一种工具去使用。避免误导，在此就不过多议论了。</p>
+<p>由于cheerio和jQuery很多的用法是一样的，遇到问题时可以参考jQuery参考手册：<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/jquery/jquery_reference.asp">https://www.w3school.com.cn/jquery/jquery_reference.asp</a> 以及JS权威指南第19章的内容。</p>
+<p>以下给出了一段获取新闻url的代码。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $=myCheerio.<span class="title function_">load</span>(html);    <span class="comment">//解析html文件，将解析后的DOM结构存储在$中</span></span><br><span class="line"><span class="keyword">var</span> newsDiv=$(<span class="string">&#x27;a&#x27;</span>);            <span class="comment">//根据a标签进行分块</span></span><br><span class="line">newsDiv.<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params">i,e</span>)&#123;     <span class="comment">//cheerio元素特有的遍历方式，回调函数中：i为计数器，e为当前元素</span></span><br><span class="line">    news_url=$(e).<span class="title function_">attr</span>(<span class="string">&#x27;href&#x27;</span>);  <span class="comment">//获取每个分块中的url链接，以字符串形式存入变量</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-4-2-完善URL"><a href="#2-4-2-完善URL" class="headerlink" title="2.4.2 完善URL"></a>2.4.2 完善URL</h3><p>爬取到的新闻url的格式可能有以下几种，有些url需要完善之后才能使用：</p>
+<p>以”//“开头的url，需要在前面加上”http:”<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//channel.chinanews.com/cns/cl/yl-mxnd.shtml</span><br></pre></td></tr></table></figure><br>以’/‘开头的相对路径url，需要在前面加上种子页面的url<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/gj/2020/04-17/9159939.shtml</span><br></pre></td></tr></table></figure><br>一些可能没有实际意义的js代码，忽略即可<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:void(0)</span><br></pre></td></tr></table></figure><br>完整的绝对路径url，可以直接使用<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://magazine.caijing.com.cn/20190605/4593837.shtml</span><br></pre></td></tr></table></figure><br>完善url涉及到了JS中的字符串操作。我们可以使用.startsWith判断字符串是否以某子串为开头。以下给出一个示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (news_url===<span class="string">&quot;javascript:void(0)&quot;</span>||news_url===<span class="literal">undefined</span>) <span class="keyword">return</span>;<span class="comment">//如果url为&quot;javascript:void(0)&quot;或者不包含url，直接查看下一个</span></span><br><span class="line">    <span class="keyword">if</span> (news_url.<span class="title function_">startsWith</span>(<span class="string">&quot;http://&quot;</span>))<span class="comment">//分类三类情况完善url，将其转化为一个绝对路径</span></span><br><span class="line">        news_url=news_url;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">if</span> (news_url.<span class="title function_">startsWith</span>(<span class="string">&quot;//&quot;</span>))</span><br><span class="line">            news_url=<span class="string">&quot;http:&quot;</span>+news_url;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">if</span> (news_url.<span class="title function_">startsWith</span>(<span class="string">&quot;/&quot;</span>))</span><br><span class="line">                news_url=myURL+news_url;</span><br></pre></td></tr></table></figure><br>除了以上列举的几种，爬取到的url也可能出现别的情况，需要根据情况进行完善，尽可能将所有新闻url都转换成可用的格式。更多关于字符串操作的方法可以在参考手册中查询：<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/jsref/jsref_obj_string.asp">https://www.w3school.com.cn/jsref/jsref_obj_string.asp</a></p>
+<h3 id="2-4-3-正则表达式筛选URL"><a href="#2-4-3-正则表达式筛选URL" class="headerlink" title="2.4.3 正则表达式筛选URL"></a>2.4.3 正则表达式筛选URL</h3><p>种子页面除了新闻页面的url，也包含了很多其他网站的链接、广告链接等不需要的url，要筛选出需要的url，最方便的方法是利用正则表达式（一种用来匹配字符串的工具）。</p>
+<p>首先还是手动分析url，找出其中最适合作为筛选条件的，具有特征的片段。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://www.ecns.cn/news/2020-04-18/detail-ifzvpqct5600213.shtml</span><br><span class="line">http://www.ecns.cn/video/2020-04-16/detail-ifzvpqct5598595.shtml</span><br><span class="line">http://www.ecns.cn/hd/2020-04-17/detail-ifzvpqct5598937.shtml</span><br><span class="line">http://www.ecns.cn/news/2020-04-18/detail-ifzvpqct5600277.shtml</span><br></pre></td></tr></table></figure><br>新闻url种通常都会包括日期信息、和一串作为新闻id的字符串。<br>比如说选取”2020-04-18”的日期片段，可以看成 </p>
+<p>“数字<em>4” + “-” + “数字\</em>2” + “-” + “数字*2”</p>
+<p>用正则表达式的语法来表示则是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> news_reg=<span class="regexp">/\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;/</span>;</span><br></pre></td></tr></table></figure><br>又或者用“detail-ifzvpqct5600213”来筛选</p>
+<p>“detail-” + “字母<em>8” + “数字\</em>7”，用正则表达式表示一下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> news_reg=<span class="regexp">/detail-\w&#123;8&#125;\d&#123;7&#125;/</span>;</span><br></pre></td></tr></table></figure></p>
+<p>可供选择的正则表达式还有很多，检查标准是比较宽松的，只要确保不遗漏，不误筛就可以了。</p>
+<p>使用正则表达式的test方法，如果为真，就可以把它作为新闻页面的url，开始爬取了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (news_reg.<span class="title function_">test</span>(new_url))</span><br><span class="line">    ··· <span class="comment">//开始爬取新闻页面</span></span><br><span class="line">    ···</span><br></pre></td></tr></table></figure></p>
+<p>reference: <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/jsref/jsref_obj_regexp.asp">https://www.w3school.com.cn/jsref/jsref_obj_regexp.asp</a></p>
+<h1 id="3-爬取新闻页面"><a href="#3-爬取新闻页面" class="headerlink" title="3. 爬取新闻页面"></a>3. 爬取新闻页面</h1><h2 id="3-1-数据存储方式"><a href="#3-1-数据存储方式" class="headerlink" title="3.1 数据存储方式"></a>3.1 数据存储方式</h2><p>在开始爬取之前，先定义一个对象来保存信息，并将其中每一个属性都初始化为空串。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Info</span>=&#123;</span><br><span class="line">    <span class="attr">id</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">title</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">resource</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">author</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">editor</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">content</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">keywords</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">pubtime</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">fetchtime</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">url</span>:<span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>用一个对象来存储，在最后我们只需要导出这个对象，就可以导出所有的信息了。</p>
+<h2 id="3-2-cheerio选择器"><a href="#3-2-cheerio选择器" class="headerlink" title="3.2 cheerio选择器"></a>3.2 cheerio选择器</h2><p>对新闻页面的爬取过程其实与爬取种子页面完全是一个原理——用request模块获取页面信息，用iconv-lite模块完成转码，最后用cheerio解析、分块、提取。不同之处只在于，从提取一个信息（url）变成了要提取多个信息。</p>
+<p>虽说如此，实际操作的时候，有些信息（比如title）我们可以简单地通过一个标签来获取，但有些信息的提取（比如content）可能就会变得格外复杂。（嗯。。尤其在爬取一些结构本来就不太清晰的新闻页面时）这时候就更需要好好分析源码结构，并且选择合适的cheerio选择器了。以下是一个给出一个根据源码对应爬取方式的示例（注释内是html源码，紧跟着对应的爬取方式）：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;h1 id=&quot;j_data&quot; data-title=&quot;要爬取的内容&quot;&gt;&lt;/h1&gt;</span></span><br><span class="line"><span class="title class_">Info</span>.<span class="property">title</span>=$(<span class="string">&#x27;h1#j_data&#x27;</span>).<span class="title function_">attr</span>(<span class="string">&#x27;data-title&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//&lt;div class=&quot;quote-content&quot;&gt;</span></span><br><span class="line"><span class="comment">//  &lt;a&gt;要爬取的内容&lt;/a&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="title class_">Info</span>.<span class="property">resource</span>=$(<span class="string">&#x27;div.quote-content&#x27;</span>).<span class="title function_">children</span>(<span class="string">&#x27;a&#x27;</span>).<span class="title function_">text</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//&lt;div class=&quot;subhead&quot;&gt;要爬取的内容&lt;/div&gt;</span></span><br><span class="line"><span class="title class_">Info</span>.<span class="property">author</span>=$(<span class="string">&#x27;div.subhead&#x27;</span>).<span class="title function_">text</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//&lt;div class=&quot;quote-content&quot;&gt;</span></span><br><span class="line"><span class="comment">//  &lt;div&gt;要爬取&lt;/div&gt;</span></span><br><span class="line"><span class="comment">//  &lt;p&gt;的内容&lt;/p&gt; &lt;/div&gt;</span></span><br><span class="line"><span class="title class_">Info</span>.<span class="property">content</span>=$(<span class="string">&#x27;div.quote-content&#x27;</span>).<span class="title function_">children</span>(<span class="string">&#x27;div,p&#x27;</span>).<span class="title function_">text</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//&lt;div class=&quot;basketballTobbs_tag&quot;&gt;</span></span><br><span class="line"><span class="comment">//  &lt;a&gt;标签1&lt;/a&gt;</span></span><br><span class="line"><span class="comment">//  &lt;a&gt;标签2&lt;/a&gt;</span></span><br><span class="line"><span class="comment">//  &lt;a&gt;标签3&lt;/a&gt; &lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> keywordsDiv=$(<span class="string">&#x27;div.basketballTobbs_tag&#x27;</span>).<span class="title function_">children</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">keywordsDiv.<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params">i,e</span>)&#123;</span><br><span class="line">    <span class="title class_">Info</span>.<span class="property">keywords</span>=<span class="title class_">Info</span>.<span class="property">keywords</span>+<span class="string">&#x27;,&#x27;</span>+$(e).<span class="title function_">text</span>();</span><br><span class="line">&#125;)<span class="comment">//这样写是为了在每个标签后面加一个逗号</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&lt;span class=&quot;stime&quot;&gt;要爬取的内容&lt;/span&gt;</span></span><br><span class="line"><span class="comment">//&lt;span class=&quot;stime&quot;&gt;不想要的内容&lt;/span&gt;</span></span><br><span class="line"><span class="comment">//&lt;span class=&quot;stime&quot;&gt;不想要的内容&lt;/span&gt;</span></span><br><span class="line"><span class="title class_">Info</span>.<span class="property">pubtime</span>=$(<span class="string">&#x27;span.stime&#x27;</span>).<span class="title function_">eq</span>(<span class="number">0</span>).<span class="title function_">text</span>();<span class="comment">//eq(0)来选择第一个元素</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Info</span>.<span class="property">fetchtime</span>=<span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="title class_">Info</span>.<span class="property">fetchtime</span>=<span class="title class_">Info</span>.<span class="property">fetchtime</span>.<span class="title function_">toFormat</span>(<span class="string">&quot;YYYY-MM-DD-HH-MM-SS&quot;</span>)<span class="comment">//获取当前时间并转化格式(需要&#x27;date-utils&#x27;)</span></span><br></pre></td></tr></table></figure><br>当然，选择器的使用方式远不止这些，应该在实际使用中边做边掌握，遇到无法处理的情况可以查询cheerio（或者jQuery）的参考手册。</p>
+<h2 id="3-3-数据处理"><a href="#3-3-数据处理" class="headerlink" title="3.3 数据处理"></a>3.3 数据处理</h2><p>到了这一步，所有需要从网页上爬取的内容都已保存在本地了，但通常还需要对信息做最后一步加工，删除不要的内容，删除其中的换行符、制表符等等，本质上是对字符串的处理，所以在这个过程中其实也能熟悉JS的各种字符串操作。这里介绍几种我遇到过的处理方法。</p>
+<ul>
+<li>1.直接替换：利用replace方法，直接用字符、字符串或正则表达式进行查找，用给定的字符替换或删除<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Info</span>.<span class="property">content</span>=<span class="title class_">Info</span>.<span class="property">content</span>.<span class="title function_">replace</span>(<span class="regexp">/[\n\r\t]/g</span>,<span class="string">&#x27;&#x27;</span>);<span class="comment">//删除每一个换行符和制表符</span></span><br></pre></td></tr></table></figure></li>
+<li>2.先提取出要删除的子串，再用replace查找并替换掉<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> temp=$(<span class="string">&#x27;otitle&#x27;</span>).<span class="title function_">text</span>();    <span class="comment">//otitle标签中存储了文章的原标题</span></span><br><span class="line"><span class="title class_">Info</span>.<span class="property">content</span>=<span class="title class_">Info</span>.<span class="property">content</span>.<span class="title function_">replace</span>(temp,<span class="string">&#x27;&#x27;</span>);<span class="comment">//删除原标题</span></span><br></pre></td></tr></table></figure></li>
+<li>3.先用indexOf找到某标志字符串的起始位置，再用substring或slice方法把需要的内容截取出来<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Info.author=&quot;作者：xxx&quot;</span></span><br><span class="line"><span class="title class_">Info</span>.<span class="property">author</span>=<span class="title class_">Info</span>.<span class="property">author</span>.<span class="title function_">substring</span>(<span class="title class_">Info</span>.<span class="property">author</span>.<span class="title function_">indexOf</span>(<span class="string">&quot;作者：&quot;</span>)+<span class="number">3</span>);<span class="comment">//如果&quot;作者：&quot;起始位置是x，那么作者姓名的起始位置就是x+3</span></span><br></pre></td></tr></table></figure>
+最后的数据处理一般是花费时间最多的地方，毕竟每个网站新闻的格式都不同，甚至同一个种子网站下的两个新闻页面也可能是截然不同的，但这一步往往也决定了爬取数据质量的高低。数据的格式越规范、统一，那么在我们后续使用这些数据来搭建网站时就会相对越轻松。这就需要我们一点一点耐心地把关键信息过滤出来，去掉无意义的空格、符号，使用同样的分隔符（逗号or空格）。<h2 id="3-4-将数据保存到本地"><a href="#3-4-将数据保存到本地" class="headerlink" title="3.4 将数据保存到本地"></a>3.4 将数据保存到本地</h2>最后，只需要先设置文件名（json后缀），再用fs模块将Info对象保存到本地即可（默认和代码在同一个目录下）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> filename=<span class="string">&quot;Id&quot;</span>+<span class="title class_">Info</span>.<span class="property">id</span>+<span class="string">&quot;_&quot;</span>+<span class="title class_">Info</span>.<span class="property">fetchtime</span>+<span class="string">&#x27;_&#x27;</span>+resouce_website+<span class="string">&quot;.json&quot;</span>;</span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(filename,<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="title class_">Info</span>));</span><br></pre></td></tr></table></figure>
+爬虫部分到此可以算完成了，但这个代码其实还有很多需要（或者说必须）完善和优化的地方。<h1 id="4-代码完善和优化"><a href="#4-代码完善和优化" class="headerlink" title="4.代码完善和优化"></a>4.代码完善和优化</h1><h2 id="4-1-避免程序崩溃的方法"><a href="#4-1-避免程序崩溃的方法" class="headerlink" title="4.1 避免程序崩溃的方法"></a>4.1 避免程序崩溃的方法</h2>嗯。。更优雅的说法是“提升代码稳定性”，然而我只是单纯地不想让它崩溃掉而已。。</li>
+</ul>
+<p>首先，如果我们在程序中对一个没有定义过的（undefined）变量进行操作，或者将它作为一个参数，那么程序崩溃的可能性会非常大。怎么避免这种情况发生呢?</p>
+<h3 id="1-变量初始化："><a href="#1-变量初始化：" class="headerlink" title="1.变量初始化："></a>1.变量初始化：</h3><p>对变量初始化是很重要的。比如执行以下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="keyword">var</span> b=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> a);</span><br><span class="line">-&gt;<span class="literal">undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);</span><br><span class="line">-&gt;string</span><br></pre></td></tr></table></figure><br>尽管变量b只是被赋值成了一个空串，但这一步初始化声明了它的类型是string，可以正常地作为一个字符串来使用。但如果把a作为字符串使用就会导致程序立刻崩溃。</p>
+<h3 id="2-随时检查error参数和response参数："><a href="#2-随时检查error参数和response参数：" class="headerlink" title="2.随时检查error参数和response参数："></a>2.随时检查error参数和response参数：</h3><p>在很多回调函数中都有一个error参数，比如request模块：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">request</span>(url,<span class="keyword">function</span>(<span class="params">err,response,body</span>)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>假如request对页面的申请失败了，error参数就会为真，同时，如果访问被跳转到其他页面，response.statusCode就不等于200了。而实际上，由于这是一个对网络发送的请求，单次访问失败的概率其实是非常高的。一旦访问失败，body参数就无法被正常赋值了，结果是undefined，如果我们继续操作下去，比如用iconv对body编码，程序也会立刻崩溃。所以爬虫代码中，<strong>对回调函数err参数的检查是必须的</strong>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">request</span>(url,<span class="keyword">function</span>(<span class="params">err,response,body</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> (err || response.<span class="property">statusCode</span>!==<span class="number">200</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;页面访问出错~~&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-对存在报错可能性的代码，使用try…catch"><a href="#3-对存在报错可能性的代码，使用try…catch" class="headerlink" title="3.对存在报错可能性的代码，使用try…catch"></a>3.对存在报错可能性的代码，使用try…catch</h3><p>这个写法的好处在于不仅可以避免程序崩溃，也可以显示出程序崩溃的原因，因此我觉得也可以作为一种不错的调试方法。</p>
+<p>用法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> flag=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    flag=<span class="number">2</span>;</span><br><span class="line">    abcdefg;</span><br><span class="line">    flag=<span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(err)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);</span><br><span class="line">-&gt;abcdefg is not defined</span><br><span class="line">-&gt;<span class="number">2</span></span><br></pre></td></tr></table></figure><br>从flag的值也可以看出，一旦运行出错就不再往下执行，而是直接跳出try所在的代码块。</p>
+<h2 id="4-2-代码模块化"><a href="#4-2-代码模块化" class="headerlink" title="4.2 代码模块化"></a>4.2 代码模块化</h2><p>这里我想表达的是，尽管爬取不同网站、不同页面具体的方式不一样，但总归在大体框架上还是有很多相同之处的。那么，在爬取一个新网站时能否把相同的框架部分保留下来，只去修改特定的几处呢？</p>
+<p>其中一个方法就是以字符串形式将爬取某个元素时的代码提前预设好，并用eval函数来执行代码，比如示例中的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> keywords_format = <span class="string">&quot;$(&#x27;meta[name=\&quot;keywords\&quot;]&#x27;).eq(0).attr(\&quot;content\&quot;)&quot;</span></span><br><span class="line"><span class="keyword">var</span> title_format = <span class="string">&quot;$(&#x27;title&#x27;).text()&quot;</span></span><br><span class="line"><span class="keyword">var</span> date_format = <span class="string">&quot;$(&#x27;#pubtime_baidu&#x27;).text()&quot;</span></span><br><span class="line"><span class="keyword">var</span> author_format = <span class="string">&quot;$(&#x27;#editor_baidu&#x27;).text()&quot;</span></span><br><span class="line"><span class="keyword">var</span> content_format = <span class="string">&quot;$(&#x27;.left_zw&#x27;).text()&quot;</span></span><br><span class="line"><span class="keyword">var</span> desc_format = <span class="string">&quot; $(&#x27;meta[name=\&quot;description\&quot;]&#x27;).eq(0).attr(\&quot;content\&quot;)&quot;</span></span><br><span class="line"><span class="keyword">var</span> source_format = <span class="string">&quot;$(&#x27;#source_baidu&#x27;).text()&quot;</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">fetch.<span class="property">keywords</span> = <span class="built_in">eval</span>(keywords_format);</span><br><span class="line">fetch.<span class="property">title</span> = <span class="built_in">eval</span>(title_format);</span><br><span class="line">fetch.<span class="property">author</span> = <span class="built_in">eval</span>(author_format);</span><br><span class="line">fetch.<span class="property">content</span> = <span class="built_in">eval</span>(content_format);</span><br><span class="line">fetch.<span class="property">source</span> = <span class="built_in">eval</span>(source_format);</span><br><span class="line">fetch.<span class="property">desc</span> = <span class="built_in">eval</span>(desc_format);</span><br></pre></td></tr></table></figure><br>但是关于eval的使用似乎普遍有一定的争议。。而且很多时候一行代码也不足以提取出想要的元素，因此我更倾向于用一个函数来代替eval实现模块化，举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Info</span>.<span class="property">title</span>=<span class="title function_">get_title</span>($)</span><br><span class="line"><span class="title class_">Info</span>.<span class="property">content</span>=<span class="title function_">get_content</span>($)</span><br><span class="line">...</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get_title</span>(<span class="params">$</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> title=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    title=$(<span class="string">&#x27;title&#x27;</span>).<span class="title function_">text</span>()</span><br><span class="line">    <span class="keyword">return</span> title;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get_content</span>(<span class="params">$</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> content=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    content=$(<span class="string">&#x27;div#article_body&#x27;</span>).<span class="title function_">text</span>();</span><br><span class="line">    content=content.<span class="title function_">replace</span>(<span class="regexp">/\n|\t|\r/g</span>,<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    content=content.<span class="title function_">replace</span>(<span class="regexp">/点击播放 GIF  \d.\dM/g</span>,<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    content=content.<span class="title function_">replace</span>(<span class="regexp">/视频：/g</span>,<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    tmp=$(<span class="string">&#x27;div.jsx-4284531154.isom&#x27;</span>).<span class="title function_">text</span>()</span><br><span class="line">    <span class="keyword">if</span> (tmp!=<span class="literal">undefined</span>)</span><br><span class="line">        content=content.<span class="title function_">replace</span>(tmp,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> content;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>也就是将$作为参数，将爬取和处理后的结果作为返回值。不同网站爬取方式的差异都只在在函数中体现，而原来的程序则不需要作任何的改动即可运行，整体框架会比较清晰。</p>
+<h2 id="4-3-代码效率计算和优化"><a href="#4-3-代码效率计算和优化" class="headerlink" title="4.3 代码效率计算和优化"></a>4.3 代码效率计算和优化</h2><p>这一部分是我比较疑惑的。。写代码的时候发现，有些功能可以用好几种不同的方法来实现，其中肯定存在效率上的差异。但是具体哪一种效率更高我也不知道。。虽然有些钻牛角尖，但还是希望能得到解答吧。</p>
+<p>在解析种子页面的时候，进行分块操作之后进行遍历，准备提取url，有三种方法：</p>
+<ol>
+<li>以cheerio元素e作为选择器<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newsDiv=$(<span class="string">&#x27;a&#x27;</span>)  <span class="comment">//分块</span></span><br><span class="line"><span class="comment">//用cheerio元素e作为选择器</span></span><br><span class="line">newsDiv.<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params">i,e</span>)&#123;</span><br><span class="line">    news_url=$(e).<span class="title function_">attr</span>(<span class="string">&#x27;href&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>以计数器i作为选择器，选择第i个元素<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newsDiv=$(<span class="string">&#x27;a&#x27;</span>);  <span class="comment">//分块</span></span><br><span class="line"><span class="comment">//以计数器i作为选择器，选择第i个元素</span></span><br><span class="line">newsDiv.<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params">i,e</span>)&#123;</span><br><span class="line">    news_url=$(<span class="string">&#x27;*&#x27;</span>).<span class="title function_">eq</span>(i).<span class="title function_">attr</span>(<span class="string">&#x27;href&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>重新解析元素e得到$_，再提取\$_的属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newsDiv=$(<span class="string">&#x27;a&#x27;</span>)  <span class="comment">//分块</span></span><br><span class="line"><span class="comment">//用cheerio元素e作为选择器</span></span><br><span class="line">newsDiv.<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params">i,e</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> $_=myCheerio.<span class="title function_">load</span>(e);</span><br><span class="line">    news_url=$_(<span class="string">&#x27;*&#x27;</span>).<span class="title function_">attr</span>(<span class="string">&#x27;href&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+看别人的代码似乎第一种是最为普遍的写法。。但在我看来，第一种写法需要从整张页面匹配出整个DOM块，效率最低，第二种写法只需要匹配出第i个元素，效率比较快，第三种写法不需要每次都从整张页面去匹配，效率高，但时间可能会花费在对分块的再解析上。emmm说到底还是因为对cheerio模块的底层原理不了，所以完全不知道怎么计算三种写法的效率。</li>
+</ol>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>最后还是再把几个链接发一下吧。。边做边查应该学起来是最快的</p>
+<p>W3school的JS参考手册：<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/jsref/index.asp">https://www.w3school.com.cn/jsref/index.asp</a></p>
+<p>RUNOOB的Node.js教程：<a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-tutorial.html">https://www.runoob.com/nodejs/nodejs-tutorial.html</a></p>
+<p>cheerio中文文档：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/629a81b4e013">https://www.jianshu.com/p/629a81b4e013</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/05/01/Web%E7%BC%96%E7%A8%8B/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2021&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

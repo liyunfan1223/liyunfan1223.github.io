@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            数据科学数学基础笔记 - 3月 | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",工程数学">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2021/03/25/%E5%BD%92%E6%A1%A3/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-3%E6%9C%88/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2021/03/25/%E5%BD%92%E6%A1%A3/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-3%E6%9C%88/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="数据科学数学基础笔记 - 3月 | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="工程数学"> 
+
+    
+        <meta property="article:published_time" content="Thu Mar 25 2021 23:40:48 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jun 03 2021 20:12:58 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2021/03/25/%E5%BD%92%E6%A1%A3/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-3%E6%9C%88/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2021/03/25/%E5%BD%92%E6%A1%A3/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-3%E6%9C%88/index.html",
+    "headline": "数据科学数学基础笔记 - 3月",
+    "datePublished": "Thu Mar 25 2021 23:40:48 GMT+0800",
+    "dateModified": "Thu Jun 03 2021 20:12:58 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",工程数学",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#XCPC-2021-Happy-Winter-Vacation"><span class="post-toc-text">XCPC 2021 Happy Winter Vacation</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-18"><span class="post-toc-text">2021.03.18</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BA%A6%E9%87%8F"><span class="post-toc-text">度量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0"><span class="post-toc-text">向量范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%EF%BC%9A-l-p-%E8%8C%83%E6%95%B0"><span class="post-toc-text">常用的向量范数：$l_p$范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%95%B0%E5%87%BD%E6%95%B0"><span class="post-toc-text">基数函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%8C%83%E6%95%B0%E7%9A%84%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="post-toc-text">范数的几何意义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%91%E9%87%8F%E6%94%B6%E6%95%9B"><span class="post-toc-text">向量收敛</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%8C%83%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="post-toc-text">范数的性质</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%8C%83%E6%95%B0%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="post-toc-text">范数的等价性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AD%89%E4%BB%B7%E8%8C%83%E6%95%B0"><span class="post-toc-text">等价范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%87%E5%87%86%E5%86%85%E7%A7%AF%EF%BC%88%E7%82%B9%E7%A7%AF%EF%BC%89"><span class="post-toc-text">标准内积（点积）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AF%B9%E7%A7%B0%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="post-toc-text">对称正定矩阵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%85%E7%A7%AF%E5%AF%BC%E5%87%BA%E7%9A%84%E8%8C%83%E6%95%B0"><span class="post-toc-text">内积导出的范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9F%AF%E8%A5%BF%E6%96%BD%E7%93%A6%E5%85%B9%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="post-toc-text">柯西施瓦兹不等式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%94%A8%E5%86%85%E7%A7%AF%E8%AE%A1%E7%AE%97%E5%90%91%E9%87%8F%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="post-toc-text">用内积计算向量的长度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B7%9D%E7%A6%BB"><span class="post-toc-text">距离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BA%A6%E9%87%8F-1"><span class="post-toc-text">度量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BA%A6%E9%87%8F%E7%A9%BA%E9%97%B4"><span class="post-toc-text">度量空间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%B9%E8%A7%92"><span class="post-toc-text">夹角</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E4%BA%A4"><span class="post-toc-text">正交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="post-toc-text">正交矩阵</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-19"><span class="post-toc-text">2021.03.19</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%B5%E5%8F%AF%E5%A4%AB%E6%96%AF%E5%9F%BA%E8%B7%9D%E7%A6%BB"><span class="post-toc-text">闵可夫斯基距离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6"><span class="post-toc-text">余弦相似度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB"><span class="post-toc-text">汉明距离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%86%85%E7%A7%AF%EF%BC%9A%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E5%8C%96"><span class="post-toc-text">矩阵的内积：矩阵向量化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0"><span class="post-toc-text">矩阵范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0%E5%92%8C%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%E7%9A%84%E7%9B%B8%E5%AE%B9%E6%80%A7"><span class="post-toc-text">矩阵范数和向量范数的相容性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%97%E5%AD%90%E8%8C%83%E6%95%B0"><span class="post-toc-text">算子范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%97%E5%AD%90%E8%8C%83%E6%95%B0%E7%9A%84%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="post-toc-text">算子范数的几何意义</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-22"><span class="post-toc-text">2021.03.22</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0-L-y-i-f-x-i"><span class="post-toc-text">损失函数$L(y_i,f(x_i))$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B7%9D%E7%A6%BB%E7%9B%B8%E5%85%B3%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="post-toc-text">距离相关损失函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="post-toc-text">正则化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#l-1-%E8%8C%83%E6%95%B0"><span class="post-toc-text">$l_1$范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#l-2-%E8%8C%83%E6%95%B0"><span class="post-toc-text">$l_2$范数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-25"><span class="post-toc-text">2021.03.25</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#A-2-1-%E5%92%8C-A-1-2-%E8%8C%83%E6%95%B0"><span class="post-toc-text">$||A||_{2,1}$和$||A||_{1,2}$范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%B8%E8%8C%83%E6%95%B0"><span class="post-toc-text">核范数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1"><span class="post-toc-text">投影</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5%E5%9B%9B%E4%B8%AA%E5%9F%BA%E6%9C%AC%E5%AD%90%E7%A9%BA%E9%97%B4"><span class="post-toc-text">矩阵四个基本子空间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9B%E4%B8%AA%E5%AD%90%E7%A9%BA%E9%97%B4%E7%9A%84%E6%AD%A3%E4%BA%A4%E5%85%B3%E7%B3%BB"><span class="post-toc-text">四个子空间的正交关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E4%BA%A4%E8%A1%A5%E5%85%B3%E7%B3%BB"><span class="post-toc-text">正交补关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-26"><span class="post-toc-text">2021.03.26</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="post-toc-text">基本定理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1-1"><span class="post-toc-text">投影</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="post-toc-text">正交投影</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1%E5%88%B0%E4%B8%80%E7%BB%B4%E5%AD%90%E7%A9%BA%E9%97%B4"><span class="post-toc-text">投影到一维子空间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1%E5%88%B0%E4%B8%80%E8%88%AC%E5%AD%90%E7%A9%BA%E9%97%B4"><span class="post-toc-text">投影到一般子空间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1%E5%92%8C-Ax-b-%E6%97%A0%E8%A7%A3%E6%83%85%E5%86%B5"><span class="post-toc-text">投影和$Ax&#x3D;b$无解情况</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="post-toc-text">标准正交基</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gram-Schimidt%E6%AD%A3%E4%BA%A4%E5%8C%96"><span class="post-toc-text">Gram-Schimidt正交化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="post-toc-text">旋转</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mathbb-R-n-%E4%B8%AD%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="post-toc-text">$\mathbb{R}^n$中的旋转</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="post-toc-text">旋转矩阵的性质</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-30"><span class="post-toc-text">2021.03.30</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BE%A4"><span class="post-toc-text">群</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9F%A9%E9%98%B5%EF%BC%8CHouseholder%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5"><span class="post-toc-text">反射矩阵，Householder变换矩阵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar%E7%9F%A9%E9%98%B5-%E5%93%88%E5%B0%94%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2"><span class="post-toc-text">Haar矩阵&#x2F;哈尔小波变换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hadamard%E7%9F%A9%E9%98%B5"><span class="post-toc-text">Hadamard矩阵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%8B%E7%BD%97%E5%86%85%E5%85%8B%E7%A7%AF"><span class="post-toc-text">克罗内克积</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B1%E8%BD%AD%E8%BD%AC%E7%BD%AE"><span class="post-toc-text">共轭转置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%9F%A9%E9%98%B5"><span class="post-toc-text">傅里叶矩阵</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                数据科学数学基础笔记 - 3月
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>3月 25, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/%E5%B7%A5%E7%A8%8B%E6%95%B0%E5%AD%A6/" rel="tag">工程数学</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=数据科学数学基础笔记 - 3月&url=http://example.com/2021/03/25/%E5%BD%92%E6%A1%A3/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-3%E6%9C%88/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=数据科学数学基础笔记 - 3月&url=http://example.com/2021/03/25/%E5%BD%92%E6%A1%A3/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-3%E6%9C%88/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/03/25/%E5%BD%92%E6%A1%A3/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-3%E6%9C%88/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2021/03/25/%E5%BD%92%E6%A1%A3/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-3%E6%9C%88/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><br></p>
+<span id="more"></span>
+<h1 id="XCPC-2021-Happy-Winter-Vacation"><a href="#XCPC-2021-Happy-Winter-Vacation" class="headerlink" title="XCPC 2021 Happy Winter Vacation"></a>XCPC 2021 Happy Winter Vacation</h1><h1 id="2021-03-18"><a href="#2021-03-18" class="headerlink" title="2021.03.18"></a>2021.03.18</h1><h2 id="度量"><a href="#度量" class="headerlink" title="度量"></a>度量</h2><ul>
+<li>余弦相似度</li>
+<li>距离</li>
+</ul>
+<p>曼哈顿距离：$d(A,B)=\sum_\limits{jk}|A_{jk}-T_{jk}|$</p>
+<h2 id="向量范数"><a href="#向量范数" class="headerlink" title="向量范数"></a>向量范数</h2><ul>
+<li>模</li>
+</ul>
+<p>复数$x=(a,b)=a+ib$的长度或者模定义：$||x||=\sqrt{a^2+b^2}$</p>
+<p>显然，模具有以下三个性质</p>
+<ol>
+<li>非负性：$||x||\ge0$，当且仅当$x=0$时等号成立</li>
+<li>齐次性：$||\lambda x||=|\lambda|||x||(\forall \lambda \in \mathbb{R})$</li>
+<li>三角不等式：$||x + y||\le ||x||+||y||(x,y\in\mathbb{R}^n)$</li>
+</ol>
+<p>模：向量到实数的一个函数</p>
+<p>公理化推广，得到范数定义</p>
+<p>函数$||·||:\mathbb{V}\rightarrow\mathbb{R},x\rightarrow||x||$</p>
+<p>这个函数把向量$x$映射为它的长度$||x||\in \mathbb{R}$，并且使得对$\forall \lambda \in \mathbb{R}$和$\forall x, y \in \mathbb{V}$，满足非负性、齐次性和三角不等式，则称$||x||$是向量$x$的向量范数，称定义了范数的线性空间$\mathbb{V}$为赋范线性空间</p>
+<h2 id="常用的向量范数：-l-p-范数"><a href="#常用的向量范数：-l-p-范数" class="headerlink" title="常用的向量范数：$l_p$范数"></a>常用的向量范数：$l_p$范数</h2><p>$||x||_p=(\sum_\limits{i=1}^n|x_i|^p)^{\frac{1}{p}},1\le p&lt;\infty$</p>
+<p>定义的$||·||$是$\mathbb{R}^n$上的向量范数，称为$p$范数或$l_p$范数</p>
+<p>当p=1时，得到1范数或$l_1$范数，或Manhattan范数</p>
+<script type="math/tex; mode=display">
+||x||_1=\sum_\limits{i=1}^n|x_i|</script><p>当p=2时，得到2范数或$l_2$范数，或欧几里得范数</p>
+<script type="math/tex; mode=display">
+||x||_2=\sqrt{\sum_\limits{i=1}^nx_i^2}</script><p>容易验证，以上范数满足范数性质</p>
+<p>当p取到无穷大时：$||x||_\infty=\lim_\limits{p\rightarrow\infty}||x||_p$，称为$\infty$范数，或$l_\infty$范数</p>
+<p>证明无穷范数是向量范数：证明三条性质即可，主要证$||x||_\infty=\max_\limits{i}|x_i|=\lim_\limits{p\rightarrow+\infty}||x||_p$</p>
+<p>证明见4.1 17:00（利用极限夹逼准则）</p>
+<p>（所以无穷范数等价于最大值函数$\max_\limits{i}|x_i|$）</p>
+<p>当$0&lt;p&lt;1$时，所定义的$||·||_p$不是$\mathbb{R}^n$上的向量范数</p>
+<p>考虑$n=2,p=\frac{1}{2}$，$||\alpha+\beta||_{\frac{1}{2}}\ge||\alpha||_{\frac{1}{2}}+||\beta||_{\frac{1}{2}}$，也就是说不满足三角不等式</p>
+<h2 id="基数函数"><a href="#基数函数" class="headerlink" title="基数函数"></a>基数函数</h2><p>向量x的基数函数定义为x中非零元素的个数，即$card(x)=\sum_\limits{i=1}^nI(X_i\ne 0)$</p>
+<p>基数函数也被称为$l_0$范数，但它不满足范数定义的条件（不满足齐次性）</p>
+<h2 id="范数的几何意义"><a href="#范数的几何意义" class="headerlink" title="范数的几何意义"></a>范数的几何意义</h2><ul>
+<li>单位范数球$\mathbb{B}_p=\{x\in\mathbb{R}^n:||x||_p\le1\}$：对于$l_p$范数小于等于1的向量集合</li>
+</ul>
+<p>单位范数球反映了不同范数的性质，对于不同二点p，范数球有着不同的几何形状。</p>
+<p>$\mathbb{B}_2$：圆，$\mathbb{B}_1$：球，$\mathbb{B}_\infty$：方形</p>
+<h2 id="向量收敛"><a href="#向量收敛" class="headerlink" title="向量收敛"></a>向量收敛</h2><p>如果$\lim_\limits{k\rightarrow\infty}x_i^{(k)}=x_i^\ast(i=1,2,…,n)$，则称$x^{(k)}$收敛于向量$x^\ast$</p>
+<p>即向量收敛$\Leftrightarrow$分量收敛</p>
+<h2 id="范数的性质"><a href="#范数的性质" class="headerlink" title="范数的性质"></a>范数的性质</h2><ul>
+<li>范数的连续性</li>
+</ul>
+<p>设非负函数$N(x)=||x||$为$\mathbb{R}^n$上任一向量范数，则$N(x)$是$x$分量$x_1,x_2,…,x_n$的连续函数</p>
+<ul>
+<li>柯西收敛原理</li>
+</ul>
+<p>实数域或复数域上的有限维线性空间按任何范数$||·||$必定完备。</p>
+<p>（也就是说高等数学中学到的关于函数结论都可以推广到有限维线性空间中）</p>
+<p>（以及机器学习中的算法一定会趋于某一个值或某一个精度？）</p>
+<ul>
+<li>向量序列收敛定理</li>
+</ul>
+<p>$\lim_\limits{k\rightarrow\infty}x^{(k)}=x^\ast\Leftrightarrow\lim_\limits{k\rightarrow\infty}||x^{(k)}-x^\ast||=0$</p>
+<p>也就是向量收敛$\Leftrightarrow$范数收敛$\Leftrightarrow$坐标收敛</p>
+<h2 id="范数的等价性"><a href="#范数的等价性" class="headerlink" title="范数的等价性"></a>范数的等价性</h2><p>各种向量范数之间存在下述重要关系</p>
+<p>$||x||_{\infty}\le||x||_{2}\le||x||_{1}\le\sqrt n||x||_{2}\le n||x||_{\infty}$</p>
+<h2 id="等价范数"><a href="#等价范数" class="headerlink" title="等价范数"></a>等价范数</h2><p>若存在$c1,c2&gt;0$使得$c1||x||_s\le||x||_t\le c_2||x||_s$成立，则称$||x||_t$和$||x||_s$为$\mathbb{R}^n$上的等价范数</p>
+<h2 id="标准内积（点积）"><a href="#标准内积（点积）" class="headerlink" title="标准内积（点积）"></a>标准内积（点积）</h2><p>$\langle x,y\rangle=x^Ty=\sum_\limits{i=1}^nx_iy_i$</p>
+<p>内积的性质：</p>
+<ul>
+<li>非负性$\langle x,x\rangle\ge0$当且仅当x=0</li>
+<li>对称性$\langle x,y\rangle=\langle y,x\rangle$</li>
+<li>齐次性$\langle \lambda x,y\rangle=\lambda\langle x,y\rangle$</li>
+<li>线性性$\langle x+y,z\rangle=\langle x,z\rangle+\langle y,z\rangle$</li>
+</ul>
+<p>称$\langle x,y\rangle$是向量$x,y$的内积，称定义了内积的线性空间$\mathbb{V}$为内积空间。若内积是点积时，称定义了标准内积的线性空间为欧氏空间。</p>
+<p><strong>内积不一定是点积</strong>，反例：$\langle x,y\rangle:=x_1y_1-(x_1y_2+x_2y_1)+2x_2y_2$，是内积而不是点积</p>
+<h2 id="对称正定矩阵"><a href="#对称正定矩阵" class="headerlink" title="对称正定矩阵"></a>对称正定矩阵</h2><p>若对称矩阵$A\in \mathbb{R}^{n\times n}$满足$\forall x\in \mathbb{V}\setminus {0}:x^TAx&gt;0$，则我们称$A$对称正定矩阵或正定矩阵；</p>
+<p>若满足$\forall x\in \mathbb{V}\setminus {0}:x^TAx\ge0$，则我们称$A$对称正半定矩阵或正半定矩阵</p>
+<p><strong>内积和对称、正定矩阵的关系：</strong></p>
+<p>对于一个有限维空间$\mathbb{V}$和一个有序基底$B$，如果$\langle·,·\rangle$是一个内积，当且仅当存在一个对称、正定矩阵$A\in\mathbb{R}^{n\times n}$满足$\langle x,y\rangle=\hat{x}^TA\hat{y}$</p>
+<p>对称正定矩阵A的性质：</p>
+<ul>
+<li>A的核（零空间）只包含0，因为$x^TAx&gt;0$对于任意$x\ne0$成立，即如果$x\ne0$则$Ax\ne0$</li>
+<li>A的对角元是正的，因为$a_{ii}=e_i^TAe_i&gt;0$，其中$e_i$是$\mathbb{R}^n$中的标准基</li>
+</ul>
+<h2 id="内积导出的范数"><a href="#内积导出的范数" class="headerlink" title="内积导出的范数"></a>内积导出的范数</h2><p>$||x||=\sqrt{\langle x, x\rangle}$</p>
+<p>标准内积与2-范数存在的联系：$||x||^2_2=x^Tx$</p>
+<ul>
+<li>不是每个范数都能由内积导出</li>
+</ul>
+<h2 id="柯西施瓦兹不等式"><a href="#柯西施瓦兹不等式" class="headerlink" title="柯西施瓦兹不等式"></a>柯西施瓦兹不等式</h2><p>内积和范数之间的不等关系</p>
+<p>若$||·||$是由$(\mathbb{V},\langle·,·\rangle)$导出的范数，则$\langle x, y\rangle^2\le||x||^2||y||^2$</p>
+<p>证明见4.2 15:00</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/image-20210318231047011.png" alt="image-20210318231047011"></p>
+<h2 id="用内积计算向量的长度"><a href="#用内积计算向量的长度" class="headerlink" title="用内积计算向量的长度"></a>用内积计算向量的长度</h2><p>向量长度:$\langle x, x\rangle$</p>
+<p>向量在不同内积下长度不同，不同内积代表不同的度量尺度</p>
+<h2 id="距离"><a href="#距离" class="headerlink" title="距离"></a>距离</h2><p>考虑一个内积空间$\langle \mathbb{V},\langle\cdot,\cdot\rangle\rangle$，我们称$d(x,y):=||x-y||=\sqrt{\langle x-y, x-y\rangle}$为$x,y\in\mathbb{V}$的距离。如果我们用点积作为内积，则上述距离称为欧几里得距离，简称欧氏距离</p>
+<p>向量间的距离不必需要内积，使用范数就够了</p>
+<h2 id="度量-1"><a href="#度量-1" class="headerlink" title="度量"></a>度量</h2><p>考虑一个内积空间$\langle \mathbb{V},\langle\cdot,\cdot\rangle\rangle$，我们称映射$d:\mathbb{V}\times\mathbb{V}\rightarrow\mathbb{R}$（$(x,y)\rightarrow d(x,y)$）为度量</p>
+<h2 id="度量空间"><a href="#度量空间" class="headerlink" title="度量空间"></a>度量空间</h2><p>一个度量空间由一个有序对$(\mathbb{V},d)$表示，其中$\mathbb{V}$是一种集合，$d$是定义在V上的一种度量</p>
+<p>对任意$x,y,z\in\mathbb{V}$，需满足：</p>
+<ul>
+<li>非负性：$d(x,y)\ge0$，且$d(x,y)=0\Leftrightarrow x=y$</li>
+<li>对称性：$d(x,y)=d(y,x)$</li>
+<li>三角不等式：$d(x,z)\le d(x,y)+d(y,z)$</li>
+</ul>
+<p>度量空间也称为距离空间</p>
+<h2 id="夹角"><a href="#夹角" class="headerlink" title="夹角"></a>夹角</h2><p>$cos\theta=\frac{x^Ty}{||x||_2||y||_2}$</p>
+<p>当$x^Ty=0$时，向量$x,y$之间角度为$90^\circ$，称为正交。当$\theta=0^\circ或180^\circ$时，$x,y$成一直线，即$y=kx,k\in\mathbb{K}$，称为平行</p>
+<h2 id="正交"><a href="#正交" class="headerlink" title="正交"></a>正交</h2><p>如果$\langle x,y\rangle=0$，则称$x,y$正交，记作$x\perp y$，特别低，如果$||x||=1=||y||$，也即是单位向量时，称$x,y$标准正交。</p>
+<ul>
+<li>两两正交的向量组线性无关</li>
+</ul>
+<p>证明：反证法4.2 25:00</p>
+<ul>
+<li>计算夹角来判断是否正交</li>
+</ul>
+<h2 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h2><p>$AA^T=I=A^TA$</p>
+<p>因此$A^{-1}=A^T$</p>
+<p><strong>正交矩阵变换的特殊性：用正交矩阵A作用一个向量x时，向量x的长度不变，两个向量x,y的夹角也不会在正交矩阵的作用下改变</strong>，用点积作为内积时：</p>
+<ul>
+<li>$||Ax||^2=(Ax)^T(Ax)=x^TA^TAx=x^TIx=x^Tx=||x||^2$</li>
+<li>$\cos\omega=\frac{(Ax)^T(Ax)}{||Ax||||Ay||}=\frac{x^TA^TAy}{\sqrt{x^TA^TAxy^YA^YAy}}=\frac{x^Ty}{||x||||y||}$</li>
+</ul>
+<p>也就是说，角度和长度在正交矩阵的变化下是一个不变量</p>
+<h1 id="2021-03-19"><a href="#2021-03-19" class="headerlink" title="2021.03.19"></a>2021.03.19</h1><h2 id="闵可夫斯基距离"><a href="#闵可夫斯基距离" class="headerlink" title="闵可夫斯基距离"></a>闵可夫斯基距离</h2><p>$d(x_i,x_j)=\sqrt[p]{\sum\limits_{k=1}^m|x_{ki}-x_{kj}}|^p||x_i-x_j||_p$</p>
+<p>p=2：欧氏距离</p>
+<p>p=1：曼哈顿距离</p>
+<p>p=$\infty$：切比雪夫距离</p>
+<p>缺点：给定二维样本（身高，体重）。但身高和体重的单位不同，不等价</p>
+<h2 id="余弦相似度"><a href="#余弦相似度" class="headerlink" title="余弦相似度"></a>余弦相似度</h2><p>$sim_{\cos}(x_i,x_j)=\frac{x_i\cdot x_j}{|x_i||x_j|}$</p>
+<p>在夹角上区分差异，而对绝对的数值不敏感</p>
+<p>可以采用调整余弦相似度，即对所有维度上的数值都减去一个均值</p>
+<h2 id="汉明距离"><a href="#汉明距离" class="headerlink" title="汉明距离"></a>汉明距离</h2><p>表示两个（相同长度）字符串对应位置上值不等的个数</p>
+<h2 id="矩阵的内积：矩阵向量化"><a href="#矩阵的内积：矩阵向量化" class="headerlink" title="矩阵的内积：矩阵向量化"></a>矩阵的内积：矩阵向量化</h2><p>将$m\times n$实矩阵A，将这个矩阵拉长为$mn\times 1$的向量，$a=vec(A)$</p>
+<p>$A,B$是线性空间$\mathbb{R}^{m\times n}$中任意两个实矩阵，定义内积：$\langle A,B\rangle=\langle vec(A),vec(B)\rangle$</p>
+<h2 id="矩阵范数"><a href="#矩阵范数" class="headerlink" title="矩阵范数"></a>矩阵范数</h2><p>定义$||\cdot||:\mathbb{R}^{m\times n}\rightarrow\mathbb{R}$满足以下性质</p>
+<ul>
+<li>$||A||\ge0$ 正定条件</li>
+<li>$||cA||=|c|||A||$ 齐次条件</li>
+<li>$||A+B||\le||A||+||B||$三角不等式</li>
+</ul>
+<p>则称$||\cdot||$是$\mathbb{R}^{m\times n}$上一个（广义）矩阵范数</p>
+<p><strong>（vec(A)的）$l_1$范数</strong>：$||A||_{m1}:=\sum\limits_{i=1}^m\sum\limits_{j=1}^n|a_{ij}|$</p>
+<p>三条性质易证 证明见4.4 5:00</p>
+<p><strong>（vec(A)的）$l_\infty$范数</strong>：$||A||_{m\infty}:=\max\limits_{1\le i\le m,1\le j\le n}|a_{ij}|$</p>
+<p>$l_2$范数又称为$Frobenius$范数：$||A||_{F}:=(\sum\limits_{i=1}^m\sum\limits_{j=1}^n|a_{ij}|^2)^{\frac{1}{2}}=Tr(A^TA)^{\frac{1}{2}}$</p>
+<p>矩阵范数的<strong>相容性条件</strong>： $||AB||\le||A||||B||$</p>
+<p>不满足相容性条件的矩阵范数，称为广义矩阵范数</p>
+<p>$||\cdot||_{m1},||\cdot||_F$满足相容性条件，但$||\cdot||_{m\infty}$不满足相容性条件</p>
+<p> 修改$||\cdot||_{m\infty}$使其满足相容性条件：$||A||_{m_\infty}:=n\max\limits_{1\le i\le m,1\le j\le n}|a_{ij}|$</p>
+<h2 id="矩阵范数和向量范数的相容性"><a href="#矩阵范数和向量范数的相容性" class="headerlink" title="矩阵范数和向量范数的相容性"></a>矩阵范数和向量范数的相容性</h2><p>若$||Ax||_v\le||A||_M||x||_v$，则称矩阵范数$||\cdot||_M$和向量范数$||\cdot||_v$相容</p>
+<h2 id="算子范数"><a href="#算子范数" class="headerlink" title="算子范数"></a>算子范数</h2><p>对任意向量范数，都可以构造一个与该矩阵范数相容的矩阵范数（算子范数）</p>
+<p>$||A||=\max\{||Ax||_v:x\in\mathbb{R}^n,||x||_v=1\}=max\{\frac{||Ax||_v}{||x||_v}:x\in \mathbb{R}^n,x\ne 0\}$</p>
+<ul>
+<li>算子范数都满足相容性条件</li>
+</ul>
+<p>$p=1,\infty,2$时，向量$l_p$范数诱导出的算子范数分别是：最大列（绝对值）和、最大行（绝对值）和，和最大谱（$A^TA$的最大特征值开根号?）</p>
+<h2 id="算子范数的几何意义"><a href="#算子范数的几何意义" class="headerlink" title="算子范数的几何意义"></a>算子范数的几何意义</h2><h1 id="2021-03-22"><a href="#2021-03-22" class="headerlink" title="2021.03.22"></a>2021.03.22</h1><h2 id="损失函数-L-y-i-f-x-i"><a href="#损失函数-L-y-i-f-x-i" class="headerlink" title="损失函数$L(y_i,f(x_i))$"></a>损失函数$L(y_i,f(x_i))$</h2><p>$R_{srm}(f)=\frac{1}{N}\sum\limits_{i=1}^NL(y_i,f(x_i))+\lambda J(f)$</p>
+<p>其中$y_i$是特征$x_i$的标签，$f(x_i)$是模型$f$对于特征$x_i$给出的一个预测值；$L(y_i,f(x_i))$是损失函数，用于衡量单个样本预测值和真实值的误差；</p>
+<p>$\frac{1}{N}\sum\limits_{i=1}^NL(y_i,f(x_i))$是误差项，或代价函数</p>
+<p>$\lambda J(f)$是正则化项，主要用于防止模型过拟合</p>
+<ul>
+<li>基于距离度量的损失</li>
+<li>非距离度量形式的损失</li>
+</ul>
+<h2 id="距离相关损失函数"><a href="#距离相关损失函数" class="headerlink" title="距离相关损失函数"></a>距离相关损失函数</h2><ul>
+<li>0-1损失函数</li>
+<li>绝对损失函数</li>
+<li>平方损失函数</li>
+</ul>
+<h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><ul>
+<li>经验风险：$min Loss(\theta, X,Y)$</li>
+<li>结构风险：$min Loss(\theta,X,Y)+\lambda J(\theta)$</li>
+</ul>
+<p>一个向量的元素个数正好是向量的$l_0$范数</p>
+<h2 id="l-1-范数"><a href="#l-1-范数" class="headerlink" title="$l_1$范数"></a>$l_1$范数</h2><p>$l_1$范数是$l_0$范数的最优凸近似，而且它比$l_0$范数更容易优化求解，所以$l_1$范数被称为“稀疏规则算子”(Lasso)，常常可应用在</p>
+<ul>
+<li>稀疏编码</li>
+<li>特征选择</li>
+<li>压缩感知</li>
+</ul>
+<p>$l_1$和$l_0$范数都可以实现稀疏，$l_1$优化求解特性更好因此广泛应用。</p>
+<p>稀疏矩阵的优点：计算速度更快、存储成本低、可解释性强</p>
+<h2 id="l-2-范数"><a href="#l-2-范数" class="headerlink" title="$l_2$范数"></a>$l_2$范数</h2><p>最小化$l_2$范数可以使得参数向量的元素值很小，大都接近于0，可以改善过拟合、易于优化</p>
+<p>$l_2$范数是光滑的，$l_1$范数存在不可导点，但因此$l_2$范数较差，因为会倾向于将异常值的影响变得更大</p>
+<h1 id="2021-03-25"><a href="#2021-03-25" class="headerlink" title="2021.03.25"></a>2021.03.25</h1><h2 id="A-2-1-和-A-1-2-范数"><a href="#A-2-1-和-A-1-2-范数" class="headerlink" title="$||A||_{2,1}$和$||A||_{1,2}$范数"></a>$||A||_{2,1}$和$||A||_{1,2}$范数</h2><p>$||A||_{2,1}=\sum\limits_{j=1}^n||a_j||_2=\sum\limits_{j=1}^n(\sum\limits_{i=1}^m|A_{ij}|^2)^\frac{1}{2}$</p>
+<p>最小化$||A||_{2,1}$范数能让矩阵A不同行之间（列向量）稀疏</p>
+<p>$||A||_{1,2}=(\sum\limits_{j=1}^n||a_j||^\frac{1}{2})=(\sum\limits_{j=1}^n(\sum\limits_{i=1}^m|A_{ij}|^2)^\frac{1}{2}$</p>
+<p>最小化$||A||_{1,2}$范数能让矩阵行内元素互斥，即存在0元素但不能全为0</p>
+<h2 id="核范数"><a href="#核范数" class="headerlink" title="核范数"></a>核范数</h2><p>$||A||_*=Tr(\sqrt{A^TA})$</p>
+<p>核范数指矩阵奇异值的和，最小化核范数，可以导致低秩矩阵。</p>
+<p>应用：矩阵填充，推荐系统、鲁棒PCA</p>
+<h2 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h2><p>应用：信号降噪滤波、数据降维、主成分分析、时间序列分析</p>
+<p>许多问题的最优求解可归结为数据在某个子空间的投影问题</p>
+<h2 id="矩阵四个基本子空间"><a href="#矩阵四个基本子空间" class="headerlink" title="矩阵四个基本子空间"></a>矩阵四个基本子空间</h2><ul>
+<li>列空间 - 其列向量的所有线性组合的集合 - $Col(A)$</li>
+<li>行空间 - 其行向量的所有线性组合的集合 - $Row(A)=Col(A^T)$</li>
+<li>零空间 - $\{x|Ax=0\}$ - $Null(A)$</li>
+<li>左零空间 - $\{x|A^Tx=0\}$ - $Null(A^T)$（因为$\{x|x^TA=0\}$而被称为左零）</li>
+</ul>
+<p>定理1：</p>
+<ol>
+<li>一系列初等行变换不改变矩阵的行空间</li>
+<li>一系列初等行变换不改变矩阵的零空间</li>
+<li>一系列初等列变换不改变矩阵的列空间</li>
+<li>一系列初等列变换不改变矩阵的左零空间</li>
+</ol>
+<p>零空间计算方法<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149213639">https://zhuanlan.zhihu.com/p/149213639</a></p>
+<p>定理2：</p>
+<ul>
+<li>矩阵的行秩等于列秩，因此$dim(Col(A))=dim(Row(A))=rank(A)$</li>
+</ul>
+<p>定理3：</p>
+<ul>
+<li>$dim(Null(A))=n-rank(A)$</li>
+</ul>
+<p>定理4：</p>
+<ul>
+<li>对于矩阵$A_{m\times n}$有$dim(Col(A))+dim[Null(A)]=n$</li>
+</ul>
+<p>推论：</p>
+<ul>
+<li>对于$A\in\mathbb{R}^{m\times n}$，$dim(Null(A^T))=m-rank(A)$</li>
+</ul>
+<h2 id="四个子空间的正交关系"><a href="#四个子空间的正交关系" class="headerlink" title="四个子空间的正交关系"></a>四个子空间的正交关系</h2><p>定理5：</p>
+<ul>
+<li><p>设$A\in\mathbb{R}^{m\times n}$，有$Col(A)\bigcap Null(A^T)=\{0\}$和$Col(A^T)\bigcap Null(A)=\{0\}$</p>
+<p>证明见4.7 1:30</p>
+</li>
+</ul>
+<p>若$\mathbb{S和T}是R^n$的两个子空间，且$S\bigcap T=\{0\}$，则称$\mathbb{S}$和$\mathbb{T}$无交连。</p>
+<p>若$\forall v\in S,\forall w \in T$，均有$v^Tw=0$，我们说S垂直于T，T垂直于S，记作$S\perp T$，$T\perp S$，或者说子空间S和子空间T是正交的。</p>
+<p>定理6：</p>
+<ul>
+<li><p>正交的两个子空间必定是无交连的。</p>
+<p>证明见4.7 5:50</p>
+<p>但无交连不一定正交</p>
+</li>
+</ul>
+<h2 id="正交补关系"><a href="#正交补关系" class="headerlink" title="正交补关系"></a>正交补关系</h2><p>设$\mathbb{V}\sub \mathbb{R}^n$是一个子空间，$\mathbb{V}$在$\mathbb{R}^n$中的正交补定义为集合$\{w\in \mathbb{R}^n|v^Tw=0,\forall v\in \mathbb{V}\}$，记作$\mathbb{V}^\perp$</p>
+<p>一个空间与它的正交补空间正交，即$\mathbb{V}\perp\mathbb{V}^\perp$，这两个子空间的和是直和</p>
+<p><strong>正交分解</strong>：对于$\mathbb{R}^n$中的任意向量x可以唯一分解成如下形式：$x=x_1+x_2$，其中$x_1\in\mathbb{V},x_2\in\mathbb{V}^\perp$，且$x_1^Tx_2=0$，这种分解形式叫做正交分解</p>
+<ul>
+<li>$Col(A^T)^\perp=Null(A),Col(A)^\perp=Null(A^T)$</li>
+</ul>
+<p>正交补的含义：正交+补充（$R^n$是由Zion关键$\mathbb{V}$补充$\mathbb{V}^\perp$而成）</p>
+<h1 id="2021-03-26"><a href="#2021-03-26" class="headerlink" title="2021.03.26"></a>2021.03.26</h1><h2 id="基本定理"><a href="#基本定理" class="headerlink" title="基本定理"></a>基本定理</h2><ul>
+<li>正交角度：$Col(A^T)\perp Null(A),Col(A)\perp Null(A^T)$</li>
+<li>扩张角度：$Col(A^T)\oplus Null(A)=\mathbb{R}^n,Col(A)\oplus Null(A^T)=\mathbb{R}^n$</li>
+<li>维数角度：$dimCol(A^T)+dimNull(A)=n, dimCol(A)+dimNull(A^T)=m$</li>
+</ul>
+<h2 id="投影-1"><a href="#投影-1" class="headerlink" title="投影"></a>投影</h2><p>如果线性映射$\pi:\mathbb{V}\rightarrow\mathbb{U}$满足$\pi^2=\pi\circ\pi=\pi$则称$\pi$为投影</p>
+<p>设$\pi$对应的矩阵$P_\pi$，称$P_\pi$为投影矩阵</p>
+<h2 id="正交投影"><a href="#正交投影" class="headerlink" title="正交投影"></a>正交投影</h2><p>$\mathbb{U}$是$\mathbb{R}^n$的子空间，求$y\in\mathbb{U}$，使得$||y-x||$最小，即$\pi_\mathbb{U}(x)=arg\min\limits_{y\in U}||y-x||$</p>
+<h2 id="投影到一维子空间"><a href="#投影到一维子空间" class="headerlink" title="投影到一维子空间"></a>投影到一维子空间</h2><p>$\pi_u(x)=\lambda b$</p>
+<ul>
+<li>确定$\lambda=\frac{b^Tx}{b^tb}$</li>
+<li>确定$\pi_U(x)=\frac{b^Tx}{||b||^2}b$，$||\pi_U(x)||=|cos\omega|||x||$，$\omega$是x和b之间的夹角，$cos\omega=\frac{b^Tx}{||b||||x||}$</li>
+<li>确定投影矩阵$P_\pi$=$\frac{bb^T}{||b||^2}$（$bb^T$是一个对称矩阵，而$b^Tb$则是一个标量）</li>
+</ul>
+<h2 id="投影到一般子空间"><a href="#投影到一般子空间" class="headerlink" title="投影到一般子空间"></a>投影到一般子空间</h2><p>设$=(b_1,…,b_n)$是子空间U的一个有序基底。U上的任何投影$\pi_U(x)$必须是U中的一个元素，故有$\pi_U(x)=\sum\limits_{i=1}^n\lambda_ib_i$，逐步确定$\lambda_1,…,\lambda_n$和投影矩阵$P_\pi$</p>
+<ul>
+<li><p>确定$\lambda_1,…,\lambda_n$，因为$\pi_U(x)$是x的投影，所以$x-\pi_U(x)\in Col(B)^\perp=Null(B^T)$</p>
+<p>所以$b_n^T(x-\pi_U(x))=\langle bn, x-\pi_U(x)\rangle=0$</p>
+<p>得到$\lambda=(B^TB)^{-1}B^Tx$</p>
+<p>见4.8 25:00</p>
+</li>
+<li><p>确定$\pi_U(x)=B\lambda=B(B^TB)^{-1}B^Tx$</p>
+</li>
+<li>确定$P_\pi=B(B^TB)^{-1}B^T$</li>
+</ul>
+<h2 id="投影和-Ax-b-无解情况"><a href="#投影和-Ax-b-无解情况" class="headerlink" title="投影和$Ax=b$无解情况"></a>投影和$Ax=b$无解情况</h2><p>方程无解说明b不在A的范围内，即向量b不在A的列张成的子空间中</p>
+<p>我们可以找到一个近似解</p>
+<p>想法是在A的列张成的子空间中找到最接近b的向量，即计算b到A列张成的子空间上的正交投影</p>
+<p>该解被称为超定系统的最小二乘解</p>
+<h2 id="标准正交基"><a href="#标准正交基" class="headerlink" title="标准正交基"></a>标准正交基</h2><p>$e_1,e_2,…,e_r$是线性空间V的一个基，若任意向量$a=\lambda_1e_1+\lambda_2e_2+…+\lambda_re_r$</p>
+<p>为求其中的系数$\lambda_i(i=1,…,r)$可以计算$e_i$与$a$的内积，有$\lambda_i=\langle a,e_i\rangle$</p>
+<h2 id="Gram-Schimidt正交化"><a href="#Gram-Schimidt正交化" class="headerlink" title="Gram-Schimidt正交化"></a>Gram-Schimidt正交化</h2><p>$b1=a1;\\b2=a2-\frac{\langle b_1,a_2\rangle}{\langle b_1, b_1\rangle}b1;\\br=a_r-\frac{\langle b_1,a_r\rangle}{\langle b_1,b_1\rangle}b1-\frac{\langle b_2,a_r\rangle}{\langle b_2,b_2\rangle}b2-…-\frac{\langle b_{r-1},a_r\rangle}{\langle b_{r-1},b_{r-1}\rangle}b_{r-1}$</p>
+<p>然后单位化，取$e_1=\frac{1}{||b1||}b1,…,e_r=\frac{1}{||br||}br$，就是V的一个规范正交基</p>
+<p>例见4.9 12:00</p>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><p>在平面内，一个图形绕着一个顶点旋转一定角度得到另一个图形的变化叫做旋转。</p>
+<p>旋转是一个线性映射，可以看成欧氏空间的一个自同构，它把空间中元素映射为另外一个元素。</p>
+<p>旋转保持基底性质不变：例见4.10 3:50</p>
+<h2 id="mathbb-R-n-中的旋转"><a href="#mathbb-R-n-中的旋转" class="headerlink" title="$\mathbb{R}^n$中的旋转"></a>$\mathbb{R}^n$中的旋转</h2><p><strong>Givens旋转矩阵</strong></p>
+<script type="math/tex; mode=display">
+R_{i,j}(\theta)=
+\left[
+\begin{array}{}
+I_{i-1}&&&&\\
+&cos\theta&&-sin\theta&\\
+&&I_{j-i-1}&&\\
+&sin\theta&&cos\theta&\\
+&&&&I_{n-j}\\
+\end{array}
+\right]</script><p>2维旋转是n-2时$Givens$旋转的一个特殊情形</p>
+<h2 id="旋转矩阵的性质"><a href="#旋转矩阵的性质" class="headerlink" title="旋转矩阵的性质"></a>旋转矩阵的性质</h2><ul>
+<li><p>$R$是旋转矩阵当且仅当它是正交矩阵且$det(R)=1$</p>
+</li>
+<li><p>保距性：设$R_\theta$是旋转矩阵，$\forall x,y\in\mathbb{R}^n$，有$||x-y||_2=||R_\theta(x)-R_\theta(y)||_2$</p>
+<p>即空间中两个点在旋转前后距离保持不变（可利用正交矩阵变换后距离不变的性质证明）</p>
+</li>
+<li><p>保角性：设$R_\theta$是旋转矩阵，$\forall x,y\in\mathbb{R}^n\setminus\{0\}$，有$\frac{\langle x, y\rangle}{||x||||y||}=\frac{\langle R_\theta(x),R_\theta(y)\rangle}{||R_\theta(x)||||R_\theta(y)||}$，即两个向量在旋转前后角度保持不变</p>
+</li>
+<li><p>多个旋转矩阵的乘积仍然是旋转矩阵</p>
+</li>
+<li><p>仅在二维情形有可交换性即$R_\theta R\phi=R_\phi R\theta$,，在三维或更高维，交换性不成立</p>
+</li>
+</ul>
+<h1 id="2021-03-30"><a href="#2021-03-30" class="headerlink" title="2021.03.30"></a>2021.03.30</h1><h2 id="群"><a href="#群" class="headerlink" title="群"></a>群</h2><p>性质：</p>
+<ol>
+<li>封闭性</li>
+<li>结合性</li>
+<li>有单位元</li>
+<li>有逆元</li>
+</ol>
+<p>如果有$\forall x,y\in\mathbb{G}:x\circ y=y\circ x$则$G=(\mathbb{G},\circ)$称作阿贝尔群，或称作可交换群</p>
+<p>$\mathbb{R}^{n\times n}$中的所有旋转矩阵构成的集合再矩阵乘法下构成群，称为特殊正交群，记作$SO(n)$，当n=2时，$SO(2)$是阿贝尔群</p>
+<p>两个例子：Procrustes问题和Wahba问题 4.10 24:00</p>
+<h2 id="反射矩阵，Householder变换矩阵"><a href="#反射矩阵，Householder变换矩阵" class="headerlink" title="反射矩阵，Householder变换矩阵"></a>反射矩阵，Householder变换矩阵</h2><p>设$w\in R^n$满足$||w||_2=1$，定义$H\in\mathbb{R}^{n\times n}$为$H=I-2ww^T$则称H为Householder变换矩阵，也叫做初等反射矩阵或者镜像变换</p>
+<p>性质：</p>
+<ul>
+<li>对称性：$H^T=H$</li>
+<li>正交性：$H^TH=I$</li>
+<li>对合性：$H^2=I$</li>
+<li>反射性：对任意的$x\in R^n$，$Hx$是$x$关于$w$的垂直超平面的镜像反射</li>
+</ul>
+<p>证见4.11 8:00</p>
+<ul>
+<li>Householder矩阵的行列式是-1</li>
+<li>反射矩阵乘以反射矩阵会得到旋转矩阵</li>
+<li>旋转矩阵乘以反射矩阵会得到反射矩阵</li>
+</ul>
+<h2 id="Haar矩阵-哈尔小波变换"><a href="#Haar矩阵-哈尔小波变换" class="headerlink" title="Haar矩阵/哈尔小波变换"></a>Haar矩阵/哈尔小波变换</h2><p>Haar矩阵是哈尔小波变换的离散情形。Haar矩阵中的每个元素都是0，+1或者-1，并且任意两行都是正交的。n=2时，</p>
+<script type="math/tex; mode=display">
+H_2=
+\left[
+\begin{array}{}
+1&1\\
+1&-1
+\end{array}
+\right]</script><p><strong>Haar矩阵的构造：</strong>4.12 4;00</p>
+<h2 id="Hadamard矩阵"><a href="#Hadamard矩阵" class="headerlink" title="Hadamard矩阵"></a>Hadamard矩阵</h2><p>$H_n\in \mathbb{R}^{n\times n}$称为Hadamard矩阵，若其所有元素取+1或-1，且满足$H_nH_n^T=H_n^TH_n=nI_n$，其中$I_n$是n阶单位矩阵</p>
+<ul>
+<li>用-1乘Hadamard矩阵的任意行或者任意列得到的结果仍然是Hadamard矩阵</li>
+<li>称第一行和第一列所有元素都是+1的Hadamard矩阵为规范化的Hadamard矩阵</li>
+<li>$\frac{1}{\sqrt n}$是标准正交矩阵</li>
+</ul>
+<p>定理2：规范化的Hadamard矩阵具有构造公式</p>
+<script type="math/tex; mode=display">
+H_{2n}=
+\left(
+\begin{array}{}
+H_n&H_n\\
+H_n&-H_n
+\end{array}
+\right)
+,H_{2}=
+\left(
+\begin{array}{}
+1&1\\
+1&-1
+\end{array}
+\right)</script><p>证见4.12 10:00</p>
+<p>若$H$作为线性空间的一组基，由于Hadamard矩阵是正交矩阵而且元素只取+1或-1，我们计算一个向量在这组基下的坐标只需要加减法，并将最后的结果同一除以H的阶数。因此计算变换后的向量只需要加减法而不需要乘法。</p>
+<h2 id="克罗内克积"><a href="#克罗内克积" class="headerlink" title="克罗内克积"></a>克罗内克积</h2><p>设$A=(a_{ik})_{m\times n},B=(b_{rl})_{r\times s}$，是域$\mathbb{K}$中的两个矩阵，则矩阵$C=(c_{\lambda\mu})_{mr\times ns}$称为A与B的克罗内克积，记作$C=A\otimes B$</p>
+<p>克罗内克积的性质：</p>
+<ul>
+<li>$A\otimes (B_1+B_2)=A\otimes B_1+A\otimes B_2$</li>
+<li>$(A_1+A_2)\otimes B=A_1\otimes B + A_2\otimes B$</li>
+<li>$A\otimes (B\otimes C)=(A\otimes B)\otimes C$</li>
+<li>$(A\otimes B)^T=A^T\otimes b^T$</li>
+<li>$(A\otimes B)(C\otimes D)=(AC)\otimes (BD)$</li>
+</ul>
+<p>利用克罗内克积，我们可以利用n阶Haar矩阵构造2n阶的Haar矩阵：</p>
+<script type="math/tex; mode=display">
+H_{2n}=\left(
+\begin{array}{}
+H_n\otimes(1,1)\\
+I_n\otimes(1,-1)
+\end{array}
+\right)</script><p>也可以利用克罗内克积构造$2^k$阶的Hadamard矩阵：$H_{2^k}=H_2^{\otimes k}$</p>
+<h2 id="共轭转置"><a href="#共轭转置" class="headerlink" title="共轭转置"></a>共轭转置</h2><p>设矩阵$A=(a_{ij})_{n\times n}\in\mathbb{C}^{n\times n}$，则矩阵A的共轭转置矩阵为$A^H=(\overline{A}^T)=(\overline{A})^T=(\overline{a_{ji}})_{n\times n}$</p>
+<ul>
+<li>性质 4.12 26:00</li>
+</ul>
+<h2 id="傅里叶矩阵"><a href="#傅里叶矩阵" class="headerlink" title="傅里叶矩阵"></a>傅里叶矩阵</h2><p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/image-20210330143458078.png" alt="image-20210330143458078"></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/03/27/%E5%BD%92%E6%A1%A3/%E5%8D%9A%E5%BC%88%E9%A2%98%E6%95%B4%E7%90%86/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/03/24/XCPC%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BD%95/team/2019ICPC-ECFinal/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2021&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

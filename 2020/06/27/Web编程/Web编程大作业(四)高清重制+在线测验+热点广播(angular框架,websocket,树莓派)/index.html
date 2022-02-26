@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Web编程大作业(四)高清重制+在线测验+热点广播(angular框架,websocket,树莓派) | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",nodejs,web">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2020/06/27/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2020/06/27/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Web编程大作业(四)高清重制+在线测验+热点广播(angular框架,websocket,树莓派) | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="nodejs"> <meta property="og:article:tag" content="web"> 
+
+    
+        <meta property="article:published_time" content="Sat Jun 27 2020 12:34:10 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jun 03 2021 20:15:16 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2020/06/27/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2020/06/27/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/index.html",
+    "headline": "Web编程大作业(四)高清重制+在线测验+热点广播(angular框架,websocket,树莓派)",
+    "datePublished": "Sat Jun 27 2020 12:34:10 GMT+0800",
+    "dateModified": "Thu Jun 03 2021 20:15:16 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",nodejs,web",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6"><span class="post-toc-text">1.高清重制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-express%E7%9A%84%E5%86%8D%E7%90%86%E8%A7%A3"><span class="post-toc-text">1. express的再理解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-angular%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E3%80%81%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98"><span class="post-toc-text">2. angular作用域问题、自动同步问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E5%86%99html%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%80%E7%82%B9%E6%96%B9%E6%B3%95"><span class="post-toc-text">3. 写html页面的一点方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">2. 在线测验功能实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD"><span class="post-toc-text">3. 热点广播</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8F%91%E9%80%81"><span class="post-toc-text">网站文件夹发送</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">树莓派安装数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%89%8B%E6%9C%BA%E7%AB%AF%E6%B5%8B%E8%AF%95"><span class="post-toc-text">手机端测试</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E5%B0%8F%E7%BB%93"><span class="post-toc-text">4. 小结</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Web编程大作业(四)高清重制+在线测验+热点广播(angular框架,websocket,树莓派)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>6月 27, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/web/" rel="tag">web</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Web编程大作业(四)高清重制+在线测验+热点广播(angular框架,websocket,树莓派)&url=http://example.com/2020/06/27/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Web编程大作业(四)高清重制+在线测验+热点广播(angular框架,websocket,树莓派)&url=http://example.com/2020/06/27/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/06/27/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/06/27/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><br><br><span id="more"></span></p>
+<h2 id="1-高清重制"><a href="#1-高清重制" class="headerlink" title="1.高清重制"></a>1.高清重制</h2><p>前几篇写的代码功能更多的是从技术层面出发，把网站需要用到的业务逻辑打通，但没有怎么考虑网页的外观样式和代码结构之类的问题。同时也是觉得因为代码结构写的太乱，很难在此基础上加更多的功能和样式。</p>
+<p>于是就从零开始，手写了整个express框架，配合angular重新写了一个高清重制版。样式方面没有用bootstrap，一方面感觉bootstrap还是需要一些css基础，另一方面用flex手写布局本身就挺方便了，基本能满足所有需求，并且更加灵活，可以知道每个属性对html元素产生的影响。<br><img src="https://img-blog.csdnimg.cn/20200627122250843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122300136.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122306327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020062712231125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122316507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122321476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122326274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122332269.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122336520.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>大多数技术方面的逻辑其实都已经体现在前两篇博客了，还有一些样式方面的需要的话也可以直接看代码，这里就不多赘述。</p>
+<p>说几个重制过程中感觉比较有体会的点和踩过的坑吧。</p>
+<h3 id="1-express的再理解"><a href="#1-express的再理解" class="headerlink" title="1. express的再理解"></a>1. express的再理解</h3><p>在express的文档中有这样一句话<br><img src="https://img-blog.csdnimg.cn/20200627122345195.png" alt="在这里插入图片描述"><br>所谓中间件，指的就是用app.use所调用的部件，一些express内置的，一些是自定义的。理解中间件在我看来其实只要把它们当成一种处理http请求的方式即可。只要这个http请求的地址满足app.use的第一个参数（若缺省则默认为’/‘），那么就会调用第二个参数的中间件。</p>
+<p>从之前经常用的路由器说起：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="keyword">function</span>(<span class="params">req,res,next</span>)&#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;hello~&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><br>这段代码很好理解，只要在该路由下收到get请求，就会给页面返回’hello~’的响应。可以说function(req,res,next)这个函数就是一个中间件，是一个在收到请求后“被调用”的组件。</p>
+<p>那么完全可以用这个思路去理解app.use，区别在于app.use不仅限于get请求而能够接受任何类型的http请求。同时，express.Router()本身就可以在主程序app.js被当作一个中间件来使用：（express.Router()是一个内置的路由中间件，本质上是帮助我们根据不同的路径进行代码分离）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">&#x27;./router/index.js&#x27;</span>);</span><br><span class="line">app.<span class="title function_">use</span>(indexRouter);<span class="comment">//第一个参数的缺省值为&#x27;/&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>一些中间件仅仅是为了引入某个功能，用文档中的话说，这种中间件不是函数调用，而是“使能”的意思，比如使后端能够解析req.body：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用来解析req.body,分别对应application/json和application/x-www-form-unlencoded</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br></pre></td></tr></table></figure><br>还有一些第三方中间件可以有各种其他的功能，比如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//打印和记录请求信息</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">logger</span>(<span class="string">&#x27;dev&#x27;</span>));</span><br><span class="line"><span class="comment">//“使能”通过req.cookies获取cookie</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">cookieParser</span>());</span><br></pre></td></tr></table></figure><br>还有一些则负责对http请求返回响应，通常是我们自定义的一些中间件，为了代码整洁清晰，通常把这些中间件放进路由器里，再通过路由中间件express.Router()执行。</p>
+<p>值得一提的是，http请求除了对网址的直接访问，还包括了html元素中src属性的间接访问。对主页的一次get请求可能包含了非常多的请求，包括html引入的css样式、script代码、各种图片资源等等，比如我访问了一次首页，实际上发生了9次get请求：<br><img src="https://img-blog.csdnimg.cn/20200627122352597.png" alt="在这里插入图片描述"><br>对于每一个get请求，无论是直接还是间接的，都会经过设置的中间件。为了让网页能正常找到这些静态资源，还需要用express.static()这个中间件设置静态资源的路径（可以理解为重定向）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname+<span class="string">&#x27;/public&#x27;</span>)));</span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/angular&#x27;</span>,express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname+<span class="string">&#x27;/node_modules/angular&#x27;</span>)));</span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/jquery&#x27;</span>,express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname+<span class="string">&#x27;/node_modules/jquery&#x27;</span>)));</span><br></pre></td></tr></table></figure></p>
+<p>以上就是我对中间件的一点理解。。其实理解中间件也就等同于理解express框架本身。在手写express的时候经常会发现以前原本没有遇到过的问题（比如说不能用req.body获取post请求数据，不能用req.cookies获取当前网页cookie之类的问题），折腾半天之后发现原来是没有引入对应的中间件导致的。所以这个过程其实非常能加深对于中间件作用的理解，也能明白每一个中间件到底对应了什么功能，这些功能如何产生作用，继而明白为什么要写这个中间件。在此基础上再去文档里看各种自定义中间件的request、response的属性和方法也会变得容易很多。</p>
+<p>reference:<a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/">https://www.expressjs.com.cn/</a></p>
+<h3 id="2-angular作用域问题、自动同步问题"><a href="#2-angular作用域问题、自动同步问题" class="headerlink" title="2. angular作用域问题、自动同步问题"></a>2. angular作用域问题、自动同步问题</h3><p>这是我课堂页面的导航栏<br><img src="https://img-blog.csdnimg.cn/20200627122401269.png" alt="在这里插入图片描述"><br>利用angular，在写课堂页面时我想到了一个看上去还比较优雅的写法，可以实现页面切换，同时保证各个页面的数据都能实时更新。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-include</span>=<span class="string">&quot;&#x27;html/chat.html&#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&#x27;container&#x27;</span> <span class="attr">ng-show</span>=<span class="string">&quot;chatIsShow&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-include</span>=<span class="string">&quot;&#x27;html/file.html&#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&#x27;container&#x27;</span> <span class="attr">ng-show</span>=<span class="string">&quot;fileIsShow&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-include</span>=<span class="string">&quot;&#x27;html/problem.html&#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&#x27;container_problem&#x27;</span> <span class="attr">ng-show</span>=<span class="string">&quot;problemIsShow&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><br>也就是通过ng-include引入三张网页，同时置于class页面中。使用ng-show控制页面的可见性，并确保同一时间只有一张页面显示，另外两张页面均隐藏。这样一来，即使我当前显示的是“课堂测验”页面，“实时消息”的页面仍然存在，其中的内容依然能正常地发生改变。当用户切换过去即可看到这段时间的实时消息了。</p>
+<p>然而遇到了一个问题，在ng-include内部，通过ng-model绑定的变量在class中无法正常被捕获。</p>
+<p>比如说chat.html的一个input元素是这样的<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&#x27;message_input&#x27;</span> <span class="attr">ng-model</span>=<span class="string">&quot;chatMessage&quot;</span> <span class="attr">type</span>=<span class="string">&#x27;text&#x27;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入消息&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><br>通常\\$scope.chatMessage即可获取这个输入框里的内容，但是现在不行了。后来查了一下，捕获不到的原因是因为外面套了一个ng-include。在angular中，ng-include（包括ng-repeat,ng-switch,ng-view,ng-controller）实际上会创建一个新的作用域，而这个新作用域就脱离了class中\\$scope的作用范围。解决方法是在chatMessage前加上\\$parent，因为这个新作用域是继承自父级作用域的，可以用\\$parent调用父scope（\\$parent是子作用域指向父作用域的一个引用），也就是把input的内容绑定在class的作用域上。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- $parent解决子页面作用域问题，否则数据不能实时更新 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&#x27;message_input&#x27;</span> <span class="attr">ng-model</span>=<span class="string">&quot;$parent.chatMessage&quot;</span> <span class="attr">type</span>=<span class="string">&#x27;text&#x27;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入消息&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><br>同时还有一个小问题，angular的ng-model模型绑定本来是可以自动同步的，也就是修改变量值后，页面中显示的内容会同步发生改变。但是套了一层ng-include之后有时也会失去这个特性。。初步猜测也是因为这个作用域变化的问题。解决方法也很简单，每次修改变量值后，通过\\$scope.\\$apply()手动传播一下model的变化（即更新页面）即可。</p>
+<p>这两个问题解决之后很自然引入了一个叫做“angular作用域”的概念，虽然暂时也没有别的理解，但是用$parent来追踪父-子关系应该可以解决大部分问题了。</p>
+<h3 id="3-写html页面的一点方法"><a href="#3-写html页面的一点方法" class="headerlink" title="3. 写html页面的一点方法"></a>3. 写html页面的一点方法</h3><p>其实我觉得写html要比js要累的多。。但是又不得不写。。个人觉得一个好的html代码应该要尽量做到以下几点:</p>
+<ol>
+<li>前、后端、样式分离</li>
+<li>对于每一块页面结构(比如一行)都应该包含在一个块里（比如一个\<div>）,同时尽量减少多余的父元素（便于样式设计）</li>
+<li>样式复用率尽可能高</li>
+<li>class和id的命名有一定层级逻辑（但是又不能太复杂），用同样的class控制同样的样式，确保id唯一，便于用getElementById获取</li>
+</ol>
+<p>比如如果我要设计下图这个界面：<br><img src="https://img-blog.csdnimg.cn/2020062712242685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那么首先先大致根据行来分层，找出样式相同的行<br><img src="https://img-blog.csdnimg.cn/20200627122431884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后先用&lt; div &gt;把整体框架写出来，同时设置好class属性，将相同的行设置成相同的class<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;container&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;title_row&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;input_row&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;input_row&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;input_row&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;input_row&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;identify_div&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;identify_div&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;input_row&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;button_row&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;return_row&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这样子先把整体框架定下来之后样式的问题就比较容易解决，而且即使某个部分写乱了也只是在一个\<div>的范围里，不会破坏整体的思路。</p>
+<h2 id="2-在线测验功能实现"><a href="#2-在线测验功能实现" class="headerlink" title="2. 在线测验功能实现"></a>2. 在线测验功能实现</h2><p>这个功能实现的步骤：</p>
+<pre><code>step1:[教师用户]在网页中输入题目描述、选项和正确项，上传一道选择题
+step2:[学生用户]收到选择题后可以进行作答，提交后提示回答正确与否，并将回答情况返回至教师端
+step3:[教师用户]可以同步看到两张反映回答情况的echarts图表
+</code></pre><p>每一步中间的数据交换（学生端和教师端的中间桥梁）都由websocket服务器完成。</p>
+<p>下面按照一次完整的在线测验的时间顺序把逻辑和代码理一遍。</p>
+<ol>
+<li>class页面设置两个div，分别对应学生和教师看到的内容，用ng-show控制可见性<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-show</span>=<span class="string">&#x27;!isTeacher&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;container_student&#x27;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-show</span>=<span class="string">&quot;isTeacher&quot;</span> <span class="attr">class</span>=<span class="string">&#x27;container_teacher&#x27;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+$scope.isTeacher在课堂页面加载时完成初始化，读取cookie决定用户身份<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> loginType=<span class="title function_">getCookie</span>(<span class="string">&#x27;loginType&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> (loginType==<span class="string">&#x27;0&#x27;</span>) $scope.<span class="property">isTeacher</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">else</span> $scope.<span class="property">isTeacher</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+对应的两种初始画面<br><img src="https://img-blog.csdnimg.cn/2020062712244335.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122450467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>教师页面将题目描述、选项和正确项都用ng-model模型绑定，作为提交的内容<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_upload&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_description_row&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.problem_des&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;problem_description&#x27;</span> <span class="attr">placeholder</span>=<span class="string">&quot;输入题目描述&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_options_row&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.problem_opA&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;problem_options&#x27;</span> <span class="attr">placeholder</span>=<span class="string">&quot;输入选项A&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.problem_opB&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;problem_options&#x27;</span> <span class="attr">placeholder</span>=<span class="string">&quot;输入选项B&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_options_row&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.problem_opC&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;problem_options&#x27;</span> <span class="attr">placeholder</span>=<span class="string">&quot;输入选项C&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.problem_opD&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;problem_options&#x27;</span> <span class="attr">placeholder</span>=<span class="string">&quot;输入选项D&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;correct_answer&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;correct_answer_text&#x27;</span>&gt;</span>正确答案：<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_correct_row&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.correct_option&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;correct_options&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;radio&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;0&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;co&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;correct_text&#x27;</span>&gt;</span>选项A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_correct_row&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.correct_option&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;correct_options&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;radio&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;1&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;co&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;correct_text&#x27;</span>&gt;</span>选项B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_correct_row&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.correct_option&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;correct_options&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;radio&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;2&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;co&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;correct_text&#x27;</span>&gt;</span>选项C<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_correct_row&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.correct_option&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;correct_options&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;radio&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;3&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;co&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;correct_text&#x27;</span>&gt;</span>选项D<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &#123;&#123;correct_option&#125;&#125; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span>  <span class="attr">ng-disabled</span>=<span class="string">&#x27;correct_option==undefined&#x27;</span> <span class="attr">ng-click</span>=<span class="string">&#x27;problemSubmit()&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;button&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;problem_submit&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;上传题目&#x27;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>点击提交按钮后调用problemSubmit()，发送websocket请求（同时将统计数据清零，使echarts可见）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$scope.<span class="property">problemSubmit</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> data=&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;problem_upload&#x27;</span>,</span><br><span class="line">        <span class="attr">des</span>:$scope.<span class="property">problem_des</span>,</span><br><span class="line">        <span class="attr">opA</span>:$scope.<span class="property">problem_opA</span>,</span><br><span class="line">        <span class="attr">opB</span>:$scope.<span class="property">problem_opB</span>,</span><br><span class="line">        <span class="attr">opC</span>:$scope.<span class="property">problem_opC</span>,</span><br><span class="line">        <span class="attr">opD</span>:$scope.<span class="property">problem_opD</span>,</span><br><span class="line">        <span class="attr">cor</span>:$scope.<span class="property">correct_option</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//统计数据清零</span></span><br><span class="line">    $scope.<span class="property">amount_opA</span>=<span class="number">0</span>;</span><br><span class="line">    $scope.<span class="property">amount_opB</span>=<span class="number">0</span>;</span><br><span class="line">    $scope.<span class="property">amount_opC</span>=<span class="number">0</span>;</span><br><span class="line">    $scope.<span class="property">amount_opD</span>=<span class="number">0</span>;</span><br><span class="line">    $scope.<span class="property">showResult</span>=<span class="literal">true</span>;</span><br><span class="line">    correct_data=[];</span><br><span class="line">    tot=cnt_cor=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//更新echarts图表</span></span><br><span class="line">    $scope.<span class="title function_">showEcharts</span>();</span><br><span class="line">    websocket.<span class="title function_">send</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Websocket服务器处理题目上传请求，将题目内容和正确答案广播<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (str.<span class="property">type</span>==<span class="string">&#x27;problem_upload&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> mes=&#123;&#125;;</span><br><span class="line">    mes.<span class="property">type</span>=<span class="string">&quot;problem_assign&quot;</span>;</span><br><span class="line">    mes.<span class="property">data</span>=&#123;</span><br><span class="line">        <span class="attr">des</span>:str.<span class="property">des</span>,</span><br><span class="line">        <span class="attr">opA</span>:str.<span class="property">opA</span>,</span><br><span class="line">        <span class="attr">opB</span>:str.<span class="property">opB</span>,</span><br><span class="line">        <span class="attr">opC</span>:str.<span class="property">opC</span>,</span><br><span class="line">        <span class="attr">opD</span>:str.<span class="property">opD</span>,</span><br><span class="line">        <span class="attr">cor</span>:str.<span class="property">cor</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="title function_">broadcast</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(mes));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>学生页面接受WS推送，通过数据的双向绑定，使题目内容直接在页面上显示（用\$scope.\$apply()手动更新避免不同步）。将正确项记录在$scope.test_cor中用于比对。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (type == <span class="string">&#x27;problem_assign&#x27;</span>)&#123;</span><br><span class="line">    $scope.<span class="property">showTest</span> = <span class="literal">true</span>;</span><br><span class="line">    $scope.<span class="property">test_des</span>=data.<span class="property">des</span>;</span><br><span class="line">    $scope.<span class="property">test_opA</span>=data.<span class="property">opA</span>;</span><br><span class="line">    $scope.<span class="property">test_opB</span>=data.<span class="property">opB</span>;</span><br><span class="line">    $scope.<span class="property">test_opC</span>=data.<span class="property">opC</span>;</span><br><span class="line">    $scope.<span class="property">test_opD</span>=data.<span class="property">opD</span>;</span><br><span class="line">    $scope.<span class="property">test_cor</span>=data.<span class="property">cor</span>;</span><br><span class="line">    $scope.<span class="property">testSubmit_disabled</span>=<span class="literal">false</span>;</span><br><span class="line">    $scope.<span class="property">test_msg</span>=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    $scope.$apply();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+学生页面的前端代码，同样将选项用ng-model绑定。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-show</span>=<span class="string">&#x27;!isTeacher&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;container_student&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-show</span>=<span class="string">&#x27;showTest&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;problem_test&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_title&#x27;</span>&gt;</span>测验题目<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_proplem&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_description&#x27;</span>&gt;</span></span><br><span class="line">                题目描述:&#123;&#123;test_des&#125;&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_row&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.test_option&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;test_options&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;radio&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;0&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;op&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_text&#x27;</span>&gt;</span>A : &#123;&#123;test_opA&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_row&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.test_option&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;test_options&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;radio&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;1&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;op&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_text&#x27;</span>&gt;</span>B : &#123;&#123;test_opB&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_row&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.test_option&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;test_options&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;radio&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;2&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;op&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_text&#x27;</span>&gt;</span>C : &#123;&#123;test_opC&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_row&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&#x27;$parent.test_option&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;test_options&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;radio&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;3&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;op&#x27;</span>&gt;</span> </span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_text&#x27;</span>&gt;</span>D : &#123;&#123;test_opD&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;text_btn_row&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&#x27;test_options_btn&#x27;</span> <span class="attr">ng-disabled</span>=<span class="string">&#x27;test_option==undefined || testSubmit_disabled&#x27;</span> <span class="attr">ng-click</span>=<span class="string">&#x27;$parent.testSubmit()&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;button&#x27;</span> <span class="attr">value</span>=<span class="string">&#x27;提交&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;text_signal_row&#x27;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;test_signal&#x27;</span>&gt;</span>&#123;&#123;test_msg&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-show</span>=<span class="string">&#x27;!showTest&#x27;</span> <span class="attr">class</span>=<span class="string">&#x27;problem_test_signal&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;problem_test_signal_text&#x27;</span>&gt;</span>等待教师上传题目。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+对应效果：<br><img src="https://img-blog.csdnimg.cn/20200627122506760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>学生作答（点击提交按钮后），将选择的选项发送给WS，并将选项与正确项比对，提示回答正确与否。同时通过ng-disabled将提交按钮设置为不可用，避免反复提交。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$scope.<span class="property">testSubmit</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> data = &#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;text_upload&#x27;</span>,</span><br><span class="line">        <span class="attr">op</span>:$scope.<span class="property">test_option</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    websocket.<span class="title function_">send</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ($scope.<span class="property">test_cor</span>==<span class="string">&#x27;0&#x27;</span>) text=<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> ($scope.<span class="property">test_cor</span>==<span class="string">&#x27;1&#x27;</span>) text=<span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> ($scope.<span class="property">test_cor</span>==<span class="string">&#x27;2&#x27;</span>) text=<span class="string">&#x27;C&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> ($scope.<span class="property">test_cor</span>==<span class="string">&#x27;3&#x27;</span>) text=<span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> ($scope.<span class="property">test_option</span>==$scope.<span class="property">test_cor</span>) &#123;</span><br><span class="line">        $scope.<span class="property">test_msg</span>=<span class="string">&#x27;回答正确！&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> $scope.<span class="property">test_msg</span>=<span class="string">&#x27;回答错误~正确答案为 : &#x27;</span>+ text;</span><br><span class="line">    $scope.<span class="property">testSubmit_disabled</span>=<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>WS再次处理学生端的请求，将学生的选项广播。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (str.<span class="property">type</span> == <span class="string">&#x27;text_upload&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> mes=&#123;&#125;;</span><br><span class="line">    mes.<span class="property">type</span>=<span class="string">&#x27;problem_submit&#x27;</span>;</span><br><span class="line">    mes.<span class="property">data</span>=&#123;</span><br><span class="line">        <span class="attr">username</span>:conn.<span class="property">nickname</span>,</span><br><span class="line">        <span class="attr">choice</span>:str.<span class="property">op</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="title function_">broadcast</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(mes));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>最后由教师端接受ws推送，更新数据统计，更新图表。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (type == <span class="string">&#x27;problem_submit&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (data.<span class="property">choice</span>==<span class="string">&#x27;0&#x27;</span>) $scope.<span class="property">amount_opA</span>++;</span><br><span class="line">    <span class="keyword">if</span> (data.<span class="property">choice</span>==<span class="string">&#x27;1&#x27;</span>) $scope.<span class="property">amount_opB</span>++;</span><br><span class="line">    <span class="keyword">if</span> (data.<span class="property">choice</span>==<span class="string">&#x27;2&#x27;</span>) $scope.<span class="property">amount_opC</span>++;</span><br><span class="line">    <span class="keyword">if</span> (data.<span class="property">choice</span>==<span class="string">&#x27;3&#x27;</span>) $scope.<span class="property">amount_opD</span>++;</span><br><span class="line">    <span class="keyword">var</span> text=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (data.<span class="property">choice</span>==$scope.<span class="property">test_cor</span>) &#123;</span><br><span class="line">        cnt_cor++;</span><br><span class="line">    &#125;</span><br><span class="line">    tot++;</span><br><span class="line">    $scope.$apply();</span><br><span class="line">    correct_data.<span class="title function_">push</span>((cnt_cor/tot*<span class="number">100</span>).<span class="title function_">toFixed</span>(<span class="number">2</span>));</span><br><span class="line">    $scope.<span class="title function_">showEcharts</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>图表的更新方式($scope.showEcharts)：同时更新饼状图和折线图（正确率通过:<em>正确个数/总提交数</em>进行计算并保留两位小数，添加至correct_data数组中，将该数组作为折线图data的参数）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">$scope.<span class="property">showEcharts</span>= <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;echarts_pie&#x27;</span>));</span><br><span class="line">    <span class="keyword">var</span> option = &#123;</span><br><span class="line">        <span class="attr">title</span>: &#123;</span><br><span class="line">            <span class="attr">text</span>: <span class="string">&#x27;测验情况&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">tooltip</span>: &#123;&#125;,</span><br><span class="line">        <span class="attr">legend</span>: &#123;</span><br><span class="line">            <span class="attr">orient</span>:<span class="string">&#x27;horizontal&#x27;</span>,</span><br><span class="line">            <span class="attr">x</span>:<span class="string">&#x27;right&#x27;</span>,</span><br><span class="line">            <span class="attr">y</span>:<span class="string">&#x27;top&#x27;</span>,</span><br><span class="line">            <span class="attr">itemWidth</span>:<span class="number">24</span>,</span><br><span class="line">            <span class="attr">itemHeight</span>:<span class="number">18</span>,</span><br><span class="line">            <span class="attr">textStyle</span>:&#123;</span><br><span class="line">                <span class="attr">color</span>:<span class="string">&#x27;#666&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">itemGap</span>:<span class="number">10</span>,</span><br><span class="line">            <span class="attr">data</span>:[<span class="string">&#x27;选项A&#x27;</span>,<span class="string">&#x27;选项B&#x27;</span>,<span class="string">&#x27;选项C&#x27;</span>,<span class="string">&#x27;选项D&#x27;</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">series</span>: [&#123;</span><br><span class="line">            <span class="attr">name</span>: <span class="string">&#x27;测验情况&#x27;</span>,</span><br><span class="line">            <span class="attr">type</span>: <span class="string">&#x27;pie&#x27;</span>,</span><br><span class="line">            <span class="attr">radius</span>:<span class="string">&#x27;70%&#x27;</span>,</span><br><span class="line">            <span class="attr">data</span>: [</span><br><span class="line">                &#123;<span class="attr">value</span>:$scope.<span class="property">amount_opA</span>, <span class="attr">name</span>:<span class="string">&#x27;选项A&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="attr">value</span>:$scope.<span class="property">amount_opB</span>, <span class="attr">name</span>:<span class="string">&#x27;选项B&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="attr">value</span>:$scope.<span class="property">amount_opC</span>, <span class="attr">name</span>:<span class="string">&#x27;选项C&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="attr">value</span>:$scope.<span class="property">amount_opD</span>, <span class="attr">name</span>:<span class="string">&#x27;选项D&#x27;</span>&#125;</span><br><span class="line">            ],</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;;</span><br><span class="line">    myChart.<span class="title function_">setOption</span>(option);</span><br><span class="line">    <span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;echarts_line&#x27;</span>));</span><br><span class="line">    <span class="keyword">var</span> option = &#123;</span><br><span class="line">        <span class="attr">title</span>: &#123;</span><br><span class="line">            <span class="attr">text</span>: <span class="string">&#x27;正确率&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">tooltip</span>: &#123;&#125;,</span><br><span class="line">        <span class="attr">legend</span>: &#123;</span><br><span class="line">            <span class="attr">data</span>:[<span class="string">&#x27;正确率&#x27;</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">xAxis</span>: &#123;</span><br><span class="line">            <span class="attr">data</span>: []</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">yAxis</span>: &#123;</span><br><span class="line">            <span class="attr">min</span>:<span class="number">0</span>,</span><br><span class="line">            <span class="attr">max</span>:<span class="number">100</span></span><br><span class="line">        &#125;,            </span><br><span class="line">        <span class="attr">series</span>: [&#123;</span><br><span class="line">            <span class="attr">name</span>: <span class="string">&#x27;正确率&#x27;</span>,</span><br><span class="line">            <span class="attr">type</span>: <span class="string">&#x27;line&#x27;</span>,</span><br><span class="line">            <span class="attr">data</span>: correct_data</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">    myChart.<span class="title function_">setOption</span>(option);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+效果如图<br><img src="https://img-blog.csdnimg.cn/2020062712252539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样一来就完成了一次完整的在线测验。虽然这样列出来之后感觉步骤挺多的，但是其实写起来也没有这么复杂，因为每一步之间的逻辑关系其实很容易理解，反倒是一些细节（比如设置提交后按钮不可用来避免反复提交这种）需要多完善一下。目前的写法还有一个缺陷就是所有交互都是由websocket完成的，没有http请求，也就意味着所有数据都是在线的，题目和作答情况没有保存，一旦刷新页面或者退出重进后就会丢失所有的数据，需要重新上传题目。</li>
+</ol>
+<h2 id="3-热点广播"><a href="#3-热点广播" class="headerlink" title="3. 热点广播"></a>3. 热点广播</h2><p>其实就是第一篇里面讲的用树莓派作为服务器，wifi热点访问网站的内容。这里默认已经开启了wifi热点功能并且能够给连接的设备分配ip地址了（具体方法看第一篇）。只需要将整个express文件夹发送给树莓派上，安装nodejs、mysql和一些依赖项之后直接运行就可以了。</p>
+<h3 id="网站文件夹发送"><a href="#网站文件夹发送" class="headerlink" title="网站文件夹发送"></a>网站文件夹发送</h3><p>这里直接使用了VNC的文件发送功能，比较方便的就是可以直接发文件夹<del>当然发压缩包也可以但是在树莓派系统下解压rar好像略麻烦</del><br><img src="https://img-blog.csdnimg.cn/20200627122543331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>直接cd到文件夹目录之后node app运行一下，然后电脑连接树莓派wifi，发现连接wifi的设备已经可以通过ip地址正常连接到主页了<br><img src="https://img-blog.csdnimg.cn/20200627122549882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>不过当然因为还没有装数据库，所以试图登录的话网站就会崩溃掉。</p>
+<h3 id="树莓派安装数据库"><a href="#树莓派安装数据库" class="headerlink" title="树莓派安装数据库"></a>树莓派安装数据库</h3><p>这个方法好像也挺多的。我安装的是MariaDB而不是MySQL，这两个数据库在绝大多数方面是兼容的，单从使用的角度讲好像也没有什么不同，主要就是MariaDB装起来比较方便。</p>
+<p>安装方法就是通过apt-get命令（如果没有的话可能要先apt install update)<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install default-mysql-server</span><br></pre></td></tr></table></figure><br>安装完毕之后<br>sudo mysql -u root -p进入数据库之后先设置一下root密码<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line"><span class="keyword">set</span> passwords<span class="operator">=</span>PASSWORD(<span class="string">&#x27;root&#x27;</span>);</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure><br>然后正常把我们要用的数据库和表建好就ok了<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database myDB1;</span><br><span class="line">use myDB1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `login`(</span><br><span class="line">    `id` <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    `username` <span class="type">VARCHAR</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `passwords` <span class="type">VARCHAR</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `loginType` <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY(`id`),</span><br><span class="line">    <span class="keyword">UNIQUE</span> KEY `id_UNIQUE` (`id`),</span><br><span class="line">    <span class="keyword">UNIQUE</span> KEY `url_UNIQUE` (`username`)</span><br><span class="line">)ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br></pre></td></tr></table></figure><br>测试一下注册、登录系统都没有问题，这样一来数据库也算是建好了（至少能用）。</p>
+<h3 id="手机端测试"><a href="#手机端测试" class="headerlink" title="手机端测试"></a>手机端测试</h3><p>手机也可以通过热点登陆一下试试。虽然没有特意设置过，但是手机端的兼容性也还算不错。<br><img src="https://img-blog.csdnimg.cn/20200627122613691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200627122620504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>似乎可以通过加一些meta标签来使网页能自适应手机端的比例和尺寸。比如说<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0&quot;</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><br>不过效果好像也一般。</p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4. 小结"></a>4. 小结</h2><p>忙活半天发现也只是把项目的五条基本要求完成了，还有四条扩展要求好像还没有怎么接触到的样子。其中canvas绘图的部分应该相对简单，视频推流和人脸识别应该就需要再补充更多其他知识才能实现了。</p>
+<p>单从目前做这些基本要求的内容来说，从前端界面到后端代码结构再到技术理解方面我感觉完成度都还是比较高的（毕竟大多数内容都写了两遍）。后续扩展内容可能会侧重于先把技术方面需要的知识学一下，至于一些前端界面可能就放到最后，如果还有时间的话就再去做一下。<del>也就是不那么追求整体的完成度了</del></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/06/30/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%BA%94)%E5%9C%A8%E7%BA%BF%E9%BB%91%E6%9D%BF&%E5%BC%B9%E5%B9%95%E5%8A%9F%E8%83%BD(canvas+websocket)/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/06/21/Web%E7%BC%96%E7%A8%8B/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2021&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>
