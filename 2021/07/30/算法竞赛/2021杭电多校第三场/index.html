@@ -49,8 +49,8 @@
     </title>
 
     <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon_io_c/favicon-32x32.png">
+    <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="03. Forgiving Matching题意：给出长度为n的原串S和模式串T，串由’1’,’2’,…,’9’和通配符’*’构成，问对于$k\in[0,n-1]$，S的子串中满足失配位置小于等于k的子串个数
@@ -223,7 +223,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
     <!-- Site Verification -->
     
@@ -236,7 +236,7 @@
     <meta property="og:url" content="http://example.com/2021/07/30/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="2021杭电多校第三场 | MorphLing&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="03. Forgiving Matching题意：给出长度为n的原串S和模式串T，串由’1’,’2’,…,’9’和通配符’*’构成，问对于$k\in[0,n-1]$，S的子串中满足失配位置小于等于k的子串个数
 用FFT/NTT卷积计算字符匹配数。单独考虑每个字符，如字符’1’，将S和T串根据位置上是否为’1’转化为一个0/1串，若$s[i]=t[j]=1$，则开始位置在$i-j+1$的子串匹配数+1，用数组$cnt[i]$记录开始位置在$i$的子串的匹配数，有$cnt[i]=\sum\limits_{j=1}^ns[j]t[j-i+1]$。
 将T串反置为T’，即$t[j-i+1]=t’[n-(j-i+1)+1]=t’[n-j+i]$，就有$cnt[i]=\sum\limits_{j=1}^ns[j]t’[n-j+i]$，发现这个东西就可以用卷积计算了。$cnt[i]$的结果在卷积之后$n+i$的位置。
@@ -274,7 +274,7 @@
         "name": "MorphLing",
         "image": {
             "@type": "ImageObject",
-            "url": "/img/avatar/apple-touch-icon.png"
+            "url": "/img/favicon_io/android-chrome-512x512.png"
         },
         "description": "Hi, nice to meet you"
     },
@@ -283,7 +283,7 @@
         "name": "MorphLing&#39;s Blog",
         "logo": {
             "@type":"ImageObject",
-            "url": "/img/favicon.png"
+            "url": "/img/favicon_io_c/android-chrome-512x512.png"
         }
     },
     "keywords": ",字符串,fft,ntt,A*,搜索剪枝,wqs二分,mst",
@@ -401,7 +401,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar/apple-touch-icon.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -447,7 +447,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2021杭电多校第三场&url=http://example.com/2021/07/30/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2021杭电多校第三场&url=http://example.com/2021/07/30/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html&pic=http://example.com/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -943,7 +943,7 @@ int main() &#123;
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar/apple-touch-icon.png" alt="MorphLing's avatar">
+        <img src="/img/favicon_io/android-chrome-512x512.png" alt="MorphLing's avatar">
     </div>
 
     <!-- Sidebar Email -->
