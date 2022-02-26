@@ -55,11 +55,11 @@
     <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="题目描述：E. Kaavi and Magic Spell
-time limit per test 2 seconds
-memory limit per test 512 megabytes
-Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevitable and unavoidable. Of course, she makes her living by predicting others’ future. While doing divination, Kaavi believes that magic spells can provide great power for her to see the future.">
-    <meta name="keywords" content=",XCPC,算法,codeforces,dp">
+    <meta name="description" itemprop="description" content="最近一个月基本处在只偶尔打下contest不刷题的状态，结果就是把把拉胯
+于是rating
+这还是幸亏本场unrated了。让人不禁感叹这就是努力型选手吗，真是有够好笑的呢
+痛定思痛，为了督促自己不要疏于练习，定个小目标，以后把每次contest最后做不出来（或者很勉强做出来）的题自己再好好理解总结一下（看难度和题数尽量做到Div.2的D或E题，1900-2200的），参考内容包括但不仅限于出题人给出的tutorial和别人的ac代码以及其他非官方的题解。">
+    <meta name="keywords" content=",XCPC,算法,codeforces,构造">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -220,7 +220,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="MorphLing&#39;s Blog">
-    <meta name="msapplication-starturl" content="http://example.com/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/">
+    <meta name="msapplication-starturl" content="http://example.com/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
@@ -235,18 +235,18 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://example.com/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/">
+    <meta property="og:url" content="http://example.com/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Codeforces Round#639 1345D.Monopole Magnets（构造） | MorphLing&#39;s Blog">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
-    <meta property="og:description" content="题目描述：E. Kaavi and Magic Spell
-time limit per test 2 seconds
-memory limit per test 512 megabytes
-Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevitable and unavoidable. Of course, she makes her living by predicting others’ future. While doing divination, Kaavi believes that magic spells can provide great power for her to see the future.">
-    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="算法"> <meta property="og:article:tag" content="codeforces"> <meta property="og:article:tag" content="dp"> 
+    <meta property="og:description" content="最近一个月基本处在只偶尔打下contest不刷题的状态，结果就是把把拉胯
+于是rating
+这还是幸亏本场unrated了。让人不禁感叹这就是努力型选手吗，真是有够好笑的呢
+痛定思痛，为了督促自己不要疏于练习，定个小目标，以后把每次contest最后做不出来（或者很勉强做出来）的题自己再好好理解总结一下（看难度和题数尽量做到Div.2的D或E题，1900-2200的），参考内容包括但不仅限于出题人给出的tutorial和别人的ac代码以及其他非官方的题解。">
+    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="算法"> <meta property="og:article:tag" content="codeforces"> <meta property="og:article:tag" content="构造"> 
 
     
-        <meta property="article:published_time" content="Fri May 08 2020 17:13:05 GMT+0800">
+        <meta property="article:published_time" content="Thu May 07 2020 23:07:39 GMT+0800">
         <meta property="article:modified_time" content="Sat Feb 26 2022 18:13:37 GMT+0800">
     
 
@@ -255,7 +255,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://example.com/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html" />
+        <link rel="canonical" href="http://example.com/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,9 +267,9 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html",
+    "mainEntityOfPage": "http://example.com/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/index.html",
     "headline": "Codeforces Round#639 1345D.Monopole Magnets（构造）",
-    "datePublished": "Fri May 08 2020 17:13:05 GMT+0800",
+    "datePublished": "Thu May 07 2020 23:07:39 GMT+0800",
     "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
     "author": {
         "@type": "Person",
@@ -288,11 +288,11 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
             "url": "/img/favicon_io_c/android-chrome-512x512.png"
         }
     },
-    "keywords": ",XCPC,算法,codeforces,dp",
-    "description": "题目描述：E. Kaavi and Magic Spell
-time limit per test 2 seconds
-memory limit per test 512 megabytes
-Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevitable and unavoidable. Of course, she makes her living by predicting others’ future. While doing divination, Kaavi believes that magic spells can provide great power for her to see the future.",
+    "keywords": ",XCPC,算法,codeforces,构造",
+    "description": "最近一个月基本处在只偶尔打下contest不刷题的状态，结果就是把把拉胯
+于是rating
+这还是幸亏本场unrated了。让人不禁感叹这就是努力型选手吗，真是有够好笑的呢
+痛定思痛，为了督促自己不要疏于练习，定个小目标，以后把每次contest最后做不出来（或者很勉强做出来）的题自己再好好理解总结一下（看难度和题数尽量做到Div.2的D或E题，1900-2200的），参考内容包括但不仅限于出题人给出的tutorial和别人的ac代码以及其他非官方的题解。",
 }
 </script>
 
@@ -408,7 +408,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     <!-- Author Name & Date -->
     <div>
         <strong>MorphLing</strong>
-        <span>5月 08, 2020</span>
+        <span>5月 07, 2020</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -432,7 +432,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-none-link" href="/tags/XCPC/" rel="tag">XCPC</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/codeforces/" rel="tag">codeforces</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/dp/" rel="tag">dp</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a>
+        <a class="post_tag-none-link" href="/tags/XCPC/" rel="tag">XCPC</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/codeforces/" rel="tag">codeforces</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E6%9E%84%E9%80%A0/" rel="tag">构造</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a>
     </ul>
     
 
@@ -460,7 +460,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Codeforces Round#639 1345D.Monopole Magnets（构造）&url=http://example.com/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html&pic=http://example.com/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Codeforces Round#639 1345D.Monopole Magnets（构造）&url=http://example.com/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/index.html&pic=http://example.com/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -469,7 +469,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Codeforces Round#639 1345D.Monopole Magnets（构造）&url=http://example.com/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html&via=MorphLing" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Codeforces Round#639 1345D.Monopole Magnets（构造）&url=http://example.com/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/index.html&via=MorphLing" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -478,7 +478,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -487,7 +487,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -512,84 +512,156 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>E. Kaavi and Magic Spell</p>
-<p>time limit per test 2 seconds</p>
-<p>memory limit per test 512 megabytes</p>
-<p>Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevitable and unavoidable. Of course, she makes her living by predicting others’ future. While doing divination, Kaavi believes that magic spells can provide great power for her to see the future.</p>
+        <p>最近一个月基本处在只偶尔打下contest不刷题的状态，结果就是把把拉胯</p>
+<p>于是rating<br><img src="https://img-blog.csdnimg.cn/20200507230007870.png" alt="在这里插入图片描述"></p>
+<p>这还是幸亏本场unrated了。<del>让人不禁感叹这就是努力型选手吗，真是有够好笑的呢</del></p>
+<p>痛定思痛，为了督促自己不要疏于练习，定个小目标，以后把每次contest最后做不出来（或者很勉强做出来）的题自己再好好理解总结一下（看难度和题数尽量做到Div.2的D或E题，1900-2200的），参考内容包括但不仅限于出题人给出的tutorial和别人的ac代码以及其他非官方的题解。</p>
 <span id="more"></span>
-<p>Kaavi has a string T of length m and all the strings with the prefix T are magic spells. Kaavi also has a string S of length n and an empty string A.</p>
-<p>During the divination, Kaavi needs to perform a sequence of operations. There are two different operations:</p>
-<p>Delete the first character of S and add it at the front of A.<br>Delete the first character of S and add it at the back of A.<br>Kaavi can perform no more than n operations. To finish the divination, she wants to know the number of different operation sequences to make A a magic spell (i.e. with the prefix T). As her assistant, can you help her? The answer might be huge, so Kaavi only needs to know the answer modulo 998244353.</p>
-<p>Two operation sequences are considered different if they are different in length or there exists an i that their i-th operation is different.</p>
-<p>A substring is a contiguous sequence of characters within a string. A prefix of a string S is a substring of S that occurs at the beginning of S.</p>
-<p>Input<br>The first line contains a string S of length n (1≤n≤3000).</p>
-<p>The second line contains a string T of length m (1≤m≤n).</p>
-<p>Both strings contain only lowercase Latin letters.</p>
-<p>Output<br>The output contains only one integer  — the answer modulo 998244353.</p>
-<p>Examples<br>input</p>
-<pre><code>abab
-ba
+<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>D. Monopole Magnets</p>
+<p>time limit per test 2 seconds</p>
+<p>memory limit per test 256 megabytes</p>
+<p>A monopole magnet is a magnet that only has one pole, either north or south. They don’t actually exist since real magnets have two poles, but this is a programming contest problem, so we don’t care.</p>
+<p>There is an n×m grid. Initially, you may place some north magnets and some south magnets into the cells. You are allowed to place as many magnets as you like, even multiple in the same cell.</p>
+<p>An operation is performed as follows. Choose a north magnet and a south magnet to activate. If they are in the same row or the same column and they occupy different cells, then the north magnet moves one unit closer to the south magnet. Otherwise, if they occupy the same cell or do not share a row or column, then nothing changes. Note that the south magnets are immovable.</p>
+<p>Each cell of the grid is colored black or white. Let’s consider ways to place magnets in the cells so that the following conditions are met.</p>
+<p>There is at least one south magnet in every row and every column.<br>If a cell is colored black, then it is possible for a north magnet to occupy this cell after some sequence of operations from the initial placement.<br>If a cell is colored white, then it is impossible for a north magnet to occupy this cell after some sequence of operations from the initial placement.<br>Determine if it is possible to place magnets such that these conditions are met. If it is possible, find the minimum number of north magnets required (there are no requirements on the number of south magnets).</p>
+<p>Input<br>The first line contains two integers n and m (1≤n,m≤1000)  — the number of rows and the number of columns, respectively.</p>
+<p>The next n lines describe the coloring. The i-th of these lines contains a string of length m, where the j-th character denotes the color of the cell in row i and column j. The characters “#” and “.” represent black and white, respectively. It is guaranteed, that the string will not contain any other characters.</p>
+<p>Output<br>Output a single integer, the minimum possible number of north magnets required.</p>
+<p>If there is no placement of magnets that satisfies all conditions, print a single integer −1.</p>
+<p>Examples</p>
+<p>input</p>
+<pre><code>3 3
+.#.
+###
+##.
 </code></pre><p>output</p>
-<pre><code>12
+<pre><code>1
 </code></pre><p>input</p>
-<pre><code>defineintlonglong
-signedmain
+<pre><code>4 2
+##
+.#
+.#
+##
+</code></pre><p>output</p>
+<pre><code>-1
+</code></pre><p>input</p>
+<pre><code>4 5
+....#
+####.
+.###.
+.#...
+</code></pre><p>output</p>
+<pre><code>2
+</code></pre><p>input</p>
+<pre><code>2 1
+.
+#
+</code></pre><p>output</p>
+<pre><code>-1
+</code></pre><p>input</p>
+<pre><code>3 5
+.....
+.....
+.....
 </code></pre><p>output</p>
 <pre><code>0
-</code></pre><p>input</p>
-<pre><code>rotator
-rotator
-</code></pre><p>output</p>
-<pre><code>4
-</code></pre><p>input</p>
-<pre><code>cacdcdbbbb
-bdcaccdbbb
-</code></pre><p>output</p>
-<pre><code>24
-</code></pre><p>算法标签：区间dp</p>
-<p>题目大意：给出两个字符串S和T，以及一个空串A，从左至右依次选择S中的每一个字符，并对其进行以下一个操作：</p>
-<p>1.添加到A的首部</p>
-<p>2.添加到A的尾部</p>
-<p>求一共有多少种操作方式使得构成的字符串A的前缀为T（答案对998244353取模）。</p>
-<p>样例1的示意图：<br><img src="https://img-blog.csdnimg.cn/20200508170958467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>首先观察数据规模(n,m&lt;=3000)，刚好可以存一个二维数组，可以考虑区间dp。考虑任何一种符合要求的字符串A，以上图中的“baab”为例。<br><img src="https://img-blog.csdnimg.cn/20200508171006532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>发现可以根据最后一个字符的添加方式（首部/尾部）来分成两类，也就为后续的状态转移提供了思路。</p>
-<p><strong>规定dp[i][j]：用s[1…i]表示一个合法的A[j…j+i-1]的方案数。</strong> 什么叫合法的A呢，意思就是A的前缀为T。</p>
-<p>假设T一共有m位，那么对于A[1…m]，A[k]需要与T[k]一一对应，即A[k]==T[k]。而m+1位以后，A[k]则可以为任意字符。</p>
-<p>再根据最后一个字符的两种添加方式（首部/尾部），<strong>得出状态转移方程：</strong></p>
-<p><strong>1. 添加在尾部：如果s[i]==t[j+i-1]或者j+i-1&gt;m，dp[i][j]+=dp[i-1][j]</strong></p>
-<p><strong>2. 添加在首部：如果s[i]==t[j]或者j&gt;m，dp[i][j]+=dp[i-1][j+1]</strong></p>
-<p>起点状态设置d[0][k]=1，最后依次考虑A的长度m、m+1、…、n，累加dp[i][1]得到答案。</p>
+</code></pre><p>算法标签：构造</p>
+<p>简单翻译一下：在一张n*m的棋盘上，任意放置北磁铁和南磁铁（位置、数量不限），但每一行、每一列都至少要有一个南磁铁，其中南磁铁位置固定，北磁铁能够被任意一个在同一行/同一列的南磁铁吸引，向其对应方向移动一格。现给出一个用黑白涂色后的棋盘，#代表黑，.代表白，黑表示北磁铁经过一系列移动后能够到达该格，白表示北磁铁不论怎样都不能到达该格。求符合要求的摆法中，北磁铁最少的数量（不对南磁铁的数量做要求）。若不存在则输出-1。</p>
+<p>读完题发现作为构造题，自由量还是挺多的，不知道从哪里下手的话，可以先从解不存在的情况开始分析。</p>
+<p><strong>先给结论，当以下任意一条满足时，解不存在。</strong></p>
+<p><strong>1. 某一行或某一列上，任意两块黑色格子之间有白色格子</strong></p>
+<p><strong>2. 某一行全白，但不存在全白的列。或某一列全白，但不存在全白的行。</strong></p>
+<p>依次证明一下，观察样例2，给出的示例如图</p>
+<p><img src="https://img-blog.csdnimg.cn/20200507230130630.png" alt="在这里插入图片描述"></p>
+<p>发现黑色部分的的形状和其他样例的区别在于黑色格子的边界处有一块是凹进去的。也就是说，第一列中A、B两个黑色格子之间存在白色格子C、D<br><img src="https://img-blog.csdnimg.cn/20200507230217579.png" alt="在这里插入图片描述"><br>由于第一列至少有一个南磁铁，分类讨论一下南磁铁的位置：</p>
+<p>1、 南磁铁在A，则北磁铁到达B处后，会被吸引向上移动至C，矛盾</p>
+<p>2、 南磁铁在B，则北磁铁到达A处后，会被吸引向下移动至D，矛盾</p>
+<p>3、 南磁铁在C或D，则A和B的北磁铁都会被吸引，矛盾</p>
+<p>因此无论南磁铁怎么放，至少会使A、B中的一个被吸引至白色格子，产生矛盾，因此，任意两个黑色格子之间不能有白色格子。</p>
+<p>接下来证明第二条。</p>
+<p>假设有一列是全白的（行同理），那么如何选择南磁铁的位置才能保证不产生矛盾呢？<br><img src="https://img-blog.csdnimg.cn/20200507230149171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>考虑以上这种情况，要确定第一列南磁铁的位置，唯一可行的位置是第一列的第二行。因为要确保该南磁铁不会对任何北磁铁产生吸引，否则北磁铁一定能被吸引至该格子，但该格子是白的，矛盾。所以必须选择把南磁铁放在全白的一行里，也就是说，南磁铁所在的行和列都是全白的，没有北磁铁会受其影响。</p>
+<p>于是两种一定无解的情况找到，直觉上很难再想到其他会导致无解的情况，就可以开始构造一种最优（即北磁铁数量最少）的摆法。（只需要证明这种构造方法在排除了前两种无解的情况后总是成立，即可证明其正确性，所以这里的“直觉”还是严谨的）</p>
+<p>因为目标是使得北磁铁数量最少，且北磁铁总是上下左右移动，那么很容易想到一种理想的摆法：</p>
+<p><strong>第一步：在每一个黑格子上都放一个南磁铁，那么对于每一块联通（指上下左右相连）的黑格子块，只需要放一个北磁铁即可到达该联通块的每一个位置。</strong></p>
+<p>实际上这种摆法是可以被证明是正确的。在基于“任何一行都只有一段连续黑色格子”的前提下，该行所有的南磁铁使北磁铁在行上的移动都被限制在了黑色格子的范围内。也就是说，确保了该行的白色格子不会有北磁铁能够通过行上的移动到达。列同理。进而得出任何白色格子既无法通过行上的移动到达，也无法通过列上的移动到达，也就是不可能到达，符合题意。<br><img src="https://img-blog.csdnimg.cn/20200507234648427.png" alt="在这里插入图片描述"></p>
+<p><strong>第二步：确保每一行每一列都有一个南磁铁。假如该行不是全白的，那么经过第一步它已经至少存在一个南磁铁了，不需要再额外添加。假如该行（第i行）是全白的，在基于“存在某一列j也是全白的”的前提下，可以将南磁铁放在(i,j)这个格子，能够确保它不会对任何北磁铁产生影响。列同理</strong></p>
+<p>构造完毕。通过构造方法的正确性，可以反过来证明，无解的情况有且仅有以上提到的两种。</p>
+<p>代码实现时只需要判断两个无解的情况，若无解直接输出-1，若有解，则用记忆化DFS计算出联通黑块的块数，就是最终所需要的北磁铁的个数了。</p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-
+typedef long long ll;
 using namespace std;
 
-typedef long long ll;
+const int N=1e3+5;
 
-const int N=3e3+5,mod=998244353;
+char s[N][N];
 
-char s[N],t[N];
+bool vis[N][N];
 
-ll dp[N][N];
+const int dire[4][2]=&#123;&#123;1,0&#125;,&#123;-1,0&#125;,&#123;0,1&#125;,&#123;0,-1&#125;&#125;;
+
+int T,n,m;
+
+bool column,row;
+
+void dfs(int x,int y)
+&#123;
+    vis[x][y]=1;
+    for (int i=0;i&lt;4;i++)
+    &#123;
+        int cx=x+dire[i][0];
+        int cy=y+dire[i][1];
+        if (cx&gt;=0 &amp;&amp; cx&lt;n &amp;&amp; cy&gt;=0 &amp;&amp; cy&lt;m &amp;&amp; !vis[cx][cy] &amp;&amp; s[cx][cy]==&#39;#&#39;)
+            dfs(cx,cy);
+    &#125;
+&#125;
 
 int main()
 &#123;
-    scanf(&quot;%s%s&quot;,s+1,t+1);
-    int n=strlen(s+1),m=strlen(t+1);
-    for (int j=1;j&lt;=n+1;j++) dp[0][j]=1;
-    for (int i=1;i&lt;=n;i++)//s[1..i]  t[j..j+i-1]
+    int ans=0;
+    cin&gt;&gt;n&gt;&gt;m;
+    for (int i=0;i&lt;n;i++) scanf(&quot;%s&quot;,s[i]);
+    for (int i=0;i&lt;n;i++)
     &#123;
-        for (int j=1;j&lt;=n-i+1;j++)
+        int cnt=0;
+        for (int j=0;j&lt;m;j++)
+            if (s[i][j]==&#39;#&#39; &amp;&amp; (s[i][j-1]!=&#39;#&#39;||j==0))
+                cnt++;
+        if (cnt&gt;=2)
         &#123;
-            if (s[i]==t[j+i-1]||j+i-1&gt;m)
-                dp[i][j]=(dp[i][j]+dp[i-1][j])%mod;
-            if (s[i]==t[j]||j&gt;m)
-                dp[i][j]=(dp[i][j]+dp[i-1][j+1])%mod;
+            printf(&quot;-1&quot;);
+            return 0;
         &#125;
+        if (!cnt) row=1;
     &#125;
-    ll ans=0;
-    for (int i=m;i&lt;=n;i++)
-        ans=(ans+dp[i][1])%mod;
-    printf(&quot;%lld&quot;,ans);
+    for (int j=0;j&lt;m;j++)
+    &#123;
+        int cnt=0;
+        for (int i=0;i&lt;n;i++)
+            if (s[i][j]==&#39;#&#39; &amp;&amp; (s[i-1][j]!=&#39;#&#39;||i==0))
+                cnt++;
+        if (cnt&gt;=2)
+        &#123;
+            printf(&quot;-1&quot;);
+            return 0;
+        &#125;
+        if (!cnt) column=1;
+    &#125;
+    if (row^column)
+    &#123;
+        printf(&quot;-1&quot;);
+        return 0;
+    &#125;
+    for (int i=0;i&lt;n;i++)
+        for (int j=0;j&lt;m;j++)
+        &#123;
+            if (s[i][j]==&#39;#&#39; &amp;&amp; !vis[i][j])
+            &#123;
+                ans++;
+                dfs(i,j);
+            &#125;
+        &#125;
+    printf(&quot;%d&quot;,ans);
     return 0;
 &#125;
 </code></pre>
@@ -643,7 +715,7 @@ int main()
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2020/05/10/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/" id="post_nav-newer" class="prev-content">
+        <a href="/2020/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -657,7 +729,7 @@ int main()
 
     <!-- Next Nav -->
     
-        <a href="/2020/05/07/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round#639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/" id="post_nav-older" class="next-content">
+        <a href="/2020/05/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
