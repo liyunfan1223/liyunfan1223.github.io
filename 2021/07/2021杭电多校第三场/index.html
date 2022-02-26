@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            2021杭电多校第三场 | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="03. Forgiving Matching题意：给出长度为n的原串S和模式串T，串由’1’,’2’,…,’9’和通配符’*’构成，问对于$k\in[0,n-1]$，S的子串中满足失配位置小于等于k的子串个数
+用FFT/NTT卷积计算字符匹配数。单独考虑每个字符，如字符’1’，将S和T串根据位置上是否为’1’转化为一个0/1串，若$s[i]=t[j]=1$，则开始位置在$i-j+1$的子串匹配数+1，用数组$cnt[i]$记录开始位置在$i$的子串的匹配数，有$cnt[i]=\sum\limits_{j=1}^ns[j]t[j-i+1]$。
+将T串反置为T’，即$t[j-i+1]=t’[n-(j-i+1)+1]=t’[n-j+i]$，就有$cnt[i]=\sum\limits_{j=1}^ns[j]t’[n-j+i]$，发现这个东西就可以用卷积计算了。$cnt[i]$的结果在卷积之后$n+i$的位置。
+还需要注意的是通配符的处理，可以用一个容斥计算通配符的影响，将每个位置的结果直接加上两个串同通配符的总数，然后减去两个通配符相匹配的情况，两个通配符相匹配的情况计算方法同上。">
+    <meta name="keywords" content=",字符串,fft,ntt,A*,搜索剪枝,wqs二分,mst">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="2021杭电多校第三场 | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="03. Forgiving Matching题意：给出长度为n的原串S和模式串T，串由’1’,’2’,…,’9’和通配符’*’构成，问对于$k\in[0,n-1]$，S的子串中满足失配位置小于等于k的子串个数
+用FFT/NTT卷积计算字符匹配数。单独考虑每个字符，如字符’1’，将S和T串根据位置上是否为’1’转化为一个0/1串，若$s[i]=t[j]=1$，则开始位置在$i-j+1$的子串匹配数+1，用数组$cnt[i]$记录开始位置在$i$的子串的匹配数，有$cnt[i]=\sum\limits_{j=1}^ns[j]t[j-i+1]$。
+将T串反置为T’，即$t[j-i+1]=t’[n-(j-i+1)+1]=t’[n-j+i]$，就有$cnt[i]=\sum\limits_{j=1}^ns[j]t’[n-j+i]$，发现这个东西就可以用卷积计算了。$cnt[i]$的结果在卷积之后$n+i$的位置。
+还需要注意的是通配符的处理，可以用一个容斥计算通配符的影响，将每个位置的结果直接加上两个串同通配符的总数，然后减去两个通配符相匹配的情况，两个通配符相匹配的情况计算方法同上。">
+    <meta property="og:article:tag" content="字符串"> <meta property="og:article:tag" content="fft"> <meta property="og:article:tag" content="ntt"> <meta property="og:article:tag" content="A*"> <meta property="og:article:tag" content="搜索剪枝"> <meta property="og:article:tag" content="wqs二分"> <meta property="og:article:tag" content="mst"> 
+
+    
+        <meta property="article:published_time" content="Fri Jul 30 2021 19:50:51 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jul 30 2021 20:34:34 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html",
+    "headline": "2021杭电多校第三场",
+    "datePublished": "Fri Jul 30 2021 19:50:51 GMT+0800",
+    "dateModified": "Fri Jul 30 2021 20:34:34 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",字符串,fft,ntt,A*,搜索剪枝,wqs二分,mst",
+    "description": "03. Forgiving Matching题意：给出长度为n的原串S和模式串T，串由’1’,’2’,…,’9’和通配符’*’构成，问对于$k\in[0,n-1]$，S的子串中满足失配位置小于等于k的子串个数
+用FFT/NTT卷积计算字符匹配数。单独考虑每个字符，如字符’1’，将S和T串根据位置上是否为’1’转化为一个0/1串，若$s[i]=t[j]=1$，则开始位置在$i-j+1$的子串匹配数+1，用数组$cnt[i]$记录开始位置在$i$的子串的匹配数，有$cnt[i]=\sum\limits_{j=1}^ns[j]t[j-i+1]$。
+将T串反置为T’，即$t[j-i+1]=t’[n-(j-i+1)+1]=t’[n-j+i]$，就有$cnt[i]=\sum\limits_{j=1}^ns[j]t’[n-j+i]$，发现这个东西就可以用卷积计算了。$cnt[i]$的结果在卷积之后$n+i$的位置。
+还需要注意的是通配符的处理，可以用一个容斥计算通配符的影响，将每个位置的结果直接加上两个串同通配符的总数，然后减去两个通配符相匹配的情况，两个通配符相匹配的情况计算方法同上。",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#03-Forgiving-Matching"><span class="post-toc-text">03. Forgiving Matching</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#04-Game-on-Plane"><span class="post-toc-text">04. Game on Plane</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#09-Rise-in-Price"><span class="post-toc-text">09. Rise in Price</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10-Road-Discount"><span class="post-toc-text">10. Road Discount</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                2021杭电多校第三场
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>7月 30, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/A/" rel="tag">A*</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/fft/" rel="tag">fft</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/mst/" rel="tag">mst</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/ntt/" rel="tag">ntt</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/wqs%E4%BA%8C%E5%88%86/" rel="tag">wqs二分</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E6%90%9C%E7%B4%A2%E5%89%AA%E6%9E%9D/" rel="tag">搜索剪枝</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2021杭电多校第三场&url=http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2021杭电多校第三场&url=http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="03-Forgiving-Matching"><a href="#03-Forgiving-Matching" class="headerlink" title="03. Forgiving Matching"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=6975">03. Forgiving Matching</a></h1><p>题意：给出长度为n的原串S和模式串T，串由’1’,’2’,…,’9’和通配符’*’构成，问对于$k\in[0,n-1]$，S的子串中满足失配位置小于等于k的子串个数</p>
+<p>用FFT/NTT卷积计算字符匹配数。单独考虑每个字符，如字符’1’，将S和T串根据位置上是否为’1’转化为一个0/1串，若$s[i]=t[j]=1$，则开始位置在$i-j+1$的子串匹配数+1，用数组$cnt[i]$记录开始位置在$i$的子串的匹配数，有$cnt[i]=\sum\limits_{j=1}^ns[j]t[j-i+1]$。</p>
+<p>将T串反置为T’，即$t[j-i+1]=t’[n-(j-i+1)+1]=t’[n-j+i]$，就有$cnt[i]=\sum\limits_{j=1}^ns[j]t’[n-j+i]$，发现这个东西就可以用卷积计算了。$cnt[i]$的结果在卷积之后$n+i$的位置。</p>
+<p>还需要注意的是通配符的处理，可以用一个容斥计算通配符的影响，将每个位置的结果直接加上两个串同通配符的总数，然后减去两个通配符相匹配的情况，两个通配符相匹配的情况计算方法同上。</p>
+<span id="more"></span>
+<h1 id="04-Game-on-Plane"><a href="#04-Game-on-Plane" class="headerlink" title="04. Game on Plane"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&amp;cid=986">04. Game on Plane</a></h1><p>签到，计算每种斜率的直线条数，然后从条数从小的开始轮着取即可</p>
+<p>需要注意double精度问题，如果精度要求在$1e-9$左右可能需要使用long double，并且注意eps也要设置小于题目要求的最小精度单位</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
+#define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39;\n&#39;
+#define all(x) x.begin(), x.end()
+#define mem(x, y) memset(x, y, sizeof(x))
+#define rep(x,y,z) for (int x=y;x&lt;=z;x++)
+#define per(x,y,z) for (int x=y;x&gt;=z;x--)
+
+using namespace std;
+typedef long long ll;
+typedef pair&lt;int, int&gt; pii;
+
+const int N = 1e5 + 5, MOD = 998244353, INF = 0x3f3f3f3f;
+const ll INF64 = 0x3f3f3f3f3f3f3f3f;
+
+int add(int a, int b) &#123; return a + b &gt;= MOD ? a + b - MOD : a + b; &#125;
+int sub(int a, int b) &#123; return a - b &lt; 0 ? a - b + MOD : a - b; &#125;
+int mul(int a, int b) &#123; return 1ll * a * b % MOD; &#125;
+int bin(int x, int p) &#123;
+    int res = 1;
+    for (int b = x; p; p &gt;&gt;= 1, b = mul(b, b))
+        if (p &amp; 1) res = mul(res, b);
+    return res;
+&#125;
+const int maxn=1111111;
+const long double pi=3.1415926535897932384626433832795,eps=1e-18;
+const long double special = -1e20;
+
+int T, n;
+
+long double slope(int x_0, int x_1, int y_0, int y_1) &#123;
+    if (x_0 == x_1) return special;
+    return (long double)(y_1 - y_0) / (x_1 - x_0);
+&#125;
+
+struct Line &#123;
+    int x[2], y[2];
+    bool operator &lt; (Line &amp;L) const &#123;
+        return slope(x[0], x[1], y[0], y[1]) &lt; slope(L.x[0], L.x[1], L.y[0], L.y[1]);
+    &#125;
+&#125;l[N];
+
+bool equ(long double x, long double y) &#123;
+    return fabs(x - y) &lt;= eps;
+&#125;
+
+long double slo[N];
+
+int tot, cnt[N];
+
+void solve() &#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    tot = 0;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        int x[2], y[2];
+        cnt[i] = 0;
+        scanf(&quot;%d %d %d %d&quot;, &amp;l[i].x[0], &amp;l[i].y[0], &amp;l[i].x[1], &amp;l[i].y[1]);
+    &#125;
+    sort(l + 1, l + 1 + n);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        slo[i] = slope(l[i].x[0], l[i].x[1], l[i].y[0], l[i].y[1]);
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        if (i == 1 || !equ(slo[i - 1], slo[i])) tot++;
+        cnt[tot]++;
+    &#125;
+    sort(cnt + 1, cnt + 1 + tot);
+    int l = 1, ans = 0;
+    while(l &lt;= tot) &#123;
+        bool fi = 1;
+        for (int i = l; i &lt;= tot; i++) &#123;
+            cnt[i]--;
+            if (!cnt[i]) l++;
+            if (fi) fi = 0;
+            else ans++;
+            printf(&quot;%d\n&quot;, ans);
+        &#125;
+    &#125;
+&#125;
+int main() &#123;
+    scanf(&quot;%d&quot;, &amp;T);
+    while(T--) &#123;
+        solve();
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h1 id="09-Rise-in-Price"><a href="#09-Rise-in-Price" class="headerlink" title="09. Rise in Price"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1009&amp;cid=986">09. Rise in Price</a></h1><p>题意：随机给一个矩阵，每个格子有$a,b$两个属性，求一条从$(1,1)$到$(n,m)$的路径，使得路径上$\sum a\times \sum b$最大</p>
+<p>ZRC&amp;LYF解：</p>
+<p>首先感受到退火对这道题貌似很不稳定，貌似局部爬山的峰都很小，比较难找到正确的峰。考虑A*。估值随便按局部最优解估，更重要的是如何剪枝。LYF想出了可以预处理当前点到终点的a+b的和的最大值，剪枝时利用这个最大值求出一个从当前状态走到终点时的答案的上界，与当前答案比较。跑得飞快。</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
+#define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39;\n&#39;
+#define all(x) x.begin(), x.end()
+#define mem(x, y) memset(x, y, sizeof(x))
+#define rep(x,y,z) for (int x=y;x&lt;=z;x++)
+#define per(x,y,z) for (int x=y;x&gt;=z;x--)
+
+using namespace std;
+typedef long long ll;
+typedef long long LL;
+typedef pair&lt;int, int&gt; pii;
+
+const int N = 1e5 + 5, MOD = 998244353, INF = 0x3f3f3f3f;
+const ll INF64 = 0x3f3f3f3f3f3f3f3f;
+
+int add(int a, int b) &#123; return a + b &gt;= MOD ? a + b - MOD : a + b; &#125;
+int sub(int a, int b) &#123; return a - b &lt; 0 ? a - b + MOD : a - b; &#125;
+int mul(int a, int b) &#123; return 1ll * a * b % MOD; &#125;
+int bin(int x, int p) &#123;
+    int res = 1;
+    for (int b = x; p; p &gt;&gt;= 1, b = mul(b, b))
+        if (p &amp; 1) res = mul(res, b);
+    return res;
+&#125;
+const int maxn=111;
+const double pi=3.1415926535897932384626433832795,eps=1e-14;
+int T,n,a[maxn][maxn],b[maxn][maxn];
+LL maxa[maxn][maxn],maxb[maxn][maxn],maxapb[maxn][maxn];
+LL nowa,nowb,ans;
+LL value(int x,int y)
+&#123;
+    return (nowa+maxapb[x][y]/2)*(nowb+maxapb[x][y]/2);
+&#125;
+bool cango(int x,int y)
+&#123;
+    if ((nowa+maxa[x][y])*(nowb+maxb[x][y])&lt;=ans) return false;
+    if ((min(nowa,nowb)+maxapb[x][y])&lt;max(nowa,nowb))
+        &#123;if ((min(nowa,nowb)+maxapb[x][y])*max(nowa,nowb)&lt;=ans) return false;&#125;
+    else
+    &#123;
+        LL temp=nowa+nowb+maxapb[x][y],sum;
+        if (temp&amp;1) sum=(temp&gt;&gt;1)*((temp&gt;&gt;1)+1);
+        else sum=(temp&gt;&gt;1)*(temp&gt;&gt;1);
+        if (sum&lt;=ans) return false;
+    &#125;
+    return true;
+&#125;
+void dfs(int x,int y)
+&#123;
+    nowa+=a[x][y];nowb+=b[x][y];
+    if (x==n&amp;&amp;y==n)
+    &#123;
+        ans=max(ans,nowa*nowb);
+        goto ending;
+    &#125;
+    if (x+1&gt;n) &#123;if (cango(x,y+1)) dfs(x,y+1);&#125;
+    else if (y+1&gt;n) &#123;if (cango(x+1,y)) dfs(x+1,y);&#125;
+    else if (value(x+1,y)&gt;value(x,y+1))
+    &#123;
+        if (cango(x+1,y)) dfs(x+1,y);
+        if (cango(x,y+1)) dfs(x,y+1);
+    &#125;
+    else
+    &#123;
+        if (cango(x,y+1)) dfs(x,y+1);
+        if (cango(x+1,y)) dfs(x+1,y);
+    &#125;
+    ending:;
+    nowa-=a[x][y];nowb-=b[x][y];
+    return;
+&#125;
+int main()
+&#123;
+    cin&gt;&gt;T;
+    while (T--)
+    &#123;
+        ans=0;
+        memset(maxa,0,sizeof(maxa));
+        memset(maxb,0,sizeof(maxb));
+        memset(maxapb,0,sizeof(maxapb));
+        cin&gt;&gt;n;
+        rep(i,1,n) rep(j,1,n) cin&gt;&gt;a[i][j];
+        rep(i,1,n) rep(j,1,n) cin&gt;&gt;b[i][j];
+        per(i,n,1) per(j,n,1)
+        &#123;
+            maxa[i][j]=max(maxa[i+1][j],maxa[i][j+1])+a[i][j];
+            maxb[i][j]=max(maxb[i+1][j],maxb[i][j+1])+b[i][j];
+            maxapb[i][j]=max(maxapb[i+1][j],maxapb[i][j+1])+a[i][j]+b[i][j];
+        &#125;
+        dfs(1,1);
+        cout&lt;&lt;ans&lt;&lt;endl;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h1 id="10-Road-Discount"><a href="#10-Road-Discount" class="headerlink" title="10. Road Discount"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=6982">10. Road Discount</a></h1><p>题意：给出一张无向图，每条边有两种权值（打折前和打折后），问恰好选择k条边打折时，最小生成树的最小权值为多少</p>
+<p>wqs二分的经典题。令$f(x)$为k=x时对应的答案，通过（各种方法）发现，$(x,f(x))$是一个凸函数，也就是说斜率具有单调性，且在$f(x)$无法简单求出的情况下，$f(x)-kx$的最优解（最小/最大值）却可以用某些简单（复杂度低）的方式快速求得，那么就符合wqs二分的条件。</p>
+<p>对于这道题，首先可以发现解在几何上满足凸函数性质，并且当我们将所有折扣边减去k后跑一次最小生成树，可以神奇的发现这个最小生成树的权值就是$f(x)-kx$的最小值。接下来只要枚举斜率k，找到斜率为k时最少和最多用多少条折扣边，再用把得到最小生成树的权值加上kx，可以反推出$f(x)$为多少</p>
+<p>具体先不展开说了，贴一个博客:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/CreeperLKF/p/9045491.html">关于WQS二分算法以及其一个细节证明</a></p>
+<p>这题还有两个trick，一个是先单独对折扣边和非折扣边跑两次最小生成树，然后接下来只需要考虑这两颗生成树中的这些边，将边集大小降为$O(n)$级别。（考虑kruskal算法过程，单独对某一类边跑mst时，不在最小生成树中的边在访问时一定已联通，那么两类边一起跑mst时这些边对应的两个点一定也已经联通了），二是由于边权范围是$[1,1000]$，不需要$O(n\log n)$对边排序，而是像桶一样开1000个数组，分别记录权值不同的边即可。</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define all(x) x.begin(), x.end()
+using namespace std;
+
+const int N = 1e3 + 5;
+
+int T, n, m;
+
+struct Edge &#123;
+    int f, t, v, type;
+&#125;;
+vector&lt;Edge&gt; W[N], B[N];
+vector&lt;Edge&gt; E[N][2];
+
+int res, ans[N];
+int fa[N];
+int getfa(int x) &#123; return fa[x] == x ? x : fa[x] = getfa(fa[x]); &#125;
+
+void init() &#123;
+    for (int i = 1; i &lt;= 1000; i++) &#123;
+        W[i].clear(); B[i].clear();
+        E[i][0].clear();
+        E[i][1].clear();
+    &#125;
+
+&#125;
+
+void getEdgeW() &#123;
+    for (int i = 1; i &lt;= n; i++) fa[i] = i;
+    int cnt = 0;
+    for (int i = 1; i &lt;= 1000; i++) &#123;
+        for (auto x : W[i]) &#123;
+            int u = getfa(x.f), v = getfa(x.t);
+            if (u == v) continue;
+            fa[u] = v;
+            E[x.v][0].push_back(&#123;x.f, x.t, x.v, 0&#125;);
+            cnt++;
+            if (cnt == n - 1) break;
+        &#125;
+        if (cnt == n - 1) break;
+    &#125;
+&#125;
+void getEdgeB() &#123;
+    for (int i = 1; i &lt;= n; i++) fa[i] = i;
+    int cnt = 0;
+    for (int i = 1; i &lt;= 1000; i++) &#123;
+        for (auto x : B[i]) &#123;
+            int u = getfa(x.f), v = getfa(x.t);
+            if (u == v) continue;
+            fa[u] = v;
+            E[x.v][1].push_back(&#123;x.f, x.t, x.v, 1&#125;);
+            cnt++;
+            if (cnt == n - 1) break;
+        &#125;
+        if (cnt == n - 1) break;
+    &#125;
+&#125;
+int getAns1(int c) &#123;
+    for (int i = 1; i &lt;= n; i++) fa[i] = i;
+    int cnt = 0;
+    int edgenum = 0;
+    for (int i = -2000; i &lt;= 2000; i++) &#123;
+        if (i &gt;= 1 &amp;&amp; i &lt;= 1000) &#123;
+            for (auto x : E[i][0]) &#123;
+                if (edgenum == n - 1) break;
+                int u = getfa(x.f), v = getfa(x.t);
+                if (u == v) continue;
+                fa[u] = v;
+                res += x.v + (x.type == 1 ? -c : 0);
+                cnt += x.type;
+                edgenum++;
+            &#125;
+        &#125;
+        if (i + c &gt;= 1 &amp;&amp; i + c &lt;= 1000) &#123;
+            for (auto x : E[i + c][1]) &#123;
+                if (edgenum == n - 1) break;
+                int u = getfa(x.f), v = getfa(x.t);
+                if (u == v) continue;
+                fa[u] = v;
+                res += x.v - c;
+                cnt += x.type;
+                edgenum++;
+            &#125;
+        &#125;
+        if (edgenum == n - 1) break;
+    &#125;
+    return cnt;
+&#125;
+
+int getAns2(int c) &#123;
+    for (int i = 1; i &lt;= n; i++) fa[i] = i;
+    int cnt = 0;
+    int edgenum = 0;
+    for (int i = -2000; i &lt;= 2000; i++) &#123;
+        if (i + c &gt;= 1 &amp;&amp; i + c &lt;= 1000) &#123;
+            for (auto x : E[i + c][1]) &#123;
+                if (edgenum == n - 1) break;
+                int u = getfa(x.f), v = getfa(x.t);
+                if (u == v) continue;
+                fa[u] = v;
+                cnt += x.type;
+                edgenum++;
+            &#125;
+        &#125;
+        if (i &gt;= 1 &amp;&amp; i &lt;= 1000) &#123;
+            for (auto x : E[i][0]) &#123;
+                if (edgenum == n - 1) break;
+                int u = getfa(x.f), v = getfa(x.t);
+                if (u == v) continue;
+                fa[u] = v;
+                cnt += x.type;
+                edgenum++;
+            &#125;
+        &#125;
+        if (edgenum == n - 1) break;
+    &#125;
+    return cnt;
+&#125;
+
+void solve() &#123;
+    scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+    init();
+    for (int i = 1; i &lt;= m; i++) &#123;
+        int u, v, w1, w2; scanf(&quot;%d %d %d %d&quot;, &amp;u, &amp;v, &amp;w1, &amp;w2);
+        W[w1].push_back(&#123;u, v, w1&#125;);
+        B[w2].push_back(&#123;u, v, w2&#125;);
+    &#125;
+    getEdgeW(); getEdgeB();
+    memset(ans, 0x3f, sizeof(ans));
+    for (int c = -1000; c &lt;= 1000; c++) &#123;
+        res = 0;
+        int L = getAns1(c);
+        int R = getAns2(c);
+        for (int j = L; j &lt;= R; j++) ans[j] = res + c * j;
+    &#125;
+    for (int i = 0; i &lt;= n - 1; i++) printf(&quot;%d\n&quot;, ans[i]);
+&#125;
+
+int main() &#123;
+    scanf(&quot;%d&quot;, &amp;T);
+    while(T--) solve();
+    return 0;
+&#125;
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/08/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%9B%9B%E5%9C%BA/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/07/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%9B%9B%E5%9C%BA/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

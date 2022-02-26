@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            2021杭电多校第二场 | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="I love tree题意：给一棵树，每次操作选择一条链，从起点到终点点权依次增加$1^2,2^2,…n^2$，单点询问当前点权​
+容易想到树剖，然后考虑在线段树上维护这个问题
+发现可以转化成选择一段区间$[l,r]$，对于每个点$x$，该位置增加的值为$(x-h)^2$​​，把平方项展开后得到$x^2+h^2-2xh$​，对这三项分别线段树维护即可（分别维护$x^2,-2x$​出现的次数和$h^2$的和）
+有时候dfs序和修改顺序是反的，就是对于区间$[l,r]$​，每个点增加量分别是$n^2,(n-1)^2,…,1^2$​，实际上就是每个位置增加量变为$(h-x)^2$​​，h为r+1，而显然$(x-h)^2=(h-x)^2$​，因此这种情况下线段树不需要进行任何修改，只要调整传入的h参数即可
+树剖时还需要稍微注意的是，这里对链的修改存在先后顺序，常规的树剖对于两个端点x,y是一起往上跳的，那么这里只在x往上跳时修改，y往上跳时先用vector记录哪些点需要修改，等x修改完再去修改y">
+    <meta name="keywords" content=",XCPC,多校,莫队,分块,树链剖分,线段树">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="2021杭电多校第二场 | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="I love tree题意：给一棵树，每次操作选择一条链，从起点到终点点权依次增加$1^2,2^2,…n^2$，单点询问当前点权​
+容易想到树剖，然后考虑在线段树上维护这个问题
+发现可以转化成选择一段区间$[l,r]$，对于每个点$x$，该位置增加的值为$(x-h)^2$​​，把平方项展开后得到$x^2+h^2-2xh$​，对这三项分别线段树维护即可（分别维护$x^2,-2x$​出现的次数和$h^2$的和）
+有时候dfs序和修改顺序是反的，就是对于区间$[l,r]$​，每个点增加量分别是$n^2,(n-1)^2,…,1^2$​，实际上就是每个位置增加量变为$(h-x)^2$​​，h为r+1，而显然$(x-h)^2=(h-x)^2$​，因此这种情况下线段树不需要进行任何修改，只要调整传入的h参数即可
+树剖时还需要稍微注意的是，这里对链的修改存在先后顺序，常规的树剖对于两个端点x,y是一起往上跳的，那么这里只在x往上跳时修改，y往上跳时先用vector记录哪些点需要修改，等x修改完再去修改y">
+    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="莫队"> <meta property="og:article:tag" content="分块"> <meta property="og:article:tag" content="树链剖分"> <meta property="og:article:tag" content="线段树"> 
+
+    
+        <meta property="article:published_time" content="Sat Jul 24 2021 23:48:29 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jul 25 2021 15:21:14 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/index.html",
+    "headline": "2021杭电多校第二场",
+    "datePublished": "Sat Jul 24 2021 23:48:29 GMT+0800",
+    "dateModified": "Sun Jul 25 2021 15:21:14 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",XCPC,多校,莫队,分块,树链剖分,线段树",
+    "description": "I love tree题意：给一棵树，每次操作选择一条链，从起点到终点点权依次增加$1^2,2^2,…n^2$，单点询问当前点权​
+容易想到树剖，然后考虑在线段树上维护这个问题
+发现可以转化成选择一段区间$[l,r]$，对于每个点$x$，该位置增加的值为$(x-h)^2$​​，把平方项展开后得到$x^2+h^2-2xh$​，对这三项分别线段树维护即可（分别维护$x^2,-2x$​出现的次数和$h^2$的和）
+有时候dfs序和修改顺序是反的，就是对于区间$[l,r]$​，每个点增加量分别是$n^2,(n-1)^2,…,1^2$​，实际上就是每个位置增加量变为$(h-x)^2$​​，h为r+1，而显然$(x-h)^2=(h-x)^2$​，因此这种情况下线段树不需要进行任何修改，只要调整传入的h参数即可
+树剖时还需要稍微注意的是，这里对链的修改存在先后顺序，常规的树剖对于两个端点x,y是一起往上跳的，那么这里只在x往上跳时修改，y往上跳时先用vector记录哪些点需要修改，等x修改完再去修改y",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#I-love-tree"><span class="post-toc-text">I love tree</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#I-love-counting"><span class="post-toc-text">I love counting</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#I-love-exam"><span class="post-toc-text">I love exam</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#I-love-permutation"><span class="post-toc-text">I love permutation</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                2021杭电多校第二场
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>7月 24, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/XCPC/" rel="tag">XCPC</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%88%86%E5%9D%97/" rel="tag">分块</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%A4%9A%E6%A0%A1/" rel="tag">多校</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" rel="tag">树链剖分</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E8%8E%AB%E9%98%9F/" rel="tag">莫队</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2021杭电多校第二场&url=http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2021杭电多校第二场&url=http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="I-love-tree"><a href="#I-love-tree" class="headerlink" title="I love tree"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=6962">I love tree</a></h1><p>题意：给一棵树，每次操作选择一条链，从起点到终点点权依次增加$1^2,2^2,…n^2$，单点询问当前点权​</p>
+<p>容易想到树剖，然后考虑在线段树上维护这个问题</p>
+<p>发现可以转化成选择一段区间$[l,r]$，对于每个点$x$，该位置增加的值为$(x-h)^2$​​，把平方项展开后得到$x^2+h^2-2xh$​，对这三项分别线段树维护即可（分别维护$x^2,-2x$​出现的次数和$h^2$的和）</p>
+<p>有时候dfs序和修改顺序是反的，就是对于区间$[l,r]$​，每个点增加量分别是$n^2,(n-1)^2,…,1^2$​，实际上就是每个位置增加量变为$(h-x)^2$​​，h为r+1，而显然$(x-h)^2=(h-x)^2$​，因此这种情况下线段树不需要进行任何修改，只要调整传入的h参数即可</p>
+<p>树剖时还需要稍微注意的是，这里对链的修改存在先后顺序，常规的树剖对于两个端点x,y是一起往上跳的，那么这里只在x往上跳时修改，y往上跳时先用vector记录哪些点需要修改，等x修改完再去修改y</p>
+<span id="more"></span>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
+#define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39;\n&#39;
+#define all(x) x.begin(), x.end()
+#define mem(x, y) memset(x, y, sizeof(x))
+#define rep(x,y,z) for (int x=y;x&lt;=z;x++)
+#define per(x,y,z) for (int x=y;x&gt;=z;x--)
+
+using namespace std;
+typedef long long ll;
+typedef long long LL;
+typedef pair&lt;int, int&gt; pii;
+
+const int N = 2e5 + 5, M = 2e5 + 5, INF = 0x3f3f3f3f;
+const ll INF64 = 0x3f3f3f3f3f3f3f3f;
+struct Segment_tree &#123;
+    #define lson (o &lt;&lt; 1)
+    #define rson ((o &lt;&lt; 1) | 1)
+    #define mid ((l + r) &gt;&gt; 1)
+    struct Node &#123;
+        ll v[3]; // v[0] : x^2, v[1] : h^2, v[2] : -2x
+    &#125;t[N &lt;&lt; 2];
+    void build(int o, int l, int r) &#123;
+        if (l == r) &#123;
+            t[o].v[0] = t[o].v[1] = t[o].v[2] = 0;
+            return;
+        &#125;
+        build(lson, l, mid); build(rson, mid + 1, r);
+    &#125;
+    void modify(int o, int l, int r, int tl, int tr, int h) &#123;
+        if (r &lt; tl || l &gt; tr) return;
+        if (tl &lt;= l &amp;&amp; r &lt;= tr) &#123;
+            t[o].v[0] ++;
+            t[o].v[1] += 1ll * h * h;
+            t[o].v[2] += -2 * h;
+            return;
+        &#125;
+        modify(lson, l, mid, tl, tr, h); modify(rson, mid + 1, r, tl, tr, h);
+    &#125;
+    ll query(int o, int l, int r, int pos, ll v0, ll v1, ll v2) &#123;
+        v0 += t[o].v[0];
+        v1 += t[o].v[1];
+        v2 += t[o].v[2];
+        if (l == r) return v0 * pos * pos + v1 + pos * v2;
+        if (pos &lt;= mid) return query(lson, l, mid, pos, v0, v1, v2);
+        else return query(rson, mid + 1, r , pos, v0, v1, v2);
+    &#125;
+&#125;ST;
+
+ll q[N];
+
+int n,m,r,p,ord[N];
+int sz[N],dep[N],son[N],fa[N],top[N],num[N],cnt;
+
+vector&lt;int&gt;G[N];
+
+void init() &#123;
+    r = 1;
+    memset(sz,0,sizeof(sz));
+    cnt=0;
+    fa[r]=-1;
+    dep[r]=1;
+    top[r]=r;
+&#125;
+
+void dfs1(int x) &#123;
+    int mxson=-1;
+    son[x]=-1;
+    for (auto to:G[x]) &#123;
+        if (to==fa[x]) continue;
+        dep[to]=dep[x]+1;
+        fa[to]=x;
+        dfs1(to);
+        if (sz[to]&gt;mxson) mxson=sz[to], son[x]=to;
+        sz[x]+=sz[to];
+    &#125;
+    sz[x]++;
+&#125;
+void dfs2(int x,int tp) &#123;
+    num[x]=++cnt;
+    ord[cnt]=q[x];
+    top[x]=tp;
+    if (~son[x]) dfs2(son[x],tp);
+    for (auto to:G[x]) &#123;
+        if (to==fa[x] || to==son[x]) continue;
+        dfs2(to,to);
+    &#125;
+&#125;
+void chainModify(int x,int y) &#123;
+    int st = 0;
+    vector&lt;pii&gt; vc;
+    while(top[x]!=top[y]) &#123;
+        if (dep[top[x]] &gt; dep[top[y]]) &#123;
+            ST.modify(1,1,n,num[top[x]],num[x], num[x] + st + 1);
+            st += num[x] - num[top[x]] + 1;
+            x = fa[top[x]];
+        &#125; else &#123;
+            vc.push_back(&#123;num[top[y]], num[y]&#125;);
+            y = fa[top[y]];
+        &#125;
+    &#125;
+    bool swp = 0;
+    if (dep[x]&gt;dep[y]) swap(x,y), swp = 1;
+    ST.modify(1,1,n,num[x],num[y], swp ? num[y] + st + 1: num[x] - st - 1);
+    st += num[y] - num[x] + 1;
+    reverse(all(vc));
+    for (auto X : vc) &#123;
+        int u = X.first, v = X.second;
+        ST.modify(1, 1, n, u, v, u - st - 1);
+        st += v - u + 1;
+    &#125;
+
+&#125;
+
+ll spotQuery(int x) &#123;
+    return ST.query(1, 1, n, num[x], 0, 0, 0);
+&#125;
+
+int main() &#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    for (int i=1;i&lt;=n-1;i++) &#123;
+        int u,v;
+        scanf(&quot;%d%d&quot;,&amp;u,&amp;v);
+        G[u].push_back(v);
+        G[v].push_back(u);
+    &#125;
+    init();
+    dfs1(r);
+    dfs2(r,r);
+    ST.build(1,1,n);
+    scanf(&quot;%d&quot;, &amp;m);
+    for (int i=1;i&lt;=m;i++) &#123;
+        int opt,x,y;
+        LL z;
+        scanf(&quot;%d&quot;,&amp;opt);
+        if (opt==1) &#123;
+            scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+            chainModify(x,y);
+        &#125;
+        if (opt==2) &#123;
+            scanf(&quot;%d&quot;,&amp;x);
+            printf(&quot;%lld\n&quot;,spotQuery(x));
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h1 id="I-love-counting"><a href="#I-love-counting" class="headerlink" title="I love counting"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=6964">I love counting</a></h1><p>题意：给一个序列A，每次查询区间$[l_i,r_i]$​中满足$c xor a\le b$​​​的​不同数c的个数（重复不计）</p>
+<p>首先在字典树上思考，满足$c xor a\le b$​​的c​至多有$\log$​​​个区间：</p>
+<p>从二进制最高位开始考虑，用u表示a的当前位，v表示b的当前位，分成以下四种情况讨论</p>
+<ol>
+<li>u=0, v=0 c向0子树搜索</li>
+<li>u=0, v=1 统计0子树下的所有答案，c向1子树搜索</li>
+<li>u=1, v=0 c向1子树搜索</li>
+<li>u=1, v=1 统计1子树下的所有答案，c向0子树搜索</li>
+</ol>
+<p>可以发现最多统计$\log$次答案，并且每次统计的区间至多是上一次的一半</p>
+<p>问题就转化成了和上一场1010几乎一样的问题，可以用莫队+分块解决，只不过每次查询需要统计$\log$次，复杂度上界是$O(n\sqrt n\log n)$，但是由于大多数查询区间较小，区间长度小于$2^{10}$的时间可以忽略不计，因此常数是非常小的，事实上也的确可以通过此题</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
+#define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39;\n&#39;
+#define all(x) x.begin(), x.end()
+#define mem(x, y) memset(x, y, sizeof(x))
+#define rep(x,y,z) for (int x=y;x&lt;=z;x++)
+#define per(x,y,z) for (int x=y;x&gt;=z;x--)
+
+using namespace std;
+typedef long long ll;
+typedef pair&lt;int, int&gt; pii;
+
+const int N = 1e5 + 5, M = 2e5 + 5, INF = 0x3f3f3f3f;
+const ll INF64 = 0x3f3f3f3f3f3f3f3f;
+
+int n, m, a[M], ans[M], BB, sum[M], BB2, block[M];
+int num[N];
+
+struct Query &#123;
+    int l, r, a, b, idx;
+    bool operator &lt; (Query &amp;Q) const &#123;
+        if (block[l] != block[Q.l]) return l &lt; Q.l;
+        if (block[l] &amp; 1) return r &lt; Q.r;
+        else return r &gt; Q.r;
+    &#125;
+&#125;q[N];
+
+void modify(int X, int type) &#123;
+    int x = a[X];
+    if (type == 1) &#123;
+        if (num[x] == 0) &#123;
+            assert(x / BB2 &lt;= 100000);
+            sum[x / BB2] += 1;
+        &#125;
+        num[x]++;
+    &#125; else &#123;
+        if (num[x] == 1) &#123;
+            assert(x / BB2 &lt;= 100000);
+            sum[x / BB2] -= 1;
+        &#125;
+        num[x]--;
+    &#125;
+&#125;
+
+int query(int l, int r) &#123;
+    if (l &gt; 100000) return 0;
+    if (r &gt; 100000) r = 100000;
+    int res = 0;
+    int b1 = l / BB2, b2 = r / BB2;
+    if (b1 == b2) &#123;
+        for (int i = l; i &lt;= r; i++) &#123;
+            assert(i &lt;= 100000);
+            assert(i &gt;= 0);
+            res += num[i] &gt; 0;
+        &#125;
+    &#125; else &#123;
+        for (int i = l; i &lt;= min(n, (b1 + 1) * BB2 - 1); i++) assert(i &lt;= 100000),assert(i &gt;= 0), res += num[i] &gt; 0;
+        for (int i = b2 * BB2; i &lt;= r; i++) assert(i &lt;= 100000),assert(i &gt;= 0), res += num[i] &gt; 0;
+        for (int i = b1 + 1; i &lt;= b2 - 1; i++) assert(i &lt;= 100000),assert(i &gt;= 0), res += sum[i];
+    &#125;
+    return res;
+&#125;
+
+int main() &#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    BB = (int)sqrt(n);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        assert(i &lt;= 100000);
+        block[i] = i &lt;= BB ? 1 : block[i - BB] + 1;
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        scanf(&quot;%d&quot;, &amp;a[i]);
+        assert(a[i] &lt;= n);
+    &#125;
+
+    scanf(&quot;%d&quot;, &amp;m);
+    BB2 = (int)sqrt(m);
+    for (int i = 1; i &lt;= m; i++) &#123;
+        scanf(&quot;%d %d %d %d&quot;, &amp;q[i].l, &amp;q[i].r, &amp;q[i].a, &amp;q[i].b);
+        q[i].idx = i;
+    &#125;
+    sort(q + 1, q + 1 + m);
+    int L = 1, R = 0;
+    for (int i = 1; i &lt;= m; i++) &#123;
+        while(R &lt; q[i].r) modify(++R, 1);
+        while(L &gt; q[i].l) modify(--L, 1);
+        while(R &gt; q[i].r) modify(R--, -1);
+        while(L &lt; q[i].l) modify(L++, -1);
+        int now = 0, aans = 0;
+        for (int j = (1 &lt;&lt; 17); j; j &gt;&gt;= 1) &#123;
+            int u = q[i].a &amp; j, v = q[i].b &amp; j;
+            if (u == 0 &amp;&amp; v == 0) &#123;
+                continue;
+            &#125;
+            if (u == 0 &amp;&amp; v != 0) &#123;
+                aans += query(now, now + j - 1);
+                now += j;
+                continue;
+            &#125;
+            if (u != 0 &amp;&amp; v == 0) &#123;
+                now += j;
+                continue;
+            &#125;
+            if (u != 0 &amp;&amp; v != 0) &#123;
+                aans += query(now + j, now + j + j - 1);
+                continue;
+            &#125;
+        &#125;
+        if (now &lt;= 100000) aans += num[now] &gt; 0;
+        ans[q[i].idx] = aans;
+    &#125;
+    for (int i = 1; i &lt;= m; i++) printf(&quot;%d\n&quot;, ans[i]);
+    return 0;
+&#125;
+</code></pre>
+<p>标算是一个$O(n\log^2n)$的做法，对于每个区间跑一次“二维数点”，原理就是将查询区间按照右端点从大到小排序，预处理出每个数右边第一个和它相同的数的位置，对于每个数，只有当【当前查询的区间右端点&lt;其右边第一个和它相同的数的位置】时，才将该数记录到树状数组中。</p>
+<p>正确性可以这样理解，考虑一个位置为$x_i$，右边第一个和它相同的数位置为$nxt_i$的数在什么时候能对答案产生贡献，即查询区间左端点$l_i\leqslant x_i$，且查询区间右端点$r_i\leqslant nxt_i-1$时能产生贡献，否则$l_i&gt;x_i$时显然不行，$r_i\geqslant nxt_i$时，贡献由其右边第一个点与它相同的点产生。这样一来，树状数组限制了$l_i\leqslant x_i$，根据右端点排序记录限制了$r_i\leqslant nxt_i-1$</p>
+<p>然而比较讽刺的是这个$O(n\log^2n)$的标算跑的没莫队$O(n\sqrt n\log n)$快…</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define N 100009
+using namespace std;
+typedef long long ll;
+int nxt[N],c[N],head[N],Q,ans[N];
+int n,tot,tr[N],ch[N*20][2],sum[N*20];
+inline ll rd()&#123;
+    ll x=0;char c=getchar();bool f=0;
+    while(!isdigit(c))&#123;if(c==&#39;-&#39;)f=1;c=getchar();&#125;
+    while(isdigit(c))&#123;x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48);c=getchar();&#125;
+    return f?-x:x;
+&#125;
+inline void add(int x,int y)&#123;while(x&lt;=n)tr[x]+=y,x+=x&amp;-x;&#125;
+inline int query(int x)&#123;int ans=0;while(x)ans+=tr[x],x-=x&amp;-x;return ans;&#125;
+struct node&#123;
+    int l,r,x,id;
+    inline bool operator &lt;(const node &amp;b)const&#123;
+        if(x!=b.x)return x&gt;b.x;
+        if(id!=b.id)return id&lt;b.id;
+        return l&lt;b.l; 
+    &#125;
+&#125;;
+struct qq&#123;
+    int l,r,a,b;
+&#125;q[N];
+vector&lt;node&gt;vec[N*20];
+vector&lt;node&gt;::iterator it; 
+void query(int rt,int now,int a,int b,int id)&#123;
+    if(!rt&amp;&amp;now!=16)return;
+    if(now&lt;0)&#123;
+        vec[rt].push_back(node&#123;q[id].l,q[id].r,q[id].r-1,id&#125;);
+        return;
+    &#125;
+    int xx=(a&amp;(1&lt;&lt;now))!=0,yy=(b&amp;(1&lt;&lt;now))!=0;
+    if(yy) vec[ch[rt][xx]].push_back(node&#123;q[id].l,q[id].r,q[id].r-1,id&#125;);
+    xx^=yy;
+    query(ch[rt][xx],now-1,a,b,id);
+&#125;
+void ins(int x,int id)&#123;
+    int now=0;
+    for(int i=16;i&gt;=0;--i)&#123;
+        int xx=(x&amp;(1&lt;&lt;i))!=0;
+        if(!ch[now][xx])ch[now][xx]=++tot;
+        now=ch[now][xx];
+        sum[now]++;
+        vec[now].push_back(node&#123;id,0,nxt[id]-2,0&#125;);
+    &#125;
+&#125;
+void solve()&#123;
+    n=rd();
+    for(int i=1;i&lt;=n;++i)&#123;
+        c[i]=rd();
+    &#125;
+    for(int i=n;i&gt;=1;--i)&#123;
+        if(!head[c[i]])nxt[i]=n+1;
+        else nxt[i]=head[c[i]];
+        head[c[i]]=i;
+    &#125;
+    for(int i=1;i&lt;=n;++i)ins(c[i],i);
+    Q=rd();
+    for(int i=1;i&lt;=Q;++i)&#123;
+        q[i].l=rd();q[i].r=rd();q[i].a=rd();q[i].b=rd();
+        query(0,16,q[i].a,q[i].b,i);
+    &#125;
+    for(int i=1;i&lt;=tot;++i)&#123;
+        sort(vec[i].begin(),vec[i].end());
+        for(it=vec[i].begin();it!=vec[i].end();++it)&#123;
+            if(it-&gt;id==0)&#123;
+                add(it-&gt;l,1);      
+            &#125;
+            else &#123;
+              ans[it-&gt;id]+=query(it-&gt;r)-query(it-&gt;l-1);
+            &#125;
+        &#125;
+        for(it=vec[i].begin();it!=vec[i].end();++it)&#123;
+            if(it-&gt;id==0)&#123;
+              add(it-&gt;l,-1);
+            &#125;
+        &#125;
+    &#125;
+    for(int i=1;i&lt;=Q;++i)printf(&quot;%d\n&quot;,ans[i]);
+&#125;
+int main()&#123;
+    int T=1;
+    while(T--)&#123;
+        solve(); 
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h1 id="I-love-exam"><a href="#I-love-exam" class="headerlink" title="I love exam"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=6968">I love exam</a></h1><p>01背包处理出$f[i][j]$表示第i门课，考j分，需要花费的最小天数</p>
+<p>分组背包$f2[i][j][k]$表示考虑前i门课（每门课考0-100分这101项作为一个分组），花费j天，挂了k门课的最高分数</p>
+<pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
+#define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39;\n&#39;
+#define all(x) x.begin(), x.end()
+#define mem(x, y) memset(x, y, sizeof(x))
+#define rep(x,y,z) for (int x=y;x&lt;=z;x++)
+#define per(x,y,z) for (int x=y;x&gt;=z;x--)
+
+using namespace std;
+typedef long long ll;
+typedef pair&lt;int, int&gt; pii;
+
+const int N = 5e1 + 5, M = 1e2 + 5, MOD = 1e9 + 7, INF = 0x3f3f3f3f;
+const ll INF64 = 0x3f3f3f3f3f3f3f3f;
+
+int add(int a, int b) &#123; return a + b &gt;= MOD ? a + b - MOD : a + b; &#125;
+int sub(int a, int b) &#123; return a - b &lt; 0 ? a - b + MOD : a - b; &#125;
+int mul(int a, int b) &#123; return 1ll * a * b % MOD; &#125;
+int bin(int x, int p) &#123;
+    int res = 1;
+    for (int b = x; p; p &gt;&gt;= 1, b = mul(b, b))
+        if (p &amp; 1) res = mul(res, b);
+    return res;
+&#125;
+const int maxn=111111,maxm=5555555;
+const double pi=3.1415926535897932384626433832795,eps=1e-14;
+
+int T, n, m, f[N][M], f2[N][505][5];
+
+map&lt;string ,int&gt; mp;
+vector&lt;pii&gt; vc[N];
+
+string st;
+
+void init() &#123;
+    memset(f, 0x3f, sizeof(f));
+    memset(f2, -0x3f, sizeof(f2));
+    for (int i = 0; i &lt;= n; i++) f[i][0] = 0;
+    f2[0][0][0] = 0;
+    mp.clear();
+&#125;
+void solve() &#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    init();
+    for (int i = 1; i &lt;= n; i++) &#123;
+        cin &gt;&gt; st;
+        mp[st] = i;
+    &#125;
+    scanf(&quot;%d&quot;, &amp;m);
+    for (int i = 1; i &lt;= m; i++) vc[i].clear();
+    for (int i = 1; i &lt;= m; i++) &#123;
+        cin &gt;&gt; st;
+        int u, v; scanf(&quot;%d %d&quot;, &amp;u, &amp;v);
+        vc[mp[st]].push_back(&#123;u, v&#125;);
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        for (auto X : vc[i]) &#123;
+            int u = X.first, v = X.second;
+            for (int j = 100 - u; j &gt;= 0; j--) &#123;
+                f[i][j + u] = min(f[i][j + u], f[i][j] + v);
+            &#125;
+        &#125;
+    &#125;
+    int t, p; scanf(&quot;%d %d&quot;, &amp;t, &amp;p);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        for (int l = 0; l &lt;= t; l++) &#123;
+            for (int k = 0; k &lt;= p; k++) &#123;
+                for (int j = 0; j &lt;= 100; j++) &#123;
+                    if (k == 0 &amp;&amp; j &lt; 60) continue;
+                    if (l - f[i][j] &gt;= 0)
+                        f2[i][l][k] = max(f2[i][l][k], f2[i - 1][l - f[i][j]][k - (j &lt; 60)] + j);
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    int ans = -1;
+    for (int l = 0; l &lt;= t; l++) &#123;
+        for (int k = 0; k &lt;= p; k++) &#123;
+            ans = max(ans, f2[n][l][k]);
+        &#125;
+    &#125;
+    cout &lt;&lt; ans &lt;&lt; endl;
+&#125;
+int main() &#123;
+    scanf(&quot;%d&quot;, &amp;T);
+    while(T--) &#123;
+        solve();
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h1 id="I-love-permutation"><a href="#I-love-permutation" class="headerlink" title="I love permutation"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=6970">I love permutation</a></h1>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/07/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/07/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

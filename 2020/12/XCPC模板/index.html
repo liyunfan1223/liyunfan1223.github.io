@@ -1,0 +1,3998 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            XCPC模板 | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="XCPC算法竞赛模板 by MorphLing">
+    <meta name="keywords" content=",XCPC">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2020/12/XCPC%E6%A8%A1%E6%9D%BF/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2020/12/XCPC%E6%A8%A1%E6%9D%BF/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="XCPC模板 | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="XCPC算法竞赛模板 by MorphLing">
+    <meta property="og:article:tag" content="XCPC"> 
+
+    
+        <meta property="article:published_time" content="Fri Dec 18 2020 16:19:16 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jun 03 2021 20:15:30 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2020/12/XCPC%E6%A8%A1%E6%9D%BF/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2020/12/XCPC%E6%A8%A1%E6%9D%BF/index.html",
+    "headline": "XCPC模板",
+    "datePublished": "Fri Dec 18 2020 16:19:16 GMT+0800",
+    "dateModified": "Thu Jun 03 2021 20:15:30 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",XCPC",
+    "description": "XCPC算法竞赛模板 by MorphLing",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="post-toc-text">图论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%88dijkstra%EF%BC%89"><span class="post-toc-text">单源最短路径（dijkstra）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%91%E7%9A%84%E9%87%8D%E5%BF%83"><span class="post-toc-text">树的重心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BEtarjan%E6%B1%82%E5%89%B2%E7%82%B9%E3%80%81%E5%89%B2%E8%BE%B9%E3%80%81%E7%82%B9%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="post-toc-text">无向图tarjan求割点、割边、点双连通分量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BEtarjan%E7%BC%A9%E7%82%B9"><span class="post-toc-text">有向图tarjan缩点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%99%9A%E6%A0%91-LCA%E4%BC%98%E5%8C%96"><span class="post-toc-text">虚树+LCA优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%B7%B1%E5%BA%A6%E5%BB%BA%E8%99%9A%E6%A0%91"><span class="post-toc-text">根据深度建虚树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%82%B9%E5%88%86%E6%B2%BB"><span class="post-toc-text">点分治</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6dsu-on-tree"><span class="post-toc-text">树上启发式合并dsu on tree</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86-%E8%BD%BB%E9%87%8D%E9%93%BE%E5%89%96%E5%88%86"><span class="post-toc-text">树链剖分(轻重链剖分)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8A%A8%E6%80%81%E6%A0%91LCT"><span class="post-toc-text">动态树LCT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-SAT"><span class="post-toc-text">2-SAT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%80%E5%A4%A7%E6%B5%81Dinic"><span class="post-toc-text">最大流Dinic</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9B%86%E5%90%88%E5%88%92%E5%88%86%E5%BB%BA%E5%9B%BE-%E6%9C%80%E5%A4%A7%E6%B5%81%E6%9C%80%E5%B0%8F%E5%89%B2"><span class="post-toc-text">集合划分建图(最大流最小割)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81%EF%BC%88MCMF%EF%BC%89"><span class="post-toc-text">最小费用最大流（MCMF）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%EF%BC%88%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95%EF%BC%89-%E6%9C%80%E5%B0%8F%E7%82%B9%E8%A6%86%E7%9B%96-%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D"><span class="post-toc-text">二分图最大匹配（匈牙利算法）(最小点覆盖&#x3D;最大匹配)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E8%88%AC%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%EF%BC%88Edmonds%E5%B8%A6%E8%8A%B1%E6%A0%91%EF%BC%89"><span class="post-toc-text">一般图最大匹配（Edmonds带花树）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="post-toc-text">数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="post-toc-text">树状数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="post-toc-text">二维树状数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="post-toc-text">线段树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ST%E8%A1%A8"><span class="post-toc-text">ST表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Splay"><span class="post-toc-text">Splay</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DP"><span class="post-toc-text">DP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F%E4%BC%98%E5%8C%96"><span class="post-toc-text">四边形不等式优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96"><span class="post-toc-text">斜率优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E4%BD%8Ddp"><span class="post-toc-text">数位dp</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%A6"><span class="post-toc-text">数学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="post-toc-text">快速幂</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#exgcd%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%EF%BC%88%E6%B1%82ax-by-0%E6%95%B4%E6%95%B0%E8%A7%A3%EF%BC%89"><span class="post-toc-text">exgcd扩展欧几里得（求ax+by&#x3D;0整数解）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9F%BA"><span class="post-toc-text">线性基</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AC%A7%E6%8B%89%E7%AD%9B"><span class="post-toc-text">欧拉筛</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Min-25%E7%AD%9B"><span class="post-toc-text">Min_25筛</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E6%B1%82%E9%80%86%E5%85%83"><span class="post-toc-text">线性求逆元</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#O-n-%E9%A2%84%E5%A4%84%E7%90%86O-1-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="post-toc-text">O(n)预处理O(1)求组合数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CRT%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86"><span class="post-toc-text">CRT中国剩余定理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Miller-Rabin"><span class="post-toc-text">Miller-Rabin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99"><span class="post-toc-text">二次剩余</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97-%E7%94%9F%E6%88%90%E6%A0%91%E8%AE%A1%E6%95%B0"><span class="post-toc-text">行列式计算&#x2F;生成树计数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%82%B9%E5%92%8C%E5%90%91%E9%87%8F%E6%97%8B%E8%BD%AC"><span class="post-toc-text">点和向量旋转</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B1%82%E7%9B%B4%E7%BA%BF%E4%BA%A4%E7%82%B9%E3%80%81%E4%B8%AD%E5%9E%82%E7%BA%BF"><span class="post-toc-text">求直线交点、中垂线</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AE%97%E6%B3%95"><span class="post-toc-text">算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CDQ%E5%88%86%E6%B2%BB"><span class="post-toc-text">CDQ分治</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97-LIS"><span class="post-toc-text">最长递增子序列(LIS)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%A6%E4%BF%AE%E8%8E%AB%E9%98%9F"><span class="post-toc-text">带修莫队</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88"><span class="post-toc-text">威佐夫博弈</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%91%E4%B8%8A%E8%8E%AB%E9%98%9F%EF%BC%88%E5%B8%A6%E4%BF%AE%EF%BC%89"><span class="post-toc-text">树上莫队（带修）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E6%88%96%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="post-toc-text">异或最小生成树</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="post-toc-text">字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KMP"><span class="post-toc-text">KMP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84SA"><span class="post-toc-text">后缀数组SA</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                XCPC模板
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>12月 18, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/XCPC/" rel="tag">XCPC</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=XCPC模板&url=http://example.com/2020/12/XCPC%E6%A8%A1%E6%9D%BF/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=XCPC模板&url=http://example.com/2020/12/XCPC%E6%A8%A1%E6%9D%BF/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/XCPC%E6%A8%A1%E6%9D%BF/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/12/XCPC%E6%A8%A1%E6%9D%BF/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>XCPC算法竞赛模板 by MorphLing</p>
+<span id="more"></span>
+<h1 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h1><h2 id="单源最短路径（dijkstra）"><a href="#单源最短路径（dijkstra）" class="headerlink" title="单源最短路径（dijkstra）"></a>单源最短路径（dijkstra）</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+using namespace std;
+const int N=2e5+5;
+const LL INF=0x3f3f3f3f3f3f3f3f;
+
+struct Dijkstra &#123;
+    struct Edge &#123;
+        int to;LL val;
+    &#125;;
+    struct Node &#123;
+        LL dis;int key;
+        friend bool operator &lt; (const Node &amp;x,const Node &amp;y) &#123;
+            return x.dis&gt;y.dis;
+        &#125;
+    &#125;;
+    bool vis[N];
+    int n,m,s;
+    LL dis[N];
+    vector&lt;Edge&gt;G[N];
+    priority_queue&lt;Node&gt;Q;
+    void init(int _n,int _s) &#123;
+        n=_n,s=_s;
+        for (int i=0;i&lt;=n;i++) G[i].clear();
+        for (int i=1;i&lt;=n;i++) dis[i]=INF;
+    &#125;
+    void addEdge(int from,int to,LL val) &#123;
+        G[from].push_back(&#123;to,val&#125;);
+    &#125;
+    void go() &#123;
+        dis[s]=0;
+        Q.push(&#123;0,s&#125;);
+        while(!Q.empty()) &#123;
+            Node top=Q.top(); Q.pop();
+            int now=top.key;
+            if (vis[now]) continue;
+            vis[now]=1;
+            for (int i=0;i&lt;G[now].size();i++) &#123;
+                int to=G[now][i].to;
+                if (dis[to]&gt;dis[now]+G[now][i].val) &#123;
+                    dis[to]=dis[now]+G[now][i].val;
+                    if (!vis[to]) Q.push(&#123;dis[to],to&#125;);
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;dijkstra;
+
+int n,m,s;
+
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;
+    dijkstra.init(n,s);
+    for (int i=1;i&lt;=m;i++) &#123;
+        int u,v,w;
+        scanf(&quot;%d%d%d&quot;,&amp;u,&amp;v,&amp;w);
+        dijkstra.addEdge(u,v,w);
+    &#125;
+    dijkstra.go();
+    for (int i=1;i&lt;=n;i++) printf(&quot;%lld &quot;,dijkstra.dis[i]);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="树的重心"><a href="#树的重心" class="headerlink" title="树的重心"></a>树的重心</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define ll long long
+const int N = 1e5+5;
+int ans = N,head[N],nxt[N*2],e[N*2],tot,n;//无向图开两倍空间
+bool st[N];
+void add(int u,int v) &#123;
+    e[tot] = v;
+    nxt[tot] = head[u];
+    head[u] = tot++;
+&#125;
+int dfs(int u) &#123;
+    st[u] = true;
+    int cnt = 0,sum = 0;
+    for(int i=head[u];i != -1;i = nxt[i]) &#123;
+        int j = e[i];
+        if(!st[j]) &#123;
+            int s = dfs(j);
+            cnt = max(cnt,s);//每次统计以u为根的子树中点的个数的最大值
+            sum += s;
+        &#125;
+    &#125;
+    cnt = max(cnt,n - sum - 1);//与剩余的点的个数比较
+    ans = min(ans,cnt);//比较各个最大值中的最小值
+    return sum + 1;//返回以u为根的子树中的点的个数（加上本身）
+&#125;
+int main() &#123;
+    cin &gt;&gt; n;
+    int l,r;
+    memset(head,-1,sizeof(head));
+    for(int i=0;i&lt;n;i++) &#123;
+        cin &gt;&gt; l &gt;&gt; r;
+        add(l,r);
+        add(r,l);
+    &#125;
+    dfs(1);
+    cout &lt;&lt; ans;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="无向图tarjan求割点、割边、点双连通分量"><a href="#无向图tarjan求割点、割边、点双连通分量" class="headerlink" title="无向图tarjan求割点、割边、点双连通分量"></a>无向图tarjan求割点、割边、点双连通分量</h2><pre><code class="lang-cpp">##include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int N = 1e3 + 5;
+
+struct Edge &#123;
+    int from, to;
+    Edge()&#123;&#125;
+    Edge(int f, int t) &#123;
+        from = f;
+        to = t;
+    &#125;
+&#125;;
+vector&lt;int&gt; G[N]; // 存图
+vector&lt;Edge&gt; bridge; // 存桥
+vector&lt;int&gt; cut_vertex; // 存割点
+vector&lt;int&gt; compo_vertex[N]; // 存点双连通分量点
+vector&lt;Edge&gt; compo_edge[N]; // 存点双连通分量边
+
+vector&lt;Edge&gt; st_edge; // tarjan
+vector&lt;int&gt; st_vertex; // tarjan
+int dfn[N], low[N], IDX; // tarjan
+int cut[N]; // cut[x] &gt; 0 则为割点
+int TOT; // 点双连通分量的数量
+
+int n, m;
+
+void init() &#123;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        G[i].clear();
+        compo_vertex[i].clear();
+        compo_edge[i].clear();
+        dfn[i] = cut[i] = 0;
+    &#125;
+    IDX = TOT = 0;
+    bridge.clear(); cut_vertex.clear();
+&#125;
+
+void tarjan(int x, int ff) &#123;
+    dfn[x] = low[x] = ++IDX;
+    for (auto to : G[x]) &#123;
+        if (to == ff) continue;
+        if (!dfn[to]) &#123;
+            st_edge.push_back(Edge(x, to));
+            st_vertex.push_back(to);
+            tarjan(to, x);
+            low[x] = min(low[x], low[to]);
+            if (low[to] &gt;= dfn[x]) &#123;
+                cut[x]++;
+                TOT++; 
+                compo_vertex[TOT].clear(); compo_vertex[TOT].push_back(x);
+                compo_edge[TOT].clear();
+                while(!st_vertex.empty() &amp;&amp; st_vertex.back() != x) &#123; // 存点
+                    compo_vertex[TOT].push_back(st_vertex.back());
+                    st_vertex.pop_back();
+                &#125;
+                while(st_edge.back().from != x) &#123; // 存边
+                    compo_edge[TOT].push_back(st_edge.back());
+                    st_edge.pop_back();
+                &#125;
+                compo_edge[TOT].push_back(st_edge.back());
+                st_edge.pop_back();    
+            &#125;
+            if (low[to] &gt; dfn[x]) bridge.push_back(Edge(x, to));
+        &#125; else &#123;
+            if (dfn[to] &lt; dfn[x]) st_edge.push_back(Edge(x, to));
+            low[x] = min(low[x], dfn[to]);
+        &#125;
+    &#125;
+&#125;
+
+void solve() &#123;
+    scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+    init();
+    for (int i = 1; i &lt;= m; i++) &#123;
+        int u, v; scanf(&quot;%d %d&quot;, &amp;u, &amp;v);
+        G[u].push_back(v);
+        G[v].push_back(u);
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        if (!dfn[i]) &#123;
+            cut[i] = -1;
+            tarjan(1, -1);
+        &#125;
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        if (cut[i]) cut_vertex.push_back(i);
+    &#125;
+    int mx = 0;
+    for (int i = 1; i &lt;= TOT; i++) mx = max(mx, (int) compo_edge[i].size());
+    int gcd = __gcd(TOT, mx);
+    printf(&quot;%d %d %d %d\n&quot;, cut_vertex.size(), bridge.size(), TOT / gcd, mx / gcd);
+&#125;
+int main() &#123;
+    int T; cin &gt;&gt; T;
+    while(T--) &#123;
+        solve();
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="有向图tarjan缩点"><a href="#有向图tarjan缩点" class="headerlink" title="有向图tarjan缩点"></a>有向图tarjan缩点</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int N = 3e4 + 5, INF = 0x3f3f3f3f;
+
+struct Edge &#123;
+    int to, v;
+    Edge()&#123;&#125;
+    Edge(int T, int V) &#123;
+        to = T;
+        v = V;
+    &#125;
+&#125;;
+
+vector&lt;Edge&gt; G[N];
+vector&lt;int&gt; g[N];
+vector&lt;int&gt; bcc[N];
+queue&lt;int&gt; topo;
+vector&lt;int&gt; ord;
+
+int n, x, y, s, deg[N], dis[N];
+
+int dfn[N], low[N], IDX, belong[N], sta[N], top, TAR;
+
+bool vis[N];
+
+void tarjan(int x) &#123;
+    dfn[x] = low[x] = ++IDX;
+    vis[x] = 1, sta[++top] = x;
+    for (auto T : G[x]) &#123;
+        int to = T.to;
+        if (!dfn[to]) &#123;
+            tarjan(to);
+            low[x] = min(low[x], low[to]);
+        &#125; else if (vis[to]) low[x] = min(low[x], dfn[to]);
+    &#125;
+    if (low[x] == dfn[x]) &#123;
+        int now = sta[top];
+        TAR++; bcc[TAR].clear();
+        while(sta[top + 1] != x) &#123;
+            vis[now] = 0;
+            belong[now] = TAR;
+            bcc[TAR].push_back(now);
+            now = sta[--top];
+        &#125;
+    &#125;
+&#125;
+
+void tarjan_go() &#123;
+    for (int i = 1; i &lt;= TAR; i++) g[i].clear();
+    for (int i = 1; i &lt;= n; i++) &#123;
+        for (auto T : G[i]) &#123;
+            int u = i, v = T.to;
+            u = belong[u], v = belong[v];
+            if (u != v) &#123;
+                g[u].push_back(v);
+                deg[v]++;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+struct Node &#123;
+    int key, dis;
+    bool operator &lt; (const Node &amp;N) const &#123;
+        return dis &gt; N.dis;
+    &#125;
+    Node()&#123;&#125;
+    Node(int k, int d) &#123;
+        key = k;
+        dis = d;
+    &#125;
+&#125;;
+priority_queue&lt;Node&gt; p;
+
+void dijkstra(int now) &#123;
+    for (auto x : bcc[now]) &#123;
+        if (dis[x] != INF) p.push(Node(x, dis[x]));
+    &#125;
+    while(!p.empty()) &#123;
+        int now = p.top().key; p.pop();
+        if (vis[now]) continue;
+        vis[now] = 1;
+        for (auto T : G[now]) &#123;
+            int to = T.to, d = T.v;
+            if (vis[to]) continue;
+            if (dis[to] &gt; dis[now] + d) &#123;
+                dis[to] = dis[now] + d;
+                if (belong[to] != belong[now]) continue;
+                p.push(Node(to, dis[to]));
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+int main() &#123;
+    scanf(&quot;%d %d %d %d&quot;, &amp;n, &amp;x, &amp;y, &amp;s);
+    for (int i = 1; i &lt;= x; i++) &#123;
+        int u, v, w; scanf(&quot;%d %d %d&quot;, &amp;u, &amp;v, &amp;w);
+        G[u].push_back(Edge(v, w));
+        G[v].push_back(Edge(u, w));
+    &#125;
+    for (int i = 1; i &lt;= y; i++) &#123;
+        int u, v, w; scanf(&quot;%d %d %d&quot;, &amp;u, &amp;v, &amp;w);
+        G[u].push_back(Edge(v, w));
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        if (!dfn[i]) tarjan(i);
+    &#125;
+    tarjan_go();
+    for (int i = 1; i &lt;= TAR; i++) &#123;
+        if (deg[i] == 0) topo.push(i);
+    &#125;
+    while(!topo.empty()) &#123;
+        int now = topo.front(); topo.pop();
+        ord.push_back(now);
+        for (auto to : g[now]) &#123;
+            deg[to]--;
+            if (deg[to] == 0) topo.push(to);
+        &#125;
+    &#125;
+    memset(dis, INF, sizeof(dis));
+    memset(vis, 0, sizeof(vis));
+    dis[s] = 0;
+    for (auto i : ord) &#123;
+        dijkstra(i);
+    &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        if (dis[i] != INF) printf(&quot;%d\n&quot;, dis[i]);
+        else printf(&quot;NO PATH\n&quot;);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="虚树-LCA优化"><a href="#虚树-LCA优化" class="headerlink" title="虚树+LCA优化"></a>虚树+LCA优化</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+const int N=2e5+5;
+
+int pre[N][25],dfn[N],deep[N],sta[N],TOP,lg[N];
+
+int A[N],n,s,NODE,x,y;
+
+ll ans=0;
+
+vector&lt;int&gt;G[N];
+vector&lt;int&gt;E[N];
+vector&lt;int&gt;D[N];
+
+void DFS(int x,int fa) &#123;
+    int to;
+    dfn[x]=++NODE;
+    deep[x]=deep[fa]+1;
+    D[deep[x]].push_back(x);
+    pre[x][0]=fa;
+    for (int i=1;(1&lt;&lt;i)&lt;=deep[x];i++) pre[x][i]=pre[pre[x][i-1]][i-1];
+    for (int i=0;i&lt;G[x].size();i++) &#123;
+        to=G[x][i];
+        if (to!=fa)
+            DFS(to,x);
+    &#125;
+&#125;
+
+int LCA(int x,int y) &#123;
+    if (deep[x]&lt;deep[y]) swap(x,y);
+    while(deep[x]&gt;deep[y]) x=pre[x][lg[deep[x]-deep[y]]-1];
+    if (x==y) return x;
+    for (int i=lg[deep[x]]-1;i&gt;=0;i--)
+        if (pre[x][i]!=pre[y][i])
+            x=pre[x][i],y=pre[y][i];
+    return pre[x][0];
+&#125;
+
+void Insert(int x) &#123;
+    if (TOP==1) &#123;
+        if (sta[TOP]!=x) sta[++TOP]=x;
+        return;
+    &#125;
+    int lca=LCA(x,sta[TOP]);
+    while(TOP&gt;=2 &amp;&amp; dfn[sta[TOP-1]]&gt;=dfn[lca]) &#123;
+        E[sta[TOP-1]].push_back(sta[TOP]);
+        TOP--;
+    &#125;
+    if (sta[TOP]!=lca) E[lca].push_back(sta[TOP]),sta[TOP]=lca;
+    sta[++TOP]=x;
+&#125;
+
+ll solve(int x) &#123;
+    if (E[x].empty())
+        return 1LL*A[x];
+    ll ret=0;
+    for (int i=0;i&lt;E[x].size();i++) &#123;
+        int to=E[x][i];
+        ll sol=solve(to);
+        if (sol!=0)
+            ret+=max(1LL,sol-(deep[to]-deep[x]));
+    &#125;
+    E[x].clear();
+    return ret;
+&#125;
+
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;s;
+    for (int i=1;i&lt;=n;i++) lg[i]=lg[i-1]+(1&lt;&lt;(lg[i-1])==i);
+    for (int i=1;i&lt;=n;i++) scanf(&quot;%d&quot;,&amp;A[i]);
+    for (int i=1;i&lt;=n-1;i++) &#123;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        G[x].push_back(y);
+        G[y].push_back(x);
+    &#125;
+    DFS(s,0);
+    for (int i=1;!D[i].empty();i++) &#123;
+        sort(D[i].begin(),D[i].end(),[&amp;](int u,int v)&#123;return dfn[u]&lt;dfn[v];&#125;);
+        TOP=0;
+        sta[++TOP]=s;
+        for (int j=0;j&lt;D[i].size();j++) &#123;
+            Insert(D[i][j]);
+        &#125;
+        while(TOP&gt;1) &#123;
+            E[sta[TOP-1]].push_back(sta[TOP]);
+            TOP--;
+        &#125;
+        ll sol=solve(s);
+        if (sol) ans+=max(1LL,sol-1);
+    &#125;
+    printf(&quot;%lld&quot;,ans);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="根据深度建虚树"><a href="#根据深度建虚树" class="headerlink" title="根据深度建虚树"></a>根据深度建虚树</h2><pre><code class="lang-cpp">void build() &#123;
+    sum = 1;
+    dep[1] = 1;
+    ans = 0;
+    for (int i = 2; i &lt;= m; i++) &#123;
+        int j = i;
+        for (; j != mindiv[j]; j /= mindiv[j]) sum++;
+        lcadep[i] = bit.query(m) - bit.query(j - 1) + 1;
+        sum++;
+        dep[i] = sum;
+        for (j = i; j &gt; 1; j /= mindiv[j]) bit.modify(mindiv[j]);
+        ans += 1ll * (dep[i] - 1) * w[i];
+    &#125;
+    TOP = 0, TOT = 1;
+    st[++TOP] = &#123;1, 1&#125;;
+    W[1] = w[1];
+    for (int i = 2; i &lt;= m; i++) &#123;
+        if (lcadep[i] != dep[i - 1]) &#123;
+            while(TOP &gt; 1 &amp;&amp; st[TOP - 1].dep &gt;= lcadep[i]) &#123;
+                G[st[TOP - 1].num].push_back(&#123;st[TOP].num, st[TOP].dep - st[TOP - 1].dep&#125;);
+                TOP--;
+            &#125;
+            if (lcadep[i] != st[TOP].dep) &#123;
+                G[++TOT].push_back(&#123;st[TOP].num, st[TOP].dep - lcadep[i]&#125;);
+                st[TOP] = &#123;TOT, lcadep[i]&#125;;
+            &#125;
+        &#125;
+        st[++TOP] = &#123;++TOT, dep[i]&#125;;
+        W[TOT] = w[i];
+    &#125;
+    while(TOP &gt; 1) &#123;
+        G[st[TOP - 1].num].push_back(&#123;st[TOP].num, st[TOP].dep - st[TOP - 1].dep&#125;);
+        TOP--;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="点分治"><a href="#点分治" class="headerlink" title="点分治"></a>点分治</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long LL;
+
+const int N = 1e4 + 5, M = 1e7 + 5, P = 1e2 + 5, INF = 0x3f3f3f3f;
+
+struct Edge &#123;
+    int to, v;
+&#125;;
+
+struct BIT &#123;
+    int t[N&lt;&lt;1];
+    int lowbit(int x) &#123;return x &amp;(-x);&#125;
+    void add(int x, int v) &#123;
+        while(x &lt; N) &#123;
+            t[x] += v;
+            x += lowbit(x);
+        &#125;
+    &#125;
+    int ask(int x) &#123;
+        int res = 0;
+        while(x) &#123;
+            res += t[x];
+            x -= lowbit(x);
+        &#125;
+        return res;
+    &#125;
+&#125;bit;
+
+int n, m, k, q[P], cnt[P], bucket[M];
+
+vector&lt;int&gt; D;
+
+/**variables of tree divide*/
+int tot, sz[N], MN, rt;
+
+bool vis[N];
+
+vector&lt;Edge&gt; G[N];
+
+int Getroot(int x, int f) &#123;
+    int sum = 0, mx = 0, tmp;
+    for (auto T : G[x]) &#123;
+        int to = T.to;
+        if (vis[to] || to == f) continue;
+        tmp = Getroot(to, x);
+        sum += tmp;
+        mx = max(mx, tmp);
+    &#125;
+    sum++;
+    mx = max(mx, tot - sum);
+    if (mx &lt; MN) &#123;
+        MN = mx;
+        rt = x;
+    &#125;
+    return sum;
+&#125;
+
+void Getsz(int x, int f) &#123;
+    sz[x] = 0;
+    for (auto T : G[x]) &#123;
+        int to = T.to;
+        if (vis[to] || to == f) continue;
+        Getsz(to, x);
+        sz[x] += sz[to];
+    &#125;
+    sz[x]++;
+&#125;
+
+void Getdis(int x, int len, int f) &#123;
+    D.push_back(len);
+    for (auto T : G[x]) &#123;
+        int to = T.to, v = T.v;
+        if (vis[to] || to == f) continue;
+        Getdis(to, len + v, x);
+    &#125;
+&#125;
+
+void calc(int x, int len, int type) &#123;
+    D.clear();
+    Getdis(x, len, -1);
+    for (int y : D) &#123;
+        if (y &gt; M) continue;
+        for (int i = 1; i &lt;= m; i++) &#123;
+            if (q[i] - y &lt; 0) continue;
+            cnt[i] += type * bucket[q[i] - y];
+        &#125;
+        bucket[y]++;
+    &#125;
+    for (int y : D) &#123;
+        if (y &gt; M) continue;
+        bucket[y]--;
+    &#125;
+&#125;
+
+void solve(int x) &#123;
+    vis[x] = 1;
+    calc(x, 0, 1);
+    for (auto T : G[x]) &#123;
+        int to = T.to, v = T.v;
+        if (vis[to]) continue;
+        calc(to, v, -1);
+        tot = sz[to], MN = INF;
+        Getroot(to, -1);
+        Getsz(rt, -1);
+        solve(rt);
+    &#125;
+&#125;
+
+int main() &#123;
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int i = 1, u, v, w; i &lt;= n - 1; i++) &#123;
+        scanf(&quot;%d %d %d&quot;, &amp;u, &amp;v, &amp;w);
+        G[u].push_back(&#123;v, w&#125;);
+        G[v].push_back(&#123;u, w&#125;);
+    &#125;
+    for (int i = 1; i &lt;= m; i++) scanf(&quot;%d&quot;, &amp;q[i]);
+    tot = n, MN = INF;
+    Getroot(1, -1);
+    Getsz(rt, -1);
+    solve(rt);
+    for (int i = 1; i &lt;= m; i++) &#123;
+        printf(&quot;%s\n&quot;, cnt[i] ? &quot;AYE&quot; : &quot;NAY&quot;);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="树上启发式合并dsu-on-tree"><a href="#树上启发式合并dsu-on-tree" class="headerlink" title="树上启发式合并dsu on tree"></a>树上启发式合并dsu on tree</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
+
+using namespace std;
+typedef long long ll;
+
+const int N = 1e5 + 5, M = 2e6 + 5;
+
+int n, sz[N], son[N], a[N], tot[M], num[M][25], ndfn[N], IDX, f[N], g[N];
+
+ll ans;
+
+vector&lt;int&gt; G[N];
+
+vector&lt;int&gt; vc;
+
+void dfs1(int x, int ff) &#123;
+    f[x] = ++IDX;
+    ndfn[IDX] = x;
+    sz[x] = 1;
+    for (int to : G[x]) &#123;
+        if (to == ff) continue;
+        dfs1(to, x);
+        sz[x] += sz[to];
+        if (sz[to] &gt; sz[son[x]]) son[x] = to;
+    &#125;
+    g[x] = IDX;
+&#125;
+
+void modify(int x, int v) &#123;
+    tot[a[x]] += v;
+    for (int j = 0; j &lt;= 20; j++) &#123;
+        if ((x &gt;&gt; j) &amp; 1) num[a[x]][j] += v;
+    &#125;
+&#125;
+
+void dfs2(int x, int ff, int keep) &#123;
+    for (int to : G[x]) &#123;
+        if (to == ff || to == son[x]) continue;
+        dfs2(to, x, 0);
+    &#125;
+    if (son[x]) dfs2(son[x], x, 1);
+    for (int to : G[x]) &#123;
+        if (to == ff || to == son[x]) continue;
+        for (int i = f[to]; i &lt;= g[to]; i++) &#123;
+            int now = ndfn[i];
+            int k = a[x] ^ a[now];
+            for (int j = 0; j &lt;= 20; j++) &#123;
+                if ((now &gt;&gt; j) &amp; 1) ans += (1 &lt;&lt; j) * (tot[k] - num[k][j]);
+                else ans += (1 &lt;&lt; j) * num[k][j];
+            &#125;
+        &#125;
+        for (int i = f[to]; i &lt;= g[to]; i++) &#123;
+            int j = ndfn[i];
+            modify(j, 1);
+        &#125;
+    &#125;
+    modify(x, 1);
+    if (!keep) &#123;
+        for (int i = f[x]; i &lt;= g[x]; i++) &#123;
+            modify(ndfn[i], -1);
+        &#125;
+    &#125;
+&#125;
+
+int main() &#123;
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+    for (int i = 1; i &lt;= n - 1; i++) &#123;
+        int x, y; scanf(&quot;%d %d&quot;, &amp;x, &amp;y);
+        G[x].push_back(y);
+        G[y].push_back(x);
+    &#125;
+    dfs1(1, -1);
+    dfs2(1, -1, 1);
+    cout &lt;&lt; ans;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="树链剖分-轻重链剖分"><a href="#树链剖分-轻重链剖分" class="headerlink" title="树链剖分(轻重链剖分)"></a>树链剖分(轻重链剖分)</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+using namespace std;
+
+const int N=1e5+5;
+
+LL q[N];
+
+int n,m,r,p,ord[N];
+
+struct segTree &#123;
+    LL t[N&lt;&lt;2];
+    LL lztag[N&lt;&lt;2];
+    void init() &#123;
+        memset(t,0,sizeof(t));
+        memset(lztag,0,sizeof(lztag));
+    &#125;
+    void pushdown(int o,int l,int r) &#123;
+        if (lztag[o]) &#123;
+            int mid=(l+r)&gt;&gt;1;
+            t[o*2]+=lztag[o]*(mid-l+1);
+            t[o*2]%=p;
+            t[o*2+1]+=lztag[o]*(r-mid);
+            t[o*2+1]%=p;
+            lztag[o*2]+=lztag[o];
+            lztag[o*2]%=p;
+            lztag[o*2+1]+=lztag[o];
+            lztag[o*2+1]%=p;
+            lztag[o]=0;
+        &#125;
+    &#125;
+    void pushup(int o,int l,int r) &#123;
+        t[o]=(t[o*2]+t[o*2+1])%p;
+    &#125;
+    void build(int o,int l,int r) &#123;
+        if (l==r) &#123;
+            t[o]=ord[l]%p;
+            return;
+        &#125;
+        int mid=(l+r)&gt;&gt;1;
+        build(o*2,l,mid);
+        build(o*2+1,mid+1,r);
+        pushup(o,l,r);
+    &#125;
+    void modify(int o,int l,int r,int tl,int tr,int v) &#123;
+        if (tl&lt;=l &amp;&amp; r&lt;=tr) &#123;
+            t[o]+=1LL*v*(r-l+1);
+            t[o]%=p;
+            lztag[o]+=v;
+            lztag[o]%=p;
+            return;
+        &#125;
+        int mid=(l+r)&gt;&gt;1;
+        pushdown(o,l,r);
+        if (tl&lt;=mid) modify(o*2,l,mid,tl,tr,v);
+        if (tr&gt;mid) modify(o*2+1,mid+1,r,tl,tr,v);
+        pushup(o,l,r);
+    &#125;
+    LL query(int o,int l,int r,int tl,int tr) &#123;
+        if (tl&lt;=l &amp;&amp; tr&gt;=r) return t[o];
+        int mid=(l+r)&gt;&gt;1;
+        pushdown(o,l,r);
+        if (tr&lt;=mid) return query(o*2,l,mid,tl,tr)%p;
+        if (tl&gt;mid) return query(o*2+1,mid+1,r,tl,tr)%p;
+        return (query(o*2,l,mid,tl,tr)+query(o*2+1,mid+1,r,tl,tr))%p;
+    &#125;
+&#125;ST;
+
+int sz[N],dep[N],son[N],fa[N],top[N],num[N],cnt;
+
+vector&lt;int&gt;G[N];
+
+void init() &#123;
+    memset(sz,0,sizeof(sz));
+    cnt=0;
+    fa[r]=-1;
+    dep[r]=1;
+    top[r]=r;
+&#125;
+
+void dfs1(int x) &#123;
+    int mxson=-1;
+    son[x]=-1;
+    for (auto to:G[x]) &#123;
+        if (to==fa[x]) continue;
+        dep[to]=dep[x]+1;
+        fa[to]=x;
+        dfs1(to);
+        if (sz[to]&gt;mxson) mxson=sz[to], son[x]=to;
+        sz[x]+=sz[to];
+    &#125;
+    sz[x]++;
+&#125;
+void dfs2(int x,int tp) &#123;
+    num[x]=++cnt;
+    ord[cnt]=q[x];
+    top[x]=tp;
+    if (~son[x]) dfs2(son[x],tp);
+    for (auto to:G[x]) &#123;
+        if (to==fa[x] || to==son[x]) continue;
+        dfs2(to,to);
+    &#125;
+&#125;
+void chainModify(int x,int y,int z) &#123;
+    while(top[x]!=top[y]) &#123;
+        if (dep[top[x]]&lt;dep[top[y]]) swap(x,y);
+        ST.modify(1,1,n,num[top[x]],num[x],z);
+        x=fa[top[x]];
+    &#125;
+    if (dep[x]&gt;dep[y]) swap(x,y);
+    ST.modify(1,1,n,num[x],num[y],z);
+&#125;
+LL chainQuery(int x,int y) &#123;
+    LL res=0;
+    while(top[x]!=top[y]) &#123;
+        if (dep[top[x]]&lt;dep[top[y]]) swap(x,y);
+        res+=ST.query(1,1,n,num[top[x]],num[x]);
+        res%=p;
+        x=fa[top[x]];
+    &#125;
+    if (dep[x]&gt;dep[y]) swap(x,y);
+    res+=ST.query(1,1,n,num[x],num[y]);
+    res%=p;
+    return res;
+&#125;
+void subtreeModify(int x,int z) &#123;
+    ST.modify(1,1,n,num[x],num[x]+sz[x]-1,z);
+&#125;
+LL subtreeQuery(int x) &#123;
+    return ST.query(1,1,n,num[x],num[x]+sz[x]-1);
+&#125;
+
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;r&gt;&gt;p;
+    for (int i=1;i&lt;=n;i++) &#123;
+        scanf(&quot;%lld&quot;,&amp;q[i]);
+        q[i]%=p;
+    &#125;
+    for (int i=1;i&lt;=n-1;i++) &#123;
+        int u,v;
+        scanf(&quot;%d%d&quot;,&amp;u,&amp;v);
+        G[u].push_back(v);
+        G[v].push_back(u);
+    &#125;
+    init();
+    dfs1(r);
+    dfs2(r,r);
+    ST.build(1,1,n);
+    for (int i=1;i&lt;=m;i++) &#123;
+        int opt,x,y;
+        LL z;
+        scanf(&quot;%d&quot;,&amp;opt);
+        if (opt==1) &#123;
+            scanf(&quot;%d%d%lld&quot;,&amp;x,&amp;y,&amp;z);
+            z%=p;
+            chainModify(x,y,z);
+        &#125;
+        if (opt==2) &#123;
+            scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+            printf(&quot;%lld\n&quot;,chainQuery(x,y));
+        &#125;
+        if (opt==3) &#123;
+            scanf(&quot;%d%lld&quot;,&amp;x,&amp;z);
+            z%=p;
+            subtreeModify(x,z);
+        &#125;
+        if (opt==4) &#123;
+            scanf(&quot;%d&quot;,&amp;x);
+            printf(&quot;%lld\n&quot;,subtreeQuery(x));
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="动态树LCT"><a href="#动态树LCT" class="headerlink" title="动态树LCT"></a>动态树LCT</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N=1e5+5,INF=0x3f3f3f3f;
+
+struct Link_Cut_Tree&#123;
+    int top,root,ch[N][2],ff[N],val[N],xr[N],tag[N],q[N];
+    bool isroot(int x) &#123;
+        return ch[ff[x]][0]!=x &amp;&amp; ch[ff[x]][1]!=x;
+    &#125;
+    void push_up(int x) &#123;
+        xr[x]=xr[ch[x][0]]^xr[ch[x][1]]^val[x];
+    &#125;
+    void push_down(int x) &#123;
+        if (tag[x]) &#123;
+            swap(ch[x][0],ch[x][1]);
+            tag[ch[x][0]]^=1;
+            tag[ch[x][1]]^=1;
+            tag[x]=0;
+        &#125;
+    &#125;
+    void Rotate(int x) &#123;
+        int y=ff[x],z=ff[y],k=ch[y][1]==x;
+        if (!isroot(y)) &#123;
+            ch[z][ch[z][1]==y]=x;
+        &#125;
+        ff[x]=z;
+        ch[y][k]=ch[x][k^1],ff[ch[y][k]]=y;
+        ch[x][k^1]=y,ff[y]=x;
+        push_up(y);push_up(x);
+    &#125;
+    void Splay(int x) &#123;
+        top=1;q[top]=x;
+        for (int i=x;!isroot(i);i=ff[i]) q[++top]=ff[i];
+        for (int i=top;i;i--) push_down(q[i]);
+        while(!isroot(x)) &#123;
+            int y=ff[x],z=ff[y];
+            if (!isroot(y)) &#123;
+                if ((ch[y][0]==x)^(ch[z][0]==y)) Rotate(x);
+                else Rotate(y);
+            &#125;
+            Rotate(x);
+        &#125;
+    &#125;
+    void Access(int x) &#123;
+        for (int y=0;x;y=x,x=ff[x]) &#123;
+            Splay(x);ch[x][1]=y;push_up(x);
+        &#125;
+    &#125;
+    void Makeroot(int x) &#123;
+        Access(x);Splay(x);
+        tag[x]^=1;
+        push_down(x);
+    &#125;
+    int Findroot(int x) &#123;
+        Access(x); Splay(x);
+        push_down(x);
+        while(ch[x][0]) &#123;
+            push_down(x);x=ch[x][0];
+        &#125;
+        Splay(x);
+        return x;
+    &#125;
+    void Split(int x,int y) &#123;
+        Makeroot(x);
+        Access(y); Splay(y);
+    &#125;
+    void Link(int x,int y) &#123;
+        Makeroot(x);
+        if (Findroot(y)==x) return;
+        ff[x]=y;
+    &#125;
+    void Cut(int x,int y) &#123;
+        Makeroot(x);
+        if (Findroot(y)!=x || ff[y]!=x || ch[y][0]) return;
+        ff[y]=ch[x][1]=0;
+        push_up(x);
+    &#125;
+    int Query(int x,int y) &#123;
+        Split(x,y);
+        return xr[y];
+    &#125;
+    void Modify(int x,int y) &#123;
+        val[x]=y; Makeroot(x);
+    &#125;
+&#125;lct;
+
+int n,m;
+
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;m;
+    for (int i=1;i&lt;=n;i++) scanf(&quot;%d&quot;,&amp;lct.val[i]),lct.xr[i]=lct.val[i];
+    for (int i=1;i&lt;=m;i++) &#123;
+        int opt,x,y;
+        scanf(&quot;%d%d%d&quot;,&amp;opt,&amp;x,&amp;y);
+        switch(opt) &#123;
+            case 0:printf(&quot;%d\n&quot;,lct.Query(x,y));break;
+            case 1:lct.Link(x,y);break;
+            case 2:lct.Cut(x,y);break;
+            case 3:lct.Modify(x,y);break;
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="2-SAT"><a href="#2-SAT" class="headerlink" title="2-SAT"></a>2-SAT</h2><pre><code class="lang-cpp">// 建图
+n = read(), m = read();
+for (int i = 0; i &lt; m; ++i) &#123;
+    // 笔者习惯对 x 点标号为 x，-x 标号为 x+n，当然也可以反过来。
+    int a = read(), va = read(), b = read(), vb = read();
+    if (va &amp;&amp; vb) &#123; // a, b 都真，-a -&gt; b, -b -&gt; a
+        g[a + n].push_back(b);
+        g[b + n].push_back(a);
+    &#125; else if (!va &amp;&amp; vb) &#123; // a 假 b 真，a -&gt; b, -b -&gt; -a
+        g[a].push_back(b);
+        g[b + n].push_back(a + n);
+    &#125; else if (va &amp;&amp; !vb) &#123; // a 真 b 假，-a -&gt; -b, b -&gt; a
+        g[a + n].push_back(b + n);
+        g[b].push_back(a);
+    &#125; else if (!va &amp;&amp; !vb) &#123; // a, b 都假，a -&gt; -b, b -&gt; -a
+        g[a].push_back(b + n);
+        g[b].push_back(a + n);
+    &#125;
+&#125;
+// 找环
+// 注意所有东西都要开两倍空间，因为每个变量存了两次
+void tarjan(int u) &#123;
+    low[u] = dfn[u] = ++dfsClock;
+    stk.push(u); ins[u] = true;
+    for (const auto &amp;v : g[u]) &#123;
+        if (!dfn[v]) tarjan(v), low[u] = std::min(low[u], low[v]);
+        else if (ins[v]) low[u] = std::min(low[u], dfn[v]);
+    &#125;
+    if (low[u] == dfn[u]) &#123;
+        ++sccCnt;
+        do &#123;
+            color[u] = sccCnt;
+            u = stk.top(); stk.pop(); ins[u] = false;
+        &#125; while (low[u] != dfn[u]);
+    &#125;
+&#125;
+// Tarjan 找环，得到的 color[x] 是 x 所在的 scc 的拓扑逆序。
+for (int i = 1; i &lt;= (n &lt;&lt; 1); ++i) if (!dfn[i]) tarjan(i);
+// 输出
+for (int i = 1; i &lt;= n; ++i)
+    if (color[i] == color[i + n]) &#123; // x 与 -x 在同一强连通分量内，一定无解
+        puts(&quot;IMPOSSIBLE&quot;);
+        exit(0);
+    &#125;
+puts(&quot;POSSIBLE&quot;);
+for (int i = 1; i &lt;= n; ++i)
+    print((color[i] &lt; color[i + n])), putchar(&#39; &#39;); // 如果不使用 Tarjan 找环，请改成大于号
+puts(&quot;&quot;);
+</code></pre>
+<h2 id="最大流Dinic"><a href="#最大流Dinic" class="headerlink" title="最大流Dinic"></a>最大流Dinic</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+using namespace std;
+
+const int N=5e3+5;
+
+//理论上界O(N^2*M)
+//二分图最大匹配时间复杂度O(sqrt(N)*M)
+struct Dinic&#123;
+    struct Edge&#123;
+        int to;LL v;int rev;
+    &#125;;
+    int n,s,t,dep[N],_cur[N];
+    bool used[N];
+    vector&lt;Edge&gt;G[N];
+    queue&lt;int&gt;L;
+    void init(int n_,int s_,int t_) &#123;
+        n=n_,s=s_,t=t_;
+        for (int i=0;i&lt;=n;i++) G[i].clear();
+    &#125;
+    void addEdge(int x,int y,LL v) &#123;
+        G[x].push_back(&#123;y,v,G[y].size()&#125;);
+        G[y].push_back(&#123;x,0,G[x].size()-1&#125;);
+    &#125;
+    bool bfs() &#123;
+        memset(used,0,sizeof(used));
+        dep[s]=1,used[s]=1;
+        L.push(s);
+        while(!L.empty()) &#123;
+            int cur=L.front();
+            L.pop();
+            for (int i=0;i&lt;G[cur].size();i++) &#123;
+                Edge &amp;e=G[cur][i];
+                if (!used[e.to] &amp;&amp; e.v&gt;0) &#123;
+                    dep[e.to]=dep[cur]+1;
+                    used[e.to]=1;
+                    L.push(e.to);
+                &#125;
+            &#125;
+        &#125;
+        return used[t];
+    &#125;
+    LL dfs(int c,LL flow) &#123;
+        if (c==t ||flow==0) return flow;
+        LL ret=0,f;
+        for (int &amp;i=_cur[c];i&lt;G[c].size();i++) &#123;
+            Edge &amp;e=G[c][i];
+            if (dep[e.to]==dep[c]+1 &amp;&amp; (f=dfs(e.to,min(flow,e.v)))&gt;0) &#123;
+                ret+=f,flow-=f,e.v-=f;
+                G[e.to][e.rev].v+=f;
+                if (!flow) break;
+            &#125;
+        &#125;
+        return ret;
+    &#125;
+    LL go() &#123;
+        LL ans=0;
+        while(bfs()) &#123;
+            memset(_cur,0,sizeof(_cur));
+            ans+=dfs(s,1LL*100*INT_MAX);
+        &#125;
+        return ans;
+    &#125;
+&#125;dinic;
+
+int n,m,e,s,t;
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s&gt;&gt;t;
+    dinic.init(n,s,t);
+    for (int i=1;i&lt;=m;i++) &#123;
+        int u,v,w;
+        scanf(&quot;%d%d%d&quot;,&amp;u,&amp;v,&amp;w);
+        dinic.addEdge(u,v,w);
+    &#125;
+    printf(&quot;%lld\n&quot;,dinic.go());
+    return 0;
+&#125;
+</code></pre>
+<h2 id="集合划分建图-最大流最小割"><a href="#集合划分建图-最大流最小割" class="headerlink" title="集合划分建图(最大流最小割)"></a>集合划分建图(最大流最小割)</h2><pre><code class="lang-cpp">void solve()
+&#123;
+    cin&gt;&gt;n;
+    s=0,t=n+n*n*2+1;
+    for (int i=s;i&lt;=t;i++) G[i].clear();
+    sum=0;
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        scanf(&quot;%lf&quot;,&amp;a);
+        ac=round(a*100);
+        addEdge(s,i,ac);
+        sum+=ac;
+    &#125;
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        scanf(&quot;%lf&quot;,&amp;a);
+        ac=round(a*100);
+        addEdge(i,t,ac);
+        sum+=ac;
+    &#125;
+    for (int i=1;i&lt;=n;i++)
+        for (int j=1;j&lt;=n;j++)
+        &#123;
+            scanf(&quot;%lf&quot;,&amp;b[i][j]);
+            ac=round((b[i][j])*100);
+            sum+=ac*2;
+            addEdge(s,n+((i-1)*n+j)*2-1,ac);
+            addEdge(n+((i-1)*n+j)*2,t,ac);
+            addEdge(n+((i-1)*n+j)*2-1,i,INF);
+            addEdge(n+((i-1)*n+j)*2-1,j,INF);
+            addEdge(i,n+((i-1)*n+j)*2,INF);
+            addEdge(j,n+((i-1)*n+j)*2,INF);
+        &#125;
+    ll mincut=Dinic();
+    double ans=(sum-mincut)/100.0;
+    printf(&quot;%.2lf\n&quot;,ans);
+&#125;
+
+int main()
+&#123;
+    cin&gt;&gt;T;
+    while(T--) solve();
+    return 0;
+&#125;
+</code></pre>
+<h2 id="最小费用最大流（MCMF）"><a href="#最小费用最大流（MCMF）" class="headerlink" title="最小费用最大流（MCMF）"></a>最小费用最大流（MCMF）</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+using namespace std;
+const int N=1e5+5;
+const int INF=0x3f3f3f3f3f3f3f3f;
+
+struct MCMF &#123;
+    struct E&#123;
+        int from,to;
+        LL flow,dis;
+    &#125;;
+    queue&lt;int&gt;Q;
+    vector&lt;E&gt;edge;
+    vector&lt;int&gt;G[N];
+    bool vis[N];
+    int n,m,s,t,pre[N],last[N];
+    LL dis[N],flow[N],maxflow,mincost;
+    void init(int _n,int _s,int _t) &#123;
+        n=_n,s=_s,t=_t;
+        for (int i=0;i&lt;=n;i++) G[i].clear();
+        edge.clear();m=0;
+        maxflow=mincost=0;
+    &#125;
+    void addEdge(int from,int to,int flow,int cost) &#123;
+        edge.push_back(&#123;from,to,flow,cost&#125;);
+        edge.push_back(&#123;to,from,0,-cost&#125;);
+        G[from].push_back(m++);
+        G[to].push_back(m++);
+    &#125;
+    bool spfa(int s,int t) &#123;
+        for (int i=0;i&lt;=n;i++) &#123;
+            dis[i]=INF;flow[i]=INF;vis[i]=0;
+        &#125;
+        Q.push(s);dis[s]=0;vis[s]=1;pre[t]=-1;
+        while(!Q.empty()) &#123;
+            int now=Q.front();
+            Q.pop();
+            vis[now]=0;
+            for (int i:G[now]) &#123;
+                if (edge[i].flow &amp;&amp; dis[edge[i].to]&gt;dis[now]+edge[i].dis) &#123;
+                    dis[edge[i].to]=dis[now]+edge[i].dis;
+                    pre[edge[i].to]=now;
+                    last[edge[i].to]=i;
+                    flow[edge[i].to]=min(flow[now],edge[i].flow);
+                    if (!vis[edge[i].to]) &#123;
+                        vis[edge[i].to]=1;
+                        Q.push(edge[i].to);
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+        return pre[t]!=-1;
+    &#125;
+    LL go() &#123;
+        while(spfa(s,t)) &#123;
+            int now=t;
+            maxflow+=flow[t];
+            mincost+=flow[t]*dis[t];
+            while(now!=s) &#123;
+                edge[last[now]].flow-=flow[t];
+                edge[last[now]^1].flow+=flow[t];
+                now=pre[now];
+            &#125;
+        &#125;
+        return mincost;
+    &#125;
+&#125;mcmf;
+
+int n,m,s,t;
+
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s&gt;&gt;t;
+    mcmf.init(n,s,t);
+    for (int i=1;i&lt;=m;i++) &#123;
+        int u,v;LL w,f;
+        scanf(&quot;%d%d%lld%lld&quot;,&amp;u,&amp;v,&amp;w,&amp;f);
+        mcmf.addEdge(u,v,w,f);
+    &#125;
+    mcmf.go();
+    printf(&quot;%lld %lld\n&quot;,mcmf.maxflow,mcmf.mincost);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="二分图最大匹配（匈牙利算法）-最小点覆盖-最大匹配"><a href="#二分图最大匹配（匈牙利算法）-最小点覆盖-最大匹配" class="headerlink" title="二分图最大匹配（匈牙利算法）(最小点覆盖=最大匹配)"></a>二分图最大匹配（匈牙利算法）(最小点覆盖=最大匹配)</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int MAXN=5e2+5;
+
+vector&lt;int&gt;G[MAXN];
+
+int n,m,e,ans,u,v;
+
+int vistime[MAXN],mch[MAXN];
+
+bool dfs(int u,int tag) &#123;
+    if (vistime[u]==tag) return 0;
+    vistime[u]=tag;
+    for (auto v:G[u])
+        if (mch[v]==0 || dfs(mch[v],tag)) &#123;
+            mch[v]=u;
+            return 1;
+        &#125;
+    return 0;
+&#125;
+
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;e;
+    for (int i=1;i&lt;=e;i++) &#123;
+        scanf(&quot;%d%d&quot;,&amp;u,&amp;v);
+        G[u].push_back(v);
+    &#125;
+    for (int i=1;i&lt;=n;i++)
+        if (dfs(i,i)) ans++;
+    printf(&quot;%d\n&quot;,ans);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="一般图最大匹配（Edmonds带花树）"><a href="#一般图最大匹配（Edmonds带花树）" class="headerlink" title="一般图最大匹配（Edmonds带花树）"></a>一般图最大匹配（Edmonds带花树）</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long LL;
+const int MAX_N=1000+20;
+const int INF=0x3f3f3f3f;
+
+int N,M;
+int n,m;
+int d[MAX_N];
+
+bool Graph[MAX_N][MAX_N];
+int Match[MAX_N];
+bool InQueue[MAX_N],InPath[MAX_N],InBlossom[MAX_N];
+int Head,Tail;
+int Queue[MAX_N];
+int Start,Finish;
+int NewBase;
+int Father[MAX_N],Base[MAX_N];
+int Count;
+
+void CreatGraph()&#123;//O(n^3)
+    int u,v;
+    vector&lt;int&gt;V[MAX_N];
+    memset(Graph,false,sizeof(Graph));
+    int tot=1;
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        scanf(&quot;%d&quot;,&amp;d[i]);
+        for (int j=1;j&lt;=d[i];j++) V[i].push_back(tot++);
+    &#125;
+    for (int i=1;i&lt;=m;i++)
+    &#123;
+        scanf(&quot;%d%d&quot;,&amp;u,&amp;v);
+        int x=tot++,y=tot++;
+        for (int j=0;j&lt;d[u];j++) Graph[V[u][j]][x]=Graph[x][V[u][j]]=1;
+        for (int j=0;j&lt;d[v];j++) Graph[V[v][j]][y]=Graph[y][V[v][j]]=1;
+        Graph[x][y]=Graph[y][x]=1;
+    &#125;
+    N=tot-1;
+&#125;
+void Push(int u)&#123;
+    Queue[Tail]=u;
+    Tail++;
+    InQueue[u]=true;
+&#125;
+int Pop()&#123;
+    int res=Queue[Head];
+    Head++;
+    return res;
+&#125;
+int FindCommonAncestor(int u,int v)&#123;
+    memset(InPath,false,sizeof(InPath));
+    while(1)&#123;
+        u=Base[u];
+        InPath[u]=1;
+        if(u==Start)break;
+        u=Father[Match[u]];
+    &#125;
+    while(1)&#123;
+        v=Base[v];
+        if(InPath[v])break;
+        v=Father[Match[v]];
+    &#125;
+    return v;
+&#125;
+void ResetTrace(int u)&#123;
+    int v;
+    while(Base[u]!=NewBase)&#123;
+        v=Match[u];
+        InBlossom[Base[u]]=InBlossom[Base[v]]=1;
+        u=Father[v];
+        if(Base[u]!=NewBase)Father[u]=v;
+    &#125;
+&#125;
+void BloosomContract(int u,int v)&#123;
+    NewBase=FindCommonAncestor(u,v);
+    memset(InBlossom,false,sizeof(InBlossom));
+    ResetTrace(u);
+    ResetTrace(v);
+    if(Base[u]!=NewBase)Father[u]=v;
+    if(Base[v]!=NewBase)Father[v]=u;
+    for(int tu=1;tu&lt;=N;tu++)&#123;
+        if(InBlossom[Base[tu]])&#123;
+            Base[tu]=NewBase;
+            if(!InQueue[tu])Push(tu);
+        &#125;
+    &#125;
+&#125;
+void FindAugmentingPath()&#123;
+    memset(InQueue,false,sizeof(InQueue));
+    memset(Father,0,sizeof(Father));
+    for(int i=1;i&lt;=N;i++)&#123;
+        Base[i]=i;
+    &#125;
+    Head=Tail=1;
+    Push(Start);
+    Finish=0;
+    while(Head&lt;Tail)&#123;
+        int u=Pop();
+        for(int v=1;v&lt;=N;v++)&#123;
+            if(Graph[u][v]&amp;&amp;(Base[u]!=Base[v])&amp;&amp;(Match[u]!=v))&#123;
+                if((v==Start)||((Match[v]&gt;0)&amp;&amp;Father[Match[v]]&gt;0))BloosomContract(u,v);
+                else if(Father[v]==0)&#123;
+                    Father[v]=u;
+                    if(Match[v]&gt;0)Push(Match[v]);
+                    else&#123;
+                        Finish=v;
+                        return;
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+void AugmentPath()&#123;
+    int u,v,w;
+    u=Finish;
+    while(u&gt;0)&#123;
+        v=Father[u];
+        w=Match[v];
+        Match[v]=u;
+        Match[u]=v;
+        u=w;
+    &#125;
+&#125;
+void Edmonds()&#123;
+    memset(Match,0,sizeof(Match));
+    for(int u=1;u&lt;=N;u++)&#123;
+        if(Match[u]==0)&#123;
+            Start=u;
+            FindAugmentingPath();
+            if(Finish&gt;0)AugmentPath();
+        &#125;
+    &#125;
+&#125;
+void PrintMatch()&#123;
+    Count=0;
+    for(int u=1;u&lt;=N;u++)&#123;
+        if(Match[u]&gt;0)Count++;
+    &#125;
+    if(Count==N)printf(&quot;Yes\n&quot;);
+    else printf(&quot;No\n&quot;);
+&#125;
+int main()&#123;
+    while(scanf(&quot;%d%d&quot;,&amp;n,&amp;m)==2)&#123;
+        CreatGraph();
+        Edmonds();
+        PrintMatch();
+    &#125;
+&#125;
+</code></pre>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><pre><code class="lang-cpp">//第一个位置从1开始(0不可用)
+struct BIT&#123;
+    LL tr[N];
+    int lowbit(int x)&#123; return x&amp;(-x); &#125;
+    void clr(int x)&#123;
+        while(x&lt;SZ)
+        &#123;
+            tr[x]=0;
+            x+=lowbit(x);
+        &#125;
+    &#125;
+    void add(int v,int x)&#123;
+        while(x&lt;N)
+        &#123;
+            tr[x]+=v;
+            x+=lowbit(x);
+        &#125;
+    &#125;
+    LL sum(int x)&#123;
+        LL sum=0;
+        while(x&gt;0)
+        &#123;
+            sum+=tr[x];
+            x-=lowbit(x);
+        &#125;
+        return sum;
+    &#125;
+&#125;bit;
+//BIT求MEX
+struct BIT &#123;
+    int bucket[N],tr[N];
+    int lowbit(int x)&#123;
+        return x&amp;(-x);
+    &#125;
+    void add(int x,int v) &#123;
+        if (x&lt;SZ) &#123;
+            bucket[x]+=v;
+            if (bucket[x]==1 &amp;&amp; v==1|| bucket[x]==0 &amp;&amp; v==-1)
+                while(x&lt;SZ)    &#123;
+                    tr[x]+=v;
+                    x+=lowbit(x);
+                &#125;
+        &#125;
+    &#125;
+    int sum(int x) &#123;
+        int sum=0;
+        while(x&gt;0) &#123;
+            sum+=tr[x];
+            x-=lowbit(x);
+        &#125;
+        return sum;
+    &#125;
+    int MEX() &#123;
+        int l=1,r=SZ-1;
+        while(l&lt;r) &#123;
+            int mid=(l+r)&gt;&gt;1;
+            if (sum(mid)&lt;mid)
+                r=mid;
+            else l=mid+1;
+        &#125;
+        return l;
+    &#125;
+&#125;bit;
+</code></pre>
+<h2 id="二维树状数组"><a href="#二维树状数组" class="headerlink" title="二维树状数组"></a>二维树状数组</h2><pre><code class="lang-cpp">struct BIT&#123;
+    int C[N][N];
+    int lowbit(int x) &#123;return x&amp;(-x);&#125;
+    void Modify(int i,int j,int delta)&#123;
+        for(int x=i;x&lt;=a;x+=lowbit(x))
+            for(int y=j;y&lt;=b;y+=lowbit(y)) &#123;
+                C[x][y]+=delta;
+            &#125;
+    &#125;
+    int Sum(int i,int j)
+    &#123;
+        int result=0;
+        for(int x=i;x&gt;0;x-=lowbit(x)) &#123;
+            for(int y=j;y&gt;0;y-=lowbit(y)) &#123;
+                result+=C[x][y];
+            &#125;
+        &#125;
+        return result;
+    &#125;
+&#125;bit;
+</code></pre>
+<h2 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+using namespace std;
+
+const int N=1e5+5;
+
+struct Segtree &#123;
+    LL t[N&lt;&lt;2],lz[N&lt;&lt;2];
+    void push_down(int o,int l,int r) &#123;
+        if (lz[o]) &#123;
+            int mid=(l+r)&gt;&gt;1;
+            t[o*2]+=lz[o]*(mid-l+1);
+            t[o*2+1]+=lz[o]*(r-mid);
+            lz[o*2]+=lz[o];
+            lz[o*2+1]+=lz[o];
+            lz[o]=0;
+        &#125;
+    &#125;
+    void push_up(int o,int l,int r) &#123;
+        t[o]=t[o*2]+t[o*2+1];
+    &#125;
+    void update(int o,int l,int r,LL v) &#123;
+        t[o]+=v*(r-l+1);
+        lz[o]+=v;
+    &#125;
+    void build(int o,int l,int r) &#123;
+        lz[o]=0;
+        if (l==r) &#123;
+            scanf(&quot;%lld&quot;,&amp;t[o]);
+            return;
+        &#125;
+        int mid=(l+r)&gt;&gt;1;
+        build(o*2,l,mid);
+        build(o*2+1,mid+1,r);
+        push_up(o,l,r);
+    &#125;
+    void modify(int o,int l,int r,int tl,int tr,LL v) &#123;
+        if (tl&lt;=l &amp;&amp; tr&gt;=r) &#123;
+            update(o,l,r,v);
+            return;
+        &#125;
+        push_down(o,l,r);
+        int mid=(l+r)&gt;&gt;1;
+        if (tl&lt;=mid) modify(o*2,l,mid,tl,tr,v);
+        if (tr&gt;mid) modify(o*2+1,mid+1,r,tl,tr,v);
+        push_up(o,l,r);
+    &#125;
+    LL query(int o,int l,int r,int tl,int tr) &#123;
+        if (tl&lt;=l &amp;&amp; r&lt;=tr) return t[o];
+        push_down(o,l,r);
+        int mid=(l+r)&gt;&gt;1;
+        if (tr&lt;=mid) return query(o*2,l,mid,tl,tr);
+        if (tl&gt;mid) return query(o*2+1,mid+1,r,tl,tr);
+        return query(o*2,l,mid,tl,tr)+query(o*2+1,mid+1,r,tl,tr);
+    &#125;
+&#125;segtree;
+
+int n,m,x,y,k,op;
+
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;m;
+    segtree.build(1,1,n);
+    for (int i=1;i&lt;=m;i++) &#123;
+        scanf(&quot;%d&quot;,&amp;op);
+        switch (op)&#123;
+            case 1:
+                scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;k);
+                segtree.modify(1,1,n,x,y,k);
+                break;
+            case 2:
+                scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+                printf(&quot;%lld\n&quot;,segtree.query(1,1,n,x,y));
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="ST表"><a href="#ST表" class="headerlink" title="ST表"></a>ST表</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int N = 1e5 + 5;
+
+int a[N][21], n, m;
+
+int query(int l, int r) &#123;
+    int k = log2(r - l + 1);
+    return max(a[l][k], a[r-(1&lt;&lt;k)+1][k]);
+&#125;
+
+int main() &#123;
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int i=1; i&lt;=n; i++) scanf(&quot;%d&quot;, &amp;a[i][0]);
+    for (int i=1; i&lt;=21; i++) &#123;
+        for (int j=1; j+(1&lt;&lt;i)-1&lt;=n; j++) &#123;
+            a[j][i] = max(a[j][i-1], a[j+(1&lt;&lt;(i-1))][i-1]);
+        &#125;
+    &#125;
+    for (int i=1, l, r; i&lt;=m; i++) &#123;
+        scanf(&quot;%d %d&quot;, &amp;l, &amp;r);
+        printf(&quot;%d\n&quot;, query(l, r));
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="Splay"><a href="#Splay" class="headerlink" title="Splay"></a>Splay</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N=1e5+5,INF=0x3f3f3f3f;
+
+struct Splay_tree&#123;
+    int root=0,ch[N][2],ff[N],sz[N],cnt[N],val[N],points;
+    void push_up(int x) &#123;
+        sz[x]=sz[ch[x][0]]+sz[ch[x][1]]+cnt[x];
+    &#125;
+    void Rotate(int x) &#123;
+        int y=ff[x],z=ff[y],k=ch[y][1]==x;
+        ch[z][ch[z][1]==y]=x,ff[x]=z;
+        ch[y][k]=ch[x][k^1],ff[ch[y][k]]=y;
+        ch[x][k^1]=y,ff[y]=x;
+        push_up(y);push_up(x);
+    &#125;
+    void Splay(int x,int goal) &#123;
+        while(ff[x]!=goal) &#123;
+            int y=ff[x],z=ff[y];
+            if (z!=goal) &#123;
+                if ((ch[z][1]==y) ^ (ch[y][1]==x)) Rotate(x);
+                else Rotate(y);
+            &#125;
+            Rotate(x);
+        &#125;
+        if (goal==0) root=x;
+    &#125;
+    void Insert(int x) &#123;
+        int u=root,f=0;
+        while(u &amp;&amp; val[u]!=x) &#123;
+            f=u;
+            u=ch[u][val[u]&lt;x];
+        &#125;
+        if (u) cnt[u]++;
+        else &#123;
+            u=++points;
+            if (f) ch[f][x&gt;val[f]]=u;
+            ch[u][0]=ch[u][1]=0;
+            ff[u]=f; val[u]=x;
+            sz[u]=1; cnt[u]=1;
+        &#125;
+        Splay(u,0);
+    &#125;
+    void Find(int x) &#123;
+        int u=root;
+        if (!u) return;
+        while(ch[u][x&gt;val[u]] &amp;&amp; x!=val[u]) u=ch[u][x&gt;val[u]];
+        Splay(u,0);
+    &#125;
+    int Next(int x,int f) &#123;
+        Find(x);
+        int u=root;
+        if ((val[u]&gt;x &amp;&amp; f) || (val[u]&lt;x &amp;&amp; !f)) return u;
+        u=ch[u][f];
+        while(ch[u][f^1]) u=ch[u][f^1];
+        return u;
+    &#125;
+    void Delete(int x) &#123;
+        int pre=Next(x,0),nxt=Next(x,1);
+        Splay(pre,0);Splay(nxt,pre);
+        int del=ch[nxt][0];
+        if (cnt[del]&gt;1) &#123;
+            cnt[del]--;
+            Splay(del,0);
+        &#125;
+        else &#123;
+            ch[nxt][0]=0;
+            //Splay(nxt,0);
+        &#125;
+    &#125;
+    int Rank(int x) &#123;
+        Find(x);
+        return sz[ch[root][0]];
+    &#125;
+    int K_th(int x) &#123;
+        int u=root;
+        if (sz[u]&lt;x) return -1;
+        while(true) &#123;
+            if (sz[ch[u][0]]+cnt[u]&lt;x) &#123;
+                x-=sz[ch[u][0]]+cnt[u];
+                u=ch[u][1];
+            &#125;
+            else if (sz[ch[u][0]]&gt;=x) &#123;
+                u=ch[u][0];
+            &#125;
+            else return u;
+        &#125;
+    &#125;
+&#125;splay;
+
+int n,opt,x;
+
+int main() &#123;
+    cin&gt;&gt;n;
+    splay.Insert(-INF);splay.Insert(INF);
+    while(n--) &#123;
+        scanf(&quot;%d%d&quot;,&amp;opt,&amp;x);
+        switch(opt) &#123;
+            case 1:splay.Insert(x);break;
+            case 2:splay.Delete(x);break;
+            case 3:printf(&quot;%d\n&quot;,splay.Rank(x));break;
+            case 4:printf(&quot;%d\n&quot;,splay.val[splay.K_th(x+1)]);break;
+            case 5:printf(&quot;%d\n&quot;,splay.val[splay.Next(x,0)]);break;
+            case 6:printf(&quot;%d\n&quot;,splay.val[splay.Next(x,1)]);break;
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h1 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h1><h2 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h2><p>若$dp[l][r]=min_{l&lt;k&lt;=r}\{dp[l][k]+dp[k+1][r]+w[l][r]\}$（min也可以改为max）</p>
+<p>且$w[l][r]$满足四边形不等式，即：$w[l][r]+w[l+1][r+1]&lt;=w[l+1][r]+w[l][r+1]$</p>
+<p>且满足区间单调性，即：$w[l+1][r]&lt;=w[l][r+1]$</p>
+<p>则有两个定理（当成结论就好）：</p>
+<p>定理一：函数$dp$也满足四边形不等式，即：</p>
+<script type="math/tex; mode=display">
+dp[i][j]+dp[i+1][j+1]<=dp[i+1][j]+dp[i][j+1]</script><p>定理二：若$dp$满足四边形不等式，定义$s[i][j]$为$dp[i][j]$对应的决策变量的最大值，即：</p>
+<script type="math/tex; mode=display">
+s[i][j]=max_{i<k<=j}\{dp[i][j]=w[i][j]+dp[i][k-1]+dp[k][j]\}</script><p>则$s[i][j]$单调，即：</p>
+<script type="math/tex; mode=display">
+s[i][j]<=s[i][j+1]<=s[i+1][j+1]</script><p>发现状态转移方程中$k$的范围存在限制，于是愉快缩小了变量$k$的枚举范围：</p>
+<script type="math/tex; mode=display">
+dp[i][j]=min_{s[i][j-1]<=k<=s[i+1][j]}\{dp[l][k]+dp[k+1][r]+w[l][r]\}</script><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int N = 3e3 + 5, M = 3e2 + 5, INF = 0x3f3f3f3f;
+
+int dp[N][M], d[N][M], x[N], w[N][N];
+
+int n, m;
+
+int main() &#123;
+    scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; i++) scanf(&quot;%d&quot;, &amp;x[i]);
+    for (int i = 1; i &lt;= n; i++) &#123;
+        for (int j = i; j &lt;= n; j++) &#123;
+            if (i == j) w[i][j] = 0;
+            else w[i][j] = w[i][j - 1] + x[j] - x[(i + j) &gt;&gt; 1];
+        &#125;
+    &#125;
+    memset(dp, INF, sizeof(dp));
+    for (int i = 1; i &lt;= m; i++) d[n + 1][i] = n;
+    for (int i = 0; i &lt;= m; i++) dp[0][i] = 0;
+    for (int j = 1; j &lt;= m; j++) &#123;
+        for (int i = n; i &gt;= 1; i--) &#123;
+            int id;
+            for (int k = d[i][j - 1]; k &lt;= d[i + 1][j]; k++) &#123;
+                if (dp[k][j - 1] + w[k + 1][i] &lt; dp[i][j]) &#123;
+                    dp[i][j] = dp[k][j - 1] + w[k + 1][i];
+                    id = k;
+                &#125;
+            &#125;
+            d[i][j] = id;
+        &#125;
+    &#125;
+    printf(&quot;%d\n&quot;, dp[n][m]);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="斜率优化"><a href="#斜率优化" class="headerlink" title="斜率优化"></a>斜率优化</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int N = 1e6 + 5;
+
+/** 若找最大值则维护上凸壳 要求K单减
+*   若找最小值则维护下凸壳 要求K单增
+*   若K无单调性 可以维护凸壳后二分查找
+*/
+
+int n, a, b, c;
+
+ll dp[N], sum[N], Q[N], head, tail;
+
+ll Y(int j)&#123;return dp[j] + sum[j] * sum[j] * a - sum[j] * b;&#125;
+ll X(int j)&#123;return sum[j];&#125;
+ll K(int i)&#123;return 2 * a * sum[i];&#125;
+ll B(int i, int j)&#123;return Y(j) - K(i) * X(j);&#125;
+double slope(int i, int j)&#123;return 1.0 * (Y(i) - Y(j)) / (X(i) - X(j));&#125;
+
+int main() &#123;
+    cin &gt;&gt; n &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        int x; scanf(&quot;%d&quot;, &amp;x);
+        sum[i] = sum[i - 1] + x;
+    &#125;
+    Q[++tail] = 0; head = 1;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        while(head &lt; tail &amp;&amp; slope(Q[head], Q[head + 1]) &gt; K(i)) ++head;
+        dp[i] = B(i, Q[head]) + sum[i] * sum[i] * a + sum[i] * b + c;
+        while(head &lt; tail &amp;&amp; slope(Q[tail - 1], Q[tail]) &lt; slope(Q[tail], i)) --tail;
+        Q[++tail] = i;
+    &#125;
+    printf(&quot;%lld\n&quot;, dp[n]);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="数位dp"><a href="#数位dp" class="headerlink" title="数位dp"></a>数位dp</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int MOD=1e9+7;
+
+const int N=200,M=5000;
+
+int digit[20];
+int dp[N][M][2][2];
+char n[200];
+
+int dfs(int pos,int del,int eqb,int eqa) &#123;
+    if (pos==-1) &#123;
+        if (del&gt;2500)
+            return 1;
+        else return 0;
+    &#125;
+    if (dp[pos][del][eqb][eqa]!=-1) return dp[pos][del][eqb][eqa];
+    int upb=eqb?n[pos]:9;
+    int sum=0;
+    for (int b=0;b&lt;=upb;b++) &#123;
+        for (int a=0;a&lt;=(eqa?b:9);a++) &#123;
+            sum=(sum+dfs(pos-1,del+a-b,eqb&amp;&amp;(b==n[pos]),eqa&amp;&amp;(a==b)))%MOD;
+        &#125;
+    &#125;
+    dp[pos][del][eqb][eqa]=sum;
+    return sum;
+&#125;
+
+int main() &#123;
+    scanf(&quot;%s&quot;,n);
+    int len=strlen(n);
+    reverse(n,n+len);
+    for (int i=0;i&lt;len;i++) n[i]-=&#39;0&#39;;
+    memset(dp,-1,sizeof(dp));
+    printf(&quot;%d&quot;,dfs(len-1,2500,1,1));
+    return 0;
+&#125;
+</code></pre>
+<h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h1><h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><pre><code class="lang-cpp">int bin(int x,int p) &#123;
+    int res=1;
+    for (;p;p&gt;&gt;=1,x=(1ll*x*x)%MOD)
+        if (p&amp;1) res=(1ll*res*x)%MOD;
+    return res;
+&#125;
+</code></pre>
+<h2 id="exgcd扩展欧几里得（求ax-by-0整数解）"><a href="#exgcd扩展欧几里得（求ax-by-0整数解）" class="headerlink" title="exgcd扩展欧几里得（求ax+by=0整数解）"></a>exgcd扩展欧几里得（求ax+by=0整数解）</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+const int MAXN=3e6+5;
+
+void Exgcd(ll a, ll b, ll &amp;x, ll &amp;y) &#123;
+    if (!b) x = 1, y = 0;
+    else Exgcd(b, a % b, y, x), y -= a / b * x;
+&#125;
+int n,p;
+
+int main()
+&#123;
+    cin&gt;&gt;n&gt;&gt;p;
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        ll x, y;
+        Exgcd (i, p, x, y);
+        x = (x % p + p) % p;
+        printf (&quot;%d\n&quot;, x); //x是a在mod p下的逆元
+    &#125;
+&#125;
+</code></pre>
+<h2 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int N = 1e5 + 5;
+
+int n; ll p[N], tmp[N];
+
+void Insert(ll x) &#123;
+    for (int i = 55; i &gt;= 0; i--) &#123;
+        if (!(x &gt;&gt; i)) continue;
+        if (!p[i]) &#123;
+            p[i] = x;
+            return;
+        &#125;
+        x ^= p[i];
+    &#125;
+&#125;
+
+bool ask(ll x) &#123; //查询x是否能被异或出来
+    for (int i = 55; i &gt;= 0; i--)
+        if (x &gt;&gt; i) x ^= p[i];
+    return x == 0;
+&#125;
+
+ll k_th(int k) &#123; //查询第k小异或值
+    ll res = 0; int cnt = 0;
+    for (int i = 0; i &lt;= 55; i++) &#123;
+        for (int j = i - 1; j != -1; j--)
+            if (p[i] &gt;&gt; j) p[i] ^= p[j];
+        if (p[i]) tmp[cnt++] = p[i];
+    &#125;
+    if (k &gt;= (1ll &lt;&lt;cnt)) return -1;
+    for (int i = 0; i &lt; cnt; i++)
+        if (k &amp; (1ll &lt;&lt; i)) res ^= tmp[i];
+    return res;
+&#125;
+
+ll getMx() &#123; //查询最大异或值
+    ll res = 0;
+    for (int i = 55; i &gt;= 0; i--) &#123;
+        res = max(res, res ^ p[i]);
+    &#125;
+    return res;
+&#125;
+
+ll getMn() &#123; //查询最小异或值
+    for (int i = 0; i &lt;= 55; i++)
+        if (p[i]) return p[i];
+&#125;
+
+int main() &#123;
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        ll x; scanf(&quot;%lld&quot;, &amp;x);
+        Insert(x);
+    &#125;
+    cout &lt;&lt; getMx() &lt;&lt; endl;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="欧拉筛"><a href="#欧拉筛" class="headerlink" title="欧拉筛"></a>欧拉筛</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+using namespace std;
+
+const int N=1e7+5;
+
+int vis[N],prime[N],countPrime;
+void getPrime() &#123;
+    for (int i=2;i&lt;N;i++) &#123;
+        if (!vis[i]) prime[++countPrime]=i;
+        for (int j=1;j&lt;=countPrime;j++) &#123;
+            if (i*prime[j]&gt;=N) break;
+            vis[i*prime[j]]=1;
+            if (i%prime[j]==0) break;
+        &#125;
+    &#125;
+&#125;
+
+int main() &#123;
+    getPrime();
+    printf(&quot;%d&quot;,countPrime);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="Min-25筛"><a href="#Min-25筛" class="headerlink" title="Min_25筛"></a>Min_25筛</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long LL;
+
+const int N = 2e5 + 5;
+
+int vis[N], pr[N], countPr;
+
+void getPrime() &#123;
+    for (int i = 2; i &lt; N; i++) &#123;
+        if (!vis[i]) pr[++countPr] = i;
+        for (int j = 1; j &lt;= countPr; j++) &#123;
+            if (i * pr[j] &gt;= N) break;
+            vis[i * pr[j]] = 1;
+            if (i % pr[j] == 0) break;
+        &#125;
+    &#125;
+&#125;
+
+LL g[N], ans;
+
+LL sum[N], n, w[N];
+
+int id1[N], id2[N], m;
+
+int sqr, K, T;
+
+int bin(int x, int p) &#123;
+    int res = 1;
+    for (int b = x; p; p &gt;&gt;= 1, b = 1ll * b * b % K)
+        if (p &amp; 1) res = 1ll * res * b % K;
+    return res;
+&#125;
+
+int main() &#123;
+    cin &gt;&gt; T;
+    getPrime();
+    for (int i = 1; i &lt;= countPr; i++) sum[i] = sum[i - 1] + pr[i];
+    while (T--) &#123;
+        scanf(&quot;%lld %d&quot;, &amp;n, &amp;K); 
+        n++;
+        sqr = sqrt(n);
+        m = 0;
+        int inv2 = bin(2, K - 2);
+        for (LL i = 1, j; i &lt;= n; i = j + 1) &#123;
+            j = n / (n / i); w[++m] = n / i;
+            if (w[m] &lt;= sqr) id1[w[m]] = m;
+            else id2[n / w[m]] = m;
+            g[m] =(1ll * (1 + w[m]) % K * w[m] % K * inv2 - 1) % K;
+        &#125;
+
+        int tot = 0;
+        while (1ll * pr[tot] * pr[tot] &lt;= n) tot++;
+        tot--;
+        clock_t st = clock();
+        int cc = 0;
+        LL k;
+        for (int j = 1; j &lt;= tot; ++j) &#123;
+            for (int i = 1; i &lt;= m &amp;&amp; 1ll * pr[j] * pr[j] &lt;= w[i]; ++i) &#123;
+                cc++;
+                k = w[i] / pr[j];
+                if (k &lt;= sqr) k = id1[k];
+                else k = id2[n / k];
+                g[i] = g[i] - 1ll * pr[j] * (g[k] - sum[j - 1]) ;
+            &#125;
+        &#125;
+        ans = (1ll * g[1] % K + ((n + 2) % K) * ((n - 1) % K) % K * inv2 % K - 4 + K) % K;
+        printf(&quot;%d\n&quot;,ans);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="线性求逆元"><a href="#线性求逆元" class="headerlink" title="线性求逆元"></a>线性求逆元</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N=3e6+5;
+
+int inv[N],n,p;
+
+void getInv(int n) &#123;
+    inv[1] = 1;
+    for(int i=2 i&lt;=n;i++)
+        inv[i]=1ll*(p-p/i)*inv[p%i]%p;
+&#125;
+
+int main() &#123;
+    cin&gt;&gt;n&gt;&gt;p;
+    getInv(n);
+    for (int i=1;i&lt;=n;i++)
+        printf(&quot;%d\n&quot;,inv[i]);
+&#125;
+</code></pre>
+<h2 id="O-n-预处理O-1-求组合数"><a href="#O-n-预处理O-1-求组合数" class="headerlink" title="O(n)预处理O(1)求组合数"></a>O(n)预处理O(1)求组合数</h2><pre><code class="lang-cpp">int fac[N], ifac[N];
+
+void init() &#123;
+    fac[0] = ifac[0] = fac[1] = ifac[1] = 1;
+    for (int i = 2; i &lt; N; i++) fac[i] = 1ll * fac[i - 1] * i % MOD;
+    for (int i = 2; i &lt; N; i++) ifac[i] = 1ll * (MOD - MOD / i) * ifac[MOD % i] % MOD;
+    for (int i = 2; i &lt; N; i++) ifac[i] = 1ll * ifac[i - 1] * ifac[i] % MOD;
+&#125;
+
+int C(int n, int m) &#123;
+    if (n &lt; m) return 0;
+    return 1ll * fac[n] * ifac[m] % MOD * ifac[n - m] % MOD;
+&#125;
+</code></pre>
+<h2 id="CRT中国剩余定理"><a href="#CRT中国剩余定理" class="headerlink" title="CRT中国剩余定理"></a>CRT中国剩余定理</h2><pre><code class="lang-cpp">ll gcd(ll a, ll b) &#123;
+    if (b == 0) return a;
+    return gcd(b, a % b);
+&#125;
+
+ll exgcd(ll a, ll b, ll &amp;x, ll &amp;y)
+&#123;
+    // ax + by = gcd(a,b)
+    if(b == 0)
+    &#123;
+        x = 1;
+        y = 0;
+        return a;
+    &#125;
+    ll d = exgcd(b, a % b, y, x);  // ax1 + by1 = bx2 + (a - b(a/b))y2
+    y -= (a / b) * x;              // ax1 + by1 = ay2 + b(x2 - (a/b)y2)
+    return d;
+&#125;
+
+long long crt(vector&lt;ll&gt; &amp;m, vector&lt;ll&gt; &amp;a)
+&#123;
+    // x = m mod a
+    ll m1 = m[0], a1 = a[0];
+    for (int i = 1; i &lt; m.size(); i++)
+    &#123;
+        // a1y1 - a2y2 = m1 - m2
+        ll m2 = m[i], a2 = a[i];
+        ll g = gcd(a1, a2);
+        if ((m2 - m1) % g)
+            return -1;
+        ll y1, y2;
+        exgcd(a1, a2, y1, y2);
+        y1 *= (m1 - m2) / g;
+        y1 = ((y1 % (a2 / g)) + a2 / g) % (a2 / g);
+        // x = (m1 + a1y10) + tLCM
+        m1 -= a1 * y1;
+        a1 = (a1 / gcd(a1, a2)) * a2;
+    &#125;
+    m1 = ((m1 % a1) + a1) % a1;  //最小正整数解
+    if(m1 &lt;= 0)
+        m1 += a1;
+    return m1;
+&#125;
+</code></pre>
+<h2 id="Miller-Rabin"><a href="#Miller-Rabin" class="headerlink" title="Miller-Rabin"></a>Miller-Rabin</h2><pre><code class="lang-cpp">long long mult_mod(long long a,long long b,long long c)
+&#123;
+    a%=c;
+    b%=c;
+    long long ret=0;
+    while(b)
+    &#123;
+        if(b&amp;1)&#123;ret+=a;ret%=c;&#125;
+        a&lt;&lt;=1;
+        if(a&gt;=c)a%=c;
+        b&gt;&gt;=1;
+    &#125;
+    return ret;
+&#125;
+
+//计算  x^n %c
+long long pow_mod(long long x,long long n,long long mod)//x^n%c
+&#123;
+    if(n==1)return x%mod;
+    x%=mod;
+    long long tmp=x;
+    long long ret=1;
+    while(n)
+    &#123;
+        if(n&amp;1) ret=mult_mod(ret,tmp,mod);
+        tmp=mult_mod(tmp,tmp,mod);
+        n&gt;&gt;=1;
+    &#125;
+    return ret;
+&#125;
+
+
+//以a为基,n-1=x*2^t      a^(n-1)=1(mod n)  验证n是不是合数
+//一定是合数返回true,不一定返回false
+bool check(long long a,long long n,long long x,long long t)
+&#123;
+    long long ret=pow_mod(a,x,n);
+    long long last=ret;
+    for(int i=1;i&lt;=t;i++)
+    &#123;
+        ret=mult_mod(ret,ret,n);
+        if(ret==1&amp;&amp;last!=1&amp;&amp;last!=n-1) return true;//合数
+        last=ret;
+    &#125;
+    if(ret!=1) return true;
+    return false;
+&#125;
+// Miller_Rabin()算法素数判定
+//是素数返回true.(可能是伪素数，但概率极小)
+//合数返回false;
+bool Miller_Rabin(long long n)
+&#123;
+    if(n&lt;2)return false;
+    if(n==2)return true;
+    if((n&amp;1)==0) return false;//偶数
+    long long x=n-1;
+    long long t=0;
+    while((x&amp;1)==0)&#123;x&gt;&gt;=1;t++;&#125;
+    for(int i=0;i&lt;S;i++)
+    &#123;
+        long long a=rand()%(n-1)+1;//rand()需要stdlib.h头文件
+        if(check(a,n,x,t))
+            return false;//合数
+    &#125;
+    return true;
+&#125;
+</code></pre>
+<h2 id="二次剩余"><a href="#二次剩余" class="headerlink" title="二次剩余"></a>二次剩余</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+ll w;
+struct num&#123;
+    ll x,y;
+&#125;;
+
+num mul(num a,num b,ll p)
+&#123;
+    num ans=&#123;0,0&#125;;
+    ans.x=((a.x*b.x%p+a.y*b.y%p*w%p)%p+p)%p;
+    ans.y=((a.x*b.y%p+a.y*b.x%p)%p+p)%p;
+    return ans;
+&#125;
+
+ll powwR(ll a,ll b,ll p)&#123;
+    ll ans=1;
+    while(b)&#123;
+        if(b&amp;1)ans=1ll*ans%p*a%p;
+        a=a%p*a%p;
+        b&gt;&gt;=1;
+    &#125;
+    return ans%p;
+&#125;
+ll powwi(num a,ll b,ll p)&#123;
+    num ans=&#123;1,0&#125;;
+    while(b)&#123;
+        if(b&amp;1)ans=mul(ans,a,p);
+        a=mul(a,a,p);
+        b&gt;&gt;=1;
+    &#125;
+    return ans.x%p;
+&#125;
+
+ll solve(ll n,ll p)
+&#123;
+    n%=p;
+    if(p==2)return n;
+    if(powwR(n,(p-1)/2,p)==p-1)return -1;//不存在
+    ll a;
+    while(1)
+    &#123;
+        a=rand()%p;
+        w=((a*a%p-n)%p+p)%p;
+        if(powwR(w,(p-1)/2,p)==p-1)break;
+    &#125;
+    num x=&#123;a,1&#125;;
+    return powwi(x,(p+1)/2,p);
+&#125;
+
+int main()
+&#123;
+    srand(time(0));
+    int t;
+    scanf(&quot;%d&quot;,&amp;t);
+    while(t--)
+    &#123;
+        ll n,p;
+        scanf(&quot;%lld%lld&quot;,&amp;n,&amp;p);
+        if(!n)&#123;
+            printf(&quot;0\n&quot;);continue;
+        &#125;
+        ll ans1=solve(n,p),ans2;
+        if(ans1==-1)printf(&quot;Hola!\n&quot;);
+        else
+        &#123;
+            ans2=p-ans1;
+            if(ans1&gt;ans2)swap(ans1,ans2);
+            if(ans1==ans2)printf(&quot;%lld\n&quot;,ans1);
+            else printf(&quot;%lld %lld\n&quot;,ans1,ans2);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="行列式计算-生成树计数"><a href="#行列式计算-生成树计数" class="headerlink" title="行列式计算/生成树计数"></a>行列式计算/生成树计数</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+using namespace std;
+
+const int MOD=998244353,N=1e2+5;
+
+LL a[N][N],ans;
+
+int T,n,m,sign;
+
+int M[N][N],M2[N][N];
+
+struct Edge&#123;
+    int u,v,w;
+&#125;e[10005];
+
+LL detVal(int n)&#123;
+    sign=0;LL ans=1;
+    for(int i=1;i&lt;=n;i++)&#123;
+        for(int j=i+1; j&lt;=n; j++)&#123;//当前之后的每一行第一个数要转化成0
+            int x=i,y=j;
+            while(a[y][i])&#123;//利用gcd的方法，不停地进行辗转相除
+                LL t=a[x][i]/a[y][i];
+                for(int k=i; k&lt;n; k++)
+                    a[x][k]=(a[x][k]-a[y][k]*t)%MOD;
+                swap(x, y);
+            &#125;
+            if(x!=i)&#123;//奇数次交换，则D=-D&#39;整行交换
+                for(int k=1;k&lt;n;k++)
+                    swap(a[i][k],a[x][k]);
+                sign^= 1;//行列式*-1
+            &#125;
+        &#125;
+        if(!a[i][i])&#123;//斜对角中有一个0，则结果为0
+            return 0;
+        &#125;
+        else ans=ans*a[i][i]%MOD;
+    &#125;
+    if(sign!=0) ans*=-1;
+    if(ans&lt;0) ans+=MOD;
+    return ans;
+&#125;
+
+int main()&#123;
+    cin&gt;&gt;T;
+    while(T--) &#123;
+        scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+        memset(M,0,sizeof(M));
+        for (int i=1;i&lt;=m;i++) &#123;
+            int u,v,w;
+            scanf(&quot;%d%d%d&quot;,&amp;u,&amp;v,&amp;w);
+            e[i].u=u;e[i].v=v;e[i].w=w;
+        &#125;
+        memset(a,0,sizeof(a));
+        for (int k=1;k&lt;=m;k++) &#123;
+            int i=e[k].u,j=e[k].v;
+            a[i][i]++;a[j][j]++;
+            a[i][j]--;a[j][i]--;
+        &#125;
+        LL tot=detVal(n);
+        tot=bin(tot,MOD-2);
+        ans=0;
+        for (int i=0;i&lt;=30;i++)
+        &#123;
+            memset(M2,0,sizeof(M2));
+            memset(a,0,sizeof(a));
+            for (int p=1;p&lt;=m;p++) &#123;
+                if (e[p].w&amp;(1&lt;&lt;i)) &#123;
+                    int j=e[p].u,k=e[p].v;
+                    a[j][j]++;a[k][k]++;
+                    a[j][k]--;a[k][j]--;
+                &#125;
+            &#125;
+            LL cur=detVal(n-1);
+            ans=(ans+(1ll*cur*tot)%M(1&lt;&lt;i))%MOD;
+        &#125;
+        printf(&quot;%lld\n&quot;,ans);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="点和向量旋转"><a href="#点和向量旋转" class="headerlink" title="点和向量旋转"></a>点和向量旋转</h2><pre><code class="lang-cpp">//任意点(x,y)，绕一个坐标点(rx0,ry0)逆时针旋转a角度后的新的坐标设为(x0, y0)，有公式：
+// x0= (x-rx0)*cos(a)-(y-ry0)*sin(a)+rx0 ;
+// y0= (x-rx0)*sin(a)+(y-ry0)*cos(a)+ry0 ;
+
+//任意向量(x,y)，绕一个坐标点(rx0,ry0)逆时针旋转a角度后的新的向量设为(x0, y0)，有公式：
+// x0= x*cos(a)-y*sin(a);
+// y0= x*sin(a)+y*cos(a);
+void Rotate(double &amp;x,double &amp;y,double &amp;vx,double &amp;vy,double x0,double y0,double a)
+&#123;
+    double x_,vx_,y_,vy_;
+    x_=(x-x0)*cos(a)-(y-y0)*sin(a)+x0;
+    vx_=vx*cos(a)-vy*sin(a);
+    y_=(x-x0)*sin(a)+(y-y0)*cos(a)+y0;
+    vy_=vx*sin(a)+vy*cos(a);
+    x=x_,y=y_,vx=vx_,vy=vy_;
+&#125;
+</code></pre>
+<h2 id="求直线交点、中垂线"><a href="#求直线交点、中垂线" class="headerlink" title="求直线交点、中垂线"></a>求直线交点、中垂线</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot; : &quot;&lt;&lt;x&lt;&lt;endl;
+using namespace std;
+
+const int MAXN=2e3+5;
+const double eps=1e-6;
+
+class Point &#123;
+public:
+    double x,y;
+    Point(double a=0,double b=0):x(a),y(b)&#123;&#125;
+&#125;;
+class Line &#123;
+public:
+    bool ifk;
+    double k,b;
+    //求过两点的直线
+    void mkline (Point A,Point B) &#123;
+        ifk=true;k=b=0;
+        if (A.x==B.x) &#123;
+            ifk=0;
+            b=A.x;
+        &#125; else &#123;
+            if (A.y==B.y) &#123;
+                k=0;
+                // b=(A.x+B.x)/2;
+                b=A.y;
+            &#125; else &#123;
+                k=(B.y-A.y)/(B.x-A.x);
+                b=A.y-k*A.x;
+            &#125;
+        &#125;
+    &#125;
+    //求两点中垂线
+    void mkbisector (Point A,Point B) &#123;
+        ifk=true;k=b=0;
+        if (A.x==B.x) &#123;
+            k=0;
+            b=(A.y+B.y)/2;
+        &#125; else if (A.y==B.y) &#123;
+                ifk=0;
+                b=(A.x+B.x)/2;
+            &#125; else &#123;
+                k=-1/(B.y-A.y)*(B.x-A.x);
+                b=(A.y+B.y)/2-k*(A.x+B.x)/2;
+            &#125;
+    &#125;
+    bool operator == (Line &amp;T) &#123;
+        return (ifk==T.ifk) &amp;&amp; fabs(k-T.k)&lt;eps &amp;&amp; fabs(b-T.b)&lt;eps;
+    &#125;
+&#125;;
+//求两直线交点
+struct Intersection &#123;
+    bool parallel,coincide;
+    double x,y;
+    bool operator &lt; (const Intersection &amp;T) const &#123;
+        if (fabs(x-T.x)&gt;eps) return x&lt;T.x;
+        else if (fabs(y-T.y)&gt;eps) return y&lt;T.y;
+        else return 0;
+    &#125;
+&#125;;
+Intersection getIntersection (Line A,Line B) &#123;
+    Intersection ans;
+    ans.parallel=ans.coincide=0;
+    ans.x=ans.y=0;
+    if (A==B) &#123;
+        ans.coincide=1;
+        return ans;
+    &#125;
+    if (!A.ifk &amp;&amp; !B.ifk || A.ifk &amp;&amp; B.ifk &amp;&amp; fabs(A.k-B.k)&lt;eps) &#123;
+        ans.parallel=1;
+        return ans;
+    &#125;
+    if (!A.ifk &amp;&amp; B.ifk) return getIntersection(B,A);
+    if (A.ifk &amp;&amp; !B.ifk) &#123;
+        ans.x=B.b;
+        ans.y=A.k*ans.x+A.b;
+    &#125; else &#123;
+        ans.x=(B.b-A.b)/(A.k-B.k);
+        ans.y=A.k*ans.x+A.b;
+    &#125;
+    return ans;
+&#125;
+
+Point p[MAXN];
+
+Line l[MAXN];
+
+int n,m,ans;
+
+map&lt;Intersection,int&gt;CNT;
+
+int main()
+&#123;
+    cin&gt;&gt;n;
+    Point ori(0,0);
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        cin&gt;&gt;p[i].x&gt;&gt;p[i].y;
+        l[i].mkbisector(ori,p[i]);
+    &#125;
+    ans=1;
+    for (int i=1;i&lt;=n-1;i++)
+    &#123;
+        CNT.clear();
+        for (int j=i+1;j&lt;=n;j++)
+        &#123;
+            Intersection inter=getIntersection(l[i],l[j]);
+            if (!inter.coincide &amp;&amp; !inter.parallel) CNT[inter]++;
+        &#125;
+        for (auto it:CNT) ans=max(ans,it.second+1);
+    &#125;
+    printf(&quot;%d\n&quot;,ans);
+    return 0;
+&#125;
+</code></pre>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="CDQ分治"><a href="#CDQ分治" class="headerlink" title="CDQ分治"></a>CDQ分治</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+#define LL long long
+using namespace std;
+
+const int N=1e5+5;
+
+struct BIT&#123;
+    int tr[N];
+    int lowbit(int x)&#123; return x&amp;(-x); &#125;
+    void clr(int x)&#123;
+        while(x&lt;N)
+        &#123;
+            tr[x]=0;
+            x+=lowbit(x);
+        &#125;
+    &#125;
+    void add(int v,int x)&#123;
+        while(x&lt;N)
+        &#123;
+            tr[x]+=v;
+            x+=lowbit(x);
+        &#125;
+    &#125;
+    int sum(int x)&#123;
+        int sum=0;
+        while(x&gt;0)
+        &#123;
+            sum+=tr[x];
+            x-=lowbit(x);
+        &#125;
+        return sum;
+    &#125;
+&#125;bit;
+
+struct node&#123;
+    int id,x,y,z;
+    bool operator==(node &amp;t)&#123;
+        return x==t.x &amp;&amp; y==t.y &amp;&amp; z==t.z;
+    &#125;
+&#125;A[N],tmp[N];
+
+int n,k,ans[N],cnt[N];
+
+void CDQ(int l,int r)
+&#123;
+    if (l==r) return;
+    int mid=(l+r)&gt;&gt;1;
+    CDQ(l,mid);
+    CDQ(mid+1,r);
+    int p1=l,p2=mid+1,pt=l;
+    while(p1!=mid+1 || p2!=r+1)
+    &#123;
+        if (p1==mid+1 || A[p2].y&lt;A[p1].y &amp;&amp; p2!=r+1)
+        &#123;
+            ans[A[p2].id]+=bit.sum(A[p2].z);
+            tmp[pt++]=A[p2];
+            p2++;
+        &#125;
+        else
+        &#123;
+            bit.add(1,A[p1].z);
+            tmp[pt++]=A[p1];
+            p1++;
+        &#125;
+    &#125;
+    for (int i=l;i&lt;=mid;i++) bit.clr(A[i].z);
+    for (int i=l;i&lt;=r;i++) A[i]=tmp[i];
+&#125;
+
+bool cmp(node &amp;a,node &amp;b)&#123;
+    if (a.x==b.x &amp;&amp; a.y==b.y)
+        return a.z&lt;b.z;
+    else if(a.x==b.x) return a.y&lt;b.y;
+    else return a.x&lt;b.x;
+&#125;
+
+int main()
+&#123;
+    cin&gt;&gt;n&gt;&gt;k;
+    for (int i=1;i&lt;=n;i++)
+    &#123;
+        scanf(&quot;%d%d%d&quot;,&amp;A[i].x,&amp;A[i].y,&amp;A[i].z);
+        A[i].id=i;
+    &#125;
+    sort(A+1,A+1+n,cmp);
+    int same=0;
+    for (int i=n;i&gt;=2;i--)
+    &#123;
+        if (A[i]==A[i-1]) ans[A[i-1].id]+=++same;
+        else same=0;
+    &#125;
+    CDQ(1,n);
+    for (int i=1;i&lt;=n;i++) cnt[ans[i]]++;
+    for (int i=0;i&lt;n;i++) printf(&quot;%d\n&quot;,cnt[i]);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="最长递增子序列-LIS"><a href="#最长递增子序列-LIS" class="headerlink" title="最长递增子序列(LIS)"></a>最长递增子序列(LIS)</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+const int N=1000+5,INF=0x3f3f3f3f;
+
+int T,n,m,A[N],dp[N],ans;
+
+int check(int l,int r)
+&#123;
+    for (int i=l;i&lt;r;i++)
+    &#123;
+        int j=lower_bound(dp,dp+n,A[i])-dp;
+        dp[j]=A[i];
+    &#125;
+    return n-(lower_bound(dp,dp+n,INF)-dp);
+&#125;
+int main()
+&#123;
+    cin&gt;&gt;n;
+    for (int i=0;i&lt;n;i++)
+    &#123;
+        scanf(&quot;%d&quot;,&amp;A[i]);
+        A[n+i]=A[i];
+    &#125;
+    ans=INF;
+    for (int k=0;k&lt;n;k++)
+    &#123;
+        memset(dp,INF,sizeof(dp));
+        ans=min(ans,check(k,k+n));
+    &#125;
+    cout&lt;&lt;ans;
+    return 0;
+&#125;
+</code></pre>
+<h2 id="带修莫队"><a href="#带修莫队" class="headerlink" title="带修莫队"></a>带修莫队</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long LL;
+
+const int N = 2e5 + 5, M = 1e6 + 5;
+
+int n, m;
+
+int a[N], cnt[M], cntq, cntp, pos[N], ans[N], now;
+
+char op;
+
+struct Query&#123;
+    int l, r, t, id;
+    bool operator &lt; (Query &amp;Q) &#123;
+        if (pos[l] != pos[Q.l]) return l &lt; Q.l;
+        if (pos[r] != pos[Q.r]) return r &lt; Q.r;
+        return t &lt; Q.t;
+    &#125;
+&#125;q[N];
+
+struct Modify&#123;
+    int pos, bef, aft;
+&#125;p[N];
+
+void inc(int x) &#123;
+    if (++cnt[x] == 1) now++;
+&#125;
+
+void del(int x) &#123;
+    if (!(--cnt[x])) now--;
+&#125;
+
+int main() &#123;
+    scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+    for (int i = 1, u, v; i &lt;= m; i++) &#123;
+        op = getchar();
+        while(op != &#39;Q&#39; &amp;&amp; op != &#39;R&#39;) op = getchar();
+        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+        if (op == &#39;Q&#39;) &#123;
+            cntq++;
+            q[cntq].l = u;
+            q[cntq].r = v;
+            q[cntq].t = cntp;
+            q[cntq].id = cntq;
+        &#125; else &#123;
+            cntp++;
+            p[cntp].pos = u;
+            p[cntp].bef = a[u];
+            p[cntp].aft = v;
+            a[u] = v;
+        &#125;
+    &#125;
+    LL block = pow(1ll * n, 2.0 / 3.0);
+    for (int i = 1; i &lt;= n; i++) pos[i] = i / block;
+    sort(q + 1, q + 1 + cntq);
+    int l = 1, r = 0, t = cntp;
+    for (int i = 1; i &lt;= cntq; i++) &#123;
+        int nl = q[i].l, nr = q[i].r, nt = q[i].t;
+        while(t &lt; nt) &#123;
+            t++;
+            int pos = p[t].pos, bef = p[t].bef, aft = p[t].aft;
+            if (pos &gt;= l &amp;&amp; pos &lt;= r) &#123;
+                cnt[bef]--;
+                if (cnt[bef] == 0) now--;
+                cnt[aft]++;
+                if (cnt[aft] == 1) now++;
+            &#125;
+            a[pos] = aft;
+        &#125;
+        while(t &gt; nt) &#123;
+            int pos = p[t].pos, bef = p[t].bef, aft = p[t].aft;
+            if (pos &gt;= l &amp;&amp; pos &lt;= r) &#123;
+                cnt[aft]--;
+                if (cnt[aft] == 0) now--;
+                cnt[bef]++;
+                if (cnt[bef] == 1) now++;
+            &#125;
+            a[pos] = bef;
+            t--;
+        &#125;
+        while(l &lt; nl) del(a[l++]);
+        while(l &gt; nl) inc(a[--l]);
+        while(r &lt; nr) inc(a[++r]);
+        while(r &gt; nr) del(a[r--]);
+        ans[q[i].id] = now;
+    &#125;
+    for (int i = 1; i &lt;= cntq; i++) printf(&quot;%d\n&quot;, ans[i]);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="威佐夫博弈"><a href="#威佐夫博弈" class="headerlink" title="威佐夫博弈"></a>威佐夫博弈</h2><pre><code class="lang-cpp">ak =[k（1+√5）/2]，bk= ak + k （k=0，1，2，...,n 方括号表示取整函数)
+</code></pre>
+<h2 id="树上莫队（带修）"><a href="#树上莫队（带修）" class="headerlink" title="树上莫队（带修）"></a>树上莫队（带修）</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &quot; &quot;
+#define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; endl
+
+using namespace std;
+typedef long long ll;
+
+const int N = 1e5 + 5;
+
+int n, M, Q, v[N], w[N], c[N];
+
+int f[N], g[N], id[N &lt;&lt; 1], pos[N &lt;&lt; 1], IDX, TIME, CNT;
+
+int dep[N], pre[N][25], pow_2[25], cnt[N];
+
+bool vis[N];
+
+ll ans, aans[N];
+
+struct Modify&#123;
+    int pre, aft, pos;
+&#125;m[N];
+
+struct Query&#123;
+    int x, y, t, id;
+&#125;q[N];
+
+bool cmp(Query Q_, Query Q) &#123;
+    if (pos[Q_.x] != pos[Q.x]) return pos[Q_.x] &lt; pos[Q.x];
+    if (pos[Q_.y] != pos[Q.y]) return pos[Q_.y] &lt; pos[Q.y];
+    return Q_.t &lt; Q.t;
+&#125;
+
+vector&lt;int&gt; G[N];
+
+void dfs(int x, int ff) &#123;
+    f[x] = ++IDX;
+    id[IDX] = x;
+    for (int to : G[x]) &#123;
+        if (to == ff) continue;
+        dep[to] = dep[x] + 1;
+        pre[to][0] = x;
+        dfs(to, x);
+    &#125;
+    g[x] = ++IDX;
+    id[IDX] = x;
+&#125;
+
+int LCA(int x, int y) &#123;
+    if (dep[x] &lt; dep[y]) swap(x, y);
+    int gap = dep[x] - dep[y];
+    for (int i = 20; i &gt;= 0; i--) &#123;
+        if (gap &gt;= pow_2[i]) &#123;
+            gap -= pow_2[i];
+            x = pre[x][i];
+        &#125;
+    &#125;
+    if (x == y) return x;
+    for (int i = 20; i &gt;= 0; i--) &#123;
+        if (pre[x][i] != pre[y][i]) &#123;
+            x = pre[x][i];
+            y = pre[y][i];
+        &#125;
+    &#125;
+    return pre[x][0];
+&#125;
+
+void add(int pos) &#123;
+    vis[pos] ^= 1;
+    if (vis[pos]) &#123;
+        cnt[c[pos]]++;
+        ans = ans + 1ll * w[cnt[c[pos]]] * v[c[pos]];
+    &#125;
+    else &#123;
+        ans = ans - 1ll * w[cnt[c[pos]]] * v[c[pos]];
+        cnt[c[pos]]--;
+    &#125;
+&#125;
+
+int main() &#123;
+    cin &gt;&gt; n &gt;&gt; M &gt;&gt; Q;
+    for (int i = 1; i &lt;= M; i++) scanf(&quot;%d&quot;, &amp;v[i]);
+    for (int i = 1; i &lt;= n; i++) scanf(&quot;%d&quot;, &amp;w[i]);
+    for (int i = 1; i &lt;= n - 1; i++) &#123;
+        int a, b;
+        scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+        G[a].push_back(b);
+        G[b].push_back(a);
+    &#125;
+    for (int i = 1; i &lt;= n; i++) scanf(&quot;%d&quot;, &amp;c[i]);
+    pow_2[0] = 1;
+    for (int i = 1; i &lt;= 20; i++) pow_2[i] = pow_2[i - 1] * 2;
+    dep[1] = 1;
+    dfs(1, -1);
+    int block = pow(IDX, 2.0 / 3);
+    for (int i = 1; i &lt;= IDX; i++) &#123;
+        pos[i] = (i - 1) / block + 1;
+    &#125;
+    for (int i = 1; i &lt;= 20; i++) &#123;
+        for (int j = 1; j &lt;= n; j++) pre[j][i] = pre[pre[j][i - 1]][i - 1];
+    &#125;
+    for (int i = 1; i &lt;= Q; i++) &#123;
+        int t, x, y;
+        scanf(&quot;%d %d %d&quot;, &amp;t, &amp;x, &amp;y);
+        if (t == 0) &#123;
+            m[++TIME] = &#123;c[x], y, x&#125;;
+            c[x] = y;
+        &#125; else &#123;
+            if (f[x] &gt; f[y]) swap(x, y);
+            q[++CNT] = &#123;LCA(x, y) == x ? f[x] : g[x], f[y], TIME, CNT&#125;;
+        &#125;
+    &#125;
+    sort(q + 1, q + 1 + CNT, cmp);
+    int l = 0, r = 0, t = TIME;
+    for (int i = 1; i &lt;= CNT; i++) &#123;
+        while(t &lt; q[i].t) &#123;
+            t++;
+            if (vis[m[t].pos]) &#123;
+                int pc = m[t].pre;
+                int ac = m[t].aft;
+                ans -= 1ll * v[pc] * w[cnt[pc]];
+                cnt[pc]--;
+                cnt[ac]++;
+                ans += 1ll * v[ac] * w[cnt[ac]];
+            &#125;
+            c[m[t].pos] = m[t].aft;
+        &#125;
+        while(t &gt; q[i].t) &#123;
+            if (vis[m[t].pos]) &#123;
+                int pc = m[t].pre;
+                int ac = m[t].aft;
+                ans -= 1ll * v[ac] * w[cnt[ac]];
+                cnt[ac]--;
+                cnt[pc]++;
+                ans += 1ll * v[pc] * w[cnt[pc]];
+            &#125;
+            c[m[t].pos] = m[t].pre;
+            t--;
+        &#125;
+        while(r &lt; q[i].y) r++, add(id[r]);
+        while(l &gt; q[i].x) l--, add(id[l]);
+        while(r &gt; q[i].y) add(id[r]), r--;
+        while(l &lt; q[i].x) add(id[l]), l++;
+        int lca = LCA(id[l], id[r]);
+        if (lca != id[l] &amp;&amp; lca != id[r]) &#123;
+            add(lca);
+            aans[q[i].id] = ans;
+            add(lca);
+        &#125; else aans[q[i].id] = ans;
+    &#125;
+    for (int i = 1; i &lt;= CNT; i++) printf(&quot;%lld\n&quot;, aans[i]);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="异或最小生成树"><a href="#异或最小生成树" class="headerlink" title="异或最小生成树"></a>异或最小生成树</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N=1e5+5;
+const int INF=0x3f3f3f3f;
+
+int l[N&lt;&lt;5],r[N&lt;&lt;5];
+
+struct Edge&#123;
+    int t,w;
+&#125;;
+
+int root,num;
+
+vector&lt;Edge&gt;G[N];
+
+vector&lt;int&gt;P;
+
+int u,v,w,n;
+
+ll tot;
+
+void dfs(int x,int fa,int now) &#123;
+    P.push_back(now);
+    for (auto to:G[x]) &#123;
+        if (to.t!=fa)
+            dfs(to.t,x,now^to.w);
+    &#125;
+&#125;
+void MakeTrie(int subroot,int check,int x) &#123;
+    if (check==0) return;
+    if ((x&amp;check)==0) &#123;
+        if (l[subroot]==0) l[subroot]=++num;
+        MakeTrie(l[subroot],check&gt;&gt;1,x);
+    &#125;
+    else &#123;
+        if (r[subroot]==0) r[subroot]=++num;
+        MakeTrie(r[subroot],check&gt;&gt;1,x);
+    &#125;
+&#125;
+ll dfs3(int a,int b,int check) &#123;
+    if (!a || !b) return INF;
+    if (check==0) return 0;
+    ll t1,t2;
+    t1=min(dfs3(l[a],l[b],check&gt;&gt;1),dfs3(r[a],r[b],check&gt;&gt;1));
+    if (t1==INF)
+        t2=check+min(dfs3(l[a],r[b],check&gt;&gt;1),dfs3(r[a],l[b],check&gt;&gt;1));
+    else t2=INF;
+    return min(t1,t2);
+&#125;
+ll dfs2(int subroot,int check) &#123;
+    ll ret=0;
+    if (l[subroot]) ret+=dfs2(l[subroot],check&gt;&gt;1);
+    if (r[subroot]) ret+=dfs2(r[subroot],check&gt;&gt;1);
+    if (l[subroot] &amp;&amp; r[subroot]) &#123;
+        int t1=l[subroot],t2=r[subroot];
+        ret+=check+dfs3(t1,t2,check&gt;&gt;1);
+    &#125;
+    return ret;
+&#125;
+
+int main() &#123;
+    cin&gt;&gt;n;
+    for (int i=1;i&lt;=n-1;i++) &#123;
+        scanf(&quot;%d%d%d&quot;,&amp;u,&amp;v,&amp;w);
+        G[u].push_back(&#123;v,w&#125;);
+        G[v].push_back(&#123;u,w&#125;);
+    &#125;
+    dfs(0,-1,0);
+    sort(P.begin(),P.end());
+    P.erase(unique(P.begin(),P.end()),P.end());
+    for (auto x:P) &#123;
+        MakeTrie(0,1&lt;&lt;30,x);
+    &#125;
+    printf(&quot;%lld\n&quot;,dfs2(0,1&lt;&lt;30));
+    return 0;
+&#125;
+</code></pre>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N=1e5+5;
+
+struct KMP&#123;
+    int nxt[N];
+    void getNext(string &amp;t) &#123;
+        nxt[0]=-1;
+        for (int i=1,j=-1;i&lt;=t.length();i++) &#123;
+            while(j!=-1 &amp;&amp; t[i-1]!=t[j]) j=nxt[j];
+            nxt[i]=++j;
+        &#125;
+    &#125;
+    void getAns(string &amp;s,string &amp;t) &#123;
+        int len=t.length();
+        for (int i=0,j=0;i&lt;s.length();) &#123;
+            if (j==-1 || s[i]==t[j]) i++,j++;
+            else j=nxt[j];
+            if (j==len) printf(&quot;%d\n&quot;,i-j+1),j=nxt[j];
+        &#125;
+    &#125;
+&#125;kmp;
+
+string s,t;
+
+int main() &#123;
+    cin&gt;&gt;s;
+    cin&gt;&gt;t;
+    kmp.getNext(t);
+    kmp.getAns(s,t);
+    for (int i=1;i&lt;=t.length();i++) printf(&quot;%d &quot;,kmp.nxt[i]);
+&#125;
+</code></pre>
+<h2 id="后缀数组SA"><a href="#后缀数组SA" class="headerlink" title="后缀数组SA"></a>后缀数组SA</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int MAXN = 1e6+5;
+int n;
+char S[MAXN];
+int s[MAXN];
+int last[2];
+//char s[MAXN];
+struct SA &#123;
+    int sa[MAXN], ra[MAXN], height[MAXN];
+    int t1[MAXN], t2[MAXN], c[MAXN];
+    void build(int *str, int n, int m) &#123;
+        str[n] = 0;
+        n++;
+        int i, j, p, *x = t1, *y = t2;
+        for (i = 0; i &lt; m; i++) c[i] = 0;
+        for (i = 0; i &lt; n; i++) c[x[i] = str[i]]++;
+        for (i = 1; i &lt; m; i++) c[i] += c[i - 1];
+        for (i = n - 1; i &gt;= 0; i--) sa[--c[x[i]]] = i;
+        for (j = 1; j &lt;= n; j &lt;&lt;= 1) &#123;
+            p = 0;
+            for (i = n - j; i &lt; n; i++) y[p++] = i;
+            for (i = 0; i &lt; n; i++) if (sa[i] &gt;= j) y[p++] = sa[i] - j;
+            for (i = 0; i &lt; m; i++) c[i] = 0;
+            for (i = 0; i &lt; n; i++) c[x[y[i]]]++;
+            for (i = 1; i &lt; m; i++) c[i] += c[i - 1];
+            for (i = n - 1; i &gt;= 0; i--) sa[--c[x[y[i]]]] = y[i];
+            swap(x, y);
+            p = 1;
+            x[sa[0]] = 0;
+            for (i = 1; i &lt; n; i++)
+                x[sa[i]] = (y[sa[i - 1]] == y[sa[i]] &amp;&amp; y[sa[i - 1] + j] == y[sa[i] + j]) ? p - 1 : p++;
+            if (p &gt;= n) break;
+            m = p;
+        &#125;
+        n--;
+        for (int i = 0; i &lt;= n; i++) ra[sa[i]] = i;
+        for (int i = 0, j = 0, k = 0; i &lt;= n; i++) &#123;
+            if (k) k--;
+            j = sa[ra[i] - 1];
+            while (str[i + k] == str[j + k]) k++;
+            height[ra[i]] = k;
+        &#125;
+        st_init(height, n);
+    &#125;
+    int lg[MAXN], table[23][MAXN];
+    void st_init(int *arr, int n) &#123;
+        if (!lg[0]) &#123;
+            lg[0] = -1;
+            for (int i = 1; i &lt; MAXN; i++)
+                lg[i] = lg[i / 2] + 1;
+        &#125;
+        for (int i = 1; i &lt;= n; ++i)
+            table[0][i] = arr[i];
+        for (int i = 1; i &lt;= lg[n]; ++i)
+            for (int j = 1; j &lt;= n; ++j)
+                if (j + (1 &lt;&lt; i) - 1 &lt;= n)
+                    table[i][j] = min(table[i - 1][j], table[i - 1][j + (1 &lt;&lt; (i - 1))]);
+    &#125;
+    int lcp(int l, int r) &#123;
+        l = ra[l], r = ra[r];
+        if (l &gt; r) swap(l, r);
+        ++l;
+        int t = lg[r - l + 1];
+        return min(table[t][l], table[t][r - (1 &lt;&lt; t) + 1]);
+    &#125;
+&#125; sa;
+
+/*bool cmp(int i, int j) &#123;
+    if (dis[i] != dis[j]) return dis[i] &lt; dis[j];
+    if (i + dis[i] &gt; n) return true;
+    if (j + dis[j] &gt; n) return false;
+    int lcp = sa.lcp(i + dis[i], j + dis[j]);
+    return a[i + lcp + dis[i]] &lt; a[j + lcp + dis[j]];
+&#125;*/
+
+int main()&#123;
+    while(scanf(&quot;%d&quot;,&amp;n)!=-1)
+    &#123;
+        scanf(&quot;%s&quot;,S);
+        last[0]=last[1]=0;
+        s[n]=n+1;
+        for (int i=n-1;i&gt;=0;i--)
+        &#123;
+            int now= S[i]==&#39;a&#39; ? 0 : 1;
+            if (last[now]==0) s[i]=n;
+            else s[i]=(last[now]-i);
+            last[now]=i;
+        &#125;
+        n++;
+        sa.build(s,n,n+2);
+        for(int i = n-1;i &gt;=1 ;i--)
+            printf(&quot;%d &quot;,sa.sa[i]+1);
+        printf(&quot;\n&quot;);
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/01/csapp-malloclab/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/11/%E5%85%B3%E4%BA%8Ec-%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6%EF%BC%88delete%EF%BC%89%E5%AF%B9%E7%A8%8B%E5%BA%8F%E6%95%B4%E4%BD%93%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E5%BD%B1%E5%93%8D%E7%9A%84%E7%96%91%E9%97%AE/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

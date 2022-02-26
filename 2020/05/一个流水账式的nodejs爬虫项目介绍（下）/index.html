@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            一个nodejs爬虫项目介绍（下） | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="好像不管怎么写都没法摆脱它流水账的本质，所以，我摊牌了。">
+    <meta name="keywords" content=",nodejs,web">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="一个nodejs爬虫项目介绍（下） | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="好像不管怎么写都没法摆脱它流水账的本质，所以，我摊牌了。">
+    <meta property="og:article:tag" content="nodejs"> <meta property="og:article:tag" content="web"> 
+
+    
+        <meta property="article:published_time" content="Fri May 01 2020 20:57:20 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jun 03 2021 20:13:02 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/index.html",
+    "headline": "一个nodejs爬虫项目介绍（下）",
+    "datePublished": "Fri May 01 2020 20:57:20 GMT+0800",
+    "dateModified": "Thu Jun 03 2021 20:13:02 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",nodejs,web",
+    "description": "好像不管怎么写都没法摆脱它流水账的本质，所以，我摊牌了。",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="post-toc-text">过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">1. MySQL数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-MySQL%E7%BB%93%E6%9E%84"><span class="post-toc-text">1.1 MySQL结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-%E6%8F%92%E5%85%A5%E4%BF%A1%E6%81%AF"><span class="post-toc-text">1.2 插入信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%EF%BC%88%E7%AD%9B%E9%80%89%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E7%BB%9F%E8%AE%A1%EF%BC%89"><span class="post-toc-text">1.3 操作方法（筛选、排序、统计）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA"><span class="post-toc-text">2. 网站搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-express%E6%A1%86%E6%9E%B6%E4%B8%80%E7%82%B9%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%A4%E8%AF%86"><span class="post-toc-text">2.1 express框架一点简单的认识</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-html%E5%B5%8C%E5%85%A5js%E4%BB%A3%E7%A0%81"><span class="post-toc-text">2.2 html嵌入js代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-%E4%BD%BF%E7%94%A8express%E6%A1%86%E6%9E%B6"><span class="post-toc-text">2.3 使用express框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9D%91%E5%92%8C%E6%89%A9%E5%B1%95"><span class="post-toc-text">一些坑和扩展</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="post-toc-text">MySQL中文乱码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%AF%E9%80%89%E6%90%9C%E7%B4%A2%E8%8C%83%E5%9B%B4"><span class="post-toc-text">可选搜索范围</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A5%E6%9C%9F%E6%8E%92%E5%BA%8F"><span class="post-toc-text">日期排序</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%E3%80%81%E4%BB%A3%E7%A0%81"><span class="post-toc-text">最终效果、代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                一个nodejs爬虫项目介绍（下）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>5月 01, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/web/" rel="tag">web</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=一个nodejs爬虫项目介绍（下）&url=http://example.com/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=一个nodejs爬虫项目介绍（下）&url=http://example.com/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>好像不管怎么写都没法摆脱它流水账的本质，所以，我摊牌了。<br><span id="more"></span><br>目录：</p>
+<ul>
+<li>介绍</li>
+<li>实现过程</li>
+</ul>
+<ol>
+<li>MySQL数据库<br>1.1 MySQL结构<br>1.2 插入信息（nodejs接入MySQL）<br>1.3 操作方法（筛选、排序、统计）</li>
+<li>网站搭建<br>2.1 express框架一点简单的认识<br>2.2 关于html内嵌js代码<br>2.3 使用express框架</li>
+</ol>
+<ul>
+<li>一些坑和扩展<ul>
+<li>MySQL中文乱码</li>
+<li>可选搜索范围</li>
+<li>日期排序</li>
+</ul>
+</li>
+<li>最终效果、代码</li>
+<li>总结<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2>接着上篇讲，下篇要介绍的是把爬取到的数据存入MySQL，利用MySQL本身的存储、查询、筛选、排序等功能实现搜索，以及搭建网站，将MySQL的功能通过网页对话框输入——网页输出的形式显式表现出来。MySQL和express框架的知识点从信息量上讲比request、cheerio等模块大得多，比如说在使用express框架时就需要同时对html和js代码都比较熟练（html中嵌入js），然而我对此基本上没啥经验。而且感觉之前的内容还是一环套一环，结果一到express框架这里就信息爆炸了orz，所以就很难像上篇一样讲得那么细致。<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h2 id="1-MySQL数据库"><a href="#1-MySQL数据库" class="headerlink" title="1. MySQL数据库"></a>1. MySQL数据库</h2><h3 id="1-1-MySQL结构"><a href="#1-1-MySQL结构" class="headerlink" title="1.1 MySQL结构"></a>1.1 MySQL结构<img src="https://img-blog.csdnimg.cn/20200501203121692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></h3></li>
+</ul>
+<p>MySQL下可以有好几个数据库，每个数据库可以有好几个表格，表格在创建时规定了表头。这里我们可以把所有数据都存在一个表格里。</p>
+<p>贴一下新闻table的创建方式。把id作为自增量和唯一量，根据需求避免重复爬取，将url也设置为唯一量。</p>
+<pre><code class="lang-sql">CREATE TABLE `news`(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(200) NOT NULL,
+    `resource` VARCHAR(200) NOT NULL,
+    `author` VARCHAR(200) NOT NULL,
+    `content` LONGTEXT,
+    `keywords` VARCHAR(200) NOT NULL,
+    `pubtime` VARCHAR(200) NOT NULL,
+    `fetchtime` VARCHAR(200) NOT NULL,
+    `url` VARCHAR(200) NOT NULL,
+    PRIMARY KEY(`id`),
+    UNIQUE KEY `id_UNIQUE` (`id`),
+    UNIQUE KEY `url_UNIQUE` (`url`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre>
+<h3 id="1-2-插入信息"><a href="#1-2-插入信息" class="headerlink" title="1.2 插入信息"></a>1.2 插入信息</h3><p>首先在安装好MySQL模块的前提下，自己做一个模块’mysql.js’便于之后的操作。</p>
+<pre><code class="lang-javascript">var mysql = require(&quot;mysql&quot;);
+var pool = mysql.createPool(&#123;
+    host: &#39;127.0.0.1&#39;,
+    user: &#39;root&#39;,
+    password: &#39;root&#39;,
+    database: &#39;mycrawler1&#39;
+&#125;);
+var query = function(sql, sqlparam, callback) &#123;
+    pool.getConnection(function(err, conn) &#123;
+        if (err) &#123;
+            callback(err, null, null);
+        &#125; else &#123;
+            conn.query(sql, sqlparam, function(qerr, vals, fields) &#123;
+                conn.release(); //释放连接 
+                callback(qerr, vals, fields); //事件驱动回调 
+            &#125;);
+        &#125;
+    &#125;);
+&#125;;
+var query_noparam = function(sql, callback) &#123;
+    pool.getConnection(function(err, conn) &#123;
+        if (err) &#123;
+            callback(err, null, null);
+        &#125; else &#123;
+            conn.query(sql, function(qerr, vals, fields) &#123;
+                conn.release(); //释放连接 
+                callback(qerr, vals, fields); //事件驱动回调 
+            &#125;);
+        &#125;
+    &#125;);
+&#125;;
+exports.query = query;
+exports.query_noparam = query_noparam;
+</code></pre>
+<p>这里规定了MySQL数据库信息，并把对MySQL的连接、释放一系列操作模块化。</p>
+<p>然后在主程序里还是使用一个函数完成插入操作，将新闻内容存在info里作为参数。</p>
+<pre><code class="lang-javascript">function Insert_into_sql(info)&#123;
+    var add_sql=&quot;INSERT INTO news(id,title,resource,author,content,keywords,pubtime,fetchtime,url)VALUES(0,?,?,?,?,?,?,?,?)&quot;
+    var add_sql_params=[info.title,info.resource,info.author,info.content,info.keywords,info.pubtime,info.fetchtime,info.url];
+    mysql.query(add_sql,add_sql_params,function(qerr,vals,fields)&#123;
+        if(qerr)&#123;
+            console.log(&quot;新闻插入失败~&quot;);
+            console.log(qerr.message,info);
+            return;
+        &#125;
+        else
+            console.log(&quot;新闻插入成功~&quot;);
+    &#125;);
+&#125;
+</code></pre>
+<p>这里我理解为通过js代码模拟MySQL的命令行操作。</p>
+<h3 id="1-3-操作方法（筛选、排序、统计）"><a href="#1-3-操作方法（筛选、排序、统计）" class="headerlink" title="1.3 操作方法（筛选、排序、统计）"></a>1.3 操作方法（筛选、排序、统计）</h3><p>这部分其实和js无关，完全是MySQL的语法。</p>
+<p>查询table中的元素，取出table中所有数据：</p>
+<pre><code class="lang-sql">SELECT * FROM [table];
+</code></pre>
+<p>利用like筛选，筛选标题中含有“新冠”的。</p>
+<pre><code class="lang-sql">SELECT * FROM [table] where title like=&quot;%新冠%&quot;;
+</code></pre>
+<p>利用order by排序，根据时间升序排序。</p>
+<pre><code class="lang-sql">SELECT * FROM [table] order by pubtime ASC;//升序
+</code></pre>
+<p>利用count(*)统计，统计标题含有“新冠”的新闻条数。</p>
+<pre><code>SELECT count(*) FROM [table] where title like=&quot;%新冠%&quot;;
+</code></pre><p>具体可看：<a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-tutorial.html">https://www.runoob.com/mysql/mysql-tutorial.html</a></p>
+<p>这个也是网站实现查询等功能的核心部分，可以说接下来所有的操作都是围绕MySQL来进行的。而构建网站的目的就是在MySQL命令行操作和网站的图形化界面间构建一个桥梁。</p>
+<h2 id="2-网站搭建"><a href="#2-网站搭建" class="headerlink" title="2. 网站搭建"></a>2. 网站搭建</h2><h3 id="2-1-express框架一点简单的认识"><a href="#2-1-express框架一点简单的认识" class="headerlink" title="2.1 express框架一点简单的认识"></a>2.1 express框架一点简单的认识</h3><p>一开始觉得网页前端和后端的交互挺难理解的。后来读了几段搭建网站的代码，感觉也可以简单理解成一个从输入到输出的过程，所有的输入包含在request里，输出则体现在response里。</p>
+<pre><code class="lang-javascript">ar express = require(&#39;express&#39;);
+var mysql = require(&#39;./mysql.js&#39;)
+var app = express();
+//app.use(express.static(&#39;public&#39;));
+app.get(&#39;/7.03.html&#39;, function(req, res) &#123;
+    console.log(__dirname);
+    res.sendFile(__dirname + &quot;/&quot; + &quot;7.03.html&quot;);//__dirname就是代码所在文件夹的位置
+&#125;)
+app.get(&#39;/7.04.html&#39;, function(req, res) &#123;
+    console.log(__dirname + &quot;/&quot; + &quot;7.04.html&quot;);
+    res.sendFile(__dirname + &quot;/&quot; + &quot;7.04.html&quot;);
+&#125;)
+app.get(&#39;/process_get&#39;, function(req, res) &#123;
+    res.writeHead(200, &#123; &#39;Content-Type&#39;: &#39;text/html;charset=utf-8&#39; &#125;);
+    var fetchSql = &quot;select url,source_name,title,author,publish_date from news where title like &#39;%&quot; +
+        req.query.title + &quot;%&#39;&quot;;
+    mysql.query(fetchSql, function(err, result, fields) &#123;
+        console.log(result);
+        res.write(JSON.stringify(result));
+        //res.end(JSON.stringify(result));
+    &#125;);
+&#125;)
+var server = app.listen(8080, function() &#123;
+    console.log(&quot;访问地址为 http://127.0.0.1:8080/7.03.html&quot;)
+&#125;)
+</code></pre>
+<p>最基本的输入方式是直接访问网站所在的ip，比如在浏览器中输入 “<a href="http://127.0.0.1:8080&quot;，也可以是网页提交表单之后跳转到的指定ip，也可以是对按钮点击信息的捕获之类的。">http://127.0.0.1:8080&quot;，也可以是网页提交表单之后跳转到的指定ip，也可以是对按钮点击信息的捕获之类的。</a></p>
+<p>大多数输入本身并不能直接产生一个结果（比如显示数据或者跳转到某个页面）。输入的意义是由后端定义的。后端根据输入，决定发送一张网页或者一些数据给前端，最终呈现在浏览器上，即输出。</p>
+<h2 id="2-2-html嵌入js代码"><a href="#2-2-html嵌入js代码" class="headerlink" title="2.2 html嵌入js代码"></a>2.2 html嵌入js代码</h2><p>纯html页是静态的。如果想做出一些动态的功能比如搜索啊排序啊，要么在后端通过切换网页的方式实现动态，要么就是嵌入js代码，动态改变同一个页面内的html的元素（这个好像就是js最基本的用途）。</p>
+<p>首先在header里面引入jQuery（对就是那个跟cheerio用法很像的）</p>
+<pre><code class="lang-html">&lt;header&gt;
+    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;/header&gt;
+</code></pre>
+<p>引入之后就可以用$来选择html元素了，比如给某个元素加上一句话。（需要的话，在append的时候可以直接把一串html代码填进去，并将其作为html代码正常显示，看来插入之后是会重新生成页面的？）</p>
+<pre><code class="lang-html">&lt;body&gt;
+    &lt;div&gt;一段文字。&lt;/div&gt;
+    &lt;script&gt;
+        $(document).ready(function()&#123;
+            $(&#39;div&#39;).append(&quot;两段文字。&lt;input type=&#39;text&#39;&gt;&quot;);
+        &#125;)
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>也可以获取一个input框内的信息，以按钮点击为触发（搜索功能的基本组件）</p>
+<pre><code class="lang-html">&lt;body&gt;
+    &lt;input type=&quot;text&quot;&gt;
+    &lt;button&gt;就是一个按钮&lt;/button&gt;
+    &lt;script&gt;
+        $(&#39;button&#39;).click(function()&#123;
+            alert($(&#39;input&#39;).val());
+        &#125;)
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>所以具体说来cheerio相当于jQuery的一个子集，用来获取html元素（输入），而jQuery同时具备了获取、修改等等功能（输入+输出）。</p>
+<p>好在jQuery起码在选择器的用法上和cheerio就是一样的，所以还蛮亲切的。当然有很多产生输出的方法就没怎么见过，但是查查手册也还算好理解。</p>
+<h2 id="2-3-使用express框架"><a href="#2-3-使用express框架" class="headerlink" title="2.3 使用express框架"></a>2.3 使用express框架</h2><p>通过</p>
+<pre><code>express -e search_site
+</code></pre><p>来搭建一个express脚手架。</p>
+<p>然后看依赖项需要的模块，用npm install全部安装</p>
+<pre><code class="lang-json">&quot;dependencies&quot;: &#123;
+    &quot;cookie-parser&quot;: &quot;^1.4.5&quot;,
+    &quot;data-utils&quot;: &quot;0.0.2&quot;,
+    &quot;date-utils&quot;: &quot;^1.2.21&quot;,
+    &quot;debug&quot;: &quot;^2.6.9&quot;,
+    &quot;ejs&quot;: &quot;^2.7.4&quot;,
+    &quot;express&quot;: &quot;^4.17.1&quot;,
+    &quot;http-errors&quot;: &quot;^1.7.3&quot;,
+    &quot;morgan&quot;: &quot;^1.10.0&quot;,
+    &quot;mysql&quot;: &quot;^2.18.1&quot;,
+    &quot;parser&quot;: &quot;^0.1.4&quot;
+  &#125;
+</code></pre>
+<p>然后就生成了一个好像很高级但是看不懂的文件夹结构。。</p>
+<p>应该是整个项目最不理解的地方吧。</p>
+<p>不过既然都说是框架了也没必要搞那么清楚了。把mysql.js放在根目录，后端index.js放在routes下，前端页面search.html放在public里面，然后需要自己做的也就是一个js和一个html。<del>其他的统统当作黑箱操作</del></p>
+<p>具体代码就放在最后吧。</p>
+<h2 id="一些坑和扩展"><a href="#一些坑和扩展" class="headerlink" title="一些坑和扩展"></a>一些坑和扩展</h2><h3 id="MySQL中文乱码"><a href="#MySQL中文乱码" class="headerlink" title="MySQL中文乱码"></a>MySQL中文乱码</h3><p>“众所周知，有中文的地方。。它就有乱码。”<br><img src="https://img-blog.csdnimg.cn/20200501203232167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>不过MySQL出现乱码，一般不是爬取的数据出错，只是因为cmd编码和MySQL编码方式不匹配，这里只要统一设定为一种编码就可以了，比如utf8。</p>
+<p>右键-&gt;属性-&gt;查看cmd编码，可以看到编码类型。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200501203239314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>图里已经是UTF-8就不用设置了，如果是GBK或者其他类型的可以通过在命令行里输入</p>
+<pre><code>chcp 65001
+</code></pre><p>接着设置MySQL的编码，在MySQL中输入”show variables like “%char%”;”</p>
+<pre><code>mysql&gt; show variables like &quot;%char%&quot;;
++--------------------------+--------------------------+
+| Variable_name            | Value                    |
++--------------------------+--------------------------+
+| character_set_client     | utf8mb4                  |
+| character_set_connection | utf8mb4                  |
+| character_set_database   | utf8mb4                  |
+| character_set_filesystem | binary                   |
+| character_set_results    | gbk                      |
+| character_set_server     | utf8mb4                  |
+| character_set_system     | utf8                     |
+| character_sets_dir       | c:\mysql\share\charsets\ |
++--------------------------+--------------------------+
+</code></pre><p>把character_set_results也设置成UTF-8;</p>
+<pre><code>set character_set_results=utf8;
+</code></pre><p>编码统一之后就可以正常显示了。</p>
+<h3 id="可选搜索范围"><a href="#可选搜索范围" class="headerlink" title="可选搜索范围"></a>可选搜索范围</h3><p>根据MySQL功能进行的拓展，本质上就是扩展where子句之后判断方法。然而实现起来还是挺麻烦的。<br><img src="https://img-blog.csdnimg.cn/20200501203202502.png" alt="在这里插入图片描述"></p>
+<p>首先用checkbox做出三个可选项，分别对应在标题、关键字、内容里面搜索。在用户点下搜索按钮时，将三个checkbox的值作为参数传给后端，并生成相应的MySQL查询命令。需要特判一下三个都没有选的情况，否则会崩溃。</p>
+<p>创建三个checkbox，先判断是否都为false，再传参。</p>
+<pre><code class="lang-html">&lt;input type=&quot;checkbox&quot; class=&quot;option1&quot;&gt;标题
+&lt;input type=&quot;checkbox&quot; class=&quot;option2&quot;&gt;关键字
+&lt;input type=&quot;checkbox&quot; class=&quot;option3&quot;&gt;内容
+&lt;script&gt;
+    $(document).ready(function()&#123;
+        $(&#39;input.search_title&#39;).click(function()&#123;
+            var title=$(&#39;input.option1&#39;).is(&quot;:checked&quot;);
+            var keywords=$(&#39;input.option2&#39;).is(&quot;:checked&quot;);
+            var content=$(&#39;input.option3&#39;).is(&quot;:checked&quot;);
+            if (title.valueOf()==false &amp;&amp; keywords.valueOf()==false &amp;&amp; content.valueOf()==false)&#123;
+                alert(&quot;请至少选择一项作为搜索范围~&quot;);
+                return;
+            &#125;
+        $.get(&#39;/process_get?title=&#39;+title+&#39;&amp;keywords=&#39;+keywords+&#39;&amp;content=&#39;+content+&#39;&amp;sort=&#39;+sort+&#39;&amp;words=&#39;+words，function()&#123;...&#125;
+    &#125;
+</code></pre>
+<p>相对应的<del>非常朴素的</del>后端代码</p>
+<pre><code class="lang-javascript">var fetchSql = &quot;select id,title,keywords,url,resource,pubtime &quot; + &quot;from news where&quot;;
+    var conc=false;
+    if (request.query.title==&quot;true&quot;)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; title like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+    if (request.query.keywords==&quot;true&quot;)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; keywords like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+    if (request.query.content==&quot;true&quot;)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; content like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+</code></pre>
+<h3 id="日期排序"><a href="#日期排序" class="headerlink" title="日期排序"></a>日期排序</h3><p>跟上面那个就是一个原理。贴一下后端代码。</p>
+<pre><code class="lang-javascript">if (request.query.sort==&quot;true&quot;)&#123;
+        fetchSql+=&quot; order by pubtime ASC&quot;;
+    &#125;
+    fetchSql+=&quot;;&quot;;
+</code></pre>
+<h2 id="最终效果、代码"><a href="#最终效果、代码" class="headerlink" title="最终效果、代码"></a>最终效果、代码</h2><p><img src="https://img-blog.csdnimg.cn/20200501203253383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>就是能在标题、关键字、内容里面选择搜索范围，并选择是否要按日期排序，差不多上面都提到了。再加一点<del>简陋的</del>css样式就完事了。</p>
+<p>后续可以做一下统计关键词热度的功能。其实本来就想做的，发现不会，就回头研究一下吧。（如果只是手动给几个关键词，统计一下出现次数还是可以的，但是没啥意义）</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结一下就是要用的东西太多但是会的太少所以就虎头蛇尾了。后半部分基本也不是自己完整写下来的，都是照着示例和网上的代码调调改改然后弄出来一个能不崩溃的东西而已。说实话，按照以前写代码的习惯，我不太喜欢调用一些自己实现不了的模块和功能，或者起码要清楚知道它的原理才能放心用。但是这个项目做下来就感觉，如果真的要把方方面面都讲清楚，哪怕只是一个模块，都是很复杂的，像MySQL这种可能都可以专门开一节课去讲了。这也就是我在下半篇其实几乎没有对代码的解释的原因，一是确实不够了解，二是心态已经变成“无所谓，能用就行”了。当然收获也是很大的，对很多网络相关的知识以前是完全没概念，现在起码有了一点思路，同时体现在对前后端交互方式的感性认识上。</p>
+<p>可能得以后自己真的要做一个网页的时候才能有更深的理解吧。但是作为作业做到这应该也差不多了，因为我高数真的要挂科了orz。</p>
+<p>代码的话就贴一个爬虫的（一共有五个，对应五个新闻网）一个前端的一个后端的，比较长，后面也没东西了，所以看到这就可以结束了。</p>
+<p>爬虫：</p>
+<pre><code class="lang-javascript">var myRequest = require(&#39;request&#39;);
+var myIconv = require(&#39;iconv-lite&#39;);
+var myCheerio = require(&#39;cheerio&#39;);
+var fs = require(&#39;fs&#39;);
+var mysql=require(&#39;./mysql.js&#39;);
+require(&#39;date-utils&#39;);
+
+var myURL=&quot;http://www.chinanews.com/&quot;;
+var myResource=&quot;中国新闻网&quot;
+var myEncoding=&#39;UTF-8&#39;;
+var newsExg=/\d&#123;4&#125;\/\d&#123;2&#125;-\d&#123;2&#125;\/\d&#123;7&#125;.shtml/;
+var options=&#123;
+    url:myURL,
+    encoding:null,
+    timeout:10000
+&#125;;
+myRequest(options,function(err,res,body)&#123;
+    if (err || res.statusCode!==200)&#123;
+        console.log(&quot;种子页面爬取失败~&quot;);
+        return;
+    &#125;
+    var html=myIconv.decode(body,myEncoding);
+    var $=myCheerio.load(html,&#123;decodeEntities:false&#125;);
+    var newsDiv=$(&#39;a&#39;);
+    newsDiv.each(function(i,e)&#123;
+        news_url=get_news_url(e);
+        if (newsExg.test(news_url))&#123;
+            check(news_url);
+        &#125;
+    &#125;)
+&#125;)
+function get_news_url(e)&#123;
+    var $_=myCheerio.load(e,&#123;decodeEntities:false&#125;);
+    var news_url=$_(&#39;a&#39;).attr(&#39;href&#39;);
+    if (news_url===&quot;javascript:void(0)&quot;||news_url===undefined) return;
+    if (news_url.startsWith(&quot;http://&quot;))
+        news_url=news_url;
+    else
+        if (news_url.startsWith(&quot;//&quot;))
+            news_url=&quot;http:&quot;+news_url;
+        else
+            if (news_url.startsWith(&quot;/&quot;))
+                news_url=myURL.slice(0,-1)+news_url;
+    return news_url;
+&#125;
+function check(news_url)&#123;
+    var sel_sql=&quot;SELECT url from news where url=? &quot;;
+    var sel_sql_params=[news_url];
+    mysql.query(sel_sql,sel_sql_params,function(err,vals,fields)&#123;
+        if (err)&#123;
+            console.log(&quot;检索url错误~&quot;);
+            return;
+        &#125;
+        if (vals.length&gt;0)&#123;
+            console.log(&quot;url重复访问~&quot;);
+            ret=false;
+        &#125;
+        else get_news(news_url);
+    &#125;);
+&#125;;
+
+function get_news(news_url)&#123;
+    var options=&#123;
+        url:news_url,
+        encoding:null,
+        timeout:10000
+    &#125;
+    var info=&#123;
+        title:&#39;&#39;,resource:&#39;&#39;,author:&#39;&#39;,content:&#39;&#39;,
+        keywords:&#39;&#39;,pubtime:&#39;&#39;,fetchtime:&#39;&#39;,url:&#39;&#39;
+    &#125;
+    myRequest(options,function(err,res,body)&#123;
+        if (err || res.statusCode!==200)&#123;
+            console.log(&quot;新闻页面爬取失败~&quot;);
+            return;
+        &#125;    
+        var html=myIconv.decode(body,myEncoding);
+        var $=myCheerio.load(html,&#123;decodeEntities:false&#125;);
+        info.title=get_title($);
+        info.resource=get_resource();
+        info.author=get_author($);
+        info.content=get_content($);
+        info.keywords=get_keywords($);
+        info.pubtime=get_pubtime($);
+        info.fetchtime=get_fetchtime();
+        info.url=get_url(news_url);
+        console.log(&quot;信息整理完毕~&quot;);
+        Insert_into_sql(info);
+    &#125;);
+&#125;
+function get_title($)&#123;
+    var title=&#39;&#39;;
+    title=$(&#39;title&#39;).text();
+    var tmp=title.substring(title.indexOf(&#39;-中新网&#39;));
+    title=title.replace(tmp,&#39;&#39;);
+    return title;
+&#125;
+function get_resource()&#123;
+    var resource=myResource;
+    return resource;
+&#125;
+function get_author($)&#123;
+    var author=&#39;&#39;;
+    author=$(&quot;#author_baidu&quot;).text();
+    author=author.substring(3);
+    return author;
+&#125;
+function get_content($)&#123;
+    var content=&#39;&#39;;
+    content=$(&#39;div.left_zw&#39;).children(&#39;p&#39;).text();
+    content=content.replace(/[\n\t\s\t]/g,&#39;&#39;);
+    return content;
+&#125;
+function get_keywords($)&#123;
+    var key=&#39;&#39;;
+    key=$(&#39;meta[name=keywords]&#39;).attr(&#39;content&#39;);
+    return key;
+&#125;
+function get_pubtime($)&#123;
+    var pubtime=&#39;&#39;;
+    pubtime=$(&#39;div.left-t&#39;).text();
+    var tmp=pubtime.substring(pubtime.indexOf(&quot;来源&quot;));
+    pubtime=pubtime.replace(tmp,&#39;&#39;);
+    pubtime=pubtime.replace(/\s/g,&#39;&#39;);
+    pubtime=pubtime.replace(/[年月日:]/g,&#39;-&#39;);
+    return pubtime;
+&#125;
+function get_fetchtime()&#123;
+    var fetchtime=&#39;&#39;;
+    fetchtime=new Date().toFormat(&quot;YYYY-MM-DD-HH-MM-SS&quot;);
+    return fetchtime;
+&#125;
+function get_url(news_url)&#123;
+    var url=&#39;&#39;;
+    url=news_url;
+    return url;
+&#125;
+function Insert_into_sql(info)&#123;
+    var add_sql=&quot;INSERT INTO news(id,title,resource,author,content,keywords,pubtime,fetchtime,url)VALUES(0,?,?,?,?,?,?,?,?)&quot;
+    var add_sql_params=[info.title,info.resource,info.author,info.content,info.keywords,info.pubtime,info.fetchtime,info.url];
+    mysql.query(add_sql,add_sql_params,function(qerr,vals,fields)&#123;
+        if(qerr)&#123;
+            console.log(&quot;新闻插入失败~&quot;);
+            console.log(qerr.message,info);
+            return;
+        &#125;
+        else
+            console.log(&quot;新闻插入成功~&quot;);
+    &#125;);
+&#125;
+</code></pre>
+<p>前端：</p>
+<pre><code class="lang-html">&lt;head&gt;
+    &lt;style&gt;
+        body&#123;
+            background-color: cornflowerblue;
+            margin-left:30px;
+            margin-right:30px;
+            border:3px white solid;
+        &#125;
+        view.title&#123;
+            color: white;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+        &#125;
+        form&#123;
+            display: flex;
+            justify-content: center;
+            color:white;
+        &#125;
+        form input.search&#123;
+            width: 400px;
+        &#125;
+        div.cardLayout&#123;
+            color: white;
+        &#125;
+        table&#123;
+            padding:80px;
+            border:2px solid white;
+        &#125;
+        th&#123;
+            font-size: 20px;
+            color:white;
+            border:2px solid white;
+            text-align: center;
+        &#125;
+        td&#123;
+            color:white;
+            width: 10%;
+            height: 80px;
+            border:2px solid white;
+            text-align: center;
+        &#125;
+    &lt;/style&gt;
+    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;view class=&#39;title&#39;&gt;
+        &lt;h1&gt;近期新闻内容整合搜索&lt;/h1&gt;
+    &lt;/view&gt;
+    &lt;form&gt;
+        请输入关键词：&lt;input type=&quot;text&quot; class=&quot;search&quot;&gt;
+        &lt;input type=&quot;button&quot; class=&quot;search_title&quot; value=&quot;搜索&quot;&gt;
+        搜索范围：
+        &lt;input type=&quot;checkbox&quot; class=&quot;option1&quot;&gt;标题
+        &lt;input type=&quot;checkbox&quot; class=&quot;option2&quot;&gt;关键字
+        &lt;input type=&quot;checkbox&quot; class=&quot;option3&quot;&gt;内容
+        &lt;input type=&quot;checkbox&quot; class=&quot;option4&quot;&gt;根据日期排序
+    &lt;/form&gt;
+    &lt;div class=&quot;cardLayout&quot;&gt;&lt;/div&gt;
+    &lt;table width=&quot;100%&quot; id=&quot;record2&quot;&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;script&gt;
+        $(document).ready(function()&#123;
+            $(&#39;input.search_title&#39;).click(function()&#123;
+              var title=$(&#39;input.option1&#39;).is(&quot;:checked&quot;);
+              var keywords=$(&#39;input.option2&#39;).is(&quot;:checked&quot;);
+              var content=$(&#39;input.option3&#39;).is(&quot;:checked&quot;);
+              if (title.valueOf()==false &amp;&amp; keywords.valueOf()==false &amp;&amp; content.valueOf()==false)
+              &#123;
+                alert(&quot;请至少选择一项作为搜索范围~&quot;);
+                return;
+              &#125;
+              var sort=$(&#39;input.option4&#39;).is(&quot;:checked&quot;);
+              var words=$(&#39;input.search&#39;).val();
+              $.get(&#39;/process_get?title=&#39;+title+&#39;&amp;keywords=&#39;+keywords+&#39;&amp;content=&#39;+content+&#39;&amp;sort=&#39;+sort+&#39;&amp;words=&#39;+words, function(data) &#123;
+                    $(&quot;#record2&quot;).empty();
+                    $(&quot;#record2&quot;).append(&#39;&lt;tr class=&quot;cardLayout&quot;&gt;&lt;th&gt;新闻编号&lt;/th&gt;&lt;th&gt;标题&lt;/th&gt;&#39; +
+                        &#39;&lt;th&gt;关键字&lt;/th&gt;&lt;th&gt;链接&lt;/th&gt;&lt;th&gt;来源&lt;/th&gt;&lt;th&gt;日期&lt;/th&gt;&lt;/tr&gt;&#39;);
+                    for (let list of data) &#123;
+                        let table = &#39;&lt;tr class=&quot;cardLayout&quot;&gt;&#39;;
+                        Object.values(list).forEach(element =&gt; &#123;
+                            table += (&#39;&lt;td&gt;&#39;+element + &#39;&lt;/td&gt;&#39;);
+                        &#125;);
+                        $(&quot;#record2&quot;).append(table + &#39;&lt;/tr&gt;&#39;);
+                    &#125;
+                &#125;);
+            &#125;)
+        &#125;)
+
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>后端：</p>
+<pre><code class="lang-javascript">var express = require(&#39;express&#39;);
+var router = express.Router();
+var mysql = require(&#39;../mysql.js&#39;);
+
+/* GET home page. */
+router.get(&#39;/&#39;, function(req, res, next) &#123;
+    res.render(&#39;index&#39;, &#123; title: &#39;Express&#39; &#125;);
+&#125;);
+
+router.get(&#39;/process_get&#39;, function(request, response) &#123;
+    //sql字符串和参数
+    var fetchSql = &quot;select id,title,keywords,url,resource,pubtime &quot; + &quot;from news where&quot;;
+    var conc=false;
+    if (request.query.title==&quot;true&quot;)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; title like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+    if (request.query.keywords==&quot;true&quot;)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; keywords like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+    if (request.query.content==&quot;true&quot;)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; content like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+    if (request.query.sort==&quot;true&quot;)&#123;
+        fetchSql+=&quot; order by pubtime ASC&quot;;
+    &#125;
+    fetchSql+=&quot;;&quot;;
+    mysql.query(fetchSql, function(err, result, fields) &#123;
+        response.writeHead(200, &#123;
+            &quot;Content-Type&quot;: &quot;application/json&quot;
+        &#125;);
+        response.write(JSON.stringify(result));
+        response.end();
+    &#125;);
+&#125;);
+router.get(&#39;/process_get_inorder&#39;, function(request, response) &#123;
+    //sql字符串和参数
+    var fetchSql = &quot;select id,title,keywords,url,resource &quot; + &quot;from news where&quot;;
+    var conc=false;
+    if (request.query.title)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; title like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+    if (request.query.keywords)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; keywords like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+    if (request.query.content)&#123;
+        if (!conc)&#123;
+            conc=true;
+        &#125;
+        else fetchSql+=&quot; or&quot;
+        fetchSql+=&quot; content like &#39;%&quot;+request.query.words + &quot;%&#39;&quot;;
+    &#125;
+    fetchSql+=&quot;;&quot;;
+    console.log(fetchSql);
+    fetchSql=&quot;select id,title,keywords,url,resource from news where title like &#39;%新冠%&#39; or keywords like &#39;%新冠%&#39; or content like &#39;%新冠%&#39;;&quot;;
+    mysql.query(fetchSql, function(err, result, fields) &#123;
+        response.writeHead(200, &#123;
+            &quot;Content-Type&quot;: &quot;application/json&quot;
+        &#125;);
+        response.write(JSON.stringify(result));
+        response.end();
+    &#125;);
+&#125;);
+module.exports = router;
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/Codeforces%20Round#639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/04/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>
