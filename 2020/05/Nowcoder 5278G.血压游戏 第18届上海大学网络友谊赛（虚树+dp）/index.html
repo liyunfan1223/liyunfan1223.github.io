@@ -43,7 +43,7 @@
     
     <title>
         
-            Codeforces Round#639 1345D.Monopole Magnets（构造） | 
+            Nowcoder 5278G.血压游戏 第18届上海大学网络友谊赛（虚树+dp） | 
         
         MorphLing&#39;s Blog
     </title>
@@ -53,11 +53,14 @@
     <link rel="icon" href="/img/favicon.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="题目描述：E. Kaavi and Magic Spell
-time limit per test 2 seconds
-memory limit per test 512 megabytes
-Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevitable and unavoidable. Of course, she makes her living by predicting others’ future. While doing divination, Kaavi believes that magic spells can provide great power for her to see the future.">
-    <meta name="keywords" content=",XCPC,dp,codeforces,算法">
+    <meta name="description" itemprop="description" content="题目描述Compute 有一棵 n 个点，编号分别为 1∼n 的树，其中 s 号点为根。Compute 在树上养了很多松鼠，在第 i 个点上住了 ai个松鼠。
+因为某些缘故，它们开始同时向根节点移动，但它们相当不安分，如果在同一个节点上，它们就会打起来，简单地来说以下事件会依序发生：
+·如果一个节点上有 2 只或 2 只以上的松鼠，他们会打架，然后这个节点上松鼠的数量会减少 1；
+·根节点的所有松鼠移动到地面，位于地面上的松鼠不会再打架；
+·所有松鼠同时朝它们的父节点移动。
+所有事件各自都在一瞬间完成，直至树上没有松鼠。
+现在 Compute 想知道最终有多少只松鼠到达了地面。">
+    <meta name="keywords" content=",XCPC,dp,树,算法">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -218,7 +221,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="MorphLing&#39;s Blog">
-    <meta name="msapplication-starturl" content="http://example.com/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/">
+    <meta name="msapplication-starturl" content="http://example.com/2020/05/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
@@ -233,19 +236,22 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://example.com/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/">
+    <meta property="og:url" content="http://example.com/2020/05/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Codeforces Round#639 1345D.Monopole Magnets（构造） | MorphLing&#39;s Blog">
+    <meta property="og:title" content="Nowcoder 5278G.血压游戏 第18届上海大学网络友谊赛（虚树+dp） | MorphLing&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="题目描述：E. Kaavi and Magic Spell
-time limit per test 2 seconds
-memory limit per test 512 megabytes
-Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevitable and unavoidable. Of course, she makes her living by predicting others’ future. While doing divination, Kaavi believes that magic spells can provide great power for her to see the future.">
-    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="dp"> <meta property="og:article:tag" content="codeforces"> <meta property="og:article:tag" content="算法"> 
+    <meta property="og:description" content="题目描述Compute 有一棵 n 个点，编号分别为 1∼n 的树，其中 s 号点为根。Compute 在树上养了很多松鼠，在第 i 个点上住了 ai个松鼠。
+因为某些缘故，它们开始同时向根节点移动，但它们相当不安分，如果在同一个节点上，它们就会打起来，简单地来说以下事件会依序发生：
+·如果一个节点上有 2 只或 2 只以上的松鼠，他们会打架，然后这个节点上松鼠的数量会减少 1；
+·根节点的所有松鼠移动到地面，位于地面上的松鼠不会再打架；
+·所有松鼠同时朝它们的父节点移动。
+所有事件各自都在一瞬间完成，直至树上没有松鼠。
+现在 Compute 想知道最终有多少只松鼠到达了地面。">
+    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="dp"> <meta property="og:article:tag" content="树"> <meta property="og:article:tag" content="算法"> 
 
     
-        <meta property="article:published_time" content="Fri May 08 2020 17:13:05 GMT+0800">
-        <meta property="article:modified_time" content="Sun Jun 06 2021 15:19:26 GMT+0800">
+        <meta property="article:published_time" content="Sun May 10 2020 22:04:37 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 06 2021 15:18:24 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -253,7 +259,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://example.com/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html" />
+        <link rel="canonical" href="http://example.com/2020/05/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -265,10 +271,10 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html",
-    "headline": "Codeforces Round#639 1345D.Monopole Magnets（构造）",
-    "datePublished": "Fri May 08 2020 17:13:05 GMT+0800",
-    "dateModified": "Sun Jun 06 2021 15:19:26 GMT+0800",
+    "mainEntityOfPage": "http://example.com/2020/05/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/index.html",
+    "headline": "Nowcoder 5278G.血压游戏 第18届上海大学网络友谊赛（虚树+dp）",
+    "datePublished": "Sun May 10 2020 22:04:37 GMT+0800",
+    "dateModified": "Sun Jun 06 2021 15:18:24 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "MorphLing",
@@ -286,11 +292,14 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",XCPC,dp,codeforces,算法",
-    "description": "题目描述：E. Kaavi and Magic Spell
-time limit per test 2 seconds
-memory limit per test 512 megabytes
-Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevitable and unavoidable. Of course, she makes her living by predicting others’ future. While doing divination, Kaavi believes that magic spells can provide great power for her to see the future.",
+    "keywords": ",XCPC,dp,树,算法",
+    "description": "题目描述Compute 有一棵 n 个点，编号分别为 1∼n 的树，其中 s 号点为根。Compute 在树上养了很多松鼠，在第 i 个点上住了 ai个松鼠。
+因为某些缘故，它们开始同时向根节点移动，但它们相当不安分，如果在同一个节点上，它们就会打起来，简单地来说以下事件会依序发生：
+·如果一个节点上有 2 只或 2 只以上的松鼠，他们会打架，然后这个节点上松鼠的数量会减少 1；
+·根节点的所有松鼠移动到地面，位于地面上的松鼠不会再打架；
+·所有松鼠同时朝它们的父节点移动。
+所有事件各自都在一瞬间完成，直至树上没有松鼠。
+现在 Compute 想知道最终有多少只松鼠到达了地面。",
 }
 </script>
 
@@ -355,7 +364,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="post-toc-text">题目描述：</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="post-toc-text">题目描述</span></a></li></ol>
     </ul>
     
 
@@ -387,7 +396,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
         
     
             <p class="article-headline-p">
-                Codeforces Round#639 1345D.Monopole Magnets（构造）
+                Nowcoder 5278G.血压游戏 第18届上海大学网络友谊赛（虚树+dp）
             </p>
         </div>
 
@@ -406,7 +415,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     <!-- Author Name & Date -->
     <div>
         <strong>MorphLing</strong>
-        <span>5月 08, 2020</span>
+        <span>5月 10, 2020</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -430,7 +439,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-none-link" href="/tags/XCPC/" rel="tag">XCPC</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/codeforces/" rel="tag">codeforces</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/dp/" rel="tag">dp</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a>
+        <a class="post_tag-none-link" href="/tags/XCPC/" rel="tag">XCPC</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/dp/" rel="tag">dp</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a>
     </ul>
     
 
@@ -447,7 +456,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Codeforces Round#639 1345D.Monopole Magnets（构造）&url=http://example.com/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Nowcoder 5278G.血压游戏 第18届上海大学网络友谊赛（虚树+dp）&url=http://example.com/2020/05/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -456,7 +465,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Codeforces Round#639 1345D.Monopole Magnets（构造）&url=http://example.com/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html&via=MorphLing" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Nowcoder 5278G.血压游戏 第18届上海大学网络友谊赛（虚树+dp）&url=http://example.com/2020/05/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/index.html&via=MorphLing" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -465,7 +474,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/05/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -474,7 +483,7 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2020/05/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -499,83 +508,162 @@ Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevi
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>E. Kaavi and Magic Spell</p>
-<p>time limit per test 2 seconds</p>
-<p>memory limit per test 512 megabytes</p>
-<p>Kaavi, the mysterious fortune teller, deeply believes that one’s fate is inevitable and unavoidable. Of course, she makes her living by predicting others’ future. While doing divination, Kaavi believes that magic spells can provide great power for her to see the future.</p>
-<span id="more"></span>
-<p>Kaavi has a string T of length m and all the strings with the prefix T are magic spells. Kaavi also has a string S of length n and an empty string A.</p>
-<p>During the divination, Kaavi needs to perform a sequence of operations. There are two different operations:</p>
-<p>Delete the first character of S and add it at the front of A.<br>Delete the first character of S and add it at the back of A.<br>Kaavi can perform no more than n operations. To finish the divination, she wants to know the number of different operation sequences to make A a magic spell (i.e. with the prefix T). As her assistant, can you help her? The answer might be huge, so Kaavi only needs to know the answer modulo 998244353.</p>
-<p>Two operation sequences are considered different if they are different in length or there exists an i that their i-th operation is different.</p>
-<p>A substring is a contiguous sequence of characters within a string. A prefix of a string S is a substring of S that occurs at the beginning of S.</p>
-<p>Input<br>The first line contains a string S of length n (1≤n≤3000).</p>
-<p>The second line contains a string T of length m (1≤m≤n).</p>
-<p>Both strings contain only lowercase Latin letters.</p>
-<p>Output<br>The output contains only one integer  — the answer modulo 998244353.</p>
-<p>Examples<br>input</p>
-<pre><code>abab
-ba
-</code></pre><p>output</p>
-<pre><code>12
-</code></pre><p>input</p>
-<pre><code>defineintlonglong
-signedmain
-</code></pre><p>output</p>
-<pre><code>0
-</code></pre><p>input</p>
-<pre><code>rotator
-rotator
-</code></pre><p>output</p>
-<pre><code>4
-</code></pre><p>input</p>
-<pre><code>cacdcdbbbb
-bdcaccdbbb
-</code></pre><p>output</p>
-<pre><code>24
-</code></pre><p>算法标签：区间dp</p>
-<p>题目大意：给出两个字符串S和T，以及一个空串A，从左至右依次选择S中的每一个字符，并对其进行以下一个操作：</p>
-<p>1.添加到A的首部</p>
-<p>2.添加到A的尾部</p>
-<p>求一共有多少种操作方式使得构成的字符串A的前缀为T（答案对998244353取模）。</p>
-<p>样例1的示意图：<br><img src="https://img-blog.csdnimg.cn/20200508170958467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>首先观察数据规模(n,m&lt;=3000)，刚好可以存一个二维数组，可以考虑区间dp。考虑任何一种符合要求的字符串A，以上图中的“baab”为例。<br><img src="https://img-blog.csdnimg.cn/20200508171006532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>发现可以根据最后一个字符的添加方式（首部/尾部）来分成两类，也就为后续的状态转移提供了思路。</p>
-<p><strong>规定dp[i][j]：用s[1…i]表示一个合法的A[j…j+i-1]的方案数。</strong> 什么叫合法的A呢，意思就是A的前缀为T。</p>
-<p>假设T一共有m位，那么对于A[1…m]，A[k]需要与T[k]一一对应，即A[k]==T[k]。而m+1位以后，A[k]则可以为任意字符。</p>
-<p>再根据最后一个字符的两种添加方式（首部/尾部），<strong>得出状态转移方程：</strong></p>
-<p><strong>1. 添加在尾部：如果s[i]==t[j+i-1]或者j+i-1&gt;m，dp[i][j]+=dp[i-1][j]</strong></p>
-<p><strong>2. 添加在首部：如果s[i]==t[j]或者j&gt;m，dp[i][j]+=dp[i-1][j+1]</strong></p>
-<p>起点状态设置d[0][k]=1，最后依次考虑A的长度m、m+1、…、n，累加dp[i][1]得到答案。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Compute 有一棵 n 个点，编号分别为 1∼n 的树，其中 s 号点为根。<br>Compute 在树上养了很多松鼠，在第 i 个点上住了 ai个松鼠。</p>
+<p>因为某些缘故，它们开始同时向根节点移动，但它们相当不安分，如果在同一个节点上，它们就会打起来，简单地来说以下事件会依序发生：</p>
+<p>·如果一个节点上有 2 只或 2 只以上的松鼠，他们会打架，然后这个节点上松鼠的数量会减少 1；</p>
+<p>·根节点的所有松鼠移动到地面，位于地面上的松鼠不会再打架；</p>
+<p>·所有松鼠同时朝它们的父节点移动。</p>
+<p>所有事件各自都在一瞬间完成，直至树上没有松鼠。</p>
+<p>现在 Compute 想知道最终有多少只松鼠到达了地面。<br><span id="more"></span></p>
+<p>输入描述:</p>
+<p>第一行包含两个整数 n, s (1≤n≤2e5,1≤s≤n)，中间以空格分隔，分别表示点的数量和根的编号。</p>
+<p>第二行包含 n 个整数 a1, a2, an(0≤ai≤1e9)，中间以空格分隔，分别表示每个点上一开始的松鼠数量。</p>
+<p>接下来 n-1 行，每行包含两个整数 u, v (u!=v, 1≤u,v≤n)，中间以空格分隔，表示 u 和 v 之间有一条边。</p>
+<p>输入保证是一棵树。</p>
+<p>输出描述:</p>
+<p>在一行输出一个整数，表示最终到达地面的松鼠数量。</p>
+<p>示例1</p>
+<p>输入</p>
+<pre><code>3 1
+2 4 6
+1 2
+1 3
+</code></pre><p>输出</p>
+<pre><code>8
+</code></pre><p>示例2</p>
+<p>输入</p>
+<pre><code>3 1
+0 1 1
+1 2
+1 3
+</code></pre><p>输出</p>
+<pre><code>1
+</code></pre><p>算法标签：虚树、dp</p>
+<p>首先读完题发现，可以将这棵树逐层分离，深度不同的结点不会互相影响，因此只需要枚举层数，每次取出深度相同的点做一次dp就可以了。然后先总结自己的一个错误吧。训练的时候当然先考虑暴力的复杂度，就是O(max{deep}*n)。然后很理想地构造了一个满二叉树，发现复杂度就是O(nlogn)了。。然后居然就觉得暴力是可做的。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200510220237121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然而其实只要一个数据点给一条链就退化成O(n^2)了。<del>其实做的时候也知道，只是抱侥幸心理。但是树形题的数据怎么可能没有链呢。。</del> 所以以后不可以这样了.jpg</p>
+<p>训练完看题解才知道要用虚树做，于是正好回过头借这题补一下虚树的知识。当然建虚树的算法基于dfs序和lca（最近共同祖先），这里就先不展开，重点放在虚树上面。</p>
+<p>虚树的基本思想就是从原来完整的树上取出需要的结点，同时取出任意两个结点的lca和根节点，在保证原先的祖先——后代关系的前提下，将这些点再连成一个新树。比如下图，我想要取出左图红色的三个点，那么就需要取出它们和它们两两的lca，建成右图的树状关系。<br><img src="https://img-blog.csdnimg.cn/2020051022024555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样的好处很明显，如果打绿叉的点或链对答案无关紧要（或者可以通过O(1)快速计算），我们直接在虚树上进行计算的速度会远快于原来完整的树。</p>
+<p><img src="https://img-blog.csdnimg.cn/2020051022025274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>具体会快多少其实不太好算，但是我们知道k个结点两两之间的lca最多有k-1个（极端情况如图）,那么虚树中结点最多是2k个。所以即使考虑最坏的情况，对整个树做dp的复杂度也是O(n)级别的。<br><img src="https://img-blog.csdnimg.cn/20200510220258937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当然这里还没有考虑建树的复杂度。那么怎么建虚树呢？朴素思想当然是枚举任意两个点，将这些点和它们的lca都放入集合里，再根据祖先——后代关系连边。但是想想就知道太慢了。。所以就需要dfs序，并引入一个单调堆栈sta。这里的单调性指的是确保堆栈中的元素都在原树的一条链上，并且自底向上保持祖孙关系。比如说堆栈的情况如左图所示，那么可以得出虚树结点间的关系如右图。<br><img src="https://img-blog.csdnimg.cn/20200510220304775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>第二个问题是怎样插入结点呢。如果当前将要插入的结点是5号结点，且5号结点是2号结点的后代，则只要直接将5号加入堆栈即可。<br><img src="https://img-blog.csdnimg.cn/20200510220314604.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但如果5号结点不是2号结点的子孙呢？这时候事情就会变得比较麻烦。比如当5号结点是3号结点的右儿子时，直接将5号加入堆栈显然不能保持堆栈的单调性。正确的做法是先依次将2号、1号、4号结点弹出堆栈（在出栈的同时连边），再将5号加入堆栈。<br><img src="https://img-blog.csdnimg.cn/20200510220327554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当然，这样讲只是便于一个直观的理解，因为还有许多没有考虑周全的情况。比如怎样确保链的有序性？如果祖先结点还未在虚树中，应该如何同时添加两个结点？解决这些问题的答案是dfs序。严谨的构建方法如下：</p>
+<p><strong>我们需要将准备插入的点根据dfs序从小到大排序（令结点n的dfs序为dfn[n]）</strong>，如果当前要加入的点为x，当前栈顶为y，计算出x和y的lca(x,y)，<strong>此时分两种情况：</strong><br><strong>1. lca=y， 意味着x是y的子孙，直接将x入栈即可</strong><br><strong>2. lca!=y，说明x和y分别在lca的两棵子树中，此时y所在的子树已经构建完毕（由dfs序的性质可知，假设y所在的子树里还有结点k未加入，则dfn[k] &lt; dfn[x]，应该先访问k），此时需要同时进行出栈和连边的操作：</strong></p>
+<pre><code class="lang-cpp">while(TOP&gt;=2 &amp;&amp; dfn[sta[TOP-1]]&gt;=dfn[lca])&#123;
+    E[sta[TOP-1]].push_back(sta[TOP]);
+    TOP--;
+&#125;
+</code></pre>
+<p>一开始写这段代码的时候不太理解为什么要将lca与堆栈的第二个元素sta[TOP-1]而不是栈顶元素sta[TOP]进行比较，可以考虑下图的情形：<br><img src="https://img-blog.csdnimg.cn/20200510220321364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>此时最关键的问题是lca并不在栈中，且dfs序的关系有sta[TOP-1] &lt; lca &lt; sta[TOP]。因此如果将lca与栈顶元素比较，while条件成立，会连一条蓝点sta[TOP-1]-&gt;绿点sta[TOP]的边，但明显我们需要的是lca-&gt;sta[TOP]这条边。而如果和第二个元素比较，进行到这一步时while循坏就停止了，我们只需要<strong>再额外加一个判断，连上lca-&gt;sta[TOP]，再将栈顶元素替换成lca即可。</strong></p>
+<pre><code class="lang-cpp">if (sta[TOP]!=lca) E[lca].push_back(sta[TOP]),sta[TOP]=lca;
+</code></pre>
+<p><strong>此时y所在的子树所有边都以连好并全部出栈，lca也已入栈，最后只需要将x入栈，该结点的插入操作就完成了。</strong></p>
+<pre><code class="lang-cpp">sta[++TOP]=x;
+</code></pre>
+<p><strong>最后当所有结点都插入完成后，清空堆栈并连边，建出最后一条链。</strong></p>
+<p>简而言之，虚树的构建是以链为单位，从左至右进行，并由dfs序保证其有序性。</p>
+<p>dp部分比较简单，也不是这篇的重点，就直接放在代码里了。感觉这题还挺适合做模板的（dfs序、lca、建虚树），所以也借鉴了一些别人的代码，专门把各个部分优化了一下。（主要是lca部分，对lg数组的预处理）也算是存个档吧。</p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-
 using namespace std;
-
 typedef long long ll;
 
-const int N=3e3+5,mod=998244353;
+const int N=2e5+5;
 
-char s[N],t[N];
+int pre[N][25],dfn[N],deep[N],sta[N],TOP,lg[N];
 
-ll dp[N][N];
+int A[N],n,s,NODE,x,y;
+
+ll ans=0;
+
+vector&lt;int&gt;G[N];
+vector&lt;int&gt;E[N];
+vector&lt;int&gt;D[N];
+
+bool cmp(int x,int y)&#123; return dfn[x]&lt;dfn[y]; &#125;
+
+void DFS(int x,int fa)
+&#123;
+    int to;
+    dfn[x]=++NODE;
+    deep[x]=deep[fa]+1;
+    D[deep[x]].push_back(x);
+    pre[x][0]=fa;
+    for (int i=1;(1&lt;&lt;i)&lt;=deep[x];i++) pre[x][i]=pre[pre[x][i-1]][i-1];
+    for (int i=0;i&lt;G[x].size();i++)
+    &#123;
+        to=G[x][i];
+        if (to!=fa)
+            DFS(to,x);
+    &#125;
+&#125;
+
+int LCA(int x,int y)
+&#123;
+    if (deep[x]&lt;deep[y]) swap(x,y);
+    while(deep[x]&gt;deep[y]) x=pre[x][lg[deep[x]-deep[y]]-1];
+    if (x==y) return x;
+    for (int i=lg[deep[x]]-1;i&gt;=0;i--)
+        if (pre[x][i]!=pre[y][i])
+            x=pre[x][i],y=pre[y][i];
+    return pre[x][0];
+&#125;
+
+void Insert(int x)
+&#123;
+    if (TOP==1)&#123;
+        if (sta[TOP]!=x) sta[++TOP]=x;
+        return;
+    &#125;
+    int lca=LCA(x,sta[TOP]);
+    while(TOP&gt;=2 &amp;&amp; dfn[sta[TOP-1]]&gt;=dfn[lca])&#123;
+        E[sta[TOP-1]].push_back(sta[TOP]);
+        TOP--;
+    &#125;
+    if (sta[TOP]!=lca) E[lca].push_back(sta[TOP]),sta[TOP]=lca;
+    sta[++TOP]=x;
+&#125;
+
+ll solve(int x)
+&#123;
+    if (E[x].empty())
+        return 1LL*A[x];
+    ll ret=0;
+    for (int i=0;i&lt;E[x].size();i++)
+    &#123;
+        int to=E[x][i];
+        ll sol=solve(to);
+        if (sol!=0)
+            ret+=max(1LL,sol-(deep[to]-deep[x]));
+    &#125;
+    E[x].clear();
+    return ret;
+&#125;
 
 int main()
 &#123;
-    scanf(&quot;%s%s&quot;,s+1,t+1);
-    int n=strlen(s+1),m=strlen(t+1);
-    for (int j=1;j&lt;=n+1;j++) dp[0][j]=1;
-    for (int i=1;i&lt;=n;i++)//s[1..i]  t[j..j+i-1]
+    cin&gt;&gt;n&gt;&gt;s;
+    for (int i=1;i&lt;=n;i++) lg[i]=lg[i-1]+(1&lt;&lt;(lg[i-1])==i);
+    for (int i=1;i&lt;=n;i++) scanf(&quot;%d&quot;,&amp;A[i]);
+    for (int i=1;i&lt;=n-1;i++)
     &#123;
-        for (int j=1;j&lt;=n-i+1;j++)
-        &#123;
-            if (s[i]==t[j+i-1]||j+i-1&gt;m)
-                dp[i][j]=(dp[i][j]+dp[i-1][j])%mod;
-            if (s[i]==t[j]||j&gt;m)
-                dp[i][j]=(dp[i][j]+dp[i-1][j+1])%mod;
-        &#125;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        G[x].push_back(y);
+        G[y].push_back(x);
     &#125;
-    ll ans=0;
-    for (int i=m;i&lt;=n;i++)
-        ans=(ans+dp[i][1])%mod;
+    DFS(s,0);
+    for (int i=1;!D[i].empty();i++)
+    &#123;
+        sort(D[i].begin(),D[i].end(),cmp);
+        TOP=0;
+        sta[++TOP]=s;
+        for (int j=0;j&lt;D[i].size();j++)
+        &#123;
+            Insert(D[i][j]);
+        &#125;
+        while(TOP&gt;1)
+        &#123;
+            E[sta[TOP-1]].push_back(sta[TOP]);
+            TOP--;
+        &#125;
+        ll sol=solve(s);
+        if (sol) ans+=max(1LL,sol-1);
+    &#125;
     printf(&quot;%lld&quot;,ans);
     return 0;
 &#125;
@@ -630,7 +718,7 @@ int main()
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/Nowcoder%205278G.%E8%A1%80%E5%8E%8B%E6%B8%B8%E6%88%8F%20%E7%AC%AC18%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E5%8F%8B%E8%B0%8A%E8%B5%9B%EF%BC%88%E8%99%9A%E6%A0%91+dp%EF%BC%89/" id="post_nav-newer" class="prev-content">
+        <a href="/2020/05/Nowcoder%205477E.%20%E5%BC%A6%EF%BC%88%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0%E3%80%81%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%EF%BC%89/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -644,7 +732,7 @@ int main()
 
     <!-- Next Nav -->
     
-        <a href="/Codeforces%20Round#639%201345D.Monopole%20Magnets%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89/" id="post_nav-older" class="next-content">
+        <a href="/2020/05/Codeforces%20Round#635%201337E.Kaavi%20and%20Magic%20Spell%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -736,7 +824,7 @@ int main()
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
