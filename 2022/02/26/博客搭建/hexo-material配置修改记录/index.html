@@ -241,7 +241,7 @@
 
     
         <meta property="article:published_time" content="Sat Feb 26 2022 11:39:59 GMT+0800">
-        <meta property="article:modified_time" content="Sat Feb 26 2022 19:23:28 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 22:06:15 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -264,7 +264,7 @@
     "mainEntityOfPage": "http://example.com/2022/02/26/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/hexo-material%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E8%AE%B0%E5%BD%95/index.html",
     "headline": "hexo&material配置修改记录",
     "datePublished": "Sat Feb 26 2022 11:39:59 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 19:23:28 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 22:06:15 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "MorphLing",
@@ -524,10 +524,10 @@ function formatText(text) &#123;
 <h4 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h4><p>打开node_modules/hexo-renderer-mathjax/mathjax.html，将<code>&lt;script&gt;</code> 改为：</p>
 <pre><code class="lang-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p>打开node_modules/kramed/lib/rules/inline.js:</p>
-<pre><code class="lang-js">// escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,
+<p>打开node_modules/kramed/lib/rules/inline.js，这步取消了markdown对_的解析，也就是没有斜体了:</p>
+<pre><code class="lang-js">// escape: /\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,
 escape: /^\\([`*\[\]()# +\-.!_&gt;])/,
-// em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+// em: /\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
 em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
 </code></pre>
 <h4 id="开启公式支持功能"><a href="#开启公式支持功能" class="headerlink" title="开启公式支持功能"></a>开启公式支持功能</h4><p>在home/_config.yml，中添加如下内容</p>
@@ -800,7 +800,7 @@ permalink: :year/:month/:day/:title/
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        liyunfan1223@gamil.com
+        liyunfan1223@gmail.com
         <b class="caret"></b>
     </a>
 </div>

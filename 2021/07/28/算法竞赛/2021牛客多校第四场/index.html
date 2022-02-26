@@ -57,8 +57,8 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="B. Sample Game题意：有一个随机数生成器，每个数生成的概率为$p_i$，不断生成直到最后一个数小于先前的任意一个数时停止，共生成x个数，问$x^2$的期望
 首先可以把$x^2$分解为$1+3+\cdots+(2x+1)$，即从每一步的增量考虑转移方法，若当前长度为x，则增量为2x+1，考虑增量的期望$E(2x+1)=2E(x)+1$，于是只要借助$E(x)$就能进行转移了
-因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits{j=1}^{i-1}p_j)+1$
-再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits{j=1}^{i-1}p_j$
+因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits_{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits_{j=1}^{i-1}p_j)+1$
+再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits_{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits_{j=1}^{i-1}p_j$
 答案为$ans=\sum\limits_{i=1}^nf2[i]p_i$">
     <meta name="keywords" content=",XCPC,多校,期望dp,xor">
     <meta name="theme-color" content="#0097A7">
@@ -242,14 +242,14 @@
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="B. Sample Game题意：有一个随机数生成器，每个数生成的概率为$p_i$，不断生成直到最后一个数小于先前的任意一个数时停止，共生成x个数，问$x^2$的期望
 首先可以把$x^2$分解为$1+3+\cdots+(2x+1)$，即从每一步的增量考虑转移方法，若当前长度为x，则增量为2x+1，考虑增量的期望$E(2x+1)=2E(x)+1$，于是只要借助$E(x)$就能进行转移了
-因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits{j=1}^{i-1}p_j)+1$
-再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits{j=1}^{i-1}p_j$
+因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits_{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits_{j=1}^{i-1}p_j)+1$
+再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits_{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits_{j=1}^{i-1}p_j$
 答案为$ans=\sum\limits_{i=1}^nf2[i]p_i$">
     <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="期望dp"> <meta property="og:article:tag" content="xor"> 
 
     
         <meta property="article:published_time" content="Wed Jul 28 2021 15:48:29 GMT+0800">
-        <meta property="article:modified_time" content="Sat Feb 26 2022 18:13:37 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 22:05:18 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -272,7 +272,7 @@
     "mainEntityOfPage": "http://example.com/2021/07/28/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%9B%9B%E5%9C%BA/index.html",
     "headline": "2021牛客多校第四场",
     "datePublished": "Wed Jul 28 2021 15:48:29 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 22:05:18 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "MorphLing",
@@ -293,8 +293,8 @@
     "keywords": ",XCPC,多校,期望dp,xor",
     "description": "B. Sample Game题意：有一个随机数生成器，每个数生成的概率为$p_i$，不断生成直到最后一个数小于先前的任意一个数时停止，共生成x个数，问$x^2$的期望
 首先可以把$x^2$分解为$1+3+\cdots+(2x+1)$，即从每一步的增量考虑转移方法，若当前长度为x，则增量为2x+1，考虑增量的期望$E(2x+1)=2E(x)+1$，于是只要借助$E(x)$就能进行转移了
-因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits{j=1}^{i-1}p_j)+1$
-再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits{j=1}^{i-1}p_j$
+因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits_{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits_{j=1}^{i-1}p_j)+1$
+再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits_{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits_{j=1}^{i-1}p_j$
 答案为$ans=\sum\limits_{i=1}^nf2[i]p_i$",
 }
 </script>
@@ -517,8 +517,8 @@
     
         <h1 id="B-Sample-Game"><a href="#B-Sample-Game" class="headerlink" title="B. Sample Game"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11255/BB">B. Sample Game</a></h1><p>题意：有一个随机数生成器，每个数生成的概率为$p_i$，不断生成直到最后一个数小于先前的任意一个数时停止，共生成x个数，问$x^2$的期望</p>
 <p>首先可以把$x^2$分解为$1+3+\cdots+(2x+1)$，即从每一步的增量考虑转移方法，若当前长度为x，则增量为2x+1，考虑增量的期望$E(2x+1)=2E(x)+1$，于是只要借助$E(x)$就能进行转移了</p>
-<p>因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits<em>{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits</em>{j=1}^{i-1}p_j)+1$</p>
-<p>再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits<em>{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits</em>{j=1}^{i-1}p_j$</p>
+<p>因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits_{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits_{j=1}^{i-1}p_j)+1$</p>
+<p>再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits_{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits_{j=1}^{i-1}p_j$</p>
 <p>答案为$ans=\sum\limits_{i=1}^nf2[i]p_i$</p>
 <span id="more"></span>
 <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
@@ -579,8 +579,8 @@ int main() &#123;
 &#125;
 </code></pre>
 <h1 id="E-Tree-Xor"><a href="#E-Tree-Xor" class="headerlink" title="E. Tree Xor"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11255/E">E. Tree Xor</a></h1><p>题意：给定一棵树，每条边有边权，每个点的点权在一个区间$[l_i,j_i]$内，要求一条边所连的两个点的点权异或值为该边边权，问树点权的方案数</p>
-<p>从根节点出发，深搜时每经过一条边就把值$val$和该边权异或，转化为n个这样的式子：$x\ xor\ v_i\in[l_i,r_i]$，问同时满足这n个式子的x有多少种</p>
-<p>结合字典树可以发现，对于一个式子，满足的x至多在$O(\log)$个连续的区间内（同前几场的$c\ xor\ a\leq b$问题），然后题目要求实际上就是把这n种限制取并集，一个简单的方法是，在字典树上访问所有$n\log n$个区间，给这些区间的子树上+1，然后最后dfs一遍统计有多少个点访问了n次。当然也可以用线段树维护区间最大值和最大值访问次数之类的方法去做。</p>
+<p>                          v_i\in[l_i,r_i]$，问同时满足这n个式子的x有多少种</p>
+<p>                            a\leq b$问题），然后题目要求实际上就是把这n种限制取并集，一个简单的方法是，在字典树上访问所有$n\log n$个区间，给这些区间的子树上+1，然后最后dfs一遍统计有多少个点访问了n次。当然也可以用线段树维护区间最大值和最大值访问次数之类的方法去做。</p>
 <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
 #define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
 #define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39;\n&#39;
@@ -739,7 +739,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <h1 id="J-Average"><a href="#J-Average" class="headerlink" title="J. Average"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11255/J">J. Average</a></h1><p>题意比较简单，最后问题求得是给定一个数列a，求长度$\leq k$的连续区间，使得区间平均值最大，即$\max \sum_\limits{i=l}^ra_i\frac{1}{r-l+1}$</p>
-<p>方法是二分答案，二分一个平均值$ans$，然后判断是否存在一个长度超过k的区间满足$\sum\limits<em>{i=l}^ra_i\ge (r-l+1)ans$，转化一下即$\sum\limits</em>{i=l}^r a_i-ans\ge 0$</p>
+<p>方法是二分答案，二分一个平均值$ans$，然后判断是否存在一个长度超过k的区间满足$\sum\limits_{i=l}^ra_i\ge (r-l+1)ans$，转化一下即$\sum\limits_{i=l}^r a_i-ans\ge 0$</p>
 <p>所以只要把数列每个位置都减去ans，然后判断是否有一个长度超过k的区间求和&gt;0即可，这步记录每个位置的最小前缀和，$O(n)$完成</p>
 
         
@@ -848,7 +848,7 @@ int main() &#123;
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        liyunfan1223@gamil.com
+        liyunfan1223@gmail.com
         <b class="caret"></b>
     </a>
 </div>
