@@ -264,46 +264,6 @@ F数学、思维
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/04/29/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B/index.html",
-    "headline": "2021浙江省赛",
-    "datePublished": "Thu Apr 29 2021 12:47:32 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",XCPC",
-    "description": "A签到
-C简单题
-D最短路、树相关 待补
-F数学、思维
-首先由于$n’$最终取值范围为$[1,n]$，所以枚举$n’$可以得到一个$O(n)$的做法
-然后把$[1,n]$分块为$[1,\sqrt m],[\sqrt{m}+1,\min{n,m}]$两部分，枚举第一部分n’取值，复杂度$O(\sqrt n)$，对于第二部分，可以把式子写成$m’=n’k$，此时$k$的取值范围为$[1,\sqrt m]$，枚举k，对于每个固定的k，可以找到一个贪心方案使代价最小，所以第二部分的代价也是$O(\sqrt m)$.",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -428,6 +388,18 @@ F数学、思维
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAELUlEQVR42u3bQXLjMAwEwPz/07vXrdqyPQMoiUU3TylblsjWgQCIfP0xgvGFABMmTJgwYTIwYcKE6e2ZvuLx6Ff55y+m9c81z6///ynPnzhcIyZMmDBhOogpX0D720cTbZ+Vs+5fEiZMmDBhOpXp0WJmW/XmzskGv/k2CikwYcKECdMHMyUhQpJ8Jqns7O98JpgwYcKECVMyiaTg2xZe8yLvbP6YMGHChOnTmPJyaluuzQuv+f2TAOXXauGYMGHChOnNmPLt+b5//2h/EyZMmDBhehumduQJ57XNQEl4kT89miEmTJgwYTqCKd848+QzLwq3x5z50Wke9GDChAkTprOZ2q23LZvOSr15oXkTuKxSX0yYMGHCdBOmvGE0b3nZJL2bNtb2zi9+hQkTJkyYjmBqN9S2qPpi040bW9vmoeSJq9QXEyZMmDDdlmmWoOal2FnBd3/42ibhmDBhwoTpE5jaIuwsMc6PLTdl6DyZx4QJEyZMpzLVZdDRPzm0AcRm45+tCxMmTJgwncSUJ4fttro5+MxLut/YAosJEyZMmA5i2kxlU2bd4M5eZHEfTJgwYcJ0BNNVG3CL3oYIz19P8grrzzFhwoQJ0xFMycacBwRtO+mmIPs1GnlAgwkTJkyYTmV68eP4mpw7f9YsUU+ChjogwIQJEyZMt2Wabbf7BpprX1I724vjJkyYMGHC9JZMUTtLDJFvz8nnOVb+LSZMmDBh+hym/d85QR5G5EehsytfgGLChAkTpiOY2lLvjClPO/OEeRNwRCvFhAkTJkxHMM1KsW2yuiny1g03i8I0JkyYMGE6j2mz5W+A2ifOrs/n/6JxBxMmTJgw3Zyp5Zg13LRwbRm3fW11QIAJEyZMmG7L1G72bZm1bQx63izbzn8WiGDChAkTpjOYkmPC/cbcptObw9TN/DFhwoQJ09lMbdL4Hclq8sLyZ+XtPkVAgAkTJkyYbsWUl3RnxdkWui0Tz+4QzRMTJkyYMB3ENJtE297aHpHmJeNNkffht5gwYcKE6Qimtmlm1qzTLjKfSZuoJ0kvJkyYMGE6iWmWRs425tnB5KwkvTnIxIQJEyZM5zG123keLrRhwVXBxyxYwYQJEyZMpzI9X95sg5+1riZl4lmi3oYXmDBhwoTpDKZNkXcTTMwOPq9tbP2hWjgmTJgwYfpVpnbkhd08DW7LuFcFAS/WggkTJkyYjmBqN+lZKtsuMjmAzFtOZ60/mDBhwoTpJKY2CGhbbTafz1LlPCB4+DoxYcKECdNxTPmG2qaas+m2R6pXlZIxYcKECROmNiltDzv3QcmsSQgTJkyYMGGakbUvIG/iGR5VJkkyJkyYMGE6jqndXPNlPKdsn7W5vrgGEyZMmDAdxLQpiW5oNoeRs1UUyTYmTJgwYTqCyYgCAgMTJkyYMGHCZGDChOldxl9687EgbYRh2QAAAABJRU5ErkJggg==">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

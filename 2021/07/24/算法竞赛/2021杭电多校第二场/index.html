@@ -262,45 +262,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/07/24/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/index.html",
-    "headline": "2021杭电多校第二场",
-    "datePublished": "Sat Jul 24 2021 23:48:29 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",XCPC,多校,分块,线段树,树链剖分,莫队",
-    "description": "I love tree题意：给一棵树，每次操作选择一条链，从起点到终点点权依次增加$1^2,2^2,…n^2$，单点询问当前点权​
-容易想到树剖，然后考虑在线段树上维护这个问题
-发现可以转化成选择一段区间$[l,r]$，对于每个点$x$，该位置增加的值为$(x-h)^2$​​，把平方项展开后得到$x^2+h^2-2xh$​，对这三项分别线段树维护即可（分别维护$x^2,-2x$​出现的次数和$h^2$的和）
-有时候dfs序和修改顺序是反的，就是对于区间$[l,r]$​，每个点增加量分别是$n^2,(n-1)^2,…,1^2$​，实际上就是每个位置增加量变为$(h-x)^2$​​，h为r+1，而显然$(x-h)^2=(h-x)^2$​，因此这种情况下线段树不需要进行任何修改，只要调整传入的h参数即可
-树剖时还需要稍微注意的是，这里对链的修改存在先后顺序，常规的树剖对于两个端点x,y是一起往上跳的，那么这里只在x往上跳时修改，y往上跳时先用vector记录哪些点需要修改，等x修改完再去修改y",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -425,6 +386,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAEyElEQVR42u3aUXLbMAwE0Nz/0u0BMlF2AdhN28evjitT1FNmDC748ctYjA8E+PDhw2fgw4cPn4EP31/C9xGPz9fnnzx//jxPcs1Xn3w1w+zZ8eHDhw8fviu+b36qg2uSGZ45EtzZqp7/FNpnx4cPHz58+K742tvkJUh7x/ZFboqe9tnx4cOHDx++d/IlxUfyraQcaTfzz/dt74UPHz58+PD9TL5ki57H9FFcPmoVzEoofPjw4cOH73V87W32m/Z9WbN/bW/tdeDDhw8fPnyjA2r/0r//wPk+fPjw4cP3H/O1o21Uz0qc9vHyl31w2A4fPnz48OFb8M2OkbX/u2mEt435NrzIGwP48OHDhw/fnq+NsNvC5apxfhvZr5rr+PDhw4cP34Jvdpt8hivovDRpV5jMjw8fPnz48F3xJQfIkh/7liwvU/KjcpvwovhzwYcPHz58+NZ8mw1/HnPPoodNHDBb7TdX4sOHDx8+fGu+/DGSH/v8MWbX3xZMeVmDDx8+fPjwXfHl8fesCMihN6+qXUPeGseHDx8+fPhewZe3otuRw81o2nk2bQN8+PDhw4dvw7c/8tUWNPtr2vXv4wN8+PDhw4fvli9Z+iZMf74m55iB5mRR2YQPHz58+PCt+ZJHzbfxybY8+bxtpT+DJmTRbPjw4cOHD9+CL//J3x8Im234Z6XPrNypIwN8+PDhw4dvxNceUGvj70050sYW7cuoizZ8+PDhw4fvlK+98WyL3rbe85B91hgoYgt8+PDhw4dvzdf+wM/KnX0BkZcXV4VOnbjgw4cPHz58C762xGmLjFlDPW8VzAIOfPjw4cOH73V8s21/TpyHBcn8s4Bg8yz48OHDhw/fLd/+Bz5fen7NK+ZPnitaFT58+PDhw7fgmx0Fy5eVBAH7xsAsVmjjD3z48OHDh2/Pd7u4fenTztMeodvHB/jw4cOHD99Vm3zDsdm6z8L6K6a6GY8PHz58+PCt+WbHtmaN8LyUmR3mzl/PLPjAhw8fPnz4NnyzFvKmIT0rIDbhQhuCFJEBPnz48OHDt0ibZ8VHWwpcRfl50dO2JfDhw4cPH7738N2Cbo6+tatqw/qiKf55Znz48OHDh2/Bt9mE5+VLXpS0wUF7iLyNOfDhw4cPH75bvjaOf75lHv3nAXqOvg/ro3nw4cOHDx++Bd/ssHXOMSsaZnFA21AfFk/48OHDhw/fus8722DfljLRdr0k3scHRWSADx8+fPjwxXztNrtddPtI+UvdNwmSVeHDhw8fPny3fJuSom1+b1ASoLy53rYE8OHDhw8fvlu+dmPfPkZLNovm22fJ4fDhw4cPH7493wZuxvpRjqQcmZVWszXgw4cPHz58G752zOL4PDiYBRYtVhKaHPQ68OHDhw8fvqBweb7lvqW9ifLzUim5e9tywIcPHz58+K74ZsfU2iNr+bfa5vemQMkLKXz48OHDh++WL/+Bn8X6m4Ip+dYs1GhfPD58+PDhw/dOvvbYWfsC8obBrKnQhhf48OHDhw/fz+HLIZ5n2xyAmxVGbVGFDx8+fPjwvYJvUyjcFiXtDLPGeQuHDx8+fPjwXfG1B9T2Iy9u2jCibnu3DQN8+PDhw4dvwWfUpRUCfPjw4TPw4cOHz8CH7+eO3xd28yHcUewpAAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

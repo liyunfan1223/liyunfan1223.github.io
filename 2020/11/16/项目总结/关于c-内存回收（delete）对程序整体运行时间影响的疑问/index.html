@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2020/11/16/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E5%85%B3%E4%BA%8Ec-%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6%EF%BC%88delete%EF%BC%89%E5%AF%B9%E7%A8%8B%E5%BA%8F%E6%95%B4%E4%BD%93%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E5%BD%B1%E5%93%8D%E7%9A%84%E7%96%91%E9%97%AE/index.html",
-    "headline": "关于c++内存回收（delete）对程序整体运行时间影响的疑问",
-    "datePublished": "Mon Nov 16 2020 23:03:53 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",c++",
-    "description": "起因是这样的，最近算法课在上红黑树，写红黑树的时候肯定涉及一些内存管理的问题，主要是在插入结点的时候要用new分配一个新的结点，并在清空红黑树的时候把这些结点delete释放掉。",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -404,6 +369,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,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">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

@@ -256,42 +256,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/04/22/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B8%B8%E8%A7%81%E5%88%86%E5%B8%83%E6%9C%9F%E6%9C%9B%E6%96%B9%E5%B7%AE%E6%8E%A8%E5%AF%BC/index.html",
-    "headline": "常见分布期望方差推导",
-    "datePublished": "Thu Apr 22 2021 23:00:09 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",概统",
-    "description": "
-",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -416,6 +380,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVYAAAFWCAAAAAAXxOpfAAAFdklEQVR42u3bS45jOQwEwLr/pXsO0Ch3JiljrOfQqgB/pBfyIkGyfv5Yb1g/CLBixWphxYrVwooVq4X1KtafeP39qd++5+/3JN+cvP/17q//Tl5dmWDFihUrVqzXsv4jOpTbzx6gffX1ZSTvyX80iQlWrFixYsV6O+sM6BTZa6A86GzQZyZYsWLFihXrt7G2RZlZ0WQWuTbXhhUrVqxYsWKdBaxZYeWnXJtySXtOrFixYsWK9dtYzzY2ku+ZNXj21zk7wxt7WVixYsWKFev/ytqGm2/4+8AgJlasWLFixfrxrO1qyxOnGiptayc/1amFFStWrFix3sg6G3bctGFm4xrvaLG0TZ1//CywYsWKFSvWa1mjj41o2obKBigPUvs2TF3BwooVK1asWD+Std1sPxw5u7w8DrY/mn2RCCtWrFixYr2dtR1KaJsl+eXNRjzbZ9m0gn79HqxYsWLFivVy1mSIYdWWKMcj2sbPrOAyi5tRqQUrVqxYsWK9hHXTkHjHyMUs/M3KOseuGStWrFixYn0Qa1tG2TRa2sLKLE7lMasd+sSKFStWrFjvZZ099qaEsYlEbftkX44prgcrVqxYsWK9kLU9XAu3+TePTcDKv6ENkVixYsWKFeuzWdvSyX5wM//nilkBaPPjKOIdVqxYsWLFei1r8pAtWb5yjnZUIg9nm8CHFStWrFixPol1VqrICxl5PGqvKgmLp1osWLFixYoV65NYX2/flj/a8srZYJcHqVnT5dczYMWKFStWrJez5g2GWRhqyzTtxe/DX9t8wooVK1asWG9nbR/y7PtbsjZmbUZJkpEOrFixYsWK9Rmsmzg1PEQ8HpGXVJJX2zZM8UPBihUrVqxYL2Q9O/Qwe8h2xxlEUlTKn/HAVAtWrFixYsX6YaybYPS6+ZE3V9oxiLbpMguCq4CFFStWrFixfjxrTrwfrcgHPvYhqQ12yb5FwMKKFStWrFgvYU1o8iCyKljE3588dv7qG3MrVqxYsWLF+sGssxbIJhjlQ5anWi/50MZqR6xYsWLFivVC1haoHblIYkobxfJi0KxtMysbYcWKFStWrE9lnTVaZkEtOVV+VfuBjLzxgxUrVqxYsd7IOtu+HU3YhKqzbZU2Dua4WLFixYoV6zNY8wLKqdJMHqTaK2/PtnkVK1asWLFivZe1LX+00aqNO7N2SNssSXZcBSysWLFixYr141k3DZJZhGqLMnlDpW0UzVo7dS8LK1asWLFi/WDWtoGRj2JsxjI2iHvuY7kVK1asWLFivYQ1x02i1X70YXPCfbxr2zlYsWLFihXrvax5sGhbL+2QRH6GWUsmbxS1Z8CKFStWrFjvZc2bH8mYQjskMWvAbApD7UkOVLCwYsWKFSvWD2Y9VV6ZjTjMyiJtVMqDWj5sgRUrVqxYsT6JddYmySnzC2sDX1Iced/FYMWKFStWrLez5m2VWbTajEFsdmy5N80brFixYsWK9XbWvF1Rb1aOdCSXmhR98vbPqeILVqxYsWLFeiNrvnHedMnbGzPcTYMkLyEd62VhxYoVK1asH8/aNiRmZYvNJW0GKfJ2UbsvVqxYsWLF+jzWzfBEXiLJryT5bFteycmKAVOsWLFixYr1QtZTgSZvyeRRbDYqUUAsrhkrVqxYsWJ9EutsDGLzwPtIlAxJ5HEwD1hYsWLFihXrU1nzwPG+CNWuTQFos7BixYoVK9ZvZk3CTVuqSEJeHqTyIsvm+rFixYoVK9ZvZm2PmBdZNiEvKY4UrZR84AMrVqxYsWK9nHV2iE1YOVuaadtFs2GLutSCFStWrFixfjzrrL2RRKJ8zGJWTJkNVZxqIGHFihUrVqy3s1qnFlasWLFaWLFitbBixWph/fj1H+RNBVDa15aVAAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

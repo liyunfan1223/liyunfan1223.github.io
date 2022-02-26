@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2020/04/19/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/index.html",
-    "headline": "一个nodejs爬虫项目介绍（上）",
-    "datePublished": "Sun Apr 19 2020 04:00:06 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",nodejs,web",
-    "description": "为了完成作业以及让自己看上去没有真的在划水，决定开始写博客了。",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -413,6 +378,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,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">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

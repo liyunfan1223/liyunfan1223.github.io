@@ -256,42 +256,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/06/03/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E8%AE%A1%E7%BD%91lab-%E5%9F%BA%E4%BA%8Eudp%E5%AE%9E%E7%8E%B0%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE-ABP-GBN/index.html",
-    "headline": "计网lab-基于udp实现可靠传输协议(ABP/GBN)",
-    "datePublished": "Thu Jun 03 2021 19:41:39 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",lab,计算机网络",
-    "description": "准备Message和Packet类定义分别作为应用层和传输层的数据包
-其中Packet类的generateChecksum()方法根据报文数据生成校验和，selfcheck()方法根据报文数据和校验和检查数据是否损坏",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -416,6 +380,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,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">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

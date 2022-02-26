@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/06/22/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab4-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/index.html",
-    "headline": "操作系统lab4-内存管理",
-    "datePublished": "Tue Jun 22 2021 23:04:52 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",lab,os",
-    "description": "内容与设计思想修改Minix3.1.2a的进程管理器，改进brk系统调用的实现，使得分配给进程的数据段栈段空间耗尽时，brk系统调用给该进程分配一个更大的内存空间，并将原来空间中的数据复制至新分配的内存空间，释放原来的内存空间，并通知内核映射新分配的内存段。",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -413,6 +378,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVYAAAFWCAAAAAAXxOpfAAAFdUlEQVR42u3aQZLcOAwEwPn/p+2rLyNXAbSjqUmeNrwaiUz2oQLA1y/rH6wvBFixYrWwYsVqYcWK1cJ6FetXvP58PvrMN3/13Tvb9d0p8v189/xwD1ixYsWKFeu1rGeBnt/zjJIf/pmg/b8bE6xYsWLFivUdrEmoSsJNEoba6JPvrQ1h+X7+4oAVK1asWLH+ANZZzNpfTB6h9iUkrFixYsWKFWv+mTYSbRotz+/MLzL/d6xYsWLFivXnsOYNhtnmctaoyXEobLXnxYoVK1asWN/Heqok8ab/buMdVqxYsWLFeiPrfiVliOTJJPS0BZd92aVwwIoVK1asWC9knbVDkudnNJvANyvNPF9qUsrBihUrVqxY72WdxZHZGzYjFJs2z/PlzVpEdW7FihUrVqxYP571VIiZxbUZVr7z2ThIUgbCihUrVqxY72XdjDPOglEedJI35IWSzemif8GKFStWrFgvZM3LJW1rZBZfNmWRPGa17z9QwcKKFStWrFivYs0LMe1fbQ6Wj0208Wv2U8CKFStWrFhvZ93EixlZ/vX9xSQlkvwysGLFihUr1vex5jGlHWjYwG1KJ7MmUFswikotWLFixYoV68ezPn8yf2Y2JFFvfbHqcYpgJ1ixYsWKFeubWPNWR/vhvOTRln7yZzajGFH0xIoVK1asWC9kzQ82izKz4kg+8LEJWIcvDCtWrFixYr2QNW+BtEWKNsTMGjCzi2nPeKDpghUrVqxYsX4ka94m2QxA5Idpg92sidIGrGGpBStWrFixYr2KNW/DJAdrxzvaY89oZuWV6ERYsWLFihXrhax5ENkMW8zKIjPWfUDMf0xYsWLFihXrO1jbeHSqyNI2UWYRMDnFfs9YsWLFihXrjaxt3ElGFmblmNkX29g3u5LoFFixYsWKFeu1rEVrIdhoXjSZRb02oiV7mH0XK1asWLFivZ21/WQbrU4Fss0b9nwHKlhYsWLFihXrB7O2QSdv0swKLptyzOwnMvsuVqxYsWLF+g7W2UpQ8pjVFmtmP4tZNKybLlixYsWKFeslrJvWRTs0ORt/zENby92WXf5yUqxYsWLFivVa1raskBDM3rCPQacKK0lwxIoVK1asWN/KmseL5JPt8zPidpwif6ZuumDFihUrVqwXss42kbwt2fQsErUNnraNVAyIYMWKFStWrBeyziLLvhSSt0naRkt+kbNxkKjpghUrVqxYsV7FOhu8mDG1DZhNONs0V+oWFFasWLFixXoha1tS2TQq9mWRthwz+7nkPzisWLFixYr1Taz5wWYFl+Q6NxEqf0P+TDFEghUrVqxYsV7L2sapvJgyO94mGOXNklOjIVixYsWKFevtrLNXJ+/JQ9XsPfuYeKp1hBUrVqxYsd7OOht9yDexubxTTZdZW2gVsLBixYoVK9YPZk0OMIsmp/jyi0kGL86GRaxYsWLFivVNrMlww2bAom2N5HtryyJtfIxOihUrVqxYsV7L2pZUNriz4YbksvNLzeGSf8GKFStWrFjvZc1HG2eNjX/xrZyyDkklMVasWLFixfoO1tlh2riTF3Ramlnr6Gu0iqkWrFixYsWK9ULWBGXfSqnjy7qg0w5w1OUkrFixYsWK9ULWU1vZjErk79y0iNqSSn4WrFixYsWK9XbWU8WR/9OqeX7meedtE2g11YIVK1asWLFexToLOnmc2o9NtC2W/bmKFhRWrFixYsWKNW9RxMMcyeW1QO2FRUENK1asWLFi/QGsm+GMfRRLhjly9LaohBUrVqxYsb6btW2ZbLbYtljaGJRHsWTnyd9ixYoVK1as97LOGh6ntjgrf7RloHa0Io+VWLFixYoV672s1qmFFStWrBZWrFgtrFixWlg/fv0G2TzTaKl6UiAAAAAASUVORK5CYII=">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

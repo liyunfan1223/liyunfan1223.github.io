@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2020/06/21/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/index.html",
-    "headline": "Web编程大作业(三)在线聊天&文件共享(nodejs-websocket+multer)",
-    "datePublished": "Sun Jun 21 2020 21:43:26 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",nodejs,web",
-    "description": "",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -413,6 +378,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYYAAAGGCAAAAABa63k5AAAHFElEQVR42u3aQZLjOAwEwP7/p3cfMGt3FSDvkI7kacJtSxRShxqAP/9YB6wfJcBgYcBgYcBgYcBgYcBgYbiW4Sdef37//XX+48YvrvP+8/yar3aYf/L+OsnV8v1jwIABAwYMGG5h+CVavdhKfp1860lRNit/LVqGuoYYMGDAgAEDhqsY8qK8L3T+2zwQv9pt8tizUiavzqaGGDBgwIABA4bvY3gq/O0bZy3Pe+BZcxADBgwYMGDAgKEtSv7w+Uj1c629WftvH/oxYMCAAQMGDHcx5G2yvLhJJE2iZ/L92ahyFqMfGCRjwIABAwYMGC5hyKOef7etzJe0GDBgwIABA4bjGdqVtLfyTzZ3zOPmJ2LufmHAgAEDBgwYzmdoHy8a740OWu3Hn3nzMW9HzoJp9FJiwIABAwYMGI5nSMoxi275b9uB5aZY7euSvzTtEBcDBgwYMGDAcD5DHv7yeNqWIy/xrOGY7PDTf41aexgwYMCAAQOGSxjaYWd049F32rjZQj7bOizuiwEDBgwYMGA4nmEzyJxtqI2wsys8O2rN25dJaMaAAQMGDBgw3MIwu3E7IGzHhEmJ87/OoufsjnlsxYABAwYMGDCcz5Afz5odsWojYz7szIepSSDej3jru2PAgAEDBgwYjmdIHr7dxOxXOXYbfJ96uvzFGs6iMWDAgAEDBgzHM8xi2Z7q2SNZsyHuPpIWT4EBAwYMGDBgOJ5hNoCcFWU2EG1be+2RsnYoux9/YsCAAQMGDBhuYXjq4FceQNsBatuY2zT+ZkfNZmNdDBgwYMCAAcP5DJ8bHM6aYi3P5sja7NVpW4ovyTFgwIABAwYMxzPMGlh5WJxFz7wll/PkwTQv68P/b8CAAQMGDBgwHMyQR7G26M8eI9tAbqL5sw1KDBgwYMCAAcMtDPnKS5kH3zaAbsq3Gbu29cGAAQMGDBgw3M6wHxzOWl1tSzH57SfGrklNZlEbAwYMGDBgwHA+Q36IatOSS77ZDiafCtNt0fNn/CWCY8CAAQMGDBiuYtg//GbQuDnmlYTFGVUerOuhMgYMGDBgwIDhEoZZeyuPei1S2/ibXW1f0JwcAwYMGDBgwPAdDPnD1GO/0Zgzb7E9W+L2iFgb1jFgwIABAwYM5zPkwa69fT5enY1g9+VoR7x5faJxKQYMGDBgwIDheIb8cvtm3AY7309y/SRk5yT58TsMGDBgwIABw40MeSMvb5Dl5dhfOT+Clu8hb1zmkBgwYMCAAQOGGxnaDbWP3Y5R2/i7P0z2if1gwIABAwYMGL6JoW26bQaHSclmQ8en2ouzRuT772PAgAEDBgwY7mKYjTBnx6Rm7cK2nTcr634I2jYNMWDAgAEDBgznM+Sl3Iwtny1Wsrc8nrbty+SO0XUwYMCAAQMGDNcyzOJaEuaePci1p81bcnmsx4ABAwYMGDB8B0Oy2sDXXq1t4c1acsm9ZpE9b4NiwIABAwYMGG5nyKNYHvJmD9weIEuusyFvj479UmcMGDBgwIABw/EMbbstD5HtA+cPPyvTrD23Gbv+snMMGDBgwIABwyUMs03nv5q1CGdl2gTl/DrRmPP902HAgAEDBgwYrmLYjAZbnqSU+Xfa4u5DbUteBFYMGDBgwIABwzEMeSFmB6raiDlrou0j+P5V+8gsGgMGDBgwYMDwVxnaY1WzyLh/4E3MTXayH222O8eAAQMGDBgw3MXwbIybFbEIfHGw3hQ9v2NeJQwYMGDAgAHDLQxJw6uNg7NR4qzQ+7ZdPkbNg3703wAMGDBgwIABwyUMbYNstq02sOZReFb0zZGvD86iMWDAgAEDBgwHM+Tx6325nz1oNXsJ2s9bvPbZMWDAgAEDBgx3MbQRc/bA7/+d/LUdneZHxGatvTZeY8CAAQMGDBhuZGiPXuW3mT1S2yjMX6NZ0Z9tWWLAgAEDBgwY7mJoY1xbiLaR1xY9v28boPNmX9sAxYABAwYMGDDcwtAWbt+GawNfHlv3DbgWOHmBMGDAgAEDBgz3MrQxK4mVs3ZhS9gGyvZX7QG1uvGHAQMGDBgwYLiQIW+u5XG2Haa2x7+eav+1Lcj2mxgwYMCAAQOGuxjatTk4NSti2xxsGdoRbDsejgIrBgwYMGDAgOFIhjau5Y25WSnbss4af22kbvezOrWHAQMGDBgwYDiM4RMFbQeKTxHmzb6EdhOg68CKAQMGDBgwYDiYYTbUXB2ZKltpmyHoZlA6288vlcGAAQMGDBgwfB1D8ttZS25G2wbH2VG2/Hhc8QkGDBgwYMCA4UsZ2tZY3uZLom3723Ygmny/JXy4tYcBAwYMGDBg+N8Z8gZcvtH332wjZr6Hdpy5b/zlT4oBAwYMGDBguIthP2LMH6kdKM5Kln+yGaa2T4QBAwYMGDBguIvB+lsLAwYLAwYLAwYLAwYLAwYLw1XrXx8mtN3yburjAAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

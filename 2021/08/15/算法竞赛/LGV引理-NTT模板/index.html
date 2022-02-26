@@ -258,43 +258,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/08/15/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/LGV%E5%BC%95%E7%90%86-NTT%E6%A8%A1%E6%9D%BF/index.html",
-    "headline": "LGV引理, NTT模板",
-    "datePublished": "Sun Aug 15 2021 20:58:37 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": "",
-    "description": "LGV引理给出网格图上两个起点$a_1,a_2$和两个终点$b_1,b_2$，每次只能往右或往上走一步，问$a_1\rightarrow b_1$和$a_2\rightarrow b_2$的所有路径方案中，两条路径没有相交点的方案数
-用$e(a,b)$表示从a走到b的方案总数，则$ans=e(a_1,b_1)e(a_2,b_2)-e(a_1,b_2)e(a_2,b_1)$
-理解：利用容斥，从$e(a_1,b_1)e(a_2,b_2)$中减去那些存在相交的方案。已知$e(a_1,b_2)e(a_2,b_1)$中每种方案的路径一定相交，对于每个交点，两条路径交点要么在交点处交换位置，要么像是“在交点处反弹了”一样没有交换位置（如下图）",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -419,6 +382,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAED0lEQVR42u3bW3LbMBAEQN//0skJRM/swokEN75csgSRTVdhX/76YwXrCwEmTJgwYcJkYcKECdPbM33FK9r6xftfvfL8La9+m1zb8/ujb8eECRMmTBcxJTef3+Tzz8+7Ja/kQKt7xIQJEyZM1zElt/0Mkbwnv42Er2Uq7hETJkyYMGFaHMYbxBwCEyZMmDBh2jDlYUG78pJxvg8mTJgwYcKUJJOzw7gt0SbJbfKQ/lstHBMmTJgwvRlTe0h/4s//dL4JEyZMmDC9DdNmnR3f2RzteXBQ3B0mTJgwYbqCad8abBPgTXE2ufJ8B0yYMGHC9HuY2gP7bOPw+f3tdZ4KRDBhwoQJ0x1Mwy1ioJYs+a68qfn8qWJwBxMmTJgwfThTnii2Rdj8Jtvgo72G+goxYcKECdMVTLPC676RmYcgswR7lthjwoQJE6bfwNQe/6eA8hAhB20DGkyYMGHCdCvTqYtrW5jt4X12gPWboAQTJkyYMF3NtGk0tu9py8qzsm/9KUyYMGHCdClTngAnw6b5wfwT6Xe+hpO8mDBhwoTp7Zlm250dP80P+yRxTfasAwJMmDBhwvSxTO0/Ucxuo218bpLz2aDPcEQVEyZMmDC9PVN+cCaJ7myAtd2hTXrbB4wJEyZMmO5j2ocCOXQLmifV7ThRXSHAhAkTJkwfzpSM2rRJbDvukzQvZ+3JulmLCRMmTJiuYJoN2Zwq3eaF5s1Q0fAKMWHChAnTRUztgZ0nqMk725JxO+IzbI5iwoQJE6brmNoiaVvMnUHMGp8zbkyYMGHCdDdTEhC0K2lG5uXdtqm5Kv5iwoQJE6YrmE4lt3nqm5d9Z43PfdKLCRMmTJjuY8pRcoK2DXns9sqk+uWfCyZMmDBhuoIp+kAZCuTH/ww3KdEeDggwYcKECdMVTMltb9qE+SW2DyNqT8ZJOCZMmDBhuo+pTSM3bcs2GZ6FI5vEHhMmTJgw3cqUp7L5Eb4JPmZN0M3DxoQJEyZMtzLlr2x+2x7Y7VUdbqNiwoQJE6YrmPZfmRze7bDpDDf/LCZMmDBh+m1Mm0M6f71tQM4S2jyZ/+ZRYcKECROmi5iGZdBy7ObUDu1jmIUFmDBhwoTpDqZ26HN2ALcDr21C3l5zFNZgwoQJE6YrmNr146XVRZqdD/EcqxBgwoQJE6a3Z9qUR5/T0TxxbYOA5CHN9sSECRMmTLcyzVqbbbKa08/2+fGAABMmTJgwfTjTrES7H6Y5Rb8PcTBhwoQJE6Zv0sW41Jskq5sDPi9PY8KECRMmTPvmYpI2t03TtojchgiYMGHChOk+ptmQTXJx+yN/39SsAwhMmDBhwnQR075luEmJZwNAs0eb74kJEyZMmO5gsqKAwMKECRMmTJgwWZgwYXqX9ReEB1RT0YYWQgAAAABJRU5ErkJggg==">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

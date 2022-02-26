@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/06/18/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%BB%9F%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1%E7%AC%94%E8%AE%B0/index.html",
-    "headline": "概统第六章 参数估计笔记",
-    "datePublished": "Fri Jun 18 2021 19:22:48 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",概统",
-    "description": "矩估计 &amp;amp; 最大似然估计",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -413,6 +378,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVYAAAFWCAAAAAAXxOpfAAAFf0lEQVR42u3aQZIbOQwEwPn/p3dfoHEVQNlNKXlyjKVuMqkDAoWf/6w3rB8EWLFitbBixWphxYrVwnoV60+8Xn3+5Wte/G/yzOTJrz756smzHSYmWLFixYoV6+2sfygdXmz994P9ztce4/dd/f7G/PMrE6xYsWLFivVy1mRzv293X07lh0yuLb+SAyZYsWLFihXrF7DuWzPvaOu0QEn5hRUrVqxYsWKdxRizRklyDW1JtwldsGLFihUr1m9jTQqXPErJEWeNlbbtkjeJ/kGWhRUrVqxYsf5T1rb98Q3/bodCsGLFihUr1htZ2/WqZDk1ojFri7SjGG2cE8lgxYoVK1asF7LOgoe88NoTz0Y08pZKe9JVBwsrVqxYsWJ9JGt+7DyMycuyPCzJA57ZYGhy3rqDhRUrVqxYsV7FWj9u1MLYDHe2DZqEtT0LVqxYsWLF+hmsebwxi2E2rZBT4cqsjVKXgFixYsWKFesHsbZFyT50mRU9+X5avnxXWLFixYoV672sbUySFzGzdsmm9JmxJmViNDiCFStWrFixXsiaE7fRy6YkOhXnzM4yKxOxYsWKFSvW21nzIYl8Q+8IXU6NieShUYSOFStWrFixXsvalj5JkyX/Vl5mzZo77eW114kVK1asWLHezpojtgeYBSqb4mwzeDErtrBixYoVK9ZPYp0NW+RX0l5e/pcEuj3R4SwLK1asWLFifRjrZjwxL4DyEcyWph3lbAOnYeiCFStWrFixXsI6fEQZrrTxRtsi2QxY/KUsCytWrFixYn0wa1tgtX/JGxlt2dSGN+2Po9g/VqxYsWLFejlrOyKZPCEaXIj5cohZ8dRGTVixYsWKFevtrO04RdJYaQua9sJamk2wVFwbVqxYsWLFejlr2/jIv7WPVdrmy2yfmzEOrFixYsWK9UbW/MBJpPGOsYz9aMWmcVO8FytWrFixYr2QtQXaNF9ORR1JufO+NtCB0AUrVqxYsWJ9JOs+5GhDi3zIow172hbM5rxYsWLFihXrZ7AmW8wP35ZlP+uVPD9vGNUXgBUrVqxYsV7I2g5GtAFM3r7Jw5vNOEjbcCl2hRUrVqxYsV7I2hLkx2uDllPQs7bOZhQDK1asWLFivZ11FrrMCpR8hKIdxTiFlQ9nYMWKFStWrLezvu8A+efbQ272ln833wlWrFixYsX6SayzgYnZ0OSmZfO+BlBbomHFihUrVqy3s24aEG1joh3j2F/kZrCjOAVWrFixYsV6OWsbouTPmRVYeTnVlkftvyMrrFixYsWK9ULW2SDFrETLt5tfXt4umV128aPBihUrVqxYL2RNvvD7kWZ/acupvPExG/V4Y+iCFStWrFixPp61biuMmiCnIpzNfpLLGw6jYMWKFStWrNeyJo+uXzMKNs6SJZ+flVZYsWLFihXr57HO2h/5sOO+7dIOUyatltlu6w4WVqxYsWLF+njWWSCRxxL5yts0s8GR5EdwLMvCihUrVqxYH8yaD0kMX3ZoXPJ9731L6IIVK1asWLFewnr2SO1lzNor+Q9iPw6CFStWrFixfgPr3xmtmBVGbRSUv+XwG7FixYoVK9aPYG3RDzQpSqZNObj5ERzIsrBixYoVK9aHsc5GITcFWT4AkRPkIxqb4dFhloUVK1asWLE+nnVTVM0iilmck/wg2iLs2EAGVqxYsWLFejnrpuhJjpq3cnKyzfBEW3j9YedYsWLFihXrF7C2Jdd+/DEpnpL/PTV8+fK7WLFixYoV65exbi6gbXkkHG3bKG+vRN/CihUrVqxYL2fNQ5c8RMlLpfYYeZumbaYMYxisWLFixYr1WtZ2EDPfUFvEbNox7U8hv7xhgYUVK1asWLE+ntU6tbBixYrVwooVq4UVK1YL6+PX/5S+2xc7gl+UAAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

@@ -256,42 +256,6 @@ mathjax下划线冲突解决hexo-next主题和mathjax下划线冲突问题">
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/05/30/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog%E5%AE%A2%E5%88%B6%E5%8C%96%E8%B8%A9%E5%9D%91/index.html",
-    "headline": "blog客制化踩坑",
-    "datePublished": "Sun May 30 2021 10:50:27 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",blog",
-    "description": "中文目录锚点失效Hexo Next主题中文锚点失效-Hexo采坑(一)
-mathjax下划线冲突解决hexo-next主题和mathjax下划线冲突问题",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -416,6 +380,18 @@ mathjax下划线冲突解决hexo-next主题和mathjax下划线冲突问题",
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE2UlEQVR42u3aW44bMQwEQN//0psDBB53k1LgJKWvhR+jUWkBU815/RiL8UKADx8+fAY+fPjwGfjw/SV8r3j8/vm3E7z57ofbevz8uzt5/u7zK+3a8eHDhw8fvlN8ycJy9Nn2tFu4udvV2vHhw4cPH75DfPk0ybvPRU9SZDwvpiXOS58P18GHDx8+fPj+IN++iMmDg/zKyda28QE+fPjw4cP3PXxtpJ5/q93CWTsBHz58+PDh+wa+dpr2GD/bjE1U0V7/eq8DHz58+PDhW7So/42/Dzyghg8fPnz48MV87diUGknpk7TbT7XJhwL48OHDhw/fgi+BmD1w1oYIednUzrsqU2aJCz58+PDhwxcXLvlSnwuC/KCeL/5UZD979A0fPnz48OHb881+zts44Pm2ZuXF7JG1tpDChw8fPnz47vG1IUJbpuSlxqxtkJQp7fbjw4cPHz58Z/nalnMbyudFTz5X20JoQ/kPm40PHz58+PAt+NomdB67bw7qbdS+f5wuKWvw4cOHDx++U3x5SzsvXPLFJAXT7PC/2cgDiQs+fPjw4cP3WLi0i8kD7vzYPwv990FA8U+ADx8+fPjwLfieF7YpZdrv7mOFNoBocfHhw4cPH77bfO2hvS2D8mW3IfvsM1Fxgw8fPnz48K358mh7toA2WG/b4W1wsJkRHz58+PDh2/O1re7Z322Bsil9ZrOsIgN8+PDhw4cv4MsD91MlxSZWeJWjLcsiDXz48OHDh2/NF/1gB0XDqfi+DevbV9pYHx8+fPjw4bvNt/lpb0P8vPhISpP8yu3V8OHDhw8fvj1fXnCcKm6SVzbBRFu+HOt14MOHDx8+fGVY34bd7cQJ39k44FQ7Hx8+fPjw4TvF1xYKs5A934B8rtkr+Vz48OHDhw/fDb5TD2+18fomrN+37S/2OvDhw4cPH74grJ8dpNvbnQX6NzZstmp8+PDhw4fvNl/+bovVhg6zT+b3/BMPfPjw4cOH7xTf7Cc/aYq3D4fl0GfbCdHa8eHDhw8fvjVfXmRsypE2FGhDis0o/iHw4cOHDx++o3z3OPIr5HF//k/Qbvzbu8KHDx8+fPgWfO0BO2+Nnw0UNsVNDprMiA8fPnz48G34ktZ4fth+3oxZ+dKWIJs7jMovfPjw4cOHb8G3P+pHx+z2Fg811GflUV334cOHDx8+fOWZd08wO9InRUzbGJgFB3nRhg8fPnz48G34ZmH9LMRv3509GJdvdvsuPnz48OHDt+dr29KzkL1d0ixQaNsJERY+fPjw4cN3gW8f029C8Dx2nzX1kyh/lbjgw4cPHz58I748dt/Q58uYtRBmTfG88YAPHz58+PBt+DYPbyUt6tmC8wZA20rfNyHw4cOHDx++DV87Zo9/tYf2fcieBxZtcIAPHz58+PBt+Nof72TZeREzKzKSDZtdIWo/4MOHDx8+fGu+No4vJosXlrcBNoH75oEAfPjw4cOH7yzfpkSYFSt1UD76zKZVEPU68OHDhw8fvmt8Z1vRm4ZB8spzWdMWW/jw4cOHD9838OWFQrLUGcHsM/n24MOHDx8+fDf42sslcG2Ankfw7beKOP52mxwfPnz48P33fPnxPkHZNKrbUmZW9CSlVRHW48OHDx8+fDGfUbcKEODDhw+fgQ8fPnwGPnzfO34B+wugLqZW/FIAAAAASUVORK5CYII=">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

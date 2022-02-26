@@ -268,48 +268,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/05/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab2-chrt/index.html",
-    "headline": "操作系统lab2-chrt",
-    "datePublished": "Sun May 30 2021 10:22:47 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",lab,os",
-    "description": "内容与设计思想在MINIX3中实现Earliest-Deadline-First近似实时调度功能：
-
-提供设置进程执行期限的系统调度chrt (long deadline)，用于将调用该系统调用的进程设为实时进程，其执行的期限为：从调用处开始deadline秒。
-在内核进程表中需要增加一个条目，用于表示进程的实时属性；修改相关代码，新增一个系统调用chrt，用于设置其进程表中的实时属性。
-修改proc.c和proc.h中相关的调度代码，实现最早deadline的用户进程相对于其它用户进程具有更高的优先级，从而被优先调度运行。
-在用户程序中，可以在不同位置调用多次chrt系统调用，在未到deadline之前，调用chrt将会改变该程序的deadline。
-未调用chrt的程序将以普通的用户进程(非实时进程)在系统中运行。
-",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -434,6 +392,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE0UlEQVR42u3aUVLjQBAD0Nz/0uwJYqTumbDsPn9REOzxM1XI6nl9ORbHCwE+fPjwOfDhw4fPgQ/fL+F7xcfz56MLP/7W89nereT5d5+/0947Pnz48OHDd4ovue2cpsWaPcJ8tbPzvD0bPnz48OHDd4ivvUwSX5Jwk5whp8mD0eze8eHDhw8fvk/ytQs9GzLacyb0+PDhw4cP32/hS5aVfz+vCRKIfHiADx8+fPjw/RRfGwVmfJvP53B5nfHRWQc+fPjw4cO3GFH/G1//wP4+fPjw4cP3H/O1x3ONngSCdgyfnCdfVV4ovL0uPnz48OHDt+DLt4W1saYtHfIBfMJx44r48OHDhw/fKb7Zv/m2Ok+um/90M3rP+aLggg8fPnz48JWVwW3EvGLIi4B2C91sxI4PHz58+PCd5csH4e0L+azuz8v05Dztg4/Wjw8fPnz48B3lawv6PPq0G8jaIqANRjkZPnz48OHDd48vv5n8MSSf3Ffts4BShzZ8+PDhw4dvwTerrfNosgHN40W+VS6Pa/WYHB8+fPjw4Yv5ZgvKa4J8uWeLgFkJUu8ywIcPHz58+BY7rPKSPVnibMQ+GyFsrlLcIz58+PDhw7fmy6NMjpjjbkqHGXEbVvDhw4cPH76zfDde/tufzmLQpuYYVg/48OHDhw/fIb72xu6N2Nu401bzyR29XT8+fPjw4cO34JshzgJKW/G3QSp/qO3Z8OHDhw8fvrN8mxhxY1tYOwLP19BWDPjw4cOHD99ZvtnNtIV4/nLeEu+jSV1G4MOHDx8+fAu+/SazZ76kbmhHBcmaZ+U+Pnz48OHDd5svr8g3Q/G2Asgj0eacs/iFDx8+fPjwbfja2rpdeoKYD93332mvNdxlgA8fPnz48I348ttuQ0w+Ss/j1I2BPT58+PDhw3dvTD6LEbOw0sajGyP29s8FHz58+PDhO8XX3kAeTfIX+GTps8eZD/KTPyZ8+PDhw4dvz1e/NgeLyzeZbeLF7Ayz0gEfPnz48OG7wdeOmc+WBXlMaccAs6CGDx8+fPjwneVrX8jbcfjZ80S3t64nisoAHz58+PDhW/C1xXcebtrSPI8sbUw5MCTAhw8fPnz4FnyzYXM+Wm7L8c32uLyGSFjx4cOHDx++G3z7ojwp/Wdb2fYD9RyuWAM+fPjw4cN3lK/dBDYr3GcD+Lasb0v8A2NyfPjw4cOHryzrZxvUkoq8jQ7tZrjZCPxYcMGHDx8+fPjisn5WELRVeH7DeaHfPs59eMKHDx8+fPg2fLPh9GxonW8Fmz2AfNiwOhs+fPjw4cN3iG+2zWu/rNmmtNl4flOO4MOHDx8+fHu+9mL5+Hl2/vxB5tVAUuUX18WHDx8+fPgWfO2RXPLUC/9s+L0pKYZlPT58+PDhw1eOyfN/5JswkeOevfl2wLDKffjw4cOHD1/Al4SV/DObun82LM9f/tv6Hh8+fPjw4bvHN9t8lmPNINqQtB8MfPMA8OHDhw8fvg/yzV7IZwX6PkjtiQ8HF3z48OHDh2/EN6u5k2p+NkhoBwCzCgMfPnz48OE7y9cGhXbk/AyUB46kyNiMB4bBBR8+fPjw4Yv52g1qbVm/eQBt1Z4PA2alPz58+PDhw7fhc9QDfgT48OHD58CHDx8+Bz58f+/xB6kc1DJ2m6/4AAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

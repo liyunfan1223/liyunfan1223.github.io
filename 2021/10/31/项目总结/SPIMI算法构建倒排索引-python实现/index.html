@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/10/31/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/SPIMI%E7%AE%97%E6%B3%95%E6%9E%84%E5%BB%BA%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95-python%E5%AE%9E%E7%8E%B0/index.html",
-    "headline": "SPIMI算法构建倒排索引 python实现",
-    "datePublished": "Sun Oct 31 2021 19:13:43 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": "",
-    "description": "",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -413,6 +378,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVYAAAFWCAAAAAAXxOpfAAAFfUlEQVR42u3aQW7bQBAEQP//08k1h4TuniERLV08CYEskrU5NHrm65frgesLAVasWF1YsWJ1YcWK1YX1KNav+Prz+9efr3/5Lw8U33H2/X9ClM9z/S5YsWLFihXruaz57ZOXvP7m9Wtc/3t7/PmTb0ywYsWKFSvWd7DOIk4SUJI7tsd276HeYIIVK1asWLH+ANbr8JFHqBw9P87kjsm9sGLFihUrVqztGGMzCNmUKW1IaiMXVqxYsWLF+nNYiwFDXFvMAs3mb2eH9J9nWVixYsWKFet/Zb13EfMdnz9uvxUrVqxYsWJ9gLW98rFHsjzRrnTkkatd2sjf6J/PjxUrVqxYsR7I2lYV+TpFXmoMA00wVpkd23CEgxUrVqxYsR7L2j56uwYxw2qj1T4mzuIdVqxYsWLFei5rHnryx23XL9ojbH+nrWOGSxtYsWLFihXr4azJQ8+Y2iPJa5T8ANoIWEcurFixYsWK9XDWJF7kYSWvb9q4lhxYe5dr7ujfsWLFihUr1gNZ7ypT2lFK/gz5GscmOLbVD1asWLFixfoO1qhEiAcw7YAkP9q8Rsmff7P8gRUrVqxYsb6bNVlKaINI+9ptyNuXR/mC6V/ughUrVqxYsR7Imq8hzg5gU6zMyp02eLV1zLDBwooVK1asWA9h3d9mVrjs49Q+nLVRDytWrFixYj2dNSkjNnXJZmCTVB5tOdL+QhH4sGLFihUr1gNZN9XGbNySL2vOljs3RU9eP2HFihUrVqzvYG3HJ/lIZhNinqhs2hhXr2xixYoVK1asr2CdBZH937bhbHZUebjMx1FYsWLFihXr6axJ2bFfwmjDVsvXBqbkjsXqBlasWLFixXoga8uRFyv5g7aDn3Y00g5s8rfDihUrVqxY38HaliDtusa9FUwbBDfDpOIZsGLFihUr1mNZ2wiSvN5+USM/pP3R7iMgVqxYsWLFei7rrHxJYlOxvrAYsbSxaTYK+ua9sGLFihUr1peyzh49X9Ro75uUNXnh0ga7Yv0CK1asWLFi/XjW2ehlE4w2Y4/N6sa9Yx6sWLFixYr1Tax1mCjjyF01R766kTxnfjxYsWLFihXrW1k3qwmbZYX82O5aoWj/o9SHihUrVqxYsR7Leu9yw+yF84KjJW7XR2bHgxUrVqxYsZ7Imo9G8qWHGWUb4PKSqB32tN/EihUrVqxY38HajkDasUpL3xLkR9UOgaJ3wYoVK1asWA9kzWuItrxICpQivoyu/E33QRArVqxYsWI9kbUtLGbxJQ8r7SpkW7s8sQ6CFStWrFixvon1rvWFJPpsViQ3uPWS5T5gYcWKFStWrEexzgYwbUTbVCT5UT293oEVK1asWLGey9qGlf3g5IYXKBcuZwGxpseKFStWrFgPZ23jTh6hNuizqmUTzvJFEKxYsWLFivV01rwKmT3cXUsSeTUzWxlpj7ZusLBixYoVK9aPZM1pnl5f2DzPJt7NQlWUW7FixYoVK9ajWNsRS1Jq5PdqF0GKEmR9l1XAwooVK1asWD+Ydb/08FxxkyyCJM+5H+FE98WKFStWrFiPZW1jx70RbTZcaVnbp63rJ6xYsWLFivUVrJsFhXZU09Y0M6Z2PDOsabBixYoVK9YDWb/iKy9c8iokKV9mn/cHU/8+VqxYsWLFeizrLFRdB5oWd1agzKqZ2VrJN5ELK1asWLFiPZx1tnyZo9+F1Q5+2pKovTtWrFixYsX6c1jzODU7pHw0cv2SefXT/tUjAQsrVqxYsWJ9HWtS6DxBeW8pUxwDVqxYsWLFejhr+6Dt5zxy7cuaZJxz1xgGK1asWLFiPZ01jyBF9RCMatoYl/xa+zttwMKKFStWrFjfxOq668KKFStWF1asWF1YsWJ1Yf346zfPgKOHuRi78gAAAABJRU5ErkJggg==">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

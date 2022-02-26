@@ -260,44 +260,6 @@ val_i=w_i\sum\limits_{u=1}^T\sum\limits_{v=1}^T(l_{u-1}-l_u)(r_v-r_{v-1})\frac{1
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/06/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/ECNU-XCPC-2021-Selection-Round-3/index.html",
-    "headline": "ECNU XCPC 2021 Selection Round 3",
-    "datePublished": "Thu Jun 03 2021 18:17:22 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",XCPC",
-    "description": "E. Drinking观察一下不难发现，任意一端区间$g(l,r)=\sum\limits{i=1}^nx{(i)}\frac{1}{2^i},x(i)$表示区间内第$i$大的值，由于误差要求$&amp;lt;10^{-6}$，所以估一下只要取区间最大的T=50个数
-自然想到单独计算每个数对答案的贡献。设第$i$个数左边比它大的数从右到左为$l_1,l_2,\cdots,l_T$，右边比它大的数从左往右为$r_1,r_2,\cdots,r_T$，那么每个数的贡献为
-
-val_i=w_i\sum\limits_{u=1}^T\sum\limits_{v=1}^T(l_{u-1}-l_u)(r_v-r_{v-1})\frac{1}{2^{u+v-1}}",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -422,6 +384,18 @@ val_i=w_i\sum\limits_{u=1}^T\sum\limits_{v=1}^T(l_{u-1}-l_u)(r_v-r_{v-1})\frac{1
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEJ0lEQVR42u3a0W7jMAwEwPz/T9+9FiiS7pJO4aijpyJxbGlcgCLFxz8jGA8EmDBhwoQJk4EJEyZMt2d6xOPr9d//fna3Z7+aXZPMIbnb6zViwoQJE6bzmH4IjcFUcoLvVyafv55b8qx2jZgwYcKE6TymdpGvJ5oQJM/KX0w72x9+hQkTJkyY/iRTnnbOQn5O2d4BEyZMmDBhmpVf83DellxnGwtMmDBhwoRpUwBtQ/UsnM8Kvm2R+o21cEyYMGHCdDOmfePO/f++RX8TJkyYMGH6daZZcL02Hc2D969uIzBhwoQJ0xFM7YNbiPxXr8Nz0pSzCv+zCgEmTJgwYbo9U1uKzQ8LZ0ehefp97cuL9k2YMGHChOkDmdplvy6ntnD7lzQ7ZI22RJgwYcKE6VCmnC9PR9vPNxuFdv7DDQEmTJgwYfoQptlEk83B7Mr9QelsdZgwYcKE6VSm5DiwnW4y6YR+0waU3x8TJkyYMJ3NlAMl4bZNRNtA3m4aVok6JkyYMGE6gqkN/wnxDH12ADnbFiRYmDBhwoTpJKb9wval1TxU51uBZDxNjzFhwoQJ0xFMG4gEerb4/M6zNPiyxh1MmDBhwnR7pjbozo4GN6npIx7Xbh0wYcKECdNJTHlD6ixhTkrJM4h9k1BdC8eECRMmTB/LNBv5BqIFalPrzf0xYcKECdOpTHmaujl0TI4P22POdtl1sRgTJkyYMB3HlAfaNnl+vYy2SSgK5/H1T5+ICRMmTJiOYGrba1qmd2w42hcz29BgwoQJE6bzmPbtMsm3V92/JcvnhgkTJkyYTmKaJZBti0yymDy0t/PMn44JEyZMmM5mSoL37NvkxbwjfU2KxZgwYcKE6Wym2SagTW5n6WteMm6T3mGFABMmTJgwfSzTLADvm2+GLTVrxGjrgAkTJkyYDmLKG2vakm6bps7KtS1HdB9MmDBhwnQEU76w9mhzD9rOs025f/hHwYQJEyZMBzFdkCgGafAszd4fZCavChMmTJgwncqUBO+2VXRzZf4y2kS3LgpjwoQJE6aDmNqDw3cUW1vc/LezdlhMmDBhwnQG0yyVzaeVF2TzxVyVNl9WIcCECRMmTLdnykNsAjTbalx1ONoelGLChAkTprOZ8jadWYDflJI3LUT7zQQmTJgwYTqDqR2z1PSqZLgt4M7ujwkTJkyYTmJ6xKNNaPNlbIrIr5/7lsYdTJgwYcL0gUz5JmBfFG4PF/Ny8Ob+dYUAEyZMmDB9INOmRNtuLzal3llJOj/gxIQJEyZMf5kpSSzbdpzZMeemNWdY5MWECRMmTH+MaRa2X6O3aXObKiefYMKECROmU5nagNomxvnx5Obp+bHoLx1nYsKECROmGzDNSq7vK8u2BdxNwfrpy8CECRMmTEcwGdGGwMCECRMmTJgwGZgwYbrL+A8namgHzZqVMgAAAABJRU5ErkJggg==">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

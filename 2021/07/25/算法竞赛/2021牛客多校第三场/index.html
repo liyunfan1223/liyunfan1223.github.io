@@ -268,48 +268,6 @@ $(i_1,j_2)$​通过一些中间边如$(i_1,j_1),(i_2,j_1),(i_2,j_2)$​联通�
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/07/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html",
-    "headline": "2021牛客多校第三场",
-    "datePublished": "Sun Jul 25 2021 15:48:29 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",XCPC,多校,最小生成树",
-    "description": "自闭场，题都没读几道
-B. Black and white题意：给定一个n*m的棋盘，起初全白，将一个格子染黑需要代价$a[i][j]$，若某个矩形的四个角里有三个已经是黑色，则将第四个角染黑不需要任何代价，问将整个棋盘染黑的最小代价
-转化为一个联通性问题，点1~n代表1~n行，点n+1~n+m代表1~m列，i和j+n之间连一条边权为$a[i][j]$用的边。$(i,j+n)$联通代表$(i,j)$​这个格子已被染黑，于是将整个棋盘染黑等价于整张图联通，即求该图的最小生成树
-为啥问题等价呢，考虑$(i,j)$联通的两种可能性：
-
-$(i,j+n)$​​连了一条边，说明直接染黑
-$(i_1,j_2)$​通过一些中间边如$(i_1,j_1),(i_2,j_1),(i_2,j_2)$​联通，意味着$(i_1,j_1),(i_2,j_1),(i_2,j_2)$已被染黑，显然这四个点构成矩形的四个角，$(i_1,j_2)$可以不花费代价染黑
-",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -434,6 +392,18 @@ $(i_1,j_2)$​通过一些中间边如$(i_1,j_1),(i_2,j_1),(i_2,j_2)$​联通�
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE3UlEQVR42u3aUW7bMBAEUN//0u0BAskzu5SbNI9fQeCI5JOBLGf5+mMsxgsBPnz48Bn48OHDZ+DD90P4XvH4+vmvz7n6zdVfXa3k/pn3T75a+f2qkr3jw4cPHz58p/je/KsOtpFw5K8tX0NUatx+Feq948OHDx8+fIf42mnyDd+XEcnLaFeSFz3t3vHhw4cPH75P8rWfORU0zEqcBBQfPnz48OH7KXz3m0w2MGOavaq8tMKHDx8+fPg+w5dPMzvwt7F7Ane2AfB4rwMfPnz48OEbXVD7n37+B/f78OHDhw/fL+ZrR3KYz0uKfZTQvuy8wLoUwIcPHz58+BZ87fWyzSE8D/rzl5QH7pu58OHDhw8fvlN8bYC+aU63ryFvk7ezzNr5+PDhw4cP3ym+pGTJS4c8Im+LpNk1uDawePNq8eHDhw8fvjVfXoLsi4a2TMnXOWPKCxp8+PDhw4dvz3e2jJiVGkXRUM7YwkWBBT58+PDhw7fmOxUHzIKGvJk9K3Q2oX99QQ0fPnz48OFbtMlnBUfenE5+v/nk5rLdgVsG+PDhw4cPX1C4zI7u+4toZ4/3M7LoM/jw4cOHD9+Cb3ZcT9rY++JmEwq0EUOxR3z48OHDh2/Bl0y5aVHn18sSjhnofj348OHDhw/fWb5ZOdI2ofPN5C2Edv35V6QoXPDhw4cPH741374V3TbI2wP/qdd2IDLAhw8fPnz4Hihc2oXm22hbBfnI15k3J/Dhw4cPH74NXzvy8qU9lu9Lk1MzvglK8OHDhw8fvgXfpjhoN/8ajbwwylvmq2Y/Pnz48OHDt+DL2955iN9G4flcySx5U7y9rIYPHz58+PDt+ZID82zzm9B/E0DkQUDeGseHDx8+fPhO8bWXtFqspDBKDvwJTR5VtEUPPnz48OHD9wRfHnAnR+skZE9mbLe32d0qccGHDx8+fPgWfO2hOi8U2gB9VtbM4onoC4EPHz58+PCt+Q48dFSabML6DVMeSeDDhw8fPnxn+Tbhe7vJWamUH/LbNnn7FcGHDx8+fPj2fO1C97F4Gxzsw4VZEYYPHz58+PA9zXe/lH25kF8Ua1HaF5bsFB8+fPjw4fsk36wFfjZwn5VEs4A+L2Lw4cOHDx++DV/eKp5F3snvi6IheM6swMrXgw8fPnz48G348oZ329LOcfP2fB5n1BF8HuXjw4cPHz58a75NdJ5E5JuyZlNCzZjw4cOHDx++p/mea1fPgoB922B2MS5qA+DDhw8fPnwLvrxB3pYabZnS/pw312dh/WVZgw8fPnz48C34ksjgVAmSlxF5yTILEdrn48OHDx8+fE/wbaKBU1F+MmNCM4vsV21yfPjw4cOHL+Dbt43zcGE2kiIpb6Xv14APHz58+PBt+NqRlA75sbwNLGbxwaw8KiIDfPjw4cOHL+Zr/3lvipgNa97qbgMLfPjw4cOH7/N8LUdecORRfhtVzOKGWUsAHz58+PDhe4KvvUbWHrlnoXn7YmYhQhGF4MOHDx8+fB/ky6OB/Pn7hkHeRG+b6/jw4cOHD9934Mvj8rztPYvm97FFTo8PHz58+PCd5duE9cnxPi9K2rImDw5a9A/1OvDhw4cP3y/jay+o5YvIm9Cbq2mzn2ftdnz48OHDh2/DZ9StAgT48OHDZ+DDhw+fgQ/f9x1/AYeqRMLuDq58AAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

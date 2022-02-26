@@ -268,48 +268,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/07/20/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/index.html",
-    "headline": "2021牛客多校第二场",
-    "datePublished": "Tue Jul 20 2021 21:48:29 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",XCPC,dp,多校,分块,单调队列优化dp",
-    "description": "B. CannonG. League of Legends题意：给定n个区间，要求将它们分成k组，每组之间有交，最大化每组交长度之和
-简化问题，对于如果一个大区间能够完整包含某个小区间，则该大区间只有两种最优决策：
-
-单独归为一组，贡献r-l
-与任意一个其包含的小区间归为一组，不对结果产生影响
-
-可以用反证法证明结论，假如大区间和其他区间归为一组，那么将该大区间移出该组，该组的交一定不下降，再放入其包含的小区间组中，小区间所在的组的交也不下降，即大小区间在同一组的决策一定最优
-于是可以把所有大区间取出来，单独讨论所有小区间，可以发现，若将剩下的区间按照左端点从小到大排序，其右端点也一定是有序的，接着考虑dp，$f[i][j]$​表示考虑前i个区间，分成j组的最优答案，而一组的贡献只与最左和最右两个区间相关，显然有转移$f[k][j+1]=\max\limits_{r[i+1]-l[k]&amp;gt;0} {f[i][j]+r[i+1]-l[k]}$",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -434,6 +392,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE4UlEQVR42u3aUXLbMAwE0Nz/0u0B0ji7AJQ07eNXJpZN8ckzBhd8+2UsxhsCfPjw4TPw4cOHz8CH74fwvcXj/fV/+Oh3///oc95f/3rG5NPaO2zXjg8fPnz48F3xffJTXU75eknJw2gfQ/uFmK0dHz58+PDhu+XLp2mLjI9eff35rxeZ3FV7P9Ha8eHDhw8fvi/km5UOsytn8USChQ8fPnz48P0UvvxGN2XQbXA/i0Lw4cOHDx++p/nywDq5PmHNQ4Gijb1o6j/e68CHDx8+fPhGB9T+pb+/4XwfPnz48OH7j/nakRxB2x9Q2xxTa1sLtQA+fPjw4cO34Gtj99mVs1IpjwY2AX1Ljw8fPnz48O35hrF1eYjtqoB47ghd9F58+PDhw4dvwZeXFPn0M/SEPmkktF+FunmPDx8+fPjwHfG1QXnL10YPeQRw9a7oVXz48OHDh2/B15Yas9j9Ki7fxwF52IEPHz58+PA9wXcVo89Kh/wz8wZAWwzVh+Tw4cOHDx++NV8ycRKRt4fGhpv2YK6rgGPY68CHDx8+fPjisL4tKfIiI2lXb4L15HMO/oMPHz58+PAt+PKjWm3Jkkfqs81/W5q076p7Hfjw4cOHD9/igFre0p4VDUlk0BYfbSiQ3w8+fPjw4cN3y9fG5fuGevKQ8od3Fcon7XN8+PDhw4dvz5f/bG9C9nZJ7bKvCpdP1o4PHz58+PAt+NqYO29jJ/+/okkeZ1u44MOHDx8+fE/w1VF1eU1+ZDwPKWaPc9aKwIcPHz58+J7mS6Lw123pOv5eHB1rCTYRPz58+PDhw/c0X1I0tNHArASZtbTzOL4od/Dhw4cPH74jvjY6b7f9swi+jRXaMqt+APjw4cOHD9+ar22Kzxrt+yLp6bZBFDrgw4cPHz58j/Hl0fas7b2ZKy+zjufChw8fPnz4FnyvC5HNlU8EBBvWdi0frg4fPnz48OE75Ztty2e32z6wWSu9DUQ+Kc7w4cOHDx++BV++pKRMmTXXn4gA8qMA7X3iw4cPHz58G77kOFcL1wLNipVNGdS22PHhw4cPH74rvtnmPD9w9vox5AVNW+i0M+ZFDz58+PDhw7fhSzbeeYP8iTb5pljJvwpFnIEPHz58+PCt+a7KlzbEny2sbXXPCpQirMeHDx8+fPhivnzDn8TleRu7jQlmD2P2FVklLvjw4cOHD1+8593HAcnD2LTM80NpbUxfFEb48OHDhw/fgq/d5M9uNy9oZg+gpW9b+/jw4cOHD98V3yZ83xw725QUs+LmLBzBhw8fPnz4FnzJpj3ZoiehQxusJxx5U3/WmK97Hfjw4cOHD1/Ml0+2IcsLmnyrP5t9WMrgw4cPHz58C76oMRy8mk+fBxCb5nfeQlgVLvjw4cOHD99oz5uPtmU+iwluGwntl6Cu+/Dhw4cPH77FnjdvM+elw2bT3l45W0vBig8fPnz48K35ZsVK8WNfRvazID6PCWYNdXz48OHDh++Wb1Os5EF5Wzbtm+XH4QI+fPjw4cP3hXxty7yNyNvyqC2VNi15fPjw4cOH73v58qNgCc3scFs7e1LQ4MOHDx8+fF/D1x4gazfzeXt700S/bSQc9zrw4cOHDx++9QG14U3EUX5e9LStgjzQx4cPHz58+K74jHbgw4cPHz4DHz58+Ax8+P7i8RseZZe1LzU9qQAAAABJRU5ErkJggg==">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/08/26/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%A4%9A%E6%A0%A1%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%E2%80%94%E2%80%94dp%E3%80%81%E5%8D%9A%E5%BC%88%E3%80%81%E7%8A%B6%E6%80%81%E8%AE%BE%E8%AE%A1%E5%92%8C%E8%BD%AC%E7%A7%BB/index.html",
-    "headline": "多校题目整理——dp、博弈、状态设计和转移",
-    "datePublished": "Thu Aug 26 2021 01:10:20 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": "",
-    "description": "",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -413,6 +378,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,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">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

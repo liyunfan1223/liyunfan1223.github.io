@@ -256,42 +256,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/06/13/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab3-I-O-subsystem/index.html",
-    "headline": "操作系统lab3-I/O subsystem",
-    "datePublished": "Sun Jun 13 2021 10:13:30 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",lab,os",
-    "description": "内容和设计思想在MINIX3中安装一块X MB大小的RAM盘（minix中已有6 块用户可用RAM盘，7块系统保留RAM盘），可以挂载并 且存取文件操作。
-测试RAM盘和DISK盘的文件读写速度，分析其读写速度差异原因。",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -416,6 +380,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAEzElEQVR42u3a227cMAwE0P3/n25fCwRxZkjm0vboqcju2vJRAY9IvX4Zi/FCgA8fPnwGPnz48Bn48P0lfK94/Pn95ApvP337q3wm7/32+Tv5b4u748OHDx8+fGu+D17V8XeeJ9dibZYq/3v77Pjw4cOHD98VX3ubGet7900eYB933rtasYT48OHDhw/fF/K1E83hWqaWuy0f4MOHDx8+fD+Nry0x5Fv6ZA6zGIQPHz58+PD9HL7NbWaUOXcLl8zzG3od+PDhw4cP3+KA2r/x728734cPHz58+P5LvnbkJe9ZiMmDRX5YLS92RAL48OHDhw/fgi/f0icv9c/+/myp2rByUHHBhw8fPnz4gpJBXiifRYrZdn3WFP+8WIMPHz58+PBt+J6byu1htTYuJA+zP0KXXyeKRPjw4cOHD9+Crw0ue5R88ZK2QT6fsyYBPnz48OHDd8T3jDh72dex4LQYkZf4i2XDhw8fPnz4Tvk22/42lFyV8jcBpV1IfPjw4cOHb8OXxItNsWBW6M//0pYn2qY4Pnz48OHDd8vXFutvQ8mmKHBVyq9niA8fPnz48C34rkrh7eNt5vAcvNrWQn0vfPjw4cOHb8HXbsvzcJM8wFWJIb/+/j8BPnz48OHDd8s3ixFtRNgsWFuS2HyKDx8+fPjw3fIlD588WNvqnrXhb4v+7cLgw4cPHz58e75ZI3xWJmjjUV6Ib2e4acnjw4cPHz58G76rMDELEEkQaQvxbSxrG/z48OHDhw/fhm8TEa5Cz4x4H02GxQh8+PDhw4dvwff8sk9CQDLd25ZAMudZcR8fPnz48OH7Sr42Cmyu0P6qRZkV7qNCAz58+PDhw/fJfO1Brn25Icdq/zILZPjw4cOHD98t32s02gVI2tV5uWHTLD8u1uPDhw8fPnxlmzyhSQrl7VRmJfhZPMoj0fMV8OHDhw8fvj3fbHJJY3tTJsiDyKbZkH+KDx8+fPjwXfG1jedNi3oWbvJyfxQ+YvqiZIAPHz58+PDFfLMSQL4tz4v4+Sa/bQO0S4UPHz58+PB9Nl/RKi5x26L5bDOfL1sba/Dhw4cPH74rvs3rv32MttDfFg425fhhmxwfPnz48OEb8bXN6dnBtdli5M2AfM5tWMGHDx8+fPiu+PLH2zSzV0FhcVgtbxUU98KHDx8+fPgWfPmFXvHYsOYt/DZatcV6fPjw4cOH72v42uCSHDibRYfZVj+/++z4HT58+PDhw3fF127RN+X4fHvfFutnzYBiwfDhw4cPH741X7LVv9r8zw6r5cuTP8Xwavjw4cOHD98RX3FIq9xmtwfI8ge7ah4US4sPHz58+PAt+K6a3G0z++r6SWngqtmPDx8+fPjw7fna0Ra787iwiUftwuctirrXgQ8fPnz48D3ytS/y2VTaUv7tw7eH1Va5Dx8+fPjw4Qv4ZmGlDRnJYbKru+RBBB8+fPjw4fsuvtkL/vmw16w5vSnW7xsPHywAPnz48OHD94V8M8Q2uLSBZrNUdWjDhw8fPnz4fhhfMpV9yT4vDSQN9aIBgA8fPnz48B3x5S/vdgPfliTypnvbpJ9dAR8+fPjw4bvlaw+o5dv+djM/a13P4k77TXz48OHDh2/PZ7QDHz58+PAZ+PDhw2fgw/eDx28YsKoIT4HQ3AAAAABJRU5ErkJggg==">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

@@ -264,46 +264,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/06/10/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/ECNU-XCPC-2021-Selection-Round-4/index.html",
-    "headline": "ECNU XCPC 2021 Selection Round - 4",
-    "datePublished": "Thu Jun 10 2021 13:18:10 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",XCPC,dp,序列",
-    "description": "F. Nice Positions观察：对于一个序列，任意相邻两个数至少有一个是好的，即不存在两个连续的坏点
-简单套个容斥就是
-好点&amp;gt;=k的方案 &amp;lt;==&amp;gt; 坏点&amp;lt;=n-k的方案
-然后从小到大把每个数插入排列，发现如果插入的数在一个坏点两侧，那么坏点数量不变，否则坏点数量+1
-主要是一直在考虑，确定前i个点后再确定第i+1个点，从左往右依次确定的线性推法
-但是如果从把最后一个数插入排列的任意位置的角度考虑就会简单很多",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -428,6 +388,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEIElEQVR42u3aS24bQQwFQN//0skBAivvkeNAYqpXhmCNumsWzd/XLytYXwgwYcKECRMmCxMmTJjenukrXn9+K/n7u+9+963X//P689c7rM+ICRMmTJgOMf3lagxQEvrkCcnz2121Z8SECRMmTFeZ8oN9d4kmYUGL3oYdbXCACRMmTJgwzX5mExwkKW6eDGPChAkTJkwbglnCmRdbZ8EBJkyYMGHCtCqAxgdL2o1ts/P1k5P9/3gtHBMmTJgwvRlTPtTyuX//0/kmTJgwYcL0NkztyoutbYiQBB95Kr5fmDBhwoTpBtOsqDprH7ZF3k048pfLPhk/woQJEyZMJ5iSyzh59Kz92TJtnoMJEyZMmP5npvwanv1/3oBsh4fydLodFcKECRMmTLeZZuFCe9SnisVJSpyfFBMmTJgwXWWaXahtUpoXi/OdtAXlpMyNCRMmTJhuMCWPbq/kvF361PWfH75I7zFhwoQJ0wmmPIndtyfbIGOzkyRpf6zIiwkTJkyY3phpVmadFVLz5Dkv2s5eUl3kxYQJEyZMJ5hmF2p7yIRg1l7dt0gxYcKECdM9pv1q0868CNsmq3nzMioTY8KECROmo0yz1uBTaWqbKuesbeMWEyZMmDBdYmobkO3mcvRZap3TF2fBhAkTJkznmNoLtS3FtkfaF5dnbU5MmDBhwnSJad8sbBPpPDFuW6Sz0dgoIMCECRMmTCeYfuLib7e4b3O240HfnggTJkyYMJ1gqr9cFkzzC3gWKMwCkSh0wIQJEyZMJ5i+Fishbody9hf8JiXGhAkTJkz3mPISbZtAtlivA478Up/tGRMmTJgwXWXKm3+btDYv+OZNzVlCW5StMWHChAnTCaakMJpvqyXbpMo592zwCBMmTJgw3WDKW4xt6JAHB7PwInmpm6dhwoQJE6ZLTO3j8lAgKbnOUvFNGvzA4A4mTJgwYfpAplmyOksyW/S2fLxpfGLChAkTpktMs1JvHgTkW3+qpZq8+Cj4wIQJEyZMJ5jaAujsws6biHlCnj9n+GoxYcKECdNRprw8um9nJtf8UwM99YARJkyYMGE6wZRfpS1lklS/vtTzAZ32RdbtTEyYMGHC9OFMs2GXdkyn/SRPqmclYEyYMGHC9D8wtWXZHGIzsvMTEHV5GhMmTJgwnWBqV9v+bJua+xZpPgb0QJEXEyZMmDC9PdP++mwPvz9kW3qejf5gwoQJE6ZLTHkQ0A7rbFqeG/Q8IBgWeTFhwoQJ0wcyFWlhfq0uxmiSJ+cQeSMWEyZMmDBh2rQ2Z+FF/tpmoQwmTJgwYcKUNwWfGgZ6KiGf/S4mTJgwYbrHNNvQa7h8+GZTUH52uAcTJkyYMN1jmpVEi9bgqCC7LxkncEU7ExMmTJgwfSCTFQUEFiZMmDBhwoTJwoQJ07us34fZr7/kAviYAAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

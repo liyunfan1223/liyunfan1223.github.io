@@ -290,59 +290,6 @@ ax.set_xscale(&amp;#39;log&amp;#39;) # 设置对数坐标
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/06/04/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/matplotlib%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/index.html",
-    "headline": "数据可视化、matplotlib使用小结",
-    "datePublished": "Fri Jun 04 2021 14:34:02 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",python,可视化",
-    "description": "初始化import matplotlib.pyplot as plt
-import matplotlib.ticker as mtick
-import numpy as np
-fig, ax = plt.subplots()
-ax.set_title() # 设置图表标题
-plt.savefig() # 以图片形式保存至本地目录
-
-设置坐标轴属性设置坐标位置和标签ax.set_xlabel() # 设置坐标轴名称
-ax.set_xticks() # 控制标签位置
-ax.set_xlim() # 设置坐标轴范围
-ax.set_xticklabels() # 控制标签内容 
-format=&amp;#39;%d ms&amp;#39;
-ticks = mtick.FormatStrFormatter(format)
-ax.xaxis.set_major_formatter(ticks) # 格式化标签内容
-ax.xaxis.set_tick_params() # 设置标签参数
-ax.yaxis.tick_right() # 改变坐标轴位置
-ax.minorticks_on() # 显示坐标轴小格
-ax.set_xscale(&amp;#39;log&amp;#39;) # 设置对数坐标
-",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -467,6 +414,18 @@ ax.set_xscale(&amp;#39;log&amp;#39;) # 设置对数坐标
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE4UlEQVR42u3aUXLbMAwE0Nz/0u0B2sq7AOI07eNXJrEl8TEzAhf8+GEsxgcCfPjw4TPw4cOHz8CH75vwfcTjNxf65a/5FZ6/dfv7/L7Rk+PDhw8fPnxrvhev6mDyyTWfJ5ZMMvlWArSaOz58+PDhw3fE197mT5+ZFQ05/Yzj+fP5NfHhw4cPH77388228VcL8BxDJPfChw8fPnz4vi9fu5nfRPxJoLAPJvDhw4cPH7738M1us1mAq5hg3zJ/U68DHz58+PDhKw9p/Xs/v/V8Hz58+PDh++/5NqO45aiAyNveSXCQRwkvZo0PHz58+PAt+PLm8fNvnh8xifs3h88S0OT58eHDhw8fvs/mywP0thxpo/lNKdOGBUnLv44M8OHDhw8fvgXfZnOePFy+SDO4WVESXRMfPnz48OE74tvE9PmSzLjbqH3TGn+xYPjw4cOHD9+C7/aA2u11ctZ8UQ8WBh8+fPjw4VvwzWL354eYtdKTTf4s1Ni0yaPIAB8+fPjw4Rvx5a/2WQSfN61nU21jC3z48OHDh++r+Gbly1UD++pgXHscfNZix4cPHz58+K74ksedhelXYUR+hU3E8KKUwYcPHz58+BZ8bRGQb9HzQH/2yeMgIG4e4MOHDx8+fBu+5HXeBvfJxPKi4TYySFoOL+aCDx8+fPjwHfHtS5ak1Z0j5uVF+6+wKnrw4cOHDx++Bd/zRROOYrO9aK7nz9DOqH5CfPjw4cOHb82XlCwtcb6Z30fqm1EHEPjw4cOHD98RXxvc58HB82O12/u8DbCJEvDhw4cPH77P45sd2Eomlk9jFlUkBccsRKgTF3z48OHDh69Mm2dReHuIbR/Qt8+QX3/YJseHDx8+fPgWB9RmG/68ZLlqWl/9pqXEhw8fPnz4Nnz5i38WqbflxeaO+QG41V3w4cOHDx++BV9eRmzC/XZzPosb2iZBG/rjw4cPHz58e76r4qNtPM+Kj30Rky/8KjLAhw8fPnz4HguX/DjX7cGyfSO8LWVmhQ4+fPjw4cN3yzcrU2YFRN5Enx0yaxem/gfChw8fPnz41nzJRrqNFWZFQzKlNtDPI4xopvjw4cOHD9+Cb1ZqbNrbydXa5np7bK49HIAPHz58+PBd8bVN5fy7z8VNXtYkk9y3DZKnxYcPHz58+PZ8+Wa7vk3bfi4LmtkBtbbNgA8fPnz48H0eXx4NtIF+3rrOm/Ft2LGJIfDhw4cPH74rvmTLPXusfQzRRv/tHdtyBx8+fPjw4dvz7YuJJO6/arfPljlv4UctBHz48OHDh2/BlxcuSZmSx9+z6H/TIM/n9eK7+PDhw4cP3xFf3tjOC4XZtJPCJQ8siqJkk7jgw4cPHz58cdo8KyaS9nnSaM9Ln/xA26zpHmngw4cPHz58C752tAfFNkyzoD9vnyeFFD58+PDhw3fLt3qFPzLlDe/bn2ehQNFywIcPHz58+NZ8bQSQv+aT5ne7PJuFn4X4+PDhw4cP32fwFYe0ymnsw/q2nZAfkqvjD3z48OHDh++NfDPWDXpyxzZQyMN6fPjw4cOH72v52mm0cUN733zDnxcxL0offPjw4cOH74gvmVK77d9v4PNGeL4wecPguNeBDx8+fPjwjSawL2Lyz+83+cdxPz58+PDhw7fgM9qBDx8+fPgMfPjw4TPw4fuLx0/C8ghFxTZ5NAAAAABJRU5ErkJggg==">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2020/06/30/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%85%AD)%E6%A1%8C%E9%9D%A2%E7%9B%B4%E6%92%AD+%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB+%E6%80%BB%E7%BB%93(ffmpeg,jsmpeg,jquery.facedetection)/index.html",
-    "headline": "Web编程大作业(六)桌面直播+人脸识别+总结(ffmpeg,jsmpeg,jquery.facedetection)",
-    "datePublished": "Tue Jun 30 2020 19:15:58 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",nodejs,web",
-    "description": "",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -413,6 +378,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,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">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

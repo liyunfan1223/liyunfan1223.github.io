@@ -254,41 +254,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2020/05/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E4%B8%80%E4%B8%AA%E6%B5%81%E6%B0%B4%E8%B4%A6%E5%BC%8F%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8B%EF%BC%89/index.html",
-    "headline": "一个nodejs爬虫项目介绍（下）",
-    "datePublished": "Fri May 01 2020 20:57:20 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",nodejs,web",
-    "description": "好像不管怎么写都没法摆脱它流水账的本质，所以，我摊牌了。",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -413,6 +378,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,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">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->

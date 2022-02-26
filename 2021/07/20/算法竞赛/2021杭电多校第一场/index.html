@@ -260,44 +260,6 @@
 
     <!-- Structured-data for SEO -->
     
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://example.com/2021/07/20/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/index.html",
-    "headline": "2021杭电多校第一场",
-    "datePublished": "Tue Jul 20 2021 22:48:29 GMT+0800",
-    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "MorphLing",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon_io/android-chrome-512x512.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "MorphLing&#39;s Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon_io_c/android-chrome-512x512.png"
-        }
-    },
-    "keywords": ",XCPC,多校,分块,莫队",
-    "description": "06. Xor sum07. Pass!09. KD-Graph10. zoto题意：给出一个序列，离线查询m个区间$[l_i,r_i]$中，在数值区间$[d_i,u_i]$中有多少个不同的数，n=1e5
-首先考虑在数值区间上维护问题，也就是维护一个支持单点修改和区间查询的数据结构，很容易想到用线段树之类的方法实现$O(\log n)$的修改和查询
-离线查询若干个区间，可以再想到莫队算法，每次修改复杂度$O(\sqrt n)$​，查询$O(1)$​，将上述两种结构合并后发现，修改复杂度达到了$O(\sqrt n\log n)$​，显然超时
-于是为了使总复杂度限制在$O(n\sqrt n)$​，需要在数值区间上维护一个$O(1)$​修改，$O(\sqrt n)$​查询的做法，这个方法就是分块，维护$num[i]$记录数i出现的次数，$sum[i]$​记录第i个块中不同数的个数，两者合并起来刚好是$O(n\sqrt n)$",
-}
-</script>
-
-
-    
 
     <!-- Analytics -->
     
@@ -422,6 +384,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE0UlEQVR42u3aQZLbMAwEQP//08kDEjkzAOk4qebJtStLZPNgaMDXD2MxXgjw4cOHz8CHDx8+Ax++f4TvFY9fv/WbWz9cmdzn6crkmqcnvp/hcO348OHDhw/fmu8PP9Ul3xNB+99TWMnGFGvHhw8fPnz4DvHlpcP7BSTly6YkSgqgBLpdOz58+PDhw/d3+VqOWaDQxhPtpuLDhw8fPnzfz5fjtqHAjZggiQPw4cOHDx++z/Plj9lE+ZuG9yyMyEuf670OfPjw4cOHrywg/r/PBw6o4cOHDx8+fDFfOzZRwqywmEUDs+NokQA+fPjw4cO34Mt/yN+Dbprcs7C+DQ6OrRcfPnz48OFb8+WL3x9EO1A6lI38WasAHz58+PDhu8GXtLqTyc0a221JkVzfgtaHAPDhw4cPH74FX3u8LIkPkrvtmwTtfNow4vEafPjw4cOHb8E3I5gVGW2h8HT9rHmwb+fjw4cPHz58p/huHLDOQ/xZW70tj9rIoChc8OHDhw8fvjIymJUa+cHrzUv+/v6zmCMqXPDhw4cPH74F36nD3O2y8ybBrNW9aorjw4cPHz58F/iSx8yg85C9bau3x9P3sQU+fPjw4cN3iq9dcHvwehYZ5EVSPp92Uw8kLvjw4cOHD18MMcPdhOlti30WW7Ttf3z48OHDh+8U3+aH/H2sMGtg54tPWvh7Ynz48OHDh+8GX1K+5AvIt2EWKOQN9QS0bd7jw4cPHz58Z/k2TeW2db2nb+OJA211fPjw4cOHb8E3e+XOm8qzwmW2+P2oIwN8+PDhw4dvxJeUIEkrfRO+t0D59uTlDj58+PDhw3eb71Q7/BR6EknMIoP2WY8y+PDhw4cP34JvU7jky9jE7u1sNxscXYkPHz58+PAt+PKJtsT5tNqwPokn2u0/fMoAHz58+PDhCwqXJCxIypccvQ0ITrXt203Fhw8fPnz4TvHNQvbZBmzuX0fqn+x14MOHDx8+fKM2eTL1ZLptmD5rEswC/QQIHz58+PDhu803g2sLmtnL/Gy2bYFVtATw4cOHDx++Bd/+wFZ7fV5SbFr1m43Hhw8fPnz47vG9f82ePax9UU8a5LPipr1n1D7Hhw8fPnz4FnyzA9ktytnQv51n/t2oIMOHDx8+fPgWfLNgfX+8O9+S9gh4G0DU98GHDx8+fPjWfBvE95T55ySg3xyhmwX6+PDhw4cP322+PMRvp5jT5NyzteTlFz58+PDhw3eDL19Gu7C8TGn/krzqb8L6xxXhw4cPHz58h/iK1+bRFPPja+1mzJrr7fbjw4cPHz58Z/nyg1/5d/NoYPOqn2/DpuWPDx8+fPjw7flauFmgnxwvy1vjbXugfUoR1uPDhw8fPnyLNnnbfm4XlkcGsyAj36p8blFYjw8fPnz48MV87dGxPKxvS5+8rT4L7q+E9fjw4cOHD9+Iry1W2vIlb5wnz93ECgVTnrjgw4cPHz58I778B34W7ret9DZi2MT0xWzx4cOHDx++j/MlBU1euOwb8+1BtzYWwYcPHz58+L6ZLyka2rIjDy/aFdUHBfDhw4cPH75DfHnAPXvxzsuaG432vLi52CbHhw8fPnz4RhF2TjwrUFrE2V+SueHDhw8fPnxn+YxVZGDgw4cPn4EPHz58Bj583zV+AgnKtqSkuNrZAAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->
