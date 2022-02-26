@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Web编程大作业(三)在线聊天&amp;文件共享(nodejs-websocket+multer) | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",nodejs,web">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&amp;%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&amp;%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Web编程大作业(三)在线聊天&amp;文件共享(nodejs-websocket+multer) | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="nodejs"> <meta property="og:article:tag" content="web"> 
+
+    
+        <meta property="article:published_time" content="Sun Jun 21 2020 21:43:26 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 18:21:01 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/index.html",
+    "headline": "Web编程大作业(三)在线聊天&文件共享(nodejs-websocket+multer)",
+    "datePublished": "Sun Jun 21 2020 21:43:26 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar/apple-touch-icon.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",nodejs,web",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B3%E4%BA%8Ewebsocket"><span class="post-toc-text">关于websocket</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8nodejs-websocket%E6%90%AD%E5%BB%BAwebsocket%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-text">利用nodejs-websocket搭建websocket服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">在线聊天功能实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">文件共享功能实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93%E5%92%8C%E4%B8%80%E7%82%B9%E9%97%AE%E9%A2%98"><span class="post-toc-text">总结和一点问题(?)</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Web编程大作业(三)在线聊天&文件共享(nodejs-websocket+multer)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar/apple-touch-icon.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>6月 21, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/web/" rel="tag">web</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Web编程大作业(三)在线聊天&amp;文件共享(nodejs-websocket+multer)&url=http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&amp;%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Web编程大作业(三)在线聊天&amp;文件共享(nodejs-websocket+multer)&url=http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&amp;%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&amp;%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%B8%89)%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9&amp;%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB(nodejs-websocket+multer)/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><br><br><span id="more"></span></p>
+<h2 id="关于websocket"><a href="#关于websocket" class="headerlink" title="关于websocket"></a>关于websocket</h2><p>相对于http的单向发送（只能由客户端主动发起请求），websocket的特点是实现了双向传输，即后端也可以随时向前端传输数据。一个典型的应用就是在线聊天室。</p>
+<pre><code>某客户端向websocket服务器发送的数据（发送聊天内容）--&gt;websocket服务器收到请求--&gt;服务器主动向每个连接websocket的客户端广播信息（客户端收到聊天内容）
+</code></pre><p>Websocket的传输内容只有字符串或者类似的数据类型，因此通常用JSON.stringify()将对象字符串化后传输，并用JSON.parse()将字符串转化成对象，实现发送对象型的数据</p>
+<h2 id="利用nodejs-websocket搭建websocket服务器"><a href="#利用nodejs-websocket搭建websocket服务器" class="headerlink" title="利用nodejs-websocket搭建websocket服务器"></a>利用nodejs-websocket搭建websocket服务器</h2><p>我们在启动网站服务器的同时启动websocket服务器。为了避免端口冲突，将网站服务器端口设置为3000，websocket服务器端口设置为3010。当然，需要的话也可以同时搭建多个websocket server(ws)。服务器搭建方法应该有很多，这里用的是nodejs-websocket</p>
+<pre><code class="lang-javascript">//引入nodejs-websocket
+var ws=require(&#39;nodejs-websocket&#39;);
+//设置端口
+const PORT=3010;
+console.log(&quot;websocket服务器端口: &quot; + PORT);
+var clientCount = 0;
+var wsserver = ws.createServer(function(conn) &#123;
+    //客户端首次连接服务器
+    console.log(&quot;连接已建立~&quot;)
+    clientCount++;
+    //接收到了客户端发送的数据
+    conn.on(&quot;text&quot;, function(str) &#123;
+        console.log(str);
+        //将str对象化
+        str=JSON.parse(str);
+        //根据请求类型，分类处理
+        if (str.type==&#39;message&#39;)
+        &#123;
+            let text=str.text;
+            let username=conn.nickname;
+            console.log(&quot;收到消息： &quot; + text);
+            let mes = &#123;&#125;;
+            mes.type = &quot;message&quot;;
+            mes.data = username + &#39; : &#39; + text;
+            mes.logintype=conn.logintype;
+            broadcast(JSON.stringify(mes));
+        &#125;
+        if (str.type==&#39;connect&#39;)
+        &#123;
+            conn.nickname=str.text;
+            conn.logintype=str.logintype;
+            let mes=&#123;&#125;;
+            mes.type=&quot;enter&quot;;
+            mes.data=conn.nickname+&quot;已加入~&quot;;
+            broadcast(JSON.stringify(mes));
+        &#125;
+        if (str.type==&#39;upload&#39;)
+        &#123;
+            let mes=&#123;&#125;;
+            mes.type=&quot;upload_message&quot;;
+            mes.data=&quot;文件已上传：&quot;+str.text;
+            broadcast(JSON.stringify(mes));
+            mes=&#123;&#125;;
+            mes.type=&#39;upload&#39;;
+            mes.data=str.text;
+            broadcast(JSON.stringify(mes));
+        &#125;
+    &#125;)
+    //客户端连接中止
+    conn.on(&quot;close&quot;, function(code, reason) &#123;
+        console.log(&quot;连接关闭~&quot;);
+        let mes = &#123;&#125;;
+        mes.type = &quot;leave&quot;;
+        mes.data = conn.nickname + &#39; 已离开&#39;
+        broadcast(JSON.stringify(mes));
+    &#125;)
+    conn.on(&quot;error&quot;, function(err) &#123;
+        // console.log(&quot;handle err&quot;);
+        // console.log(err);
+    &#125;)
+&#125;);
+//对每个连接的客户端发送请求，即广播
+function broadcast(str) &#123;
+    wsserver.connections.forEach(function(connection) &#123;
+        connection.sendText(str);
+    &#125;)
+&#125;
+
+module.exports=wsserver;
+</code></pre>
+<p>将该文件保存为CtreatewsServer.js，并在app.js中将其作为模块引入，设置端口为3010。</p>
+<pre><code class="lang-javascript">var wsserver = require(&#39;./public/javascripts/CreatewsServer.js&#39;);
+wsserver.listen(3010);
+</code></pre>
+<p>运行app.js<br><img src="https://img-blog.csdnimg.cn/20200621214155713.png" alt="在这里插入图片描述"></p>
+<h2 id="在线聊天功能实现"><a href="#在线聊天功能实现" class="headerlink" title="在线聊天功能实现"></a>在线聊天功能实现</h2><p>可以先看一段小对话<br><img src="https://img-blog.csdnimg.cn/20200621214209532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>初次连接：用户根据本地cookie，向ws发送类型为’connect’的信息，告知客户端该用户的名称和身份。ws客户端记录信息，并广播发送“xxx已加入”的信息。<br><img src="https://img-blog.csdnimg.cn/20200621214217580.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>用户发送信息：用户向ws发送类型为’message’的信息，ws客户端直接将信息内容和用户名、身份一起广播，用户收到信息后，根据身份设置不同的字体颜色。<br><img src="https://img-blog.csdnimg.cn/20200621214224251.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>用户离开：ws客户端接收到连接断开，将断开用户的信息进行广播</p>
+<p>一些比较重要的代码：</p>
+<ol>
+<li><p>用户与ws建立新的连接。</p>
+<pre><code class="lang-javascript">var websocket = new WebSocket(&quot;ws://&quot;+window.location.hostname+&quot;:3010&quot;);
+</code></pre>
+<p>如果只是与本地的ws连接url用”ws://localhost:3010”就可以，但是一旦通过其他设备访问，ip地址可能是动态的，localhost就连不到ws服务器了，因此要用window.location.hostname捕获到当前的ip地址。</p>
+</li>
+<li><p>获取某个cookie的值</p>
+<pre><code class="lang-javascript">function getCookie(cookieName) &#123;
+ var strCookie = document.cookie;
+ var arrCookie = strCookie.split(&quot;; &quot;);
+ for(var i = 0; i &lt; arrCookie.length; i++)&#123;
+     var arr = arrCookie[i].split(&quot;=&quot;);
+     if(cookieName == arr[0])&#123;
+         return arr[1];
+     &#125;
+ &#125;
+ return &quot;&quot;;
+&#125;
+</code></pre>
+<p>document.cookie只能得到一串含有cookie值的字符串.<br><img src="https://img-blog.csdnimg.cn/20200621214231237.png" alt="在这里插入图片描述"><br>因此要用字符串操作来获取某个cookie值。把这个字符串操作做成一个函数getCookie便于使用。</p>
+</li>
+<li><p>用户向ws发送信息</p>
+<pre><code class="lang-javascript">let param=&#123;
+ text:getCookie(&#39;username&#39;),
+ logintype:getCookie(&#39;loginType&#39;),
+ type:&#39;connect&#39;
+&#125;
+websocket.send(JSON.stringify(param));
+</code></pre>
+<p>因为只能发送字符串数据，所以必须用JSON.stringify()先将对象转化成字符串，并在ws中用JSON.parse()重新转为一个对象</p>
+</li>
+<li><p>接受ws信息，在页面中呈现</p>
+<pre><code class="lang-javascript">websocket.onmessage = function(e) &#123;
+ var mes = JSON.parse(e.data);
+ showMessage(mes.data, mes.type,mes.logintype);
+&#125;
+function showMessage(str, type , logintype) &#123;
+ var div = document.createElement(&#39;div&#39;);
+ if (type == &quot;enter&quot;) &#123;
+     div.style.color = &quot;red&quot;;
+ &#125; else if (type == &quot;message&quot;) &#123;
+     if (logintype==&#39;0&#39;)
+         div.style.color = &quot;black&quot;;
+     else
+         div.style.color = &quot;blue&quot;;
+ &#125; else if (type == &quot;leave&quot;) &#123;
+     div.style.color = &quot;green&quot;;
+ &#125; else if (type== &quot;upload_message&quot;)&#123;
+     div.style.color = &quot;black&quot;;
+     div.style.fontSize=&quot;large&quot;;
+ &#125;
+ div.innerHTML = str;
+ var chat=document.getElementById(&quot;chat&quot;);
+ chat.appendChild(div);
+&#125;
+</code></pre>
+<p>同样先要将信息从字符串转化为对象。之后用document.createElement()创建html元素，填充信息内容，设置样式，并将该html元素加入页面。</p>
+</li>
+</ol>
+<h2 id="文件共享功能实现"><a href="#文件共享功能实现" class="headerlink" title="文件共享功能实现"></a>文件共享功能实现</h2><p>这个功能大概是这样的<br><img src="https://img-blog.csdnimg.cn/20200621214238292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200621214254669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>教师用户有权限上传文件，学生用户只有下载权限（不显示提交文件的按钮）。下载文件列表中是\<a>元素，点击后直接开始下载文件。</p>
+<p>实现这个功能需要使用multer来进行文件传输，因为websocket本身只能发送字符串（或类似结构的数据），不能直接通过发送文件。因此只能够做到将下载链接进行共享，最终文件共享是由express实现的。所以实现逻辑：</p>
+<pre><code>step1:教师用户上传文件至网站服务器
+step2:websocket同步广播对应url
+step3:其他用户点击链接发送get请求
+step4:express后端发送下载响应
+</code></pre><p>step1:教师用户上传文件至网站服务器</p>
+<p>传输文件时前端的表单要将enctype设置为”multipart/form-data”</p>
+<pre><code class="lang-html">&lt;form  method=&quot;post&quot; id=&quot;uploadform&quot; enctype=&quot;multipart/form-data&quot; target=&quot;hiddenIFrame&quot;&gt;
+    &lt;input type=&quot;file&quot; name=&quot;file1&quot; id=&#39;uploadfile&#39; oninput=&quot;input_update()&quot;&gt;&lt;br&gt;
+    &lt;button id=&quot;upload&quot; type=&quot;submit&quot; onclick=&quot;click_update()&quot; disabled=&#39;disabled&#39;&gt;上传文件&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p>设置后端，通过fs.rename将文件重命名</p>
+<pre><code class="lang-javascript">var multer = require(&#39;multer&#39;);
+var fs= require(&#39;fs&#39;);
+//文件保存路径
+var upload = multer(&#123;dest:&#39;public/static/&#39;&#125;);
+router.post(&#39;/class&#39;,upload.any(),function(req,res,next)&#123;
+    var now=req.files[0];
+    fs.rename(now.path,now.destination+now.originalname,function(err)&#123;
+        if (err)&#123;
+            throw err;
+        &#125;
+    &#125;);
+    res.send(&#39;ok&#39;);
+&#125;)
+</code></pre>
+<p>step2:websocket同步广播对应url（对应CreatewsServer.js中对’upload’类型信息的处理）</p>
+<pre><code class="lang-html">&lt;script&gt;
+    function click_update()&#123;
+        var e=$(&#39;#uploadfile&#39;).get(0).files[0];
+        if (e!=undefined)
+        &#123;
+            console.log(e.name);
+            let param=&#123;
+                text:e.name,
+                type:&#39;upload&#39;
+            &#125;;
+            websocket.send(JSON.stringify(param));
+         &#125;
+    &#125;;
+&lt;/script&gt;
+&lt;script&gt;
+function showMessage(str, type ,logintype) &#123;
+if (type==&#39;upload&#39;)&#123;
+     var file=document.getElementById(&quot;list&quot;);
+     var a=document.createElement(&#39;a&#39;);
+     a.setAttribute(&#39;href&#39;,&#39;/class/download?name=&#39;+str);
+     a.innerHTML=str;
+     var div=document.createElement(&#39;div&#39;);
+     div.appendChild(a);
+     file.appendChild(div);
+&#125;
+&#125;
+&lt;/script&gt;
+</code></pre>
+<p>step3:其他用户点击链接发送get请求</p>
+<p>step4:express后端发送下载响应</p>
+<pre><code class="lang-javascript">router.get(&#39;/class/download&#39;,function(req,res,next)&#123;
+    var par=req.query;
+    res.download(&#39;public/static/&#39;+par.name)
+&#125;)
+</code></pre>
+<h2 id="总结和一点问题"><a href="#总结和一点问题" class="headerlink" title="总结和一点问题(?)"></a>总结和一点问题(?)</h2><p>写着写着发现很多代码已经糅合在一起了。。比如说一些前端和后端的代码就很难分离开来了。。尤其是在处理前端和websocket server时，我目前的写法都是让前端页面直接与ws对话，所以一旦遇到一些需要后端数据的websocket操作，就会感觉写的很难受，</p>
+<p>比如一开始写发送文件的逻辑是：</p>
+<pre><code>前端发送文件--&gt;后端接受文件--&gt;后端返回文件名和路径响应--&gt;将响应直接传给websocket server--&gt;发送广播
+</code></pre><p>但是发现我没办法让后端和websocket直接对话，于是只能让前端同时发送两份请求，一份给后端，一份给ws，虽然避开了后端与ws的对话，但是这就必须提前规定好文件的命名和路径，而且无法捕获到后端可能出现的error之类的。</p>
+<p>可能说的有点乱，毕竟我代码写的更乱。。总之就是感觉，如果现在要往网站里加更多功能其实也没问题，但就是会越写越乱。所以如果要从代码结构清晰，MVC或者MVP模式层次分明的角度来说的话，写代码可能就是一件永无止境的事了。。可能还是我太菜了</p>
+<p>前几天还读了一下老师项目一的示例代码，用了一些angular的功能来写前端，主体应该还是express，再加上bootstrap写了一些前端样式。感觉就是代码结构很清楚，特别是通过angular作为前端和后端的中间层，来处理各种请求和响应的时候。但是自己写angular的时候就总是出一些莫名其妙的错误半天还调不出来，emmmm，还是要多写。</p>
+<p>最后今天本来想加一点bootstrap样式的，但是感觉代码结构很乱，在这个代码的基础上再去写样式就会变得更乱。。或者根本就写不清楚。。所以可能还得把目前做的东西推倒重来一次，先写样式再把内容填进去</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E5%9B%9B)%E9%AB%98%E6%B8%85%E9%87%8D%E5%88%B6+%E5%9C%A8%E7%BA%BF%E6%B5%8B%E9%AA%8C+%E7%83%AD%E7%82%B9%E5%B9%BF%E6%92%AD(angular%E6%A1%86%E6%9E%B6,websocket,%E6%A0%91%E8%8E%93%E6%B4%BE)/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/Web%E7%BC%96%E7%A8%8B%E5%A4%A7%E4%BD%9C%E4%B8%9A(%E4%BA%8C)%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C&%E7%99%BB%E5%BD%95%E7%B3%BB%E7%BB%9F(express+MySQL)/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar/apple-touch-icon.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">23</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

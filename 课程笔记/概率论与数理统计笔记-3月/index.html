@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            概率论与数理统计笔记 - 3月 | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",概统">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0-3%E6%9C%88/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0-3%E6%9C%88/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="概率论与数理统计笔记 - 3月 | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="概统"> 
+
+    
+        <meta property="article:published_time" content="Sat Mar 20 2021 11:06:45 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 18:13:37 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0-3%E6%9C%88/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0-3%E6%9C%88/index.html",
+    "headline": "概率论与数理统计笔记 - 3月",
+    "datePublished": "Sat Mar 20 2021 11:06:45 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 18:13:37 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar/apple-touch-icon.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",概统",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-01"><span class="post-toc-text">2021.03.01</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6"><span class="post-toc-text">随机事件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%85%B3%E7%B3%BB"><span class="post-toc-text">事件关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8B%E4%BB%B6%E9%97%B4%E8%BF%90%E7%AE%97"><span class="post-toc-text">事件间运算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%90%E7%AE%97%E5%BE%8B"><span class="post-toc-text">运算律</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%B7%E6%9C%AC%E7%A9%BA%E9%97%B4%EF%BC%88sample-space%EF%BC%89"><span class="post-toc-text">样本空间（sample space）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%9F%9F"><span class="post-toc-text">事件域</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-05"><span class="post-toc-text">2021.03.05</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A6%82%E7%8E%87%E6%80%A7%E8%B4%A8"><span class="post-toc-text">概率性质</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%80%9C%E4%B8%89%E5%A4%A7%E2%80%9D%E5%85%AC%E5%BC%8F"><span class="post-toc-text">“三大”公式</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-08"><span class="post-toc-text">2021.03.08</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BD%90%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">罐子模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="post-toc-text">独立性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9D%A1%E4%BB%B6%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="post-toc-text">条件独立性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="post-toc-text">随机变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%B4%AF%E7%A7%AF%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="post-toc-text">累积分布函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%86%E5%B8%83%E5%88%97-%E6%A6%82%E7%8E%87%E8%B4%A8%E9%87%8F%E5%87%BD%E6%95%B0PMF"><span class="post-toc-text">分布列&#x2F;概率质量函数PMF</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-12"><span class="post-toc-text">2021.03.12</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83-b-n-p"><span class="post-toc-text">二项分布$b(n,p)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E7%82%B9%E5%88%86%E5%B8%83-b-1-p"><span class="post-toc-text">二点分布$b(1,p)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83-X-sim-Ge-p"><span class="post-toc-text">几何分布$X\sim Ge(p)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B4%9F%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83-X-sim-Nb-r-p"><span class="post-toc-text">负二项分布$X\sim Nb(r,p)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83"><span class="post-toc-text">泊松分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0-p-x"><span class="post-toc-text">概率密度函数$p(x)$</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-15"><span class="post-toc-text">2021.03.15</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0-p-x-1"><span class="post-toc-text">概率密度函数$p(x)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83-X-sim-U-a-b"><span class="post-toc-text">均匀分布$X\sim U(a,b)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A6%BB%E6%95%A3%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%92%8C%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">离散随机变量和连续随机变量的区别?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83-%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83-X-sim-N-mu-sigma-2"><span class="post-toc-text">正态分布&#x2F;高斯分布$X\sim N(\mu, \sigma^2)$</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-19"><span class="post-toc-text">2021.03.19</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BF%9E%E7%BB%AD%E5%88%86%E5%B8%83"><span class="post-toc-text">常见的连续分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83-X-sim-Exp-lambda"><span class="post-toc-text">指数分布$X\sim Exp(\lambda)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BC%BD%E9%A9%AC%E5%88%86%E5%B8%83-X-sim-Ga-alpha-lambda"><span class="post-toc-text">伽马分布$X\sim Ga(\alpha, \lambda)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B4%9D%E5%A1%94%E5%88%86%E5%B8%83-Be-a-b"><span class="post-toc-text">贝塔分布$Be(a,b)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%9B"><span class="post-toc-text">数学期望</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-22"><span class="post-toc-text">2021.03.22</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%9B-1"><span class="post-toc-text">数学期望</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%B9%E5%B7%AEVariance"><span class="post-toc-text">方差Variance</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%87%E5%87%86%E5%B7%AE-sigma-X"><span class="post-toc-text">标准差$\sigma(X)$</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="post-toc-text">切比雪夫不等式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9F%A9"><span class="post-toc-text">矩</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BC%BD%E9%A9%AC%E5%88%86%E5%B8%83%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE"><span class="post-toc-text">伽马分布期望和方差</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84k%E9%98%B6%E7%9F%A9"><span class="post-toc-text">正态分布的k阶矩</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%98%E5%BC%82%E7%B3%BB%E6%95%B0"><span class="post-toc-text">变异系数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%81%8F%E5%BA%A6%E7%B3%BB%E6%95%B0"><span class="post-toc-text">偏度系数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-29"><span class="post-toc-text">2021.03.29</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B3%B0%E5%BA%A6%E7%B3%BB%E6%95%B0"><span class="post-toc-text">峰度系数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%86%E4%BD%8D%E6%95%B0"><span class="post-toc-text">分位数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="post-toc-text">随机变量函数的分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#g-x-%E4%B8%BA%E4%B8%A5%E6%A0%BC%E5%8D%95%E8%B0%83%E5%87%BD%E6%95%B0"><span class="post-toc-text">$g(x)$为严格单调函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%B3%95"><span class="post-toc-text">蒙特卡洛法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2021-03-31"><span class="post-toc-text">2021.03.31</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#g-x-%E4%B8%BA%E5%85%B6%E4%BB%96%E5%BD%A2%E5%BC%8F"><span class="post-toc-text">$g(x)$为其他形式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83"><span class="post-toc-text">卡方分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%9A%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="post-toc-text">多维随机变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%81%94%E5%90%88%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0-joint-c-d-f"><span class="post-toc-text">联合分布函数(joint c.d.f)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BE%B9%E9%99%85%E5%88%86%E5%B8%83"><span class="post-toc-text">边际分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%81%94%E5%90%88%E5%88%86%E5%B8%83%E5%88%97"><span class="post-toc-text">联合分布列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%81%94%E5%90%88%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="post-toc-text">联合密度函数</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                概率论与数理统计笔记 - 3月
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar/apple-touch-icon.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>3月 20, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/%E6%A6%82%E7%BB%9F/" rel="tag">概统</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=概率论与数理统计笔记 - 3月&url=http://example.com/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0-3%E6%9C%88/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=概率论与数理统计笔记 - 3月&url=http://example.com/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0-3%E6%9C%88/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0-3%E6%9C%88/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0-3%E6%9C%88/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><br></p>
+<span id="more"></span>
+<h1 id="2021-03-01"><a href="#2021-03-01" class="headerlink" title="2021.03.01"></a>2021.03.01</h1><ul>
+<li>离散样本空间（可数集）——有限/可列集</li>
+<li>连续样本空间（不可数集）——不可数集</li>
+</ul>
+<h2 id="随机事件"><a href="#随机事件" class="headerlink" title="随机事件"></a><strong>随机事件</strong></h2><ul>
+<li>基本事件</li>
+<li>必然事件</li>
+<li>不可能事件</li>
+</ul>
+<h2 id="事件关系"><a href="#事件关系" class="headerlink" title="事件关系"></a><strong>事件关系</strong></h2><ul>
+<li>$A\subset B$</li>
+<li>$A=B$</li>
+<li>$A\bigcap B=\emptyset$ A与B不可能同时发生</li>
+</ul>
+<h2 id="事件间运算"><a href="#事件间运算" class="headerlink" title="事件间运算"></a><strong>事件间运算</strong></h2><p>略</p>
+<h2 id="运算律"><a href="#运算律" class="headerlink" title="运算律"></a><strong>运算律</strong></h2><ul>
+<li>交换律</li>
+<li>结合律</li>
+<li>分配律</li>
+<li>对偶律（类似德摩根律）</li>
+</ul>
+<h2 id="样本空间（sample-space）"><a href="#样本空间（sample-space）" class="headerlink" title="样本空间（sample space）"></a><strong>样本空间（sample space）</strong></h2><p>实验的一切可能基本结果组成的集合$\Omega$</p>
+<h2 id="事件域"><a href="#事件域" class="headerlink" title="事件域"></a><strong>事件域</strong></h2><p>事件域的元素应该包括样本空间和空集；其次应该保证事件经过并、交、差、对立各种运算后仍然是事件，即其对集合的运算有封闭性。——百度百科</p>
+<p>设$\Omega$为样本空间，$F$是由$\Omega$的子集组成的集合类，若$F$满足以下三点：</p>
+<ol>
+<li>$\Omega \in F$</li>
+<li>若$A\in F$，则$\overline{A}\in F$</li>
+<li>若$A <em> n\in F$，n=1,2…， 则$\bigcup\limits </em>  {n=1}^{+\infty}A _ n\in F$</li>
+</ol>
+<p>则称$F$为Borel事件域，或$\sigma$事件域或$\sigma$代数</p>
+<h1 id="2021-03-05"><a href="#2021-03-05" class="headerlink" title="2021.03.05"></a>2021.03.05</h1><h2 id="概率性质"><a href="#概率性质" class="headerlink" title="概率性质"></a>概率性质</h2><ol>
+<li><p>不可能事件概率为0 $P(\emptyset)=0$</p>
+</li>
+<li><p>有限可加性 若$A<em>iA_j=\emptyset(1\le i\ne j \le n)$，则$P(\bigcup</em>\limits{i=1}^nA<em>i)=\sum</em>\limits{i=1}^nP(A_i)$</p>
+</li>
+<li><p>$P(\overline{A})=1-P(A)$</p>
+</li>
+<li><p>若$A\supset B$，则$P(A-B)=P(A)-P(B)$</p>
+<ul>
+<li><p>推论1 $P(A-B)=P(A)-P(AB)$</p>
+</li>
+<li><p>推论2 若$A\supset B$，则$P(A)\ge P(B)$</p>
+</li>
+</ul>
+</li>
+<li><p>$P(A\bigcup B)=P(A)+P(B)-P(AB)$</p>
+</li>
+<li><p>下连续性 $\lim<em>\limits{n\rightarrow \infty}P(A_n)=P(\lim\limits</em>{n\rightarrow \infty}A<em>n)$ 其中$\lim</em>\limits{n\rightarrow \infty}A<em>n=\bigcup</em>\limits{n=1}^{+\infty}A_n$</p>
+</li>
+<li><p>上连续性</p>
+</li>
+</ol>
+<h2 id="“三大”公式"><a href="#“三大”公式" class="headerlink" title="“三大”公式"></a>“三大”公式</h2><ol>
+<li>乘法公式 $P(AB)=P(B)P(A|B)$</li>
+<li>全概率公式 $P(A)=\sum_\limits{i=1}^{+\infty }P(B_i)P(A|B_i)$</li>
+<li>贝叶斯公式 $P(B|A)=\frac{P(AB)}{P(A)}=\frac{P(B)P(A|B)}{P(B)P(A|B)+P(\overline{B})P(A|\overline{B})}$</li>
+</ol>
+<h1 id="2021-03-08"><a href="#2021-03-08" class="headerlink" title="2021.03.08"></a>2021.03.08</h1><h2 id="罐子模型"><a href="#罐子模型" class="headerlink" title="罐子模型"></a>罐子模型</h2><p>$A_1$第一个人抽中红球 $A_2$第二个人抽中红球</p>
+<ul>
+<li>有放回 独立性</li>
+<li>无放回 非独立性</li>
+</ul>
+<h2 id="独立性"><a href="#独立性" class="headerlink" title="独立性"></a>独立性</h2><p>独立：$P(AB)=P(A)P(B)$</p>
+<p>性质：若$A$与$B$独立，则$A与\overline{B}$，$\overline{A}与B$，$\overline{A}与\overline{B}$独立</p>
+<ul>
+<li>两两独立</li>
+<li>相互独立</li>
+</ul>
+<p>性质：若A、B、C相互独立，则$A\cup B$与$C$相互独立</p>
+<p>证明：$P((A\cup B)\cap C)=P(A\cup B)P(C)$</p>
+<p>$P((A\cup B)\cap C)=P((A\cap C)\cup(B\cap C))=P(AC)+P(BC)-P(AC\cap BC)$</p>
+<p>$=P(A)P(C)+P(B)P(C)-P(A)P(B)P(C)=[P(A)+P(B)-P(A)P(B)]P(C)=P(A\cup B)P(C)$</p>
+<h2 id="条件独立性"><a href="#条件独立性" class="headerlink" title="条件独立性"></a>条件独立性</h2><p>$P(A_1\cap A_2|B)=P(A_1|B)P(A_2|B)$</p>
+<h2 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h2><p>样本空间$\Omega \rightarrow 实数域$（实值函数）</p>
+<p>通常用大写$X=X(\omega)$表示随机变量，小写字母表示其取值</p>
+<p>$P(X=1)\leftarrow P({\omega|X(\omega=1)})$</p>
+<p><strong>变量 vs 随机变量</strong></p>
+<p>变量：未知的确定性的数</p>
+<p>随机变量：取值随机的变量</p>
+<h2 id="累积分布函数"><a href="#累积分布函数" class="headerlink" title="累积分布函数"></a>累积分布函数</h2><p>定义$F(x)=P(X\le x)$为累积分布函数</p>
+<p>$P(a&lt;x\le b)=P(X\le b) - P(X\le a)=F(b)-F(a)$</p>
+<p>$F(x)$性质</p>
+<ul>
+<li>单调性</li>
+<li>有界性</li>
+<li>右连续性</li>
+</ul>
+<p>同时以上三个性质是判断函数是否为某个随机变量分布函数的充要条件</p>
+<p>例：柯西分布$F(x)=\frac{1}{\pi}(\arctan x + \frac{\pi}{2})$</p>
+<h2 id="分布列-概率质量函数PMF"><a href="#分布列-概率质量函数PMF" class="headerlink" title="分布列/概率质量函数PMF"></a>分布列/概率质量函数PMF</h2><p>性质：</p>
+<ul>
+<li>非负性</li>
+<li>正则性</li>
+</ul>
+<p>同样可以作为判断PMF函数的充要条件</p>
+<h1 id="2021-03-12"><a href="#2021-03-12" class="headerlink" title="2021.03.12"></a>2021.03.12</h1><h2 id="二项分布-b-n-p"><a href="#二项分布-b-n-p" class="headerlink" title="二项分布$b(n,p)$"></a>二项分布$b(n,p)$</h2><p>X为n重伯努利试验中成功的次数</p>
+<p>分布列：$P(X=k)=C_n^kp^k(1-p)^{n-k}$</p>
+<h2 id="二点分布-b-1-p"><a href="#二点分布-b-1-p" class="headerlink" title="二点分布$b(1,p)$"></a>二点分布$b(1,p)$</h2><p>二点分布/0-1分布/伯努利分布</p>
+<p>分布列：$P(X=x)=p^x(1-p)^{1-x}$</p>
+<h2 id="几何分布-X-sim-Ge-p"><a href="#几何分布-X-sim-Ge-p" class="headerlink" title="几何分布$X\sim Ge(p)$"></a>几何分布$X\sim Ge(p)$</h2><p>X为事件A首次出现时的试验次数</p>
+<p>分布列：$P(X=k)(1-p)^{k-1}p$</p>
+<p><strong>几何分布的无记忆性：</strong>$P(X&gt;m+n\mid X&gt;m)=\frac{P(X&gt;m+n)}{P(X&gt;m)}=\frac{(1-p)^{m+n}}{(1-p)^m}=(1-p)^n=P(X&gt;n)$</p>
+<h2 id="负二项分布-X-sim-Nb-r-p"><a href="#负二项分布-X-sim-Nb-r-p" class="headerlink" title="负二项分布$X\sim Nb(r,p)$"></a>负二项分布$X\sim Nb(r,p)$</h2><p>X为事件A第r次出现时的试验次数</p>
+<p>若$X_i\sim Ge(p)$，此时有$X=X_1+X_2+…+X_r\sim Nb(r,p)$</p>
+<h2 id="泊松分布"><a href="#泊松分布" class="headerlink" title="泊松分布"></a>泊松分布</h2><p>分布列：$P(X=k)\frac{\lambda^k}{k!}e^{-\lambda},k=0,1,2,…,$</p>
+<p>其和为1：$\sum\limits<em>{k=0}^\infty \frac{\lambda^k}{k!}e^{-\lambda}=e^{-\lambda}\sum\limits</em>{k=0}^\infty\frac{\lambda^k}{k!}=e^{-\lambda}e^\lambda=1$（泰勒展开）</p>
+<p><strong>泊松定理：</strong>在n重伯努利试验中，记事件A在一次试验中发生的概率为$p_n$（与试验次数n有关），如果当$n\rightarrow\infty$时，有$np_n\rightarrow\lambda$，则</p>
+<script type="math/tex; mode=display">
+\lim\limits_{n\rightarrow \infty}\tbinom{n}{k}p_n^k(1-p_n)^{n-k}=\frac{\lambda^k}{k!}e^{-\lambda}</script><p>即泊松分布可以作为二项分布的一种近似</p>
+<h2 id="概率密度函数-p-x"><a href="#概率密度函数-p-x" class="headerlink" title="概率密度函数$p(x)$"></a>概率密度函数$p(x)$</h2><p>概率密度函数$p(x)$虽不是概率，但乘微分元$dx$就可得小区间$(x,x+dx)$上概率的近似值，即$p(x)dx\approx P(x&lt;X&lt;x+dx)$</p>
+<p>特别，在$(-\infty,x]$上$p(x)$得积分就是分布函数$F(x)$，即$\int_{-\infty}^xp(t)dt=P(X\le x)=F(x)$</p>
+<p>$p(x)$称为$p.d.f$(probability density function)</p>
+<p>$F(x)$称为$c.d.f$</p>
+<p>连续随机变量$X$，概率密度函数$p(x)$，连续分布函数$F(x)$</p>
+<h1 id="2021-03-15"><a href="#2021-03-15" class="headerlink" title="2021.03.15"></a>2021.03.15</h1><h2 id="概率密度函数-p-x-1"><a href="#概率密度函数-p-x-1" class="headerlink" title="概率密度函数$p(x)$"></a>概率密度函数$p(x)$</h2><ol>
+<li>$p(x)$可积</li>
+<li>已知$p(x)$可推出$F(x)$，反之亦然</li>
+</ol>
+<p>理解：$F(x)=\int_{-\infty}^xp(t)dt\rightarrow p(x)=\frac{d}{dx}F(x)$</p>
+<p>性质：</p>
+<ul>
+<li>非负性</li>
+<li>正则性</li>
+</ul>
+<p>例：在(0,a)随机取一点把坐标记为X，</p>
+<h2 id="均匀分布-X-sim-U-a-b"><a href="#均匀分布-X-sim-U-a-b" class="headerlink" title="均匀分布$X\sim U(a,b)$"></a>均匀分布$X\sim U(a,b)$</h2><p>均匀分布：定义在$(a,b)$区间上的均匀分布的$r.v X$</p>
+<p>其p.d.f为</p>
+<script type="math/tex; mode=display">
+p(x)=
+\left\{
+\begin{array}{}
+\frac{1}{b-a},&a<x<b\\
+0,&其他
+\end{array}
+\right.</script><h2 id="离散随机变量和连续随机变量的区别"><a href="#离散随机变量和连续随机变量的区别" class="headerlink" title="离散随机变量和连续随机变量的区别?"></a>离散随机变量和连续随机变量的区别?</h2><p>或者说概率密度函数与分布列的区别（p65）</p>
+<ul>
+<li>离散的随机变量分布函数是阶梯状/右连续</li>
+</ul>
+<p>右连续性是因为：$F(x+\Delta x)-F(x)=\int_x^{x+\Delta x}p(x)dx\rightarrow 0(\Delta x \rightarrow 0)$</p>
+<ul>
+<li>离散随机变量X在其可能取值的点上概率不为0，而连续随机变量X在$(-\infty,\infty)$上任一点的$a$的概率恒为0</li>
+</ul>
+<p>这是因为：$P(X=a)=\int_a^ap(x)dx=0$</p>
+<p>这表明：不可能事件概率为0，但概率为0的事件不一定是不可能事件</p>
+<ul>
+<li><p>对于连续随机变量X，在事件${a\le X \le b}$中剔除$x=a$或$x=b$，不影响其概率</p>
+</li>
+<li><p>在若干点上改变密度函数$p(x)$的值并不影响其积分的值，从而不影响其分布函数$F(x)$的值，这意味着一个连续分布的概率函数不唯一</p>
+</li>
+</ul>
+<p>例如：</p>
+<script type="math/tex; mode=display">
+p_1(x)=\left\{
+\begin{array}{}
+1/a,&0\le x\le a \\
+0, &其他
+\end{array}
+\right.
+p_2(x)=\left\{
+\begin{array}{}
+1/a,&0< x< a \\
+0, &其他
+\end{array}
+\right.</script><p>$p_1(x)$与$p_2(x)$“几乎处处相等”，这两个函数在概率意义上是无差别的</p>
+<h2 id="正态分布-高斯分布-X-sim-N-mu-sigma-2"><a href="#正态分布-高斯分布-X-sim-N-mu-sigma-2" class="headerlink" title="正态分布/高斯分布$X\sim N(\mu, \sigma^2)$"></a>正态分布/高斯分布$X\sim N(\mu, \sigma^2)$</h2><p>$p(x)=\frac{1}{\sqrt{2\pi \sigma^2}}exp{-\frac{1}{2\sigma^2}(x-\mu)^2},-\infty&lt;x&lt;\infty$</p>
+<p>参数$\mu$位置参数，$\sigma$尺度参数</p>
+<p>标准正态分布：$\mu=0,\sigma=1$，记$u$表示标准正态分布随机变量，$u\sim N(0,1)$<br>通常，记标准正态分布的密度函数为$\phi(u)$，分布函数为$\Phi(u)$，即</p>
+<p>$\phi(u)=\frac{1}{2\pi}e^{-\frac{u^2}{2}},-\infty&lt;u&lt;\infty$</p>
+<p>$\Phi(u)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^ue^{-\frac{t^2}{2}}dt,-\infty&lt;u&lt;\infty$</p>
+<p>若$X\sim N(\mu,\sigma^2)$，则$X$与$u$的关系？</p>
+<p><strong>正态分布族：</strong>$\mathbb{P}={N(\mu,\sigma^2):-\infty&lt;\mu&lt;\infty, \sigma^2&gt;0}$</p>
+<p>定理：若$X\sim N(\mu,\sigma^2)$，$u=\frac{x-\mu}{\sigma}$，则$u\sim N(0,1)$</p>
+<p>证明见p97</p>
+<p>根据该定理可以得到计算公式</p>
+<script type="math/tex; mode=display">
+P(X\le c)=\Phi(\frac{c-\mu}{\sigma}))\\
+P(a<X\le b)=\Phi(\frac{b-\mu}{\sigma})-\Phi(\frac{a-\mu}{\sigma})</script><p><strong>3$\sigma$原则</strong></p>
+<script type="math/tex; mode=display">
+P(\mu-k\sigma<X<\mu+k\sigma)=P(|\frac{X-\mu}{\sigma}|<k)=\Phi(k)-\Phi(-k)=2\Phi(k)-1</script><h1 id="2021-03-19"><a href="#2021-03-19" class="headerlink" title="2021.03.19"></a>2021.03.19</h1><h2 id="常见的连续分布"><a href="#常见的连续分布" class="headerlink" title="常见的连续分布"></a>常见的连续分布</h2><ul>
+<li>均匀分布$X\sim U(a,b)$</li>
+<li>正态分布$X\sim N(\mu,\sigma^2)$</li>
+</ul>
+<h2 id="指数分布-X-sim-Exp-lambda"><a href="#指数分布-X-sim-Exp-lambda" class="headerlink" title="指数分布$X\sim Exp(\lambda)$"></a>指数分布$X\sim Exp(\lambda)$</h2><script type="math/tex; mode=display">
+p(x)=\left\{
+\begin{array}{}
+\lambda e^{-\lambda x},&x\ge0,\\
+0,&x<0
+\end{array}
+\right.</script><script type="math/tex; mode=display">
+F(x)=
+\left\{
+\begin{array}{}
+1-e^{-\lambda x},&x\ge 0\\
+0,&x<0
+\end{array}
+\right.</script><p>指数分布的无记忆性：$P(X&gt;s+t|X&gt;s)=P(X&gt;t)$</p>
+<p>泊松分布和指数分布的关系：当某事件再长为$t$的时间$[0,t]$发生次数$N(t)$服从参数为$\lambda t$的泊松分布，则相继两次故障之间的间隔$T$服从指数分布</p>
+<p>证：p102，事件${T\ge t}$说明此设备再$[0,t]$时间内没有发生故障，即${T\ge t}={N(t)=0}$，我们得，当$t<0$时$F_T(t)=P(T\le t)=0$，当$t\ge 0$时，有$F_T(t)=P(T\le t)=1-P(T>t)=1-(N(t)=0)=1-e^{-\lambda t}$</p>
+<p>泊松分布说明事件间隔为指数分布，指数分布可以刻画寿命（时间）</p>
+<h2 id="伽马分布-X-sim-Ga-alpha-lambda"><a href="#伽马分布-X-sim-Ga-alpha-lambda" class="headerlink" title="伽马分布$X\sim Ga(\alpha, \lambda)$"></a>伽马分布$X\sim Ga(\alpha, \lambda)$</h2><p>$\Gamma(\alpha)=\int_0^\infty x^{\alpha-1}e^{-x}dx$</p>
+<p>$\Gamma(1)=1, \Gamma(\frac{1}{2})=\sqrt\pi$（利用正态分布计算，正则性，p103）</p>
+<p>$\Gamma(\alpha +1)=\alpha\Gamma(\alpha)$ $,\Gamma(n+1)=n\Gamma(n)=n!$（当$\alpha$为自然数n时）</p>
+<p>密度函数</p>
+<script type="math/tex; mode=display">
+p(x)=
+\left\{
+\begin{array}{}
+\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha -1}e^{-\lambda x},&x\geqslant 0\\
+0, &x<0
+\end{array}
+\right.</script><p>其中$\alpha &gt;0$为形状参数，$\lambda &gt;0$为尺度参数</p>
+<p>特例：当$\alpha=1$时，伽马分布就是指数分布，即$Ga(1,\lambda)=Exp(\lambda)$</p>
+<h2 id="贝塔分布-Be-a-b"><a href="#贝塔分布-Be-a-b" class="headerlink" title="贝塔分布$Be(a,b)$"></a>贝塔分布$Be(a,b)$</h2><ul>
+<li><p>贝塔函数$B(a,b)=\int_0^1x^{\alpha-1}(1-x)^{b-1}dx$</p>
+<p>性质：</p>
+<ol>
+<li>$B(a,b)=B(b,a)$</li>
+<li>$B(a,b)=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}$</li>
+</ol>
+</li>
+</ul>
+<p>贝塔分布的密度函数：</p>
+<script type="math/tex; mode=display">
+p(x)=\left\{
+\begin{array}{}
+\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}x^{\alpha-1}(1-x)^{b-1}& 0<x<1,\\
+0,&其他
+\end{array}
+\right.</script><p>当$a=1,b=1$时，$Be(1,1)=U(0,1)$，即为均匀分布</p>
+<h2 id="数学期望"><a href="#数学期望" class="headerlink" title="数学期望"></a>数学期望</h2><ul>
+<li>分赌本问题</li>
+</ul>
+<p><strong>分布</strong>均值，加权平均</p>
+<script type="math/tex; mode=display">
+E(X)=
+\left\{
+\begin{array}{}
+\sum\limits_{i=1}^\infty x_ip(x_i)&离散\\
+\int_{-\infty}^\infty xp(x)dx&连续
+\end{array}
+\right.</script><p>性质：</p>
+<ul>
+<li>若$c$为常数，则$E(c)=c$</li>
+<li>对任意常数$a$，有$E(aX)=aE(X)$</li>
+<li>对任意两个函数$g_1(x)$和$g_2(x)$有$E[g_1(X)\pm g_2(X)]=E(g_1(X)]\pm E[g_2(X)])$</li>
+</ul>
+<h1 id="2021-03-22"><a href="#2021-03-22" class="headerlink" title="2021.03.22"></a>2021.03.22</h1><h2 id="数学期望-1"><a href="#数学期望-1" class="headerlink" title="数学期望"></a>数学期望</h2><ul>
+<li>数学期望存在的条件：积分存在/收敛</li>
+</ul>
+<p>期望不存在：$p(x)=\frac{1}{\pi}\frac{1}{1+x^2},-\infty&lt;x&lt;\infty$（柯西分布）</p>
+<h2 id="方差Variance"><a href="#方差Variance" class="headerlink" title="方差Variance"></a>方差Variance</h2><p>定义：$Var(X)=E(X-E(X))^2$</p>
+<ul>
+<li>离散：$\sum\limits_i(x_i-E(X))^2p(x_i)$</li>
+<li>连续：$\int_{-\infty}^\infty(x-E(X))^2p(x)dx$</li>
+</ul>
+<p>理解：方差是另一种期望</p>
+<h2 id="标准差-sigma-X"><a href="#标准差-sigma-X" class="headerlink" title="标准差$\sigma(X)$"></a>标准差$\sigma(X)$</h2><p>$\sigma(X)=\sqrt{Var(X)}$</p>
+<p>定义逻辑：先有方差再有标准差</p>
+<p>性质：</p>
+<ul>
+<li>常数的方差为0，即$Var(c)=0$</li>
+<li>若a，b为常数，则$Var(aX+b)=a^2Var(X)$</li>
+<li>$Var(X)=E(X^2)-E(X)^2$</li>
+</ul>
+<p>由性质三得，方差存在性取决于$E(X^2)$的存在性</p>
+<h2 id="切比雪夫不等式"><a href="#切比雪夫不等式" class="headerlink" title="切比雪夫不等式"></a>切比雪夫不等式</h2><p>对任意常数$\epsilon&gt;0$，有$P(|X-E(X)|\geqslant \epsilon)\leqslant\frac{Var(X)}{\epsilon^2}$</p>
+<p>证明（两次放缩）：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220226180322074.png" alt="image-20220226180322074"></p>
+<p>条件：随机变量X的期望、方差都存在</p>
+<ul>
+<li>大偏差：事件${|X-E(X)\geqslant\epsilon}$</li>
+<li>大偏差发生概率$P(|X-E(X)\geqslant\epsilon)$</li>
+</ul>
+<h2 id="矩"><a href="#矩" class="headerlink" title="矩"></a>矩</h2><ul>
+<li>原点矩：$\mu_k=E(X^k)$</li>
+<li>中心矩：$\nu_k=E(X-E(X))^k$</li>
+</ul>
+<p>期望和方差是特殊的矩</p>
+<p>原点矩和中心矩的关系：$\nu<em>k=E(X-E(X))^k=E(X-\mu_1)^k=\sum\limits</em>{i=0}^k\binom{k}{i}\mu_i(-\mu_1)^{k-i}$</p>
+<h2 id="伽马分布期望和方差"><a href="#伽马分布期望和方差" class="headerlink" title="伽马分布期望和方差"></a>伽马分布期望和方差</h2><p>$E(X)=\frac{\lambda^\alpha}{\Gamma(\alpha)}\int_0^\infty x^{\alpha}e^{-\lambda x}dx=\frac{\lambda^\alpha}{\Gamma(\alpha)}\frac{\Gamma(\alpha+1)}{\lambda^{\alpha+1}}\int_0^\infty x^{(\alpha+1)-1}e^{-\lambda x}dx=\frac{\alpha}{\lambda}$</p>
+<p>$V(X)=\frac{\alpha}{\lambda^2}$ 过程见p103</p>
+<h2 id="正态分布的k阶矩"><a href="#正态分布的k阶矩" class="headerlink" title="正态分布的k阶矩"></a>正态分布的k阶矩</h2><p>若$X\sim N(0,\sigma^2)$，则$\mu<em>k=E(X^k)=\frac{1}{\sqrt{2\pi}\sigma}\int</em>{-\infty}^\infty x^k exp{-\frac{x^2}{2\sigma^2}}dx=\frac{\sigma^k}{\sqrt{2\pi}}\int_{-\infty}^\infty u^kexp{-\frac{u^2}{2}}du$（？）</p>
+<p>最后一步没看懂，但是这个也可以分部积分算：</p>
+<p>$\mu<em>k=\frac{1}{\sqrt{2\pi \sigma^2}}\int</em>{-\infty}^\infty x^kexp{-\frac{x^2}{2\sigma^2}}dx=\frac{1}{k+1}x^{k+1}e^{-\frac{x^2}{2\sigma^2}}|<em>{-\infty}^\infty-\int</em>{-\infty}^\infty\frac{1}{(k+1)\sigma^2}x^{k+2}e^{-\frac{x^2}{2\sigma^2}}dx=\frac{1}{(k+1)\sigma^2}\mu_k$</p>
+<p>即得递推式：$\mu_k=\sigma^2(k-1)\mu_k-2$</p>
+<p>且$\mu_1=0,\mu_2=\sigma^2$</p>
+<p>结论：</p>
+<p>$\mu=0$的情况：</p>
+<p>k为奇数，奇函数，积分为0</p>
+<p>k为偶数，偶函数+变换+伽马函数p116，$\mu_k=\sigma^k(k-1)(k-3)…1,k=2,4,6,…$</p>
+<p>$\mu\ne0$的情况：</p>
+<p>忘了上课讲了句啥了，书上也没？</p>
+<h2 id="变异系数"><a href="#变异系数" class="headerlink" title="变异系数"></a>变异系数</h2><p>$C_v(X)=\frac{\sqrt{Var(X)}}{E(X)}=\frac{\sigma(X)}{E(X)}$</p>
+<p>变异系数是一个无量纲的波动，从而消除量纲对波动的影响。</p>
+<h2 id="偏度系数"><a href="#偏度系数" class="headerlink" title="偏度系数"></a>偏度系数</h2><p>设随机变量$X$的前三阶矩存在，则比值$\beta_S=\frac{\nu_3}{\nu^{3/2}}=\frac{E(X-E(X))^3}{[Var(X)]^{3/2}}$称为X的偏度系数，当$\beta_S&gt;0$时，称该分布为正偏，又称右偏；当$\beta_S&lt;0$时，称该分布为负偏，又称左偏</p>
+<h1 id="2021-03-29"><a href="#2021-03-29" class="headerlink" title="2021.03.29"></a>2021.03.29</h1><h2 id="峰度系数"><a href="#峰度系数" class="headerlink" title="峰度系数"></a>峰度系数</h2><p>$\beta_k=\frac{\nu_4}{\nu_2^2}-3=\frac{E(X-E(X))^4}{[Var(X)]^2}-3$</p>
+<p>峰度是描述分布尖峭程度和尾部粗细的一个特征数</p>
+<p>由于正态分布$N(\mu,\sigma^2)$中的$\nu_2=\sigma^2,\nu_4=3\sigma^4$，因此对于正态分布来说$\frac{\nu_4}{\nu2^2}=3$，表明峰度$\beta_k$是相对于正态分布而言的超出量</p>
+<ul>
+<li><p>正态检验</p>
+<p>偏度和峰度都是描述分布形状的特征数</p>
+</li>
+</ul>
+<h2 id="分位数"><a href="#分位数" class="headerlink" title="分位数"></a>分位数</h2><p>设随机连续变量X的分布函数为$F(x)$，密度函数为$p(x)$，对任意$p\in(0,1)$，称满足条件$F(x<em>p)=\int</em>{-\infty}^{x_p}p(x)dx=p$的$x_p$为此分布的p分位数，又称下侧$p$分位数</p>
+<p>同理，称满足条件$1-F(x<em>p’)=\int</em>{x_p’}^\infty p(x)dx=p$的$x_p’$为此分布的上侧p分位数</p>
+<ul>
+<li>中位数：p=0.5时的p分位数$x_{0.5}$</li>
+</ul>
+<h2 id="随机变量函数的分布"><a href="#随机变量函数的分布" class="headerlink" title="随机变量函数的分布"></a>随机变量函数的分布</h2><ul>
+<li><p>离散随机变量函数</p>
+<ol>
+<li>列出x的分布列</li>
+<li>$Y=g(X)$变换</li>
+<li>合并</li>
+</ol>
+</li>
+<li><p>连续随机变量函数</p>
+<p>$Y=g(X)$为离散随机变量（g(x)的值域时有限或可列的）</p>
+</li>
+</ul>
+<h2 id="g-x-为严格单调函数"><a href="#g-x-为严格单调函数" class="headerlink" title="$g(x)$为严格单调函数"></a>$g(x)$为严格单调函数</h2><ul>
+<li>定理2.6.1：设X是连续随机变量，其密度函数为$p_x(x).Y=g(X)$是另一个连续随机变量，若$y=g(x)$严格单调，其反函数$h(y)$有连续导函数，则$Y=g(X)$的密度函数为</li>
+</ul>
+<script type="math/tex; mode=display">
+p_Y(y)=
+\left\{
+\begin{array}{}
+p_X[h(x)]|h'(y)|,&a<y<b\\
+0,&其他
+\end{array}
+\right.</script><p>​    证明见p110-111</p>
+<ul>
+<li><p>定理2.6.2：设随机变量X服从正态分布$N(\mu, \sigma^2)$，则当$a\ne 0$时，有$Y=aX+b\sim N(a\mu+b,a^2\sigma^2)$</p>
+<p>证明见p111</p>
+</li>
+<li><p>定理2.6.4：设随机变量X服从伽马分布$Ga(\alpha,\lambda)$，则当k&gt;0时，有$Y=kX\sim Ga(\alpha,\lambda/k)$</p>
+<p>证明见p112</p>
+</li>
+<li><p>定理2.6.5：若随机变量X的分布函数$F_X(x)$为严格单调增的连续函数（非必要，保证反函数存在即可?），其反函数$F_X^{-1}$存在，则当$Y=F_X(X)$服从(0,1)上的均匀分布$U(0,1)$</p>
+<p>证明见p112-113</p>
+</li>
+<li><p>定理2.6.3：对数正态分布</p>
+</li>
+</ul>
+<h2 id="蒙特卡洛法"><a href="#蒙特卡洛法" class="headerlink" title="蒙特卡洛法"></a>蒙特卡洛法</h2><p>由定理2.6.5，可知任意一个连续随机变量X都可通过其分布函数$F(x)$与均匀分布随机变量U发生关系，即均匀分布 $U(0,1)$的随机数$u_i$可得与连续随机变量分布的随机数$x_i$存在函数关系，而均分分布的随机数易产生，可以随机模拟任意连续随机变量的随机数</p>
+<h1 id="2021-03-31"><a href="#2021-03-31" class="headerlink" title="2021.03.31"></a>2021.03.31</h1><h2 id="g-x-为其他形式"><a href="#g-x-为其他形式" class="headerlink" title="$g(x)$为其他形式"></a>$g(x)$为其他形式</h2><ul>
+<li>随机变量$X$服从标准正态分布$N(0,1)$，则$Y=X^2$的分布函数为</li>
+</ul>
+<script type="math/tex; mode=display">
+F_Y(y)=\left\{
+\begin{array}{}
+2\Phi(\sqrt y)-1,&y>0\\
+0,&y\leqslant 0
+\end{array}
+\right.</script><p>​    通过求导得到密度函数</p>
+<script type="math/tex; mode=display">
+p_Y(y)=\left\{
+\begin{array}{}
+\frac{1}{\sqrt{2\pi}}y^{-\frac{1}{2}}e^{-\frac{y}{2}},&y>0\\
+0,&y\leqslant 0
+\end{array}
+\right.</script><p>​    可知$Y\sim Gamma(\frac{1}{2},\frac{1}{2})\sim \Chi^2(1)$，即卡方分布，自由度为1</p>
+<h2 id="卡方分布"><a href="#卡方分布" class="headerlink" title="卡方分布"></a>卡方分布</h2><p>$Gamma(\frac{n}{2},\frac{1}{2})\sim \Chi^2(n)$</p>
+<p>推导得$E(X)=n,Var(X)=2n$</p>
+<p>卡方分布可以看成伽马分布的特例</p>
+<h2 id="多维随机变量"><a href="#多维随机变量" class="headerlink" title="多维随机变量"></a>多维随机变量</h2><p>若$X_1(\omega),X_2(\omega),…,X_n(\omega)$是定义在同一个样本空间$\Omega={\omega}$上的n个随机变量，则称$X(\omega)=(X_1(\omega),X_2(\omega),…,X_n(\omega))$为n维随机变量，或随机向量(r.v)</p>
+<h2 id="联合分布函数-joint-c-d-f"><a href="#联合分布函数-joint-c-d-f" class="headerlink" title="联合分布函数(joint c.d.f)"></a>联合分布函数(joint c.d.f)</h2><p>$F(x_1,x_2,…,x_n)=P(X_1\leqslant x_1,X_2\leqslant x_2,…,X_n\leqslant x_n)$</p>
+<p>性质：</p>
+<ol>
+<li>单调性</li>
+<li>有界性</li>
+<li>右连续性</li>
+<li>非负性</li>
+</ol>
+<p>非负性的必要性：前三个性质推导不出非负性</p>
+<p>例：</p>
+<script type="math/tex; mode=display">
+G(x,y)=\left\{
+\begin{array}{}
+0,&x+y<0\\
+1,&x+y\geqslant 0
+\end{array}
+\right.</script><h2 id="边际分布"><a href="#边际分布" class="headerlink" title="边际分布"></a>边际分布</h2><p>已知$F(x,y)$求$F_x(X)$</p>
+<p>$F_X(x)=P({X\leqslant x})=P({X\leqslant x}\bigcap \Omega)=P({X\leqslant x}\bigcap{Y\leqslant \infty})=F(x,+\infty)$</p>
+<p>即$F_X(x)=F(x,+\infty),F_Y(y)=F(+\infty,y)$称为边际分布</p>
+<h2 id="联合分布列"><a href="#联合分布列" class="headerlink" title="联合分布列"></a>联合分布列</h2><p>性质</p>
+<ol>
+<li>非负性 $p_{ij}\geqslant 0$</li>
+<li>正则性 $\sum\limits<em>{i=1}^\infty\sum\limits</em>{j=1}^\infty p_{ij}=1$</li>
+</ol>
+<h2 id="联合密度函数"><a href="#联合密度函数" class="headerlink" title="联合密度函数"></a>联合密度函数</h2><p>如果存在二元非负函数$p(x,y)$使得二维随机变量$(X,Y)$的分布函数$F(x,y)$可表示为$F(x,y)=\int<em>{-\infty}^x\int</em>{-\infty}^yp(u,v)dvdu$，则称$(X,Y)$为二维连续随机变量，称$p(u,v)$为$(X,Y)$的联合密度函数</p>
+<p>有$p(x,y)=\frac{\delta^2}{\delta x\delta y}F(x,y)$，求偏导交换次序的条件：偏导数连续</p>
+<p>性质</p>
+<ul>
+<li>非负性</li>
+<li>正则性</li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/EOJ-2021-3%E6%9C%88%E8%B5%9B/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CodeforcesRound-708/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar/apple-touch-icon.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">23</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

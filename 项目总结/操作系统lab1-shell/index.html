@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            操作系统lab1-shell | 
+        
+        MorphLing&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="内容与设计思想实现一个基本的Shell，能够实现以下功能：
+​    1. 带参数的程序运行功能。
+​    2. 重定向功能，将文件作为程序的输入/输出。
+​    3. 管道符号“|”，在程序间传递数据。
+​    4. 后台符号&amp;amp; ,表示此命令将以后台运行的方式执行。
+​    5. 工作路径移动命令cd。
+​    6. 程序运行统计mytop。
+​    7. shell退出命令exit。
+​    8. history n显示最近执行的n条指令">
+    <meta name="keywords" content=",lab,os">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab1-shell/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab1-shell/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="操作系统lab1-shell | MorphLing&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="内容与设计思想实现一个基本的Shell，能够实现以下功能：
+​    1. 带参数的程序运行功能。
+​    2. 重定向功能，将文件作为程序的输入/输出。
+​    3. 管道符号“|”，在程序间传递数据。
+​    4. 后台符号&amp;amp; ,表示此命令将以后台运行的方式执行。
+​    5. 工作路径移动命令cd。
+​    6. 程序运行统计mytop。
+​    7. shell退出命令exit。
+​    8. history n显示最近执行的n条指令">
+    <meta property="og:article:tag" content="lab"> <meta property="og:article:tag" content="os"> 
+
+    
+        <meta property="article:published_time" content="Sun May 30 2021 10:12:23 GMT+0800">
+        <meta property="article:modified_time" content="Sat Feb 26 2022 18:21:01 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab1-shell/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab1-shell/index.html",
+    "headline": "操作系统lab1-shell",
+    "datePublished": "Sun May 30 2021 10:12:23 GMT+0800",
+    "dateModified": "Sat Feb 26 2022 18:21:01 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "MorphLing",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar/apple-touch-icon.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "MorphLing&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",lab,os",
+    "description": "内容与设计思想实现一个基本的Shell，能够实现以下功能：
+​    1. 带参数的程序运行功能。
+​    2. 重定向功能，将文件作为程序的输入/输出。
+​    3. 管道符号“|”，在程序间传递数据。
+​    4. 后台符号&amp;amp; ,表示此命令将以后台运行的方式执行。
+​    5. 工作路径移动命令cd。
+​    6. 程序运行统计mytop。
+​    7. shell退出命令exit。
+​    8. history n显示最近执行的n条指令",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%86%85%E5%AE%B9%E4%B8%8E%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="post-toc-text">内容与设计思想</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="post-toc-text">实验过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%B0%81%E8%A3%85"><span class="post-toc-text">常用函数封装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%A2%84%E5%A4%84%E7%90%86%E5%92%8C%E8%A7%A3%E6%9E%90"><span class="post-toc-text">命令行预处理和解析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%9C%A8%E6%9C%80%E5%90%8E%E5%8A%A0-amp-%E7%AC%A6%E5%8F%B7%EF%BC%8C%E8%A1%A8%E7%A4%BA%E6%AD%A4%E5%91%BD%E4%BB%A4%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C"><span class="post-toc-text">带参数的程序运行功能，在最后加&amp;符号，表示此命令后台执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%B0%86%E6%96%87%E4%BB%B6%E4%BD%9C%E4%B8%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA"><span class="post-toc-text">重定向功能，将文件作为程序的输入&#x2F;输出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6%E5%8F%B7%E2%80%9C-%E2%80%9D%EF%BC%8C%E5%9C%A8%E7%A8%8B%E5%BA%8F%E9%97%B4%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E3%80%82"><span class="post-toc-text">管道符号“|”，在程序间传递数据。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B7%A5%E4%BD%9C%E8%B7%AF%E5%BE%84%E7%A7%BB%E5%8A%A8%E5%91%BD%E4%BB%A4cd%E3%80%82"><span class="post-toc-text">工作路径移动命令cd。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%9F%E8%AE%A1mytop"><span class="post-toc-text">程序运行统计mytop</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#shell%E9%80%80%E5%87%BA%E5%91%BD%E4%BB%A4exit%E3%80%82"><span class="post-toc-text">shell退出命令exit。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#history-n%E6%98%BE%E7%A4%BA%E6%9C%80%E8%BF%91%E6%89%A7%E8%A1%8C%E7%9A%84n%E6%9D%A1%E6%8C%87%E4%BB%A4"><span class="post-toc-text">history n显示最近执行的n条指令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%96%E8%AF%91%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="post-toc-text">编译和测试</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                操作系统lab1-shell
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar/apple-touch-icon.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>5月 30, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/lab/" rel="tag">lab</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/os/" rel="tag">os</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=操作系统lab1-shell&url=http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab1-shell/index.html&pic=http://example.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=操作系统lab1-shell&url=http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab1-shell/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab1-shell/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab1-shell/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="内容与设计思想"><a href="#内容与设计思想" class="headerlink" title="内容与设计思想"></a>内容与设计思想</h1><p>实现一个基本的Shell，能够实现以下功能：</p>
+<p>​    1. 带参数的程序运行功能。</p>
+<p>​    2. 重定向功能，将文件作为程序的输入/输出。</p>
+<p>​    3. 管道符号“|”，在程序间传递数据。</p>
+<p>​    4. 后台符号&amp; ,表示此命令将以后台运行的方式执行。</p>
+<p>​    5. 工作路径移动命令cd。</p>
+<p>​    6. 程序运行统计mytop。</p>
+<p>​    7. shell退出命令exit。</p>
+<p>​    8. history n显示最近执行的n条指令</p>
+<span id="more"></span>
+<h1 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h1><h2 id="常用函数封装"><a href="#常用函数封装" class="headerlink" title="常用函数封装"></a>常用函数封装</h2><p>封装了带有错误处理的open(),fopen(),execvp()函数，make64()函数合并高低周期，sleep_ms()通过select()函数实现毫秒级的sleep()</p>
+<pre><code class="lang-c">/*
+ * 合并高低周期
+ */
+static inline u64_t make64(unsigned long lo, unsigned long hi) &#123;
+    return ((u64_t)hi &lt;&lt; 32 | (u64_t)lo);
+&#125;
+
+/*
+ * 实现毫秒级的sleep
+ */
+static void sleep_ms(unsigned int secs) &#123;
+    struct timeval tval;
+    tval.tv_sec=secs/1000;
+    tval.tv_usec=(secs*1000)%1000000;
+    select(0,NULL,NULL,NULL,&amp;tval);
+&#125;
+
+/*
+ * 封装带有错误处理的open函数
+ */
+int Open(char *path, int param) &#123;
+    int file_fd;
+    if ((file_fd = open(path, param)) &lt; 0) &#123;
+        fprintf(stderr, &quot;OPEN FILE ERROR.\n&quot;);
+        exit(1);
+    &#125; else return file_fd;
+
+&#125;
+/*
+ * 封装带有错误处理的fopen函数
+ */
+FILE* Fopen(char *path, char *mode) &#123;
+    FILE* fp;
+    if ((fp = fopen(path, mode)) == NULL) &#123;
+        fprintf(stderr, &quot;FOPEN ERROR.\n&quot;);
+        exit(1);
+    &#125;
+    return fp;
+&#125;
+/*
+ * 封装带有错误处理的execvp函数
+ */
+void Execvp(char *path, char **params) &#123;
+    if (execvp(path, params) &lt; 0) &#123;
+        fprintf(stderr, &quot;EXECVP ERROR.\n&quot;);
+        exit(1);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="命令行预处理和解析"><a href="#命令行预处理和解析" class="headerlink" title="命令行预处理和解析"></a>命令行预处理和解析</h2><p>preparse()函数在重定向符号前后添加一个空格，便于后续解析。</p>
+<pre><code class="lang-c">/*
+ * 在重定向前后加空格，便于后续解析
+ */
+void preparse(char *cmdline) &#123;
+    char newcmdline[MAXLEN];
+    int len = strlen(cmdline), j = 0;
+    for (int i = 0; i &lt; len; i++) &#123;
+        if (cmdline[i] == &#39;&lt;&#39;) newcmdline[j++] = &#39; &#39;, newcmdline[j++] = &#39;&lt;&#39;, newcmdline[j++] = &#39; &#39;; // &#39;&lt;&#39;
+        else if (cmdline[i] == &#39;&gt;&#39;) &#123; 
+            if (cmdline[i + 1] == &#39;&gt;&#39;) &#123; // &#39;&gt;&gt;&#39;
+                newcmdline[j++] = &#39; &#39;;
+                newcmdline[j++] = &#39;&gt;&#39;;
+                newcmdline[j++] = &#39;&gt;&#39;;
+                newcmdline[j++] = &#39; &#39;;
+                i++;
+            &#125; else &#123; // &#39;&gt;&#39;
+                newcmdline[j++] = &#39; &#39;;
+                newcmdline[j++] = &#39;&gt;&#39;;
+                newcmdline[j++] = &#39; &#39;;
+            &#125;
+        &#125; else newcmdline[j++] = cmdline[i];
+    &#125;
+    newcmdline[j] = &#39;\0&#39;;
+    strcpy(cmdline, newcmdline);
+&#125;
+</code></pre>
+<p>parseline()函数将一行字符串命令解析为多个参数，存放在argv中，并返回argc</p>
+<pre><code class="lang-c">/*
+ * 解析参数，把参数存入argv，并返回argc
+ */
+int parseline(const char *cmdline, char **argv) &#123;
+    int len = strlen(cmdline), argc = 0, temp = 0;
+    for (int i = 0; i &lt; len; i++) &#123;
+        if (cmdline[i] == &#39; &#39;) &#123;
+            if (i != 0 &amp;&amp; cmdline[i - 1] != &#39; &#39;) &#123;
+                argv[argc][temp] = &#39;\0&#39;;
+                argc++;
+                temp = 0;
+            &#125;
+            continue;
+        &#125;
+        if (!temp) argv[argc] = (char *)malloc(sizeof(char) * MAXLEN);
+        argv[argc][temp++] = cmdline[i];
+    &#125;
+    if (temp == 0) argc--;
+    return argc + 1;
+&#125;
+</code></pre>
+<h2 id="带参数的程序运行功能，在最后加-amp-符号，表示此命令后台执行"><a href="#带参数的程序运行功能，在最后加-amp-符号，表示此命令后台执行" class="headerlink" title="带参数的程序运行功能，在最后加&amp;符号，表示此命令后台执行"></a>带参数的程序运行功能，在最后加&amp;符号，表示此命令后台执行</h2><p>先利用fork()创建子进程，在子进程中通过execvp()函数执行程序，父进程通过waitpid挂起，等待子进程结束后继续运行。</p>
+<p>如果检测到后台执行&amp;符号，则将子进程的标准输入、输出、错误流重定向到/dev/null，并通过signal(SIGCHLD, SIG_IGN)使得minix接管该进程，即不产生僵死进程。</p>
+<pre><code class="lang-c">pid_t pid;
+if ((pid = fork()) == 0) &#123;
+    if (!wait) &#123;
+        direct_null();
+        signal(SIGCHLD, SIG_IGN); // 使得minix接管该进程，即不产生僵死进程
+    &#125; else redirect(argv, &amp;argc);
+    Execvp(argv[0], argv);
+&#125;
+int status;
+if (wait) waitpid(pid, &amp;status, 0);
+</code></pre>
+<h2 id="重定向功能，将文件作为程序的输入-输出"><a href="#重定向功能，将文件作为程序的输入-输出" class="headerlink" title="重定向功能，将文件作为程序的输入/输出"></a>重定向功能，将文件作为程序的输入/输出</h2><p>解析参数，检查是否存在&lt;,&gt;,&gt;&gt;，若有则利用dup()进行重定向</p>
+<p>&lt;表示文件写入，重定向输入流，文件打开方式为O_RDONLY，即只读</p>
+<p>>表示覆盖写，重定向输出流，文件打开方式为O_WRONLY | O_CREAT | O_TRUNC，即只写，若文件不存在则创建新文件，清空原文件</p>
+<p>>&gt;表示追加写，重定向输出流，文件打开方式为O_WRONLY | O_CREAT | O_APPEND，即只写，若文件不存在则创建新文件，在原文件后追加</p>
+<pre><code class="lang-c">/*
+ * 根据&gt;, &gt;&gt;, &lt;重定向标准输入输出
+ */
+void redirect(char **argv, int *argc) &#123;
+    for (int i = 0; i &lt; *argc; i++) &#123;
+        if (strcmp(argv[i], &quot;&lt;&quot;) == 0) &#123;
+            if (i + 1 == *argc) &#123;
+                fprintf(stderr, &quot;REDIRECT ERROR.\n&quot;);
+                exit(0);
+            &#125;
+            close(STDIN_FILENO);
+            int file_fd = Open(argv[i + 1], O_RDONLY);
+
+            dup(file_fd);
+            *argc -= 2; // 去掉这两个参数 并把后面的参数都往前移两位
+            for (int j = i; j &lt; *argc; j++) strcpy(argv[j], argv[j + 2]);
+        &#125;
+        if (strcmp(argv[i], &quot;&gt;&quot;) == 0) &#123;
+            if (i + 1 == *argc) &#123;
+                fprintf(stderr, &quot;REDIRECT ERROR.\n&quot;);
+                exit(0);
+            &#125;
+            close(STDOUT_FILENO);
+            int file_fd = Open(argv[i + 1], O_WRONLY | O_CREAT | O_TRUNC);
+            dup(file_fd);
+            *argc -= 2;
+            for (int j = i; j &lt; *argc; j++) strcpy(argv[j], argv[j + 2]);
+        &#125;
+        if (strcmp(argv[i], &quot;&gt;&gt;&quot;) == 0) &#123;
+            if (i + 1 == *argc) &#123;
+                fprintf(stderr, &quot;REDIRECT ERROR.\n&quot;);
+                exit(0);
+            &#125;
+            close(STDOUT_FILENO);
+            int file_fd = Open(argv[i + 1], O_WRONLY | O_CREAT | O_APPEND);
+            dup(file_fd);
+            *argc -= 2;
+            for (int j = i; j &lt; *argc; j++) strcpy(argv[j], argv[j + 2]);
+        &#125;
+    &#125;
+    argv[*argc] = NULL; // 保证argv以NULL为结尾
+&#125;
+</code></pre>
+<h2 id="管道符号“-”，在程序间传递数据。"><a href="#管道符号“-”，在程序间传递数据。" class="headerlink" title="管道符号“|”，在程序间传递数据。"></a>管道符号“|”，在程序间传递数据。</h2><p>利用pipe()和dup()实现管道。根据”|”的位置，将一行命令分割为前后两部分，前一部分由重定向输出后的子进程执行，后一部分由重定向输入后的父进程执行。多管道的情况也可以正常递归处理。</p>
+<pre><code class="lang-c">/*
+ * 子进程执行cmdline1，将输出通过管道作为主进程cmdline2的输入
+ */
+void pipeline(char *cmdline1, char *cmdline2) &#123;
+    int fd[2];
+    pipe(&amp;fd[0]);
+    if (fork() == 0) &#123; // 子进程，重定向输出
+        close(fd[0]);
+        close(STDOUT_FILENO);
+        dup(fd[1]);
+        close(fd[1]);
+        eval(cmdline1, 1);
+        exit(0);
+    &#125; else &#123; // 父进程，重定向输入
+        close(fd[1]);
+        close(STDIN_FILENO);
+        dup(fd[0]);
+        close(fd[0]);
+        eval(cmdline2, 1);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="工作路径移动命令cd。"><a href="#工作路径移动命令cd。" class="headerlink" title="工作路径移动命令cd。"></a>工作路径移动命令cd。</h2><p>利用chdir()函数实现</p>
+<pre><code class="lang-c">if (!strcmp(argv[0], &quot;cd&quot;)) &#123;
+    chdir(argv[1]);
+    return 1;
+&#125;
+</code></pre>
+<h2 id="程序运行统计mytop"><a href="#程序运行统计mytop" class="headerlink" title="程序运行统计mytop"></a>程序运行统计mytop</h2><pre><code class="lang-c">/*
+ * 统计内存和cpu使用情况
+ */
+void mytop() &#123;  
+    int totSize, freeSize, cachedSize, total_proc, proc_num_prev = 0, proc_num_now = 0;
+    u64_t total_ticks_pre = 0, total_ticks_now = 0, idle_ticks_pre = 0, idle_ticks_now = 0;
+    get_meminfo(&amp;totSize, &amp;freeSize, &amp;cachedSize);
+    printf(&quot;main memory: &quot;);
+    printf(&quot; %dK total,&quot;, totSize);
+    printf(&quot; %dK free,&quot;, freeSize);
+    printf(&quot; %dK cached\n&quot;, cachedSize);
+    get_kinfo(&amp;total_proc);
+    printf(&quot;Total procs: %d\n&quot;, total_proc);
+
+    get_pidinfo(prev, &amp;proc_num_prev, &amp;total_ticks_pre, &amp;idle_ticks_pre);
+    sleep_ms(500);
+    get_pidinfo(now, &amp;proc_num_now, &amp;total_ticks_now, &amp;idle_ticks_now);
+    double CPU_util = 100 - (double)100 * (idle_ticks_now - idle_ticks_pre) / (total_ticks_now - total_ticks_pre);
+    printf(&quot;CPU utilization : %.4f%%\n&quot;, CPU_util);
+&#125;
+</code></pre>
+<p>读取/proc/meminfo获取内存使用情况</p>
+<pre><code class="lang-c">/*
+ * 读取/proc/meminfo
+ */
+void get_meminfo(int *totSize, int *freeSize, int *cachedSize) &#123;
+    FILE *fp;
+    fp = Fopen(&quot;/proc/meminfo&quot;, &quot;r&quot;);
+    int pagesize, total, free, largest, cached;
+    fscanf(fp, &quot;%d %d %d %d %d&quot;, &amp;pagesize, &amp;total, &amp;free, &amp;largest, &amp;cached);
+    *totSize = pagesize * total / 1024;
+    *freeSize = pagesize * free / 1024;
+    *cachedSize = pagesize * cached / 1024;
+    fclose(fp);
+&#125;
+</code></pre>
+<p>读取/proc/kinfo获取进程总数</p>
+<pre><code class="lang-c">/*
+ * 读取/proc/kinfo
+ */
+void get_kinfo(int *total_proc) &#123;
+    FILE *fp;
+    fp = Fopen(&quot;/proc/kinfo&quot;, &quot;r&quot;);
+    int proc, task;
+    fscanf(fp, &quot;%d %d&quot;, &amp;proc, &amp;task);
+    *total_proc = proc + task;
+    fclose(fp);
+&#125;
+</code></pre>
+<p>读取/proc/pid/psinfo获取每个进程的cpu占用时间</p>
+<pre><code class="lang-c">/*
+ * 读取/proc下所有文件夹
+ */
+void get_pidinfo(struct proc *p, int *num, u64_t *total, u64_t *idle) &#123;
+    DIR *p_dir;
+    char *end;
+    if ((p_dir = opendir(&quot;/proc/&quot;)) == NULL) &#123;
+        fprintf(stderr, &quot;OPENDIR ERROR.\n&quot;);
+        exit(1);
+    &#125;
+    struct dirent *p_ent;
+    *num = 0;
+    for (p_ent = readdir(p_dir); p_ent != NULL; p_ent = readdir(p_dir)) &#123;
+        int pid = strtol(p_ent-&gt;d_name, &amp;end, 10);
+        if (!pid) continue;
+        (*num)++;
+        parse_file(pid, &amp;p[*num], total, idle);
+    &#125;
+    closedir(p_dir);
+&#125;
+/*
+ * 读取/proc/pid/psinfo
+ */
+void parse_file(int pid, struct proc *p, u64_t *total, u64_t *idle) &#123;
+    char path[MAXPATH];
+    sprintf(path, &quot;/proc/%d/psinfo&quot;, pid);
+    FILE *fp = Fopen(path, &quot;r&quot;);
+    fscanf(fp, &quot;%d&quot;, &amp;(p-&gt;version));
+    fscanf(fp, &quot; %c&quot;, &amp;(p-&gt;type));
+    fscanf(fp, &quot; %d&quot;, &amp;(p-&gt;endpoint));
+    fscanf(fp, &quot; %s&quot;, p-&gt;name);
+    fscanf(fp, &quot; %c&quot;, &amp;(p-&gt;state));
+    fscanf(fp, &quot; %d&quot;, &amp;(p-&gt;blocked));
+    fscanf(fp, &quot; %d&quot;, &amp;(p-&gt;priority));
+    fscanf(fp, &quot; %d&quot;, &amp;(p-&gt;user_time));
+    fscanf(fp, &quot; %d&quot;, &amp;(p-&gt;ticks));
+    fscanf(fp, &quot; %lu&quot;, &amp;(p-&gt;cycle_high));
+    fscanf(fp, &quot; %lu&quot;, &amp;(p-&gt;cycle_low));
+    fscanf(fp, &quot; %llu&quot;, &amp;(p-&gt;memory));
+    fscanf(fp, &quot; %lu %lu&quot;, &amp;(p-&gt;effuid), &amp;(p-&gt;nice));
+    p-&gt;cpucycles[0] = make64(p-&gt;cycle_low, p-&gt;cycle_high);
+    *total += p-&gt;cpucycles[0];
+    if (p-&gt;endpoint == -4) 
+        *idle = p-&gt;cpucycles[0];
+    // printf(&quot;PID : %d  CYCLE : %llu  low : %lu  high : %lu  ticks : %d  %c  %c\n&quot;, pid, p-&gt;cpucycles[0], p-&gt;cycle_low, p-&gt;cycle_high, p-&gt;ticks, p-&gt;type, p-&gt;state);
+    fclose(fp);
+&#125;
+</code></pre>
+<p>其中psinfo中的每个参数对应的含义如下：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101650.png" alt="img"></p>
+<p>为了计算cpu占用率，需要连续两次读取cpu使用情况并计算差值，这里选择间隔为500ms，利用select()函数实现。通过所有进程cpu占用时间累加获得total_ticks，通过/proc/-4/psinfo获得空闲的idle_ticks，cpu占用率为(1-idle_ticks/total_ticks)*100%</p>
+<h2 id="shell退出命令exit。"><a href="#shell退出命令exit。" class="headerlink" title="shell退出命令exit。"></a>shell退出命令exit。</h2><p>利用exit(0)实现退出</p>
+<pre><code class="lang-c">if (!strcmp(argv[0], &quot;exit&quot;)) &#123;
+    exit(0);
+&#125;
+</code></pre>
+<h2 id="history-n显示最近执行的n条指令"><a href="#history-n显示最近执行的n条指令" class="headerlink" title="history n显示最近执行的n条指令"></a>history n显示最近执行的n条指令</h2><p>利用全局变量char *record[MAXHISTORY]记录最近执行的指令，rec_size记录指令条数。</p>
+<pre><code class="lang-c">if (!strcmp(argv[0], &quot;history&quot;)) &#123;
+    redirect(argv, &amp;argc);
+    if (argc == 1) &#123;
+        for (int i = 0; i &lt;= rec_size; i++) &#123;
+            printf(&quot;  %d  %s&quot;, i + 1, record[i]);
+        &#125;
+    &#125; else &#123;
+        int number;
+        // fprintf(stderr, &quot;%s\n&quot;, argv[1]);
+        sscanf(argv[1], &quot;%d&quot;, &amp;number);
+        for (int i = MAX(0, rec_size - number + 1); i &lt;= rec_size; i++) &#123;
+            printf(&quot;  %d  %s&quot;, i + 1, record[i]);    
+        &#125;
+    &#125;
+    return 1;
+&#125;
+</code></pre>
+<h2 id="编译和测试"><a href="#编译和测试" class="headerlink" title="编译和测试"></a>编译和测试</h2><p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101705.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101703.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101712.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101715.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101719.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101723.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101727.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101731.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101734.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20210530101738.png" alt="img"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>实现了一个基本的shell，包含重定向和管道功能。实现过程中对一些常用的函数以及系统调用进行了错误处理的封装。实现mytop()时参考了MINIX原生top命令的实现，一些系统调用的使用方法参考了《Unix环境高级编程》第3和第8节。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Flab2-chrt/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%BB%9F4-5%E7%AB%A0%E7%AC%94%E8%AE%B0%E4%B9%A0%E9%A2%98%E6%95%B4%E7%90%86/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar/apple-touch-icon.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">23</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
