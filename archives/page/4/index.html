@@ -163,12 +163,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
-        background-color: #F5F5F5;
+      body {
+        background-color: ;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -640,7 +640,7 @@ ax.set_xscale(&#39;log&#39;) # 设置对数坐标
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            E. Drinking观察一下不难发现，任意一端区间$g(l,r)=\sum\limits{i=1}^nx{(i)}\frac{1}{2^i},x(i)$表示区间内第$i$大的值，由于误差要求$&lt;10^{-6}$，所以估一下只要取区间最大的T=50个数
+            E. Drinking观察一下不难发现，任意一端区间$g(l,r)=\sum\limits_{i=1}^nx_{(i)}\frac{1}{2^i},x(i)$表示区间内第$i$大的值，由于误差要求$&lt;10^{-6}$，所以估一下只要取区间最大的T=50个数
 自然想到单独计算每个数对答案的贡献。设第$i$个数左边比它大的数从右到左为$l_1,l_2,\cdots,l_T$，右边比它大的数从左往右为$r_1,r_2,\cdots,r_T$，那么每个数的贡献为
 
 val_i=w_i\sum\limits_{u=1}^T\sum\limits_{v=1}^T(l_{u-1}-l_u)(r_v-r_{v-1})\frac{1}{2^{u+v-1}}
@@ -1358,6 +1358,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=T');
+    });
+</script>
 
 
 <script type="text/ls-javascript" id="lazy-load">

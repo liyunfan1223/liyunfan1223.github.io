@@ -163,12 +163,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
-        background-color: #F5F5F5;
+      body {
+        background-color: ;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -241,7 +241,7 @@
 
     
         <meta property="article:published_time" content="Sat Feb 26 2022 11:39:59 GMT+0800">
-        <meta property="article:modified_time" content="Sat Feb 26 2022 23:01:19 GMT+0800">
+        <meta property="article:modified_time" content="Sun Feb 27 2022 10:46:16 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -501,11 +501,11 @@ function formatText(text) &#123;
 <h4 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h4><p>打开node_modules/hexo-renderer-mathjax/mathjax.html，将<code>&lt;script&gt;</code> 改为：</p>
 <pre><code class="lang-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p>打开node_modules/kramed/lib/rules/inline.js，这步取消了markdown对_的解析，也就是没有斜体了，但避免了冲突:</p>
+<p>打开node_modules/kramed/lib/rules/inline.js，这步取消了markdown对_和^的解析，也就是没有斜体了，但避免了冲突:</p>
 <pre><code class="lang-js">// escape: /\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,
-escape: /^\\([`*\[\]()# +\-.!_&gt;])/,
+escape: /\\([`*\[\]()# +\-.!_&gt;])/,
 // em: /\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+em: /\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
 </code></pre>
 <h4 id="开启公式支持功能"><a href="#开启公式支持功能" class="headerlink" title="开启公式支持功能"></a>开启公式支持功能</h4><p>在home/_config.yml，中添加如下内容</p>
 <pre><code class="lang-yml">mathjax:
@@ -586,7 +586,7 @@ hanabi:
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220226163656167.png" alt="image-20220226163656167"></p>
 <p>解决参考：<a target="_blank" rel="noopener" href="https://github.com/bollnh/hexo-theme-material/issues/752">https://github.com/bollnh/hexo-theme-material/issues/752</a></p>
 <p>这里是因为”&lt;”被转义掉了</p>
-<p>所以要修改index.ejs，禁止禁止转义</p>
+<p>所以要修改index.ejs，禁止转义</p>
 <pre><code class="lang-ejs">&lt;!-- Index nav --&gt;
 &lt;nav class=&quot;material-nav mdl-cell mdl-cell--12-col&quot;&gt;
     &lt;%- paginator(&#123;
@@ -1148,6 +1148,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=T');
+    });
+</script>
 
 
 <script type="text/ls-javascript" id="lazy-load">
