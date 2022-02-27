@@ -47,7 +47,7 @@
         
             dp斜率优化 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/04/01/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/dp%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/04/01/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/dp%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="dp斜率优化 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="dp斜率优化 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="斜率优化本质上解决的是，给定一条直线的斜率和平面上的若干个点，要求选择一个点，使得该直线经过该点，且保证此时截距取到最小/最大值。">
     <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="dp"> <meta property="og:article:tag" content="dp斜率优化"> 
@@ -483,7 +483,7 @@
         <p>斜率优化本质上解决的是，给定一条直线的斜率和平面上的若干个点，要求选择一个点，使得该直线经过该点，且保证此时截距取到最小/最大值。</p>
 <span id="more"></span>
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/image-20210401125951041.png" alt="image-20210401125951041"></p>
-<p>根据几何知识可以知道，如果要求截距的最小值，只要维护所有平面上的点的下凸包，把下凸包中的点按照横坐标从小到大排序，得到$(x<em>1,y_1),(x_2,y_2),…,(x_n,y_n)$，定义连续两个点之间的斜率$k_i=\frac{y</em>{i+1}-y<em>i}{x</em>{i+1}-x<em>i}$，那么$k_i$满足单调递增。如果给定的直线斜率为$k_0$，那么使得截距最小的点$a$一定满足$k</em>{a-1}\leqslant k_0\leqslant k_a$。</p>
+<p>根据几何知识可以知道，如果要求截距的最小值，只要维护所有平面上的点的下凸包，把下凸包中的点按照横坐标从小到大排序，得到$(x_1,y_1),(x_2,y_2),…,(x_n,y_n)$，定义连续两个点之间的斜率$k_i=\frac{y_{i+1}-y_i}{x_{i+1}-x_i}$，那么$k_i$满足单调递增。如果给定的直线斜率为$k_0$，那么使得截距最小的点$a$一定满足$k_{a-1}\leqslant k_0\leqslant k_a$。</p>
 <p>斜率优化就是把dp转移转化成这个几何问题，前驱状态$j$就是几何平面上的点，直线的斜率则由当前状态$i$决定，截距就是要最小/最大化的$dp[i]$。</p>
 <p>比如说某个状态转移方程为</p>
 <script type="math/tex; mode=display">
@@ -967,7 +967,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

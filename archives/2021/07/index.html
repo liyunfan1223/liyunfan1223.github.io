@@ -47,7 +47,7 @@
         
             归档: 2021/7 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/archives/2021/07/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/archives/2021/07/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2021/7 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="归档: 2021/7 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="">
     
@@ -643,7 +643,7 @@ $(i_1,j_2)$​通过一些中间边如$(i_1,j_1),(i_2,j_1),(i_2,j_2)$​联通�
 与任意一个其包含的小区间归为一组，不对结果产生影响
 
 可以用反证法证明结论，假如大区间和其他区间归为一组，那么将该大区间移出该组，该组的交一定不下降，再放入其包含的小区间组中，小区间所在的组的交也不下降，即大小区间在同一组的决策一定最优
-于是可以把所有大区间取出来，单独讨论所有小区间，可以发现，若将剩下的区间按照左端点从小到大排序，其右端点也一定是有序的，接着考虑dp，$f[i][j]$​表示考虑前i个区间，分成j组的最优答案，而一组的贡献只与最左和最右两个区间相关，显然有转移$f[k][j+1]=\max\limits_{r[i+1]-l[k]&gt;0} {f[i][j]+r[i+1]-l[k]}$
+于是可以把所有大区间取出来，单独讨论所有小区间，可以发现，若将剩下的区间按照左端点从小到大排序，其右端点也一定是有序的，接着考虑dp，$f[i][j]$​表示考虑前i个区间，分成j组的最优答案，而一组的贡献只与最左和最右两个区间相关，显然有转移$f[k][j+1]=\max\limits_{r[i+1]-l[k]&gt;0} \{f[i][j]+r[i+1]-l[k]\}$
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -1234,7 +1234,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

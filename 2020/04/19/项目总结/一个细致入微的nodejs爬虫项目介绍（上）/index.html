@@ -47,7 +47,7 @@
         
             一个nodejs爬虫项目介绍（上） | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2020/04/19/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2020/04/19/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E4%B8%80%E4%B8%AA%E7%BB%86%E8%87%B4%E5%85%A5%E5%BE%AE%E7%9A%84nodejs%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%8A%EF%BC%89/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="一个nodejs爬虫项目介绍（上） | MorphLing&#39;s Blog">
+    <meta property="og:title" content="一个nodejs爬虫项目介绍（上） | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="为了完成作业以及让自己看上去没有真的在划水，决定开始写博客了。">
     <meta property="og:article:tag" content="nodejs"> <meta property="og:article:tag" content="web"> 
@@ -542,7 +542,7 @@ var fs = require(&#39;fs&#39;);
 &#125;)
 </code></pre>
 <p>myRequest需要传入两个参数，第一个url是将要发送请求的网址，问题是第二个参数，它是一个函数，也就是所谓的回调函数(callback)，初一看可能不太容易理解。</p>
-<p>但是我们知道在编程语言中变量和函数是<strong>同级</strong>的。我们传入一个变量参数，是为了在需要的时候获取变量的值，那么类似地，传入一个函数参数，则是为了在需要的时候调用这个函数。不妨这样通俗地理解，我们提前规定了myRequest在获取了err,res,body三个变量的信息后应该执行的操作，把这一系列操作用回调函数的形式保存下来，那么myRequest就会在执行过程中按照要求执行回调函数了。（至于具体在什么时候执行，可能需要查看request模块的源码）</p>
+<p><em><em>同级</em></em><em><em>同级</em></em><em><em>同级</em></em><strong>同级</strong>的。我们传入一个变量参数，是为了在需要的时候获取变量的值，那么类似地，传入一个函数参数，则是为了在需要的时候调用这个函数。不妨这样通俗地理解，我们提前规定了myRequest在获取了err,res,body三个变量的信息后应该执行的操作，把这一系列操作用回调函数的形式保存下来，那么myRequest就会在执行过程中按照要求执行回调函数了。（至于具体在什么时候执行，可能需要查看request模块的源码）</p>
 <p>从作用上来说，回调函数直接体现了node.js异步编程的特性，能加快代码运行的速度。根据我的理解，因为执行回调函数的过程被视作为request的一部分，并且程序不必等request执行完毕就可以往后执行，那么回调函数的内容就是非阻塞的，对整体时间影响非常小。</p>
 <p>reference：<a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-callback.html">https://www.runoob.com/nodejs/nodejs-callback.html</a></p>
 <h1 id="2-爬取种子网页"><a href="#2-爬取种子网页" class="headerlink" title="2. 爬取种子网页"></a>2. 爬取种子网页</h1><h2 id="2-1-获取种子网页编码"><a href="#2-1-获取种子网页编码" class="headerlink" title="2.1 获取种子网页编码"></a>2.1 获取种子网页编码</h2><p>如上所述，爬取网页内容使用的是request模块。request模块的第一个参数可以是一个对象，除了url属性是必须的，我们还可以根据需要添加其他的属性来控制爬取的方法，例如定义一个options对象，将其作为myRequest的参数</p>
@@ -608,12 +608,12 @@ http://www.ecns.cn/video/2020-04-16/detail-ifzvpqct5598595.shtml
 http://www.ecns.cn/hd/2020-04-17/detail-ifzvpqct5598937.shtml
 http://www.ecns.cn/news/2020-04-18/detail-ifzvpqct5600277.shtml
 </code></pre><p>新闻url种通常都会包括日期信息、和一串作为新闻id的字符串。<br>比如说选取”2020-04-18”的日期片段，可以看成 </p>
-<p>“数字<em>4” + “-” + “数字\</em>2” + “-” + “数字*2”</p>
+<p>******************2”</p>
 <p>用正则表达式的语法来表示则是</p>
 <pre><code class="lang-javascript">var news_reg=/\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;/;
 </code></pre>
 <p>又或者用“detail-ifzvpqct5600213”来筛选</p>
-<p>“detail-” + “字母<em>8” + “数字\</em>7”，用正则表达式表示一下：</p>
+<p>*************7”，用正则表达式表示一下：</p>
 <pre><code class="lang-javascript">var news_reg=/detail-\w&#123;8&#125;\d&#123;7&#125;/;
 </code></pre>
 <p>可供选择的正则表达式还有很多，检查标准是比较宽松的，只要确保不遗漏，不误筛就可以了。</p>
@@ -698,7 +698,7 @@ console.log(typeof b);
     ...
 &#125;
 </code></pre>
-<p>假如request对页面的申请失败了，error参数就会为真，同时，如果访问被跳转到其他页面，response.statusCode就不等于200了。而实际上，由于这是一个对网络发送的请求，单次访问失败的概率其实是非常高的。一旦访问失败，body参数就无法被正常赋值了，结果是undefined，如果我们继续操作下去，比如用iconv对body编码，程序也会立刻崩溃。所以爬虫代码中，<strong>对回调函数err参数的检查是必须的</strong>。</p>
+<p><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em><em><em>对回调函数err参数的检查是必须的</em></em>的**。</p>
 <pre><code class="lang-javascript">request(url,function(err,response,body)&#123;
     if (err || response.statusCode!==200)&#123;
         console.log(&quot;页面访问出错~~&quot;)
@@ -780,7 +780,7 @@ newsDiv.each(function(i,e)&#123;
 &#125;
 </code></pre>
 </li>
-<li>重新解析元素e得到$<em>，再提取$\</em>的属性<pre><code class="lang-javascript">var newsDiv=$(&#39;a&#39;)  //分块
+<li>__________的属性<pre><code class="lang-javascript">var newsDiv=$(&#39;a&#39;)  //分块
 //用cheerio元素e作为选择器
 newsDiv.each(function(i,e)&#123;
  var $_=myCheerio.load(e);
@@ -1140,7 +1140,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

@@ -47,7 +47,7 @@
         
             博弈题整理 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/03/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%8D%9A%E5%BC%88%E9%A2%98%E6%95%B4%E7%90%86/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/03/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%8D%9A%E5%BC%88%E9%A2%98%E6%95%B4%E7%90%86/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="博弈题整理 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="博弈题整理 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="">
     <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="博弈"> <meta property="og:article:tag" content="sg函数"> 
@@ -751,7 +751,7 @@ int main() &#123;
 <h1 id="对称博弈"><a href="#对称博弈" class="headerlink" title="对称博弈"></a>对称博弈</h1><p>题目很多也不难，关键是要有这个思路就是：如果A操作后B一定也能操作，且B不是先手或B一定可以完成第一部操作，则B必胜</p>
 <h1 id="博弈相关"><a href="#博弈相关" class="headerlink" title="博弈相关"></a>博弈相关</h1><p>先用博弈的知识将问题转化之后解其他问题，其实有点脱离博弈的范畴</p>
 <h2 id="Remove-the-Prime"><a href="#Remove-the-Prime" class="headerlink" title="Remove the Prime"></a><a target="_blank" rel="noopener" href="https://official.contest.yandex.com/icpc-camp-21/contest/24598/problems/G/">Remove the Prime</a></h2><p>题意：每次可以选择一个区间$[l,r]$并移除它们的一个质因子，不能操作的人失败</p>
-<p>博弈部分：对于每个质因子，连续的一段有这个质因子的区间可以看成一堆石子，每次操作相当于把一整段区间从中间拿掉一部分之后分成两段（两段都可能为0），如果中间拿掉的个数为k(k&gt;1)，对应sg函数的可以写成$sg(x)=MEX{sg(i)\oplus sg(x-k-i) }$</p>
+<p>博弈部分：对于每个质因子，连续的一段有这个质因子的区间可以看成一堆石子，每次操作相当于把一整段区间从中间拿掉一部分之后分成两段（两段都可能为0），如果中间拿掉的个数为k(k&gt;1)，对应sg函数的可以写成$sg(x)=MEX\{sg(i)\oplus sg(x-k-i) \}$</p>
 <p>但是这个sg函数值其实就是$sg(x)=x$，因为如果$a+b&lt;x$，那么有$sg(a)\oplus sg(b)&lt;x$，这说明$sg(x)$最大值取到x，和最基本的nim问题一样</p>
 <p>所以只要对于每个素数把这样的区间长度求出来然后异或（每个区间长度就相当于nim问题中每堆石子的个数），需要用到Miller-rabin之类的判素数方法</p>
 <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
@@ -1629,7 +1629,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

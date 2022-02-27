@@ -47,7 +47,7 @@
         
             2021牛客多校第一场 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -57,7 +57,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="A. Alice and Bob题意：给出两堆石子a、b，两名玩家轮流取石子，取法是在一堆石子里取k个，并在另一堆石子里取$s\times k$个$(s\ge 0)$，给定a、b，问先后手谁必胜
 观察得到，对于一堆石子为i个，那么只有最多一个对应的j，使得两堆石子为i、j时为必败态，于是必败态总数不超过n。对于每一个必败态，先枚举k，再枚举s，得到所有能一步达到该状态的必胜态，复杂度为调和级数$O(n\log n)$">
-    <meta name="keywords" content=",XCPC,dp,多校,博弈,FFT,贪心">
+    <meta name="keywords" content=",XCPC,多校,dp,博弈,FFT,贪心">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -217,11 +217,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -235,11 +235,11 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/07/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="2021牛客多校第一场 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="2021牛客多校第一场 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="A. Alice and Bob题意：给出两堆石子a、b，两名玩家轮流取石子，取法是在一堆石子里取k个，并在另一堆石子里取$s\times k$个$(s\ge 0)$，给定a、b，问先后手谁必胜
 观察得到，对于一堆石子为i个，那么只有最多一个对应的j，使得两堆石子为i、j时为必败态，于是必败态总数不超过n。对于每一个必败态，先枚举k，再枚举s，得到所有能一步达到该状态的必胜态，复杂度为调和级数$O(n\log n)$">
-    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="dp"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="博弈"> <meta property="og:article:tag" content="FFT"> <meta property="og:article:tag" content="贪心"> 
+    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="dp"> <meta property="og:article:tag" content="博弈"> <meta property="og:article:tag" content="FFT"> <meta property="og:article:tag" content="贪心"> 
 
     
         <meta property="article:published_time" content="Sun Jul 18 2021 23:43:29 GMT+0800">
@@ -530,7 +530,7 @@ int main() &#123;
     return 0;
 &#125;
 </code></pre>
-<h1 id="G-Game-of-Swapping-Numbers"><a href="#G-Game-of-Swapping-Numbers" class="headerlink" title="G. Game of Swapping Numbers"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/G">G. Game of Swapping Numbers</a></h1><h1 id="H-Hash-Function"><a href="#H-Hash-Function" class="headerlink" title="H. Hash Function"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/H">H. Hash Function</a></h1><p>题意：给定n个数$(0\le a_i\le 500000)$，求出最小的$seed$，使得每个数$a_i\ mod\ seed$结果不同</p>
+<h1 id="G-Game-of-Swapping-Numbers"><a href="#G-Game-of-Swapping-Numbers" class="headerlink" title="G. Game of Swapping Numbers"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/G">G. Game of Swapping Numbers</a></h1><h1 id="H-Hash-Function"><a href="#H-Hash-Function" class="headerlink" title="H. Hash Function"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11166/H">H. Hash Function</a></h1><p>                              seed$结果不同</p>
 <p>$seed$满足条件的充要条件是，对于任意两个数之差的绝对值$|a_i-a_j|，$$seed$都不是其因数</p>
 <p>fft加速，求出某个数是否是任意两数之差，记录在一个数组里，然后从小到大枚举$seed$，若每个$k\times seed$都不存在，则将$seed$作为答案，复杂度类似于A题中的调和级数</p>
 <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
@@ -1223,7 +1223,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

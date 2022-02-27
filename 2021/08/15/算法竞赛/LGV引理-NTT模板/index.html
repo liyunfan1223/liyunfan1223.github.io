@@ -47,7 +47,7 @@
         
             LGV引理, NTT模板 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -218,11 +218,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/08/15/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/LGV%E5%BC%95%E7%90%86-NTT%E6%A8%A1%E6%9D%BF/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -236,7 +236,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/08/15/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/LGV%E5%BC%95%E7%90%86-NTT%E6%A8%A1%E6%9D%BF/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="LGV引理, NTT模板 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="LGV引理, NTT模板 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="LGV引理给出网格图上两个起点$a_1,a_2$和两个终点$b_1,b_2$，每次只能往右或往上走一步，问$a_1\rightarrow b_1$和$a_2\rightarrow b_2$的所有路径方案中，两条路径没有相交点的方案数
 用$e(a,b)$表示从a走到b的方案总数，则$ans=e(a_1,b_1)e(a_2,b_2)-e(a_1,b_2)e(a_2,b_1)$
@@ -488,8 +488,8 @@ ans=\left|
 e(a_1,b_1) & e(a_1,b_2)\\
 e(a_2,b_1) & e(a_2,b_2)
 \end{array}
-\right|</script><p>感性理解完两组点的情况之后直接扩展到n个点的情况，已知有n组点$(a<em>1,\cdots,a_n)$和$(b_1,\cdots,b_n)$，则$a_1\rightarrow b_1,\cdots,a_n\rightarrow b_n$路径不相交的方案为$|A|$，其中$A</em>{(i,j)}=e(a_i,b_j)$</p>
-<p>其实还可以扩展到一些非路径计数的问题上，即$e(a,b)$可以理解为$\sum<em>\limits{P:a\rightarrow b}\prod\limits</em>{e\in P}\omega_e$，即所有路径边权乘积之和，路径计数是将所有路径边权置为1后的结果</p>
+\right|</script><p>感性理解完两组点的情况之后直接扩展到n个点的情况，已知有n组点$(a_1,\cdots,a_n)$和$(b_1,\cdots,b_n)$，则$a_1\rightarrow b_1,\cdots,a_n\rightarrow b_n$路径不相交的方案为$|A|$，其中$A_{(i,j)}=e(a_i,b_j)$</p>
+<p>其实还可以扩展到一些非路径计数的问题上，即$e(a,b)$可以理解为$\sum_\limits{P:a\rightarrow b}\prod\limits_{e\in P}\omega_e$，即所有路径边权乘积之和，路径计数是将所有路径边权置为1后的结果</p>
 <h2 id="NTT模板"><a href="#NTT模板" class="headerlink" title="NTT模板"></a>NTT模板</h2><pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
 #define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
 #define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39;\n&#39;
@@ -923,7 +923,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

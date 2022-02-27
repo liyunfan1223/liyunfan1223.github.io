@@ -47,7 +47,7 @@
         
             常见分布期望方差推导 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -217,11 +217,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/04/22/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B8%B8%E8%A7%81%E5%88%86%E5%B8%83%E6%9C%9F%E6%9C%9B%E6%96%B9%E5%B7%AE%E6%8E%A8%E5%AF%BC/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -235,7 +235,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/04/22/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B8%B8%E8%A7%81%E5%88%86%E5%B8%83%E6%9C%9F%E6%9C%9B%E6%96%B9%E5%B7%AE%E6%8E%A8%E5%AF%BC/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="常见分布期望方差推导 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="常见分布期望方差推导 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="
 ">
@@ -489,30 +489,30 @@
 <p>$E(X)=\sum\limits_{k=0}^1 kp^k(1-p)^{1-k}=p$</p>
 <p>$V(X)=E(X^2)-E(X)^2=p-p^2=p(1-p)$</p>
 <h2 id="二项分布-b-n-p"><a href="#二项分布-b-n-p" class="headerlink" title="二项分布$b(n,p)$"></a>二项分布$b(n,p)$</h2><p>$p_k=\binom{n}{k}p^k(1-p)^{n-k},k=0,1,…,n$</p>
-<p>$E(X)=\sum\limits<em>{k=0}^n k\binom{n}{k}p^k(1-p)^{n-k}=np\sum\limits</em>{k=1}^n\binom{n-1}{k-1}p^{k-1}(1-p)^{(n-1)-(k-1)}=np(p+(1-p))^n=np    $</p>
-<p>$V(X)=E(X^2)-E(X)^2=\sum\limits<em>{k=0}^nk^2\binom{n}{k}p^k(1-p)^{n-k}-E(X)^2\=\sum\limits</em>{k=2}^nk(k-1)\binom{n}{k}p^k(1-p)^{n-k}+\sum\limits_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}-E(X)^2=n(n-1)p^2+np-n^2p^2=np(1-p)$</p>
+<p>$E(X)=\sum\limits_{k=0}^n k\binom{n}{k}p^k(1-p)^{n-k}=np\sum\limits_{k=1}^n\binom{n-1}{k-1}p^{k-1}(1-p)^{(n-1)-(k-1)}=np(p+(1-p))^n=np    $</p>
+<p>$V(X)=E(X^2)-E(X)^2=\sum\limits_{k=0}^nk^2\binom{n}{k}p^k(1-p)^{n-k}-E(X)^2\\=\sum\limits_{k=2}^nk(k-1)\binom{n}{k}p^k(1-p)^{n-k}+\sum\limits_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}-E(X)^2=n(n-1)p^2+np-n^2p^2=np(1-p)$</p>
 <h2 id="泊松分布-P-lambda"><a href="#泊松分布-P-lambda" class="headerlink" title="泊松分布$P(\lambda)$"></a>泊松分布$P(\lambda)$</h2><p>$p_k=\frac{\lambda^k}{k!}e^{-\lambda k},k=0,1,…$</p>
-<p>$E(X)=\sum\limits<em>{k=0}^\infty k\frac{\lambda^k}{k!}e^{-\lambda}=\lambda e^{-\lambda}\sum\limits</em>{k=0}^\infty\frac{\lambda^k}{k!}=\lambda e^{-\lambda}e^\lambda=\lambda$</p>
-<p>$E(X^2)=\sum\limits<em>{k=0}^\infty k^2\frac{\lambda^k}{k!}e^{-\lambda}=\sum\limits</em>{k=0}^\infty [k(k-1)+k]\frac{\lambda^k}{k!}e^{-\lambda}=e^{-\lambda}\lambda^2\sum\limits_{k=0}^\infty \frac{\lambda^k}{k!}+\lambda=\lambda^2+\lambda$</p>
+<p>$E(X)=\sum\limits_{k=0}^\infty k\frac{\lambda^k}{k!}e^{-\lambda}=\lambda e^{-\lambda}\sum\limits_{k=0}^\infty\frac{\lambda^k}{k!}=\lambda e^{-\lambda}e^\lambda=\lambda$</p>
+<p>$E(X^2)=\sum\limits_{k=0}^\infty k^2\frac{\lambda^k}{k!}e^{-\lambda}=\sum\limits_{k=0}^\infty [k(k-1)+k]\frac{\lambda^k}{k!}e^{-\lambda}=e^{-\lambda}\lambda^2\sum\limits_{k=0}^\infty \frac{\lambda^k}{k!}+\lambda=\lambda^2+\lambda$</p>
 <p>$V(X)=E(X^2)-E(X)^2=\lambda$</p>
 <h2 id="几何分布-Ge-p"><a href="#几何分布-Ge-p" class="headerlink" title="几何分布$Ge(p)$"></a>几何分布$Ge(p)$</h2><p>$p_k=(1-p)^{k-1}p,k=1,2,…$</p>
-<p>$E(X)=\sum\limits<em>{k=0}^\infty k(1-p)^{k-1}p=p\sum\limits</em>{k=0}^\infty [-(1-p)^k]’=p[\sum\limits_{k=0}^\infty -(1-p)^k]’=p(-\frac{1}{p})’=\frac{1}{p}$</p>
-<p>$E(X^2)=\sum\limits<em>{k=0}^\infty k^2(1-p)^{k-1}p=p\sum\limits</em>{k=0}^\infty <a href="1-p">k(k-1)+k</a>^{k-1}$</p>
-<p>其中$\sum\limits<em>{k=0}^\infty k(k-1)(1-p)^{k-1}=(1-p)\sum\limits</em>{k=0}^\infty [(1-p)^k]’’=(1-p)[\sum\limits_{k=0}^\infty (1-p)^k]’’=2p^{-3}(1-p)$</p>
+<p>$E(X)=\sum\limits_{k=0}^\infty k(1-p)^{k-1}p=p\sum\limits_{k=0}^\infty [-(1-p)^k]’=p[\sum\limits_{k=0}^\infty -(1-p)^k]’=p(-\frac{1}{p})’=\frac{1}{p}$</p>
+<p>$E(X^2)=\sum\limits_{k=0}^\infty k^2(1-p)^{k-1}p=p\sum\limits_{k=0}^\infty <a href="1-p">k(k-1)+k</a>^{k-1}$</p>
+<p>其中$\sum\limits_{k=0}^\infty k(k-1)(1-p)^{k-1}=(1-p)\sum\limits_{k=0}^\infty [(1-p)^k]’’=(1-p)[\sum\limits_{k=0}^\infty (1-p)^k]’’=2p^{-3}(1-p)$</p>
 <p>所以$E(X^2)=2p^{-2}(1-p)+\frac{1}{p}$</p>
 <p>$V(X)=E(X^2)-E(X)^2=\frac{2(1-p)}{p^2}+\frac{1}{p}-\frac{1}{p^2}=\frac{1-p}{p^2}$</p>
 <h2 id="负二项分布-Nb-r-p"><a href="#负二项分布-Nb-r-p" class="headerlink" title="负二项分布$Nb(r,p)$"></a>负二项分布$Nb(r,p)$</h2><p>$p_k=\binom{k-1}{r-1}(1-p)^{k-r}p^r,k=r,r+1,…$</p>
-<p>$E(X)=\sum\limits<em>{k=r}^\infty k\binom{k-1}{r-1}p^r(1-p)^{k-r}=\frac{r}{p}\sum\limits</em>{k=r}^\infty \frac{k!}{(k-r)!r!}p^{r+1}(1-p)^{k-r}=\frac{r}{p}\sum\limits_{k=r+1}^\infty \binom{k-1}{r}p^{r+1}(1-p)^{k-1-r}=\frac{r}{p}$</p>
-<p>$E(X^2)=\sum\limits<em>{k=r}^\infty k^2\binom{k-1}{r-1}p^r(1-p)^{k-r}=\frac{r}{p}\sum\limits</em>{k=r+1}^\infty (k-1)\binom{k-1}{r}p^{r+1}(1-p)^{k-1-r}=\frac{r}{p}(\frac{r+1}{p}-1)=\frac{r^2+r-rp}{p^2}$</p>
+<p>$E(X)=\sum\limits_{k=r}^\infty k\binom{k-1}{r-1}p^r(1-p)^{k-r}=\frac{r}{p}\sum\limits_{k=r}^\infty \frac{k!}{(k-r)!r!}p^{r+1}(1-p)^{k-r}=\frac{r}{p}\sum\limits_{k=r+1}^\infty \binom{k-1}{r}p^{r+1}(1-p)^{k-1-r}=\frac{r}{p}$</p>
+<p>$E(X^2)=\sum\limits_{k=r}^\infty k^2\binom{k-1}{r-1}p^r(1-p)^{k-r}=\frac{r}{p}\sum\limits_{k=r+1}^\infty (k-1)\binom{k-1}{r}p^{r+1}(1-p)^{k-1-r}=\frac{r}{p}(\frac{r+1}{p}-1)=\frac{r^2+r-rp}{p^2}$</p>
 <p>$V(X)=E(X^2)-E(X)^2=\frac{r(1-p)}{p^2}$</p>
 <p>也可以把负二项分布理解成r次相互独立的几何分布，那么$E(X\sim Nb(r,p))=rE(X\sim Ge(p))=\frac{r}{p}$,$V(X\sim Nb(r,p))=rV(X\sim Ge(p))$（独立事件的期望和方差可以直接相加）</p>
-<h2 id="正态分布-N-mu-sigma-2"><a href="#正态分布-N-mu-sigma-2" class="headerlink" title="正态分布$N(\mu,\sigma^2)$"></a>正态分布$N(\mu,\sigma^2)$</h2><p>标准正态分布情况下：$p(x)=\frac{1}{\sqrt{2\pi}}\exp{-\frac{x^2}{2}},-\infty&lt;x&lt;\infty$</p>
+<h2 id="正态分布-N-mu-sigma-2"><a href="#正态分布-N-mu-sigma-2" class="headerlink" title="正态分布$N(\mu,\sigma^2)$"></a>正态分布$N(\mu,\sigma^2)$</h2><p>标准正态分布情况下：$p(x)=\frac{1}{\sqrt{2\pi}}\exp\{-\frac{x^2}{2}\},-\infty&lt;x&lt;\infty$</p>
 <p>$E(X)=\int_{-\infty}^\infty  xp(x)dx$，$xp(x)$为奇函数，积分为0，即$E(X)=0$</p>
-<p>$E(X^2)=\int<em>{-\infty}^\infty x^2\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx=\frac{1}{\sqrt{2\pi}}\int</em>{-\infty}^\infty xd(-e^{-\frac{x^2}{2}})=\frac{1}{\sqrt{2\pi}}[x(-e^{-\frac{x^2}{2}})|<em>{-\infty}^\infty-\int</em>{-\infty}^\infty -e^{-\frac{x^2}{2}}]=\frac{1}{\sqrt{2\pi}}\sqrt{2\pi}=1$</p>
+<p>$E(X^2)=\int_{-\infty}^\infty x^2\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty xd(-e^{-\frac{x^2}{2}})=\frac{1}{\sqrt{2\pi}}[x(-e^{-\frac{x^2}{2}})|_{-\infty}^\infty-\int_{-\infty}^\infty -e^{-\frac{x^2}{2}}]=\frac{1}{\sqrt{2\pi}}\sqrt{2\pi}=1$</p>
 <p>$V(X)=E(X^2)-E(X)^2=1$</p>
 <p>若正态分布$U\sim N(\mu,\sigma^2)$，则$X=(U-\mu)/\sigma\sim N(0,1),U=\sigma X+\mu$</p>
 <p>所以</p>
-<p>$p(u)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp{-\frac{(x-\mu)^2}{2\sigma^2}},-\infty&lt;x&lt;\infty$</p>
+<p>$p(u)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\{-\frac{(x-\mu)^2}{2\sigma^2}\},-\infty&lt;x&lt;\infty$</p>
 <p>$E(U)=E(\sigma X+\mu)=\mu$</p>
 <p>$V(U)=V(\sigma X+\mu)=\sigma^2V(X)=\sigma^2$</p>
 <h2 id="均匀分布-U-a-b"><a href="#均匀分布-U-a-b" class="headerlink" title="均匀分布$U(a,b)$"></a>均匀分布$U(a,b)$</h2><p>$p(x)=\frac{1}{b-a},a&lt;x&lt;b$</p>
@@ -521,11 +521,11 @@
 <p>$V(X)=E(X^2)-E(X)^2=\frac{(b-a)^2}{12}$</p>
 <h2 id="指数分布-Exp-lambda"><a href="#指数分布-Exp-lambda" class="headerlink" title="指数分布$Exp(\lambda)$"></a>指数分布$Exp(\lambda)$</h2><p>$p(x)=\lambda e^{-\lambda x},x\geqslant 0$</p>
 <p>$E(X)=\int_0^\infty x\lambda e^{-\lambda x}dx=\lambda \int_0^\infty xd(\frac{1}{-\lambda}e^{-\lambda x})=\lambda(x\frac{1}{-\lambda}e^{-\lambda x}|_0^\infty -\int_0^\infty \frac{1}{-\lambda}e^{-\lambda x}dx)=\frac{1}{-\lambda}e^{-\lambda x}|_0^\infty=\frac{1}{\lambda}$</p>
-<p>$E(X^2)=\int_0^\infty \lambda x^2e^{-\lambda x}dx=\frac{\Gamma(3)}{\lambda^2}{\int_0^\infty \frac{\lambda^3}{\Gamma(3)}x^2e^{-\lambda x}dx}=\frac{2}{\lambda^2}$</p>
+<p>$E(X^2)=\int_0^\infty \lambda x^2e^{-\lambda x}dx=\frac{\Gamma(3)}{\lambda^2}\{\int_0^\infty \frac{\lambda^3}{\Gamma(3)}x^2e^{-\lambda x}dx\}=\frac{2}{\lambda^2}$</p>
 <p>$Var(X)=E(X^2)-E(X)=\frac{1}{\lambda^2}$</p>
 <h2 id="伽马分布-Ga-alpha-lambda"><a href="#伽马分布-Ga-alpha-lambda" class="headerlink" title="伽马分布$Ga(\alpha, \lambda)$"></a>伽马分布$Ga(\alpha, \lambda)$</h2><p>$p(x)=\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha - 1}e^{-\lambda x},x\geqslant 0$</p>
-<p>$E(X)=\int_0^\infty \frac{\lambda^\alpha}{\Gamma(\alpha)}x^\alpha e^{-\lambda x}dx={\int_0^\infty \frac{\lambda^{\alpha+1}}{\Gamma(\alpha+1)}x^\alpha e^{-\lambda x}dx}\frac{\alpha}{\lambda}=\frac{\alpha}{\lambda}$</p>
-<p>$E(X^2)={\int_0^\infty \frac{\lambda^{\alpha+2}}{\Gamma(\alpha+2)}x^{\alpha+1}e^{-\lambda x}dx}\frac{\alpha^2+\alpha}{\lambda^2}$</p>
+<p>$E(X)=\int_0^\infty \frac{\lambda^\alpha}{\Gamma(\alpha)}x^\alpha e^{-\lambda x}dx=\{\int_0^\infty \frac{\lambda^{\alpha+1}}{\Gamma(\alpha+1)}x^\alpha e^{-\lambda x}dx\}\frac{\alpha}{\lambda}=\frac{\alpha}{\lambda}$</p>
+<p>$E(X^2)=\{\int_0^\infty \frac{\lambda^{\alpha+2}}{\Gamma(\alpha+2)}x^{\alpha+1}e^{-\lambda x}dx\}\frac{\alpha^2+\alpha}{\lambda^2}$</p>
 <p>$Var(X)=E(X^2)-E(X)^2=\frac{\alpha}{\lambda^2}$</p>
 
         
@@ -882,7 +882,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

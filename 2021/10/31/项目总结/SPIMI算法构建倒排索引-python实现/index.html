@@ -47,7 +47,7 @@
         
             SPIMI算法构建倒排索引 python实现 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/10/31/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/SPIMI%E7%AE%97%E6%B3%95%E6%9E%84%E5%BB%BA%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95-python%E5%AE%9E%E7%8E%B0/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/10/31/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/SPIMI%E7%AE%97%E6%B3%95%E6%9E%84%E5%BB%BA%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95-python%E5%AE%9E%E7%8E%B0/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="SPIMI算法构建倒排索引 python实现 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="SPIMI算法构建倒排索引 python实现 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="">
     
@@ -552,7 +552,7 @@ def job(docl, docr, blockid):
 <p>def outWordsDict(wordsDict, blockid):</p>
 <p>  f = open(“target/block” + str(blockid) + “.txt”, ‘w’, encoding = ‘utf-8’)</p>
 <p>  for key in wordsDict.keys():</p>
-<p>​    # print(key)</p>
+<p>#### print(key)</p>
 <p>​    f.write(key + ‘\t’ + str(wordsDict[key][1]) + ‘\t’ + wordsDict[key][0] + ‘\n’)</p>
 <p>  f.flush()</p>
 <p>  f.close()</p>
@@ -580,46 +580,46 @@ def job(docl, docr, blockid):
 <p>​    item.append(i)</p>
 <p>​    heappush(heap, item)</p>
 <p>  while(len(heap) &gt; 0):</p>
-<p>​    # 取出小根堆顶的索引条目，并继续读取对应的下一个条目</p>
+<p>#### 取出小根堆顶的索引条目，并继续读取对应的下一个条目</p>
 <p>​    item_now = heappop(heap)</p>
 <p>​    doc = item_now[3]</p>
 <p>​    line = files[doc].readline()</p>
-<p>​    # 若条目未读完，则将下一个条目放入堆中</p>
+<p>#### 若条目未读完，则将下一个条目放入堆中</p>
 <p>​    if line:</p>
 <p>​      item = line.strip().split(‘\t’)</p>
 <p>​      item.append(doc)</p>
 <p>​      heappush(heap, item)</p>
 <p>​    if (item_now[0] != word_now):</p>
-<p>​      # 当前维护的词项与下一条词项不同，说明当前词项已全部读取，将当前词项及索引写回磁盘</p>
+<p>##### 当前维护的词项与下一条词项不同，说明当前词项已全部读取，将当前词项及索引写回磁盘</p>
 <p>​      if (word_now != ‘’):</p>
-<p>​        # heapify(result_now)</p>
+<p>###### heapify(result_now)</p>
 <p>​        writeBackFile(f_out, word_now, df_now, result_now)</p>
 <p>​      word_now = item_now[0]</p>
 <p>​      df_now = int(item_now[1])</p>
 <p>​      result_now = []</p>
-<p>​      # 用另一个堆维护当前词项的文档</p>
+<p>##### 用另一个堆维护当前词项的文档</p>
 <p>​      accmulatedDocId = 0</p>
 <p>​      for docid in item_now[2].split(‘,’):</p>
 <p>​        accmulatedDocId += int(docid)</p>
 <p>​        heappush(result_now, accmulatedDocId)</p>
 <p>​    else:</p>
 <p>​      df_now += int(item_now[1])</p>
-<p>​      # 用另一个堆维护当前词项的文档</p>
+<p>##### 用另一个堆维护当前词项的文档</p>
 <p>​      accmulatedDocId = 0</p>
 <p>​      for docid in item_now[2].split(‘,’):</p>
-<p>​        # 记录真实docID（累加和）</p>
+<p>###### 记录真实docID（累加和）</p>
 <p>​        accmulatedDocId += int(docid)</p>
 <p>​        heappush(result_now, accmulatedDocId)</p>
-<p>  # 将最后一个条目写回磁盘</p>
+<p>## 将最后一个条目写回磁盘</p>
 <p>  if (word_now != ‘’):</p>
 <p>​    writeBackFile(f_out, word_now, df_now, result_now)</p>
 <p>def writeBackFile(f_out, word_now, df_now, result_now):</p>
-<p>  # 先将result_now一个一个取出，再按照差分方式重新压缩</p>
+<p>## 先将result_now一个一个取出，再按照差分方式重新压缩</p>
 <p>  docList = []</p>
 <p>  while(len(result_now) != 0):</p>
 <p>​    docList.append(heappop(result_now))</p>
 <p>  for i in range(len(docList) - 1, 0, -1):</p>
-<p>​    # print(i)</p>
+<p>#### print(i)</p>
 <p>​    docList[i] -= docList[i - 1]</p>
 <p>  docstr = ‘’</p>
 <p>  for doc in docList:</p>
@@ -653,12 +653,12 @@ def job(docl, docr, blockid):
 <p>​    return []</p>
 <p>  index = []</p>
 <p>  line = linecache.getline(‘dict.index.txt’, lineDict[word])</p>
-<p>  # print(line)</p>
+<p>## print(line)</p>
 <p>  word, df, res = line.strip().split(‘\t’)</p>
 <p>  res = res.split(‘,’)</p>
 <p>  for i in range(len(res)):</p>
 <p>​    res[i] = int(res[i])</p>
-<p>  # 根据压缩后的倒排记录表计算原记录表</p>
+<p>## 根据压缩后的倒排记录表计算原记录表</p>
 <p>  for i in range(1, len(res)):</p>
 <p>​    res[i] += res[i - 1]</p>
 <p>  return res</p>
@@ -693,7 +693,7 @@ def job(docl, docr, blockid):
 <p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image010.png" alt="img"></p>
 <p>​    结束查询：</p>
 <p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image012.png" alt="img"></p>
-<p>五、 <strong>总结</strong></p>
+<p><em><em>总结</em></em>结**</p>
 <p>本次实验使用了SPIMI算法实现了倒排索引表构建，构建分块索引时，由于块与块之间独立，使用了多线程的方式提高构建分块索引的效率，同时对记录表采用Delta编码的方式压缩空间大小。合并索引块时，由于每个分块内的索引都是按词项排序的，所以合并过程中内存中可以只存放每个分块索引当前最前面的条目，并用堆结构维护这些条目。每确定了一个词项的条目后直接将该条目写回磁盘，不再占用内存空间，这样一来即使最终倒排索引表总大小超过内存限制，在生成倒排表的过程中内存也能容纳所有需要的数据，因此可以生成任意大小的倒排索引表。</p>
 <p>在读取倒排索引表时，为了避免索引表过大内存无法容纳，并不会直接将整张索引表读入内存，而仅将(词项-行号)信息读入内存，每个词项对应的docID将在解析用户输入后再去读取文件对应的行号来获取。这样一来内存中只需要存放(词项-行号)的信息，以及当前涉及当前查询词项的docList，即可以对任意大小的倒排索引表进行查询。同时，解析所有词项的docID在时间上效率也较低，由于绝大多数与查询不相关的词项docID是不需要解析的，这样的写法也可以避免这些不必要的解析操作。</p>
 <p>实验过程中，存在一些参数设置，如每个分块对应的文件个数以及线程池上限，经程序效率测试发现，分块实际上会使程序整体运行效率降低，分块数量越多效率通常越低。 </p>
@@ -1055,7 +1055,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

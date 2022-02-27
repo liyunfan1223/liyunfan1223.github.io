@@ -47,7 +47,7 @@
         
             XCPC模板 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2020/12/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/XCPC%E6%A8%A1%E6%9D%BF/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2020/12/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/XCPC%E6%A8%A1%E6%9D%BF/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="XCPC模板 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="XCPC模板 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="XCPC算法竞赛模板 by MorphLing">
     <meta property="og:article:tag" content="XCPC"> 
@@ -2179,7 +2179,7 @@ int main() &#123;
     return 0;
 &#125;
 </code></pre>
-<h1 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h1><h2 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h2><p>若$dp[l][r]=min_{l&lt;k&lt;=r}{dp[l][k]+dp[k+1][r]+w[l][r]}$（min也可以改为max）</p>
+<h1 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h1><h2 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h2><p>若$dp[l][r]=min_{l&lt;k&lt;=r}\{dp[l][k]+dp[k+1][r]+w[l][r]\}$（min也可以改为max）</p>
 <p>且$w[l][r]$满足四边形不等式，即：$w[l][r]+w[l+1][r+1]&lt;=w[l+1][r]+w[l][r+1]$</p>
 <p>且满足区间单调性，即：$w[l+1][r]&lt;=w[l][r+1]$</p>
 <p>则有两个定理（当成结论就好）：</p>
@@ -3876,7 +3876,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

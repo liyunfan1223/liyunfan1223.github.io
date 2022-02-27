@@ -47,7 +47,7 @@
         
             CDQ分治和多维偏序问题 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2020/07/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CDQ%E5%88%86%E6%B2%BB%E5%92%8C%E5%A4%9A%E7%BB%B4%E5%81%8F%E5%BA%8F%E9%97%AE%E9%A2%98/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="CDQ分治和多维偏序问题 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="CDQ分治和多维偏序问题 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="尝试一下写个专题吧。">
     <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="CDQ"> <meta property="og:article:tag" content="多维偏序"> 
@@ -487,7 +487,7 @@
 <li>解决：递归处理分段后的子问题</li>
 <li>合并：通过子问题的解求出原问题的解</li>
 </ol>
-<p>在我看来，CDQ分治与一般的分治算法的区别关键在于<strong>合并</strong>这一步上，也就是merge操作。常见的分治算法（比如归并排序、线段树的merge操作等等）往往只关注合并后的结果，但CDQ分治则会同时关注结果和过程两方面，并在合并过程中计算出答案。</p>
+<p><em><em>合并</em></em><em><em>合并</em></em><em><em>合并</em></em><em><em>合并</em></em><em><em>合并</em></em>*这一步上，也就是merge操作。常见的分治算法（比如归并排序、线段树的merge操作等等）往往只关注合并后的结果，但CDQ分治则会同时关注结果和过程两方面，并在合并过程中计算出答案。</p>
 <h2 id="2-逆序对问题"><a href="#2-逆序对问题" class="headerlink" title="2. 逆序对问题"></a>2. 逆序对问题</h2><p>一个经典的问题是在归并排序过程中计算出逆序对的个数：</p>
 <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">洛谷P1908 逆序对</a></p>
 <p>按顺序给出n个数，求逆序对的数目（逆序对就是ai&gt;aj且i&lt;j的有序对）。</p>
@@ -601,7 +601,7 @@ int main()
 &#125;
 </code></pre>
 <p>值得注意的当某一维数据相同时（即a[i].x=a[j].x或a[i].y=a[j].y）的处理方式。需要根据题意决定该点是否能产生贡献。这道题不存在重合的点，但有时需要对相同的数据点做一些预处理来得到预期的结果（在后面的三维偏序题里会有体现）。</p>
-<p>之所以要用CDQ来解决一道树状数组可以秒切的题主要还是为了理解CDQ分治的本质就是降维。<strong>多维偏序问题中的“维”可以抽象理解为一种约束条件</strong>，这种约束条件有时是显性的，有时是隐含在题意中的，无论排序、分治还是树状数组，其实都是在可以接受的复杂度下处理某一维数据的方式。</p>
+<p><em><em>多维偏序问题中的“维”可以抽象理解为一种约束条件</em></em><em><em>多维偏序问题中的“维”可以抽象理解为一种约束条件</em></em>”可以抽象理解为一种约束条件**，这种约束条件有时是显性的，有时是隐含在题意中的，无论排序、分治还是树状数组，其实都是在可以接受的复杂度下处理某一维数据的方式。</p>
 <h2 id="4-三维偏序问题"><a href="#4-三维偏序问题" class="headerlink" title="4. 三维偏序问题"></a>4. 三维偏序问题</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3810">luoguP3810三维偏序（陌上花开）</a></p>
 <p>有n个元素，第i个元素有ai,bi,ci三个属性，f(i)表示满足aj&lt;=ai且bj&lt;=bi且cj&lt;=ci且j!=i的j的数量<br>求f(i)=d的数量。</p>
 <p>解决三维偏序问题应该是CDQ分治最经典的应用了。三维偏序问题解决方法很多，可以通过bitset、树套树等算法来解决，但是这些做法缺点就是难写难调，代码量巨大。（当然这些算法还是要尽量学一下）</p>
@@ -709,7 +709,7 @@ int main()
 <p>我觉得CDQ分治的代码是比文字更容易理解的。与其先搞懂CDQ分治的思想，不如先看看现成的代码。</p>
 <p>但是在自己写的时候会发现因为分治算法这种递归的写法，导致程序比较难调试，很可能因为一点细节要改很久。这就需要我们对CDQ分治有比较深刻的理解。</p>
 <h2 id="5-CDQ分治的理解"><a href="#5-CDQ分治的理解" class="headerlink" title="5. CDQ分治的理解"></a>5. CDQ分治的理解</h2><p>嗯。。这部分应该是重点，其实网上关于CDQ分治的代码很多，但是理解性的讨论并不是很多。我尽量把自己的理解讲清楚。</p>
-<p>之前有说到，CDQ分治的核心思想仍然是<strong>在分治过程中，不断处理左段的元素对右段每一个元素的贡献，且因为任意两个元素“分别处于左段和右段”的次数只有一次，保证了统计结果能够不重复不遗漏。</strong> 但是这个过程具体是怎么实现，或者说具体展开的呢？</p>
+<p><em><em>在分治过程中，不断处理左段的元素对右段每一个元素的贡献，且因为任意两个元素“分别处于左段和右段”的次数只有一次，保证了统计结果能够不重复不遗漏。</em></em>，保证了统计结果能够不重复不遗漏。** 但是这个过程具体是怎么实现，或者说具体展开的呢？</p>
 <p>我们仍然以最朴素的想法为起点，我们完全可以通过一个O(n^2)的算法，暴力计算出“任意两个元素之间的贡献”。然后想想怎么优化呢？</p>
 <p>首先明确一下，在分治过程中，我们把第一次递归的区间[l,mid]称为左段，把第二次递归区间[mid+1,r]称为右段。把x、y、z这三个属性分别称为第一维、第二维和第三维（实际上这三维的顺序是任意的）。</p>
 <p>“分段”是基于对第一维的排序，通过分治算法，我们相当于已经对原问题做了第一次降维，更具体地说：</p>
@@ -1322,7 +1322,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

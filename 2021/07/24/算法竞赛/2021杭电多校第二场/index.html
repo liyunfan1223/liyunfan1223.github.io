@@ -47,7 +47,7 @@
         
             2021杭电多校第二场 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -60,7 +60,7 @@
 发现可以转化成选择一段区间$[l,r]$，对于每个点$x$，该位置增加的值为$(x-h)^2$​​，把平方项展开后得到$x^2+h^2-2xh$​，对这三项分别线段树维护即可（分别维护$x^2,-2x$​出现的次数和$h^2$的和）
 有时候dfs序和修改顺序是反的，就是对于区间$[l,r]$​，每个点增加量分别是$n^2,(n-1)^2,…,1^2$​，实际上就是每个位置增加量变为$(h-x)^2$​​，h为r+1，而显然$(x-h)^2=(h-x)^2$​，因此这种情况下线段树不需要进行任何修改，只要调整传入的h参数即可
 树剖时还需要稍微注意的是，这里对链的修改存在先后顺序，常规的树剖对于两个端点x,y是一起往上跳的，那么这里只在x往上跳时修改，y往上跳时先用vector记录哪些点需要修改，等x修改完再去修改y">
-    <meta name="keywords" content=",XCPC,多校,分块,线段树,树链剖分,莫队">
+    <meta name="keywords" content=",XCPC,多校,分块,莫队,树链剖分,线段树">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -220,11 +220,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/07/24/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -238,14 +238,14 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/07/24/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="2021杭电多校第二场 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="2021杭电多校第二场 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="I love tree题意：给一棵树，每次操作选择一条链，从起点到终点点权依次增加$1^2,2^2,…n^2$，单点询问当前点权​
 容易想到树剖，然后考虑在线段树上维护这个问题
 发现可以转化成选择一段区间$[l,r]$，对于每个点$x$，该位置增加的值为$(x-h)^2$​​，把平方项展开后得到$x^2+h^2-2xh$​，对这三项分别线段树维护即可（分别维护$x^2,-2x$​出现的次数和$h^2$的和）
 有时候dfs序和修改顺序是反的，就是对于区间$[l,r]$​，每个点增加量分别是$n^2,(n-1)^2,…,1^2$​，实际上就是每个位置增加量变为$(h-x)^2$​​，h为r+1，而显然$(x-h)^2=(h-x)^2$​，因此这种情况下线段树不需要进行任何修改，只要调整传入的h参数即可
 树剖时还需要稍微注意的是，这里对链的修改存在先后顺序，常规的树剖对于两个端点x,y是一起往上跳的，那么这里只在x往上跳时修改，y往上跳时先用vector记录哪些点需要修改，等x修改完再去修改y">
-    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="分块"> <meta property="og:article:tag" content="线段树"> <meta property="og:article:tag" content="树链剖分"> <meta property="og:article:tag" content="莫队"> 
+    <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="分块"> <meta property="og:article:tag" content="莫队"> <meta property="og:article:tag" content="树链剖分"> <meta property="og:article:tag" content="线段树"> 
 
     
         <meta property="article:published_time" content="Sat Jul 24 2021 23:48:29 GMT+0800">
@@ -641,8 +641,8 @@ int main() &#123;
     return 0;
 &#125;
 </code></pre>
-<h1 id="I-love-counting"><a href="#I-love-counting" class="headerlink" title="I love counting"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=6964">I love counting</a></h1><p>题意：给一个序列A，每次查询区间$[l_i,r_i]$​中满足$c\ xor\ a\le b$​​​的​不同数c的个数（重复不计）</p>
-<p>首先在字典树上思考，满足$c\ xor\ a\le b$​​的c​至多有$\log$​​​个区间：</p>
+<h1 id="I-love-counting"><a href="#I-love-counting" class="headerlink" title="I love counting"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=6964">I love counting</a></h1><p>                    a\le b$​​​的​不同数c的个数（重复不计）</p>
+<p>           a\le b$​​的c​至多有$\log$​​​个区间：</p>
 <p>从二进制最高位开始考虑，用u表示a的当前位，v表示b的当前位，分成以下四种情况讨论</p>
 <ol>
 <li>u=0, v=0 c向0子树搜索</li>
@@ -1308,7 +1308,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

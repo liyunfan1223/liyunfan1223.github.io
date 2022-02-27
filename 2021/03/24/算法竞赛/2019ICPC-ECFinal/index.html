@@ -47,7 +47,7 @@
         
             2019ICPC ecfinal | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/03/24/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2019ICPC-ECFinal/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/03/24/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2019ICPC-ECFinal/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="2019ICPC ecfinal | MorphLing&#39;s Blog">
+    <meta property="og:title" content="2019ICPC ecfinal | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="">
     <meta property="og:article:tag" content="XCPC"> 
@@ -495,8 +495,8 @@
 <p>暴力的运算次数整体是$10!O(lgn)$，估计测试用例没有极端数据，所以写的差一点也能过。常数主要还是递归传参部分，比如递归的时候如果直接创建一个变量来记录原状态其实很费时间，还原状态是可以$O(1)$完成的，优化了一下只要400+ms</p>
 <h1 id="H-King"><a href="#H-King" class="headerlink" title="H.King"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/102471/problem/H">H.King</a></h1><p>ZRC &amp; LYF</p>
 <p>找出模意义下的最长等比数列的长度，若长度$&lt;\frac{n}{2}$则只要输出-1</p>
-<p>只考虑长度$\geqslant \frac{n}{2}$的情况，可以发现很密集，随机选择一个数$a<em>i$，那么$a_i$与$a</em>{i+1}$或者$a<em>i$与$a</em>{i+2}$是等比数列上相邻的两个数这一事件的概率是很大的，对于随机数据来说应该是$\frac{3}{8}$，但是对于构造过的数据好像不太好算，但是概率还是比较高的。只要选中一次，用这个比值来$O(n)$计算这一比值下等比数列的长度，那么得到的结果就是正确答案。只要随机选择几十次，选中的概率就趋近于1了。</p>
-<p>还有一个想法是对于每个数$a<em>i$，记录和$a</em>{i+1}$和$a_{i+2}$的比值，这样记录2n个比值，可以发现，最长等比数列的比值一定会出现至少$\frac{n}{4}$次（可能还不止）（构造一种比值出现次数最少的情况，前$\frac{n}{4}$个数每隔两个空放一个，占用$\frac{3n}{4}$个空位，后面$\frac{n}{4}$个数相邻放置）。这样的比值最多只有8个，依次验证取最大值即可。</p>
+<p>只考虑长度$\geqslant \frac{n}{2}$的情况，可以发现很密集，随机选择一个数$a_i$，那么$a_i$与$a_{i+1}$或者$a_i$与$a_{i+2}$是等比数列上相邻的两个数这一事件的概率是很大的，对于随机数据来说应该是$\frac{3}{8}$，但是对于构造过的数据好像不太好算，但是概率还是比较高的。只要选中一次，用这个比值来$O(n)$计算这一比值下等比数列的长度，那么得到的结果就是正确答案。只要随机选择几十次，选中的概率就趋近于1了。</p>
+<p>还有一个想法是对于每个数$a_i$，记录和$a_{i+1}$和$a_{i+2}$的比值，这样记录2n个比值，可以发现，最长等比数列的比值一定会出现至少$\frac{n}{4}$次（可能还不止）（构造一种比值出现次数最少的情况，前$\frac{n}{4}$个数每隔两个空放一个，占用$\frac{3n}{4}$个空位，后面$\frac{n}{4}$个数相邻放置）。这样的比值最多只有8个，依次验证取最大值即可。</p>
 <h1 id="M-Value"><a href="#M-Value" class="headerlink" title="M.Value"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/102471/problem/M">M.Value</a></h1><p>ZRC</p>
 <p>枚举$i$，把所有$i^k$取出来，发现最多当$i=2$时有20个数，且个数随$i$增大下降的非常快，可以直接暴力枚举</p>
 
@@ -854,7 +854,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

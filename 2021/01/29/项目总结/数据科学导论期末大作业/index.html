@@ -47,7 +47,7 @@
         
             数据科学与工程导论期末大作业 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/01/29/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AF%BC%E8%AE%BA%E6%9C%9F%E6%9C%AB%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/01/29/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AF%BC%E8%AE%BA%E6%9C%9F%E6%9C%AB%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据科学与工程导论期末大作业 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="数据科学与工程导论期末大作业 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="基于自然语言处理的游戏媒体评测可信度分析与预测">
     <meta property="og:article:tag" content="python"> <meta property="og:article:tag" content="数据分析"> 
@@ -559,7 +559,7 @@ if __name__ == &#39;__main__&#39;:
 <p>图很好看，爬虫写的很舒服，然后问题来了，这跟NLP有啥关系？而且这好像也不太容易带进机器学习模型吧？</p>
 <p>没关系不要紧，我们可以想办法找一些关系嘛。（实际上，整个项目过程中我都在为了把各个一拍脑袋做出来的部分强行勾连上关系而费尽心机）</p>
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/image-20210129230102409.png" alt="image-20210129230102409"></p>
-<p>注意到一部分游戏的steam商店里有一个metacritic评分，坦白讲我之前都不知道metacritic是个啥，点进去一看才直到原来是一个专门做游戏和电影评测的网站，而且很容易就找到大量<strong>用语规范</strong>的英文游戏评测内容。到这时候，我终于知道我该选什么数据集了。</p>
+<p><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em><em><em>用语规范</em></em>用语规范**的英文游戏评测内容。到这时候，我终于知道我该选什么数据集了。</p>
 <p>接下来就是爬取metacritic的数据集了，相比较而言，这在时间和精力上都比steam数据爬取要困难得多。心疼我为了爬数据几天晚上都没关过机的电脑（以及等它爬了一整夜后发现爬虫报错的我）</p>
 <p>总之它最后的形态大概是这样的。</p>
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/image-20210129230800041.png" alt="image-20210129230800041"></p>
@@ -570,9 +570,9 @@ if __name__ == &#39;__main__&#39;:
 <p>还有一些其他的处理，这一部分可以总结如下图。</p>
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/image-20210130000237843.png" alt="image-20210130000237843"></p>
 <p>简而言之，我把它转化为了一个二分类问题。这符合我在发散阶段所尝试过的问题形式，而我对此也已找到一种求解方式。</p>
-<p>为什么呢？从计算思维的角度来说，问题<strong>规约</strong>是相当重要的。</p>
-<p>即使文本内容不同，数据内容不同，但保证所有输入的<strong>形式</strong>一致，就保证了过程的正确性。</p>
-<p>毕竟，在创造有价值的代码之前，第一步先要让它能够<strong>运行</strong>。一段不能<strong>运行</strong>的代码是没有任何价值的！</p>
+<p><em><em>规约</em></em><em><em>规约</em></em><em><em>规约</em></em><strong>规约</strong>是相当重要的。</p>
+<p><em><em>形式</em></em><em><em>形式</em></em><em><em>形式</em></em><em><em>形式</em></em><strong>形式</strong>一致，就保证了过程的正确性。</p>
+<p><em><em><em><em>。一段不能</em></em>**运行</em></em><em><em><em><em>。一段不能</em></em>**运行</em></em><em><em>运行</em></em>*的代码是没有任何价值的！</p>
 <p>以LSTM模型构建为例，详见./main.py</p>
 <pre><code class="lang-python"># 设置和训练模型
 def dataLoader(data, Dict, maxWords):
@@ -636,7 +636,7 @@ def modelTrain_LSTM(data, Dict):
 <p>乐观的说，it does work! 它当然是有在进行预测的。但和IMDb的电影评论数据集接近90%的正确率相比，显然并不理想。</p>
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/result2.png" alt="result2"></p>
 <p>嗯，只是能运行起来而已，这要求未免也太低了吧。</p>
-<h1 id="数据预处理和清洗"><a href="#数据预处理和清洗" class="headerlink" title="数据预处理和清洗"></a>数据预处理和清洗</h1><p>想必此时是最迷茫与沮丧的时刻，通过保证<strong>形式</strong>的一致来确保<strong>过程</strong>无误的取巧方式在这种时候已经派不上用场了。已知领域已被探索得七七八八，若想再进一步，就不得不迈向未知。</p>
+<h1 id="数据预处理和清洗"><a href="#数据预处理和清洗" class="headerlink" title="数据预处理和清洗"></a>数据预处理和清洗</h1><p><em><em><em><em>的一致来确保</em></em>**过程</em></em><em><em><em><em>的一致来确保</em></em>**过程</em></em>*无误的取巧方式在这种时候已经派不上用场了。已知领域已被探索得七七八八，若想再进一步，就不得不迈向未知。</p>
 <p>我不能说最后的解决方案有多么巧妙，甚至这样的解决方法是相当显然，且又不够严谨的。但这个凭借自我探究并取得成功的过程，于我个人来说意义非凡。</p>
 <p>通过可视化，分析我爬取的数据集和IMDb数据集的不同之处。</p>
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/%E5%8F%A5%E5%AD%90%E9%95%BF%E5%BA%A6%E9%A2%91%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%9B%BE.png" alt="句子长度频数统计图"></p>
@@ -657,9 +657,9 @@ def modelTrain_LSTM(data, Dict):
 <h1 id="可信度分析"><a href="#可信度分析" class="headerlink" title="可信度分析"></a>可信度分析</h1><p>至此，从我的角度来说，这个项目已经可以临近尾声了，但从一个作业的角度来说，恐怕只是刚刚开始。</p>
 <p>原因也很简单，几乎所有预先需要解决的问题在技术层面都已经打通了，无论是NLP的模型还是适合做NLP二分类模型的数据集特点，我都有了一个大致的认识和了解，这是我想到达到的目标。但作业总是希望你有头有尾，介绍你的起因和动机，最后再配一个看上去有创新点的结论（无论它是否真的有趣），过程呢反而没有那么重要。</p>
 <p>所以，我要把我零零散散做过的东西勾连起来，构建一个相对完整的项目。这是个比较痛苦的过程，类似于总结归纳，但其实也还是挺有意义的，这会让我觉得自己好像真的做了些有实际意义的东西出来似的。</p>
-<p>那么就开始吧，其实要构建联系并不是很困难的，最简单的方法回到了之前反复提到的，<strong>保持形式一致</strong>这个万能方法上。于是我决定用二分类的方式思考，把可信度转化成可信和不可信。</p>
-<p>当然这里用“可信”这个说法还是容易引起歧义的，我认为评测媒体评分高于实际表现为<strong>不可信</strong>，反之，为<strong>可信</strong>。</p>
-<p>（我知道这个说法肯定和可信这个词本身是不太符合的，但是作为玩家来说我只想知道我如果信了评测买了这个游戏会不会被坑对不对，如果我发现这游戏比评测说的还要好玩那我偷着乐都来不及，怎么会觉得评测不可信呢=_=，主要是找不到另一个恰当的词来表述了，姑且认为这个<strong>可信</strong>是被我重载过的吧！）</p>
+<p><em><em>保持形式一致</em></em><em><em>保持形式一致</em></em><em><em>保持形式一致</em></em><em><em>保持形式一致</em></em><em>保持形式一致*</em>这个万能方法上。于是我决定用二分类的方式思考，把可信度转化成可信和不可信。</p>
+<p><em><em><em><em>，反之，为</em></em>为**可信</em></em><em><em><em><em>，反之，为</em></em>为**可信</em></em><em><em><em><em>，反之，为</em></em>为**可信</em></em>信**。</p>
+<p><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><em><em>可信</em></em><strong>可信</strong>是被我重载过的吧！）</p>
 <p>怎么标签呢，我觉得这个过程是非常适合可视化的，也是我在做这个项目过程中感觉为数不多的，真的在为了表达而做的可视化。</p>
 <p>step 1: 多项式回归拟合均值曲线pred_score，引入参数偏差值 x = score - pred_score</p>
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/img/image-20210130001018630.png" alt="image-20210130001018630"></p>
@@ -727,7 +727,7 @@ print(&#39;结合评分和定价后的准确率: &#123;&#125; %&#39;.format(scor
 <p>而且值得思考和拓展的地方其实相当多。</p>
 <p>首先，回到问题的第一步，可以发现第一步我就把它做了巨大的简化，即评测和评分其实是一个量化的指标，但我直接简化成了二分类。其实把所有的数据都量化，然后最后得到的可信度也是一个量化的指数，这听上去完全可行。</p>
 <p>其次，由于对模型底层原理一无所知，我忽略了绝大多数参数的调试，包括模型的损失函数、评估函数等等的选择，也是按照其他人常用的来的，因此造成了不少困扰，也是我进一步完善项目最大的阻碍。还是希望下学期可以好好学底层算法，该会造的轮子还是要自己造一遍。</p>
-<p>最后，虽然并不指望现在就能派上什么用场，但不得不说整个可信度评估框架起码还是合理的，没有非常大的逻辑漏洞，而且其实也不仅仅适用于游戏，各种商品的评测和评论也是能在<strong>形式</strong>一致的情况下套用上去的。当然，<strong>结果</strong>的正确性还是有待进一步研究。个人感觉还是值得再反复琢磨一下，在此基础上结合以后学到的东西，做一些真正有实用价值的东西也是有可能的。</p>
+<p><em><em><em><em>一致的情况下套用上去的。当然，</em></em>**结果</em></em><em><em><em><em>一致的情况下套用上去的。当然，</em></em>**结果</em></em><em><em><em><em>一致的情况下套用上去的。当然，</em></em>**结果</em></em><strong>形式</strong><em><em>结果</em></em><em><em>结果</em></em><em><em>结果</em></em>果**的正确性还是有待进一步研究。个人感觉还是值得再反复琢磨一下，在此基础上结合以后学到的东西，做一些真正有实用价值的东西也是有可能的。</p>
 <p>话说回来，最重要的当然还是靠写项目多写了一点python，比如一些常用的包、爬虫和可视化工具之类的，以后总算也可以说自己会写python了=_=</p>
 <p>最后附github链接 <a target="_blank" rel="noopener" href="https://github.com/liyunfan1223/DaSE_Final">https://github.com/liyunfan1223/DaSE_Final</a></p>
 <p>嗯。。希望下一次写项目可以把代码写的整洁一点，这次过程中写的很多代码因为太乱都已经找不到了，而且确实非常影响后期的整合工作。这次的话看在是第一次写python项目的份上就算啦。~</p>
@@ -1086,7 +1086,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

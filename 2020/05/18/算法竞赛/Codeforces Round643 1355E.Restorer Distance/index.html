@@ -47,7 +47,7 @@
         
             Codeforces Round#643 1355E.Restorer Distance（三分/二分） | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -225,11 +225,11 @@ OutputPrint one integer — the minimal cost of restoration.">
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2020/05/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round643%201355E.Restorer%20Distance/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -243,7 +243,7 @@ OutputPrint one integer — the minimal cost of restoration.">
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2020/05/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Codeforces%20Round643%201355E.Restorer%20Distance/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Codeforces Round#643 1355E.Restorer Distance（三分/二分） | MorphLing&#39;s Blog">
+    <meta property="og:title" content="Codeforces Round#643 1355E.Restorer Distance（三分/二分） | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="题目描述：E. Restorer Distance
 time limit per test 1 second
@@ -553,25 +553,25 @@ c=\left\{
 \right.</script><p>那么只要确定H与c的关系是一个存在最小值，且在最小值左、右侧分别具有单调性（类似于单谷函数），就可以用三分（或者二分判断增量）找到最小代价了，问题就在于怎么证明它有类似于单谷函数的单调性。</p>
 <p>contest的时候当然凭感觉猜一下，或者通过打表之类的方法观察到了就可以直接开始写了，但是回过头看似乎很难想到一个直观且严谨的证明方法，所以这里就只能通过比较麻烦的数学计算来证明一下。</p>
 <p>令$H’=H+\Delta H$、$c’=c+\Delta c$。我们来考虑当$\Delta H=1$时，c的增量$\Delta c$。只要能证明$\Delta c$在整个过程中是单调不递减的，就能证明$c$符合要求。</p>
-<p>令高度小于$H’$的石堆个数为$X$，那么$up’=up+X,down’=down-(n-X)=down+X-n$。<br>为了计算$\Delta c$，我们先考虑$down&gt;=up$且$down’&gt;=up’$的情况。<br>$\Delta c=c’-c=(down’-up’)<em>R+up’</em>M-(down-up)<em>R-up</em>M$代入后计算得到$\Delta c=X<em>M-R</em>n$<br>同理，当$down&lt;up$时$\Delta c=X<em>M-(M-A)</em>n$<br>也就是</p>
+<p><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R+up’</em><em>R-up</em><em>R-up</em><em>M$代入后计算得到$\Delta c=X</em><em>M-R</em><em>n$<br>同理，当$down&lt;up$时$\Delta c=X</em><em>M-(M-A)</em>*n$<br>也就是</p>
 <script type="math/tex; mode=display">
 \Delta c=\left\{
 \begin{aligned}
 X*M-R*n             &            &{down>=up}\\
 X*M-(M-A)*n     &             &{down<up}
 \end{aligned}
-\right.</script><p>又因为$M=min(M,A+R)$，所以$(M-A)&lt;=R$，当down<up时，$\Delta c>=X<em>M-R</em>n$<br>于是$\Delta c$与$X$的如图红线（断开来的地方就是down和up关系变化的点），满足单调不递减<br><img src="https://img-blog.csdnimg.cn/2020051802382515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后问题在于证到这里现在只能说明$\Delta c$在两段上各自单调不递减，没有考虑到由down&gt;=up变为down&lt;up的那一次变化的增量。所以我们再把这种情况单独拿出来。</p>
+\right.</script><p><em>M-R</em><em>M-R</em><em>M-R</em><em>M-R</em><em>M-R</em><em>M-R</em><em>M-R</em><em>M-R</em><em>M-R</em><em>M-R</em><em>M-R</em>-R*n$<br>于是$\Delta c$与$X$的如图红线（断开来的地方就是down和up关系变化的点），满足单调不递减<br><img src="https://img-blog.csdnimg.cn/2020051802382515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vcnBoTGluZ18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后问题在于证到这里现在只能说明$\Delta c$在两段上各自单调不递减，没有考虑到由down&gt;=up变为down&lt;up的那一次变化的增量。所以我们再把这种情况单独拿出来。</p>
 <p>此时$c$用down&gt;=up的情形计算，而$c’$用down&lt;up的情形计算，得到</p>
 <script type="math/tex; mode=display">
 \Delta c=X*M-(A+R-M)*(down-up)-n*(M-A)</script><p>我们需要证的是，</p>
 <ol>
-<li>若$\Delta c&lt;0$则$X<em>M-n</em>R&lt;=0$也成立（上一次变化也要&lt;=0)；</li>
-<li><p>若$\Delta c&gt;0$则$X<em>M-(M-A)</em>n&gt;=0$也成立（下一次变化也要&gt;=0)</p>
+<li><em>M-n</em><em>M-n</em><em>M-n</em><em>M-n</em>*R&lt;=0$也成立（上一次变化也要&lt;=0)；</li>
+<li><p><em>M-(M-A)</em><em>M-(M-A)</em>-(M-A)*n&gt;=0$也成立（下一次变化也要&gt;=0)</p>
 <p>（这里不要求$\Delta c$的单调性了，而只考虑它的正负）<br>（如果 $\Delta c=0$，c变化量为0，总是符合要求，不作考虑）<br>证明：</p>
 </li>
-<li><p>由$down-up&lt;=n$（否则$down’&lt;up’$不成立）得，<br>$X<em>M-n</em>R=X<em>M-(A+R-M)</em>n-n*(M-A)&lt;=\Delta c&lt;0$</p>
+<li><p><em>M-n</em><em>M-n</em><em>M-n</em><em>M-n</em><em>M-n</em><em>M-n</em><em>M-n</em><em>M-n</em><em>R=X</em><em>n-n</em><em>n-n</em>n-n*(M-A)&lt;=\Delta c&lt;0$</p>
 </li>
-<li><p>由$A+R-M&gt;=0，down-up&gt;=0$得$(A+R-M)<em>(down-up)&gt;=0$，<br>因此$0&lt;\Delta c&lt;=X</em>M-(M-A)*n$</p>
+<li><p><em>(down-up)&gt;=0$，<br>因此$0&lt;\Delta c&lt;=X</em><em>M-(M-A)</em><em>M-(M-A)</em><em>M-(M-A)</em><em>M-(M-A)</em>A)*n$</p>
 </li>
 </ol>
 <p>由以上两点，c在从$down&gt;=up$到$down&lt;up$ 这一步的变化中也能够维护极值两侧的单调性了。</p>
@@ -974,7 +974,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

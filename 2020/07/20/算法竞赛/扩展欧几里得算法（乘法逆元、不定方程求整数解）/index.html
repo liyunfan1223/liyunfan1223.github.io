@@ -47,7 +47,7 @@
         
             扩展欧几里得算法（乘法逆元、不定方程求整数解） | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2020/07/20/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%EF%BC%88%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E3%80%81%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B%E6%B1%82%E6%95%B4%E6%95%B0%E8%A7%A3%EF%BC%89/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2020/07/20/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%EF%BC%88%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E3%80%81%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B%E6%B1%82%E6%95%B4%E6%95%B0%E8%A7%A3%EF%BC%89/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="扩展欧几里得算法（乘法逆元、不定方程求整数解） | MorphLing&#39;s Blog">
+    <meta property="og:title" content="扩展欧几里得算法（乘法逆元、不定方程求整数解） | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="数 论 只 会 g c d但 是 也 比 不 会 好">
     <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="exgcd"> 
@@ -494,11 +494,11 @@
 <p>不妨设$ax+by=gcd(a,b)$，由欧几里得算法，$gcd(a,b)=gcd(b,a\%b)$，</p>
 <p>因此$ax+by=gcd(a,b)=gcd(b,a\%b)=bx’+(a\%b)y’$</p>
 <p>这里求x，y的解需要利用递推的思想。假设已知上一层x’和y‘，如何推导出当前x，y的值？这里需要稍微手算一下。</p>
-<p>把a%b写成a-a/b*b，于是得到$ax+by=bx’+(a-a/b*b)y’=ay’+b(x’-a/b*y’)$</p>
+<p>*******************b)y’=ay’+b(x’-a/b*y’)$</p>
 <p>通过计算得到$x=y’,y=x’-a/b*y’$</p>
 <p>ok，现在已经找到了由上一层解推出当前层解的递推关系了，那么递推的出口在哪里呢？</p>
 <p>由于每递归一层，a和b的变化是：a=b,b=a%b，就相当于做了一层辗转相除法。所以最终，当a=gcd,b=0时，这个方程就变成了</p>
-<p><script type="math/tex">gcd*x+0*y=gcd</script>此时x=1，y=0就是一组特解（其实y也可以不为0，但是没必要，还可能导致爆int之类的）。找到解后就可以回溯，递推计算出每一层的x，y了。</p>
+<p><em>x+0</em><em>x+0</em>y=gcd$$此时x=1，y=0就是一组特解（其实y也可以不为0，但是没必要，还可能导致爆int之类的）。找到解后就可以回溯，递推计算出每一层的x，y了。</p>
 <p>于是顺便证明一下裴蜀定理（老证明癌了）：</p>
 <p>充分性：若$c\%gcd(a,b)=0$的倍数，那么总是可以通过上面的扩欧算法求出一组整数解。<br>必要性：若$ax+by=c$存在整数解$ax_1+by_1=c$ (x1,y1为具体整数)，设d是a,b的最大公因数即d|a,d|b，于是d|(ax1+by1)，即d|c，$c\%gcd(a,b)=0$<br>证毕</p>
 <h3 id="扩欧板子"><a href="#扩欧板子" class="headerlink" title="扩欧板子"></a>扩欧板子</h3><p>非常简洁的两行代码</p>
@@ -515,7 +515,7 @@ while(x&lt;0) x+=b,y-=a;
 <pre><code class="lang-cpp">x = (x % b + b) % b;
 </code></pre>
 <h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>把扩欧算法讲清楚之后，具体怎么应用其实就要自己判断了。比如说比较常见的的通过扩欧求乘法逆元</p>
-<p>求a在mod b意义下的逆元，即求$ax\equiv1(mod\ b)$ </p>
+<p>                 b)$ </p>
 <p>把这个式子化一下，其实就变成求$ax+by=1$中x的整数解的问题</p>
 <p>根据裴蜀定理，这个不定方程有整数解的前提是gcd(a,b)=1，即a，b互质。（而保证互质的一个方法是令a或b为一个大质数，比如998244353或者1e9+7之类的，所以如果题目莫名给了一个大质数或者a，b互质的条件，很可能就是在保证扩欧方程有解的前提）</p>
 <p>把a，b带入方程之后算出x，并调整x的范围即可。</p>
@@ -884,7 +884,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

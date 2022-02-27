@@ -47,7 +47,7 @@
         
             数据科学与工程算法基础1-7章 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2021/10/31/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%801-7%E7%AB%A0/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2021/10/31/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%801-7%E7%AB%A0/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据科学与工程算法基础1-7章 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="数据科学与工程算法基础1-7章 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="">
     
@@ -560,8 +560,8 @@
 </li>
 <li><p>Basic Count Sketch</p>
 <p>哈希函数$h(\cdot)$将元素均匀映射到k个位置，哈希函数$g(\cdot)$将n个元素映射为-1或+1，对于信道大的元素，将其位置上计数+1或-1，元素a的估计频数为$g(a)C[h(a)]$</p>
-<p>$E(\hat{f<em>a})=0,Var(\hat{f_a})=\frac{1}{k}(\sum_if_i^2-f_a^2)=\frac{||f</em>{-a}||_2^2}{k}$（用$Var(X)=E(X^2)-E(X)^2$算，最后用了个很奇怪的符号）</p>
-<p>$P(|\hat{f<em>a}-f_a|\geqslant \epsilon||f||_2)\leqslant P(|\hat{f_a}-f_a|\geqslant\epsilon||f</em>{-a}||<em>2)\leqslant \frac{Var(\hat{f_a})}{\epsilon^2||f</em>{-a}||_2^2}=\frac{1}{k\epsilon^2}&lt;\delta$</p>
+<p>$E(\hat{f_a})=0,Var(\hat{f_a})=\frac{1}{k}(\sum_if_i^2-f_a^2)=\frac{||f_{-a}||_2^2}{k}$（用$Var(X)=E(X^2)-E(X)^2$算，最后用了个很奇怪的符号）</p>
+<p>$P(|\hat{f_a}-f_a|\geqslant \epsilon||f||_2)\leqslant P(|\hat{f_a}-f_a|\geqslant\epsilon||f_{-a}||_2)\leqslant \frac{Var(\hat{f_a})}{\epsilon^2||f_{-a}||_2^2}=\frac{1}{k\epsilon^2}&lt;\delta$</p>
 <p>因此，需要$k=O(1/\epsilon^2\delta)$，使得偏离值超过$\epsilon||f||_2$的概率小于$\delta$</p>
 </li>
 <li><p>Count Sketch</p>
@@ -938,7 +938,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 

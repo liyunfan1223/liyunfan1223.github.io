@@ -47,7 +47,7 @@
         
             2020牛客暑期多校第九场 | 
         
-        MorphLing&#39;s Blog
+        Moonglade
     </title>
 
     <!-- Favicons -->
@@ -216,11 +216,11 @@
 
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="MorphLing&#39;s Blog">
+    <meta name="application-name" content="Moonglade">
     <meta name="msapplication-starturl" content="http://example.com/2020/08/16/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Nowcoder_summer_2020_9/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MorphLing&#39;s Blog">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
 
@@ -234,7 +234,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://example.com/2020/08/16/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Nowcoder_summer_2020_9/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="2020牛客暑期多校第九场 | MorphLing&#39;s Blog">
+    <meta property="og:title" content="2020牛客暑期多校第九场 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="">
     <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="树形dp"> <meta property="og:article:tag" content="尺取法"> <meta property="og:article:tag" content="二维前缀和"> 
@@ -800,7 +800,7 @@ int main() &#123;
 <p>tot[i]表示走完i这颗子树之后hp的变化量<br>dp[i]表示在走i这颗子树过程中最多损失多少hp（或者说需要多少hp才能走完i这颗子树）<br>需要注意的是这道题同时包含了点值和边值两种权值，需要定义清楚到底包含了哪些点和边（代码里tot[i]和dp[i]都包含了i这个点连向父结点的那条边）</p>
 <p>目标就是安排访问子树的顺序，使得dp[1]尽可能小。</p>
 <p>比较显然的是一定先走tot[x]&gt;0的子树，再走tot[x]<0的子树（不理解的话可以考虑一下只有两颗子树，一颗tot[x]>0一颗tot[x]<0的情形），且对于tot[x]>0的子树内部一定按照dp[x]的大小从小到大排序，问题的关键是如何安排tot[x]&lt;0的子树的内部顺序。</p>
-<p>此处重点是有一个所谓的相邻交换最优原则（借用题解上面的说法）：考虑任意相邻的i和j（先走i，再走j），交换i和j的顺序只会对这两颗子树产生影响，那么什么情况下交换i和j的顺序后一定是更优的呢？即$min{dp[i],dp[j]-tot[i]}&gt;min{dp[j],dp[i]-tot[j]}$，那么交换后一定比当前的顺序更优。由于只考虑tot[x]&lt;0的情况，于是可以把这个不等式转化一下，也就是$tot[i]+dp[i]&lt;tot[j]+dp[j]$</p>
+<p>此处重点是有一个所谓的相邻交换最优原则（借用题解上面的说法）：考虑任意相邻的i和j（先走i，再走j），交换i和j的顺序只会对这两颗子树产生影响，那么什么情况下交换i和j的顺序后一定是更优的呢？即$min\{dp[i],dp[j]-tot[i]\}&gt;min\{dp[j],dp[i]-tot[j]\}$，那么交换后一定比当前的顺序更优。由于只考虑tot[x]&lt;0的情况，于是可以把这个不等式转化一下，也就是$tot[i]+dp[i]&lt;tot[j]+dp[j]$</p>
 <p>这样一来，我们把所有子树根据tot[x]+dp[x]从大到小排序后的顺序一定是最优解之一，因为对于其他的情况，根据相邻交换最优原则，总是可以通过一系列的相邻交换，最终使得顺序安排是有序的，且每一步相邻交换都可以确保是使得结果更优的。（所以这个结论的证明其实是一个反证法）至于tot[x]+dp[x]相同的点，它们之间的顺序其实无关紧要。</p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot; : &quot;&lt;&lt;x&lt;&lt;endl;
@@ -1292,7 +1292,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MorphLing's Blog
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
             
         </div>
 
