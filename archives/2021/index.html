@@ -304,6 +304,67 @@
     
 
         <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2021/12/31/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/Goodbye-2021/">Goodbye 2021</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2021/12/31/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/Goodbye-2021/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="MorphLing's avatar">
+            </div>
+            <div>
+                <strong>MorphLing</strong>
+                <span>12月 31, 2021</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
         <p class="article-headline-p"><a href="/2021/11/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/DMS-mid-term/">DMS mid-term</a></p>
     </div>
 
@@ -845,70 +906,6 @@ Windows10, python3.8.3
             
         
     
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2021/07/30/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/">2021杭电多校第三场</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            03. Forgiving Matching题意：给出长度为n的原串S和模式串T，串由’1’,’2’,…,’9’和通配符’*’构成，问对于$k\in[0,n-1]$，S的子串中满足失配位置小于等于k的子串个数
-用FFT/NTT卷积计算字符匹配数。单独考虑每个字符，如字符’1’，将S和T串根据位置上是否为’1’转化为一个0/1串，若$s[i]=t[j]=1$，则开始位置在$i-j+1$的子串匹配数+1，用数组$cnt[i]$记录开始位置在$i$的子串的匹配数，有$cnt[i]=\sum\limits_{j=1}^ns[j]t[j-i+1]$。
-将T串反置为T’，即$t[j-i+1]=t’[n-(j-i+1)+1]=t’[n-j+i]$，就有$cnt[i]=\sum\limits_{j=1}^ns[j]t’[n-j+i]$，发现这个东西就可以用卷积计算了。$cnt[i]$的结果在卷积之后$n+i$的位置。
-还需要注意的是通配符的处理，可以用一个容斥计算通配符的影响，将每个位置的结果直接加上两个串同通配符的总数，然后减去两个通配符相匹配的情况，两个通配符相匹配的情况计算方法同上。
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2021/07/30/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/2021%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="MorphLing's avatar">
-            </div>
-            <div>
-                <strong>MorphLing</strong>
-                <span>7月 30, 2021</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
 
     
     <!-- Index nav -->
@@ -1014,7 +1011,7 @@ Windows10, python3.8.3
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -1032,7 +1029,7 @@ Windows10, python3.8.3
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">24</span></a>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">24</span></a>
             </ul>
         </li>
         
