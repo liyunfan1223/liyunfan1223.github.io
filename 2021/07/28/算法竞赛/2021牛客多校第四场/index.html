@@ -57,8 +57,8 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="B. Sample Game题意：有一个随机数生成器，每个数生成的概率为$p_i$，不断生成直到最后一个数小于先前的任意一个数时停止，共生成x个数，问$x^2$的期望
 首先可以把$x^2$分解为$1+3+\cdots+(2x+1)$，即从每一步的增量考虑转移方法，若当前长度为x，则增量为2x+1，考虑增量的期望$E(2x+1)=2E(x)+1$，于是只要借助$E(x)$就能进行转移了
-因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits_{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits_{j=1}^{i-1}p_j)+1$
-再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits_{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits_{j=1}^{i-1}p_j$
+因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits{j=1}^{i-1}p_j)+1$
+再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits{j=1}^{i-1}p_j$
 答案为$ans=\sum\limits_{i=1}^nf2[i]p_i$">
     <meta name="keywords" content=",XCPC,多校,期望dp,xor">
     <meta name="theme-color" content="#0097A7">
@@ -86,6 +86,11 @@
         <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
         
 
     
@@ -242,8 +247,8 @@
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="B. Sample Game题意：有一个随机数生成器，每个数生成的概率为$p_i$，不断生成直到最后一个数小于先前的任意一个数时停止，共生成x个数，问$x^2$的期望
 首先可以把$x^2$分解为$1+3+\cdots+(2x+1)$，即从每一步的增量考虑转移方法，若当前长度为x，则增量为2x+1，考虑增量的期望$E(2x+1)=2E(x)+1$，于是只要借助$E(x)$就能进行转移了
-因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits_{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits_{j=1}^{i-1}p_j)+1$
-再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits_{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits_{j=1}^{i-1}p_j$
+因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits{j=1}^{i-1}p_j)+1$
+再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits{j=1}^{i-1}p_j$
 答案为$ans=\sum\limits_{i=1}^nf2[i]p_i$">
     <meta property="og:article:tag" content="XCPC"> <meta property="og:article:tag" content="多校"> <meta property="og:article:tag" content="期望dp"> <meta property="og:article:tag" content="xor"> 
 
@@ -387,18 +392,6 @@
 
     <!-- Qrcode -->
     
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">devices other</i>
-    <span class="visuallyhidden">devices other</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-    
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE4ElEQVR42u3ay44bMQwEwP3/n06uARLb3SS9D6R0Cry2ZlQTYKimPn4Zi/GBAB8+fPgMfPjw4TPw4fshfB/xePT9Pz//e+Z/XH4x86PvPJr/0V9na8eHDx8+fPiu+F68quNFbsie31UCl6PM1o4PHz58+PDd8rVFSVJkPL9W+82W+PmjGq4dHz58+PDh+0S+TViQFzTt5n9/n/jw4cOHD9/35EuA2o36bJOfB/f7KAQfPnz48OF7B18eWOcFRBs0zFraefmyXzs+fPjw4cO359uUDj/9319wvg8fPnz48P3HfO3YtLRnx9rycL8tXIYC+PDhw4cP34IvaS3nh72uovk2GtgE9C09Pnz48OHDd8WXFx/5VrwNx/Piqb16Ps+LB4APHz58+PAt+JKXevuyn6En9EkjYRNARPEHPnz48OHDd8qX3FxeNORBQzJD2wZofxX9FR8+fPjw4VvwtY3t5yib424z7hloe2QNHz58+PDhu+LLf5ZH/LMZZneVhxSzcB8fPnz48OF7B19++fwA2az13m7pc/RZ2VSE9fjw4cOHD9+Ibzbadnj7nZyybZPXn+DDhw8fPnwLvrwRPito2o39+0qo9m7rXgc+fPjw4cNXHlDLC4s8IMhb2nnE0LbV8yZBFH/gw4cPHz58a742Lm/j+JYgeQzvCOWT9jk+fPjw4cO34Zs1vNsDXrMltcu+Klxe/EfBhw8fPnz4Fnx5k7s9TJZ8fkWThxQHv8WHDx8+fPgWfPvCJW9IJ8vY30M7T1vi4MOHDx8+fHu+ZDFJCdJ+fxa7bwKCTcSPDx8+fPjwvZtvVjS04Xh+rbal3bbz6wNq+PDhw4cP34gvf4XvY/02gm9jhbbMqh8APnz48OHDt+CbveDz200Kmk2RdNs2iEIHfPjw4cOHb82Xx+KbtvcsOt80vNsV1ZEBPnz48OHDtwjr21C7DQL2AcGGNS+/XpQy+PDhw4cP39v42gXM2ud5UL55nHk74cV38OHDhw8fvgXfJgTPG+15QH8VAeStiLyVjg8fPnz48O35kkJkH3lvSpyrMmhz0A0fPnz48OG74sunaxcwW+qMNW/PtyFCfcoAHz58+PDhe8rXbvXbF/8sAtg/hjwWyR8hPnz48OHDd8W32Xi3jyEpQdqDbsmjbQuUIqzHhw8fPnz4Yr58+51s4Ge4+WxtkdG25yNQfPjw4cOH7218efO4xZ193h6Gy2P6ojDChw8fPnz4FnxtcTCLA/Ijbm3TvW3kt22DOnHBhw8fPnz4yrPN+9ZysrHflBSz4mbfnMCHDx8+fPhu+XKytn0+C9bzBvw+4Mjnx4cPHz58+K74NkH8VdN6ttVvy5q2tY8PHz58+PBd8eWHra8un5RE++Z33ghfFS748OHDhw/faM+bj7ZlPosJZuVUEtPPDsPhw4cPHz58V3zti3xzNG1W+sxaAptjcEWbHB8+fPjw4RvxzYqVhGYW2W+ulcQEs4Y6Pnz48OHDd8t3VazMbrrd8LdAZ+ECPnz48OHD94l8eRs7fwyzkmV2NG3TkseHDx8+fPi+D19bELQHy/JQoI0A2hnw4cOHDx++K779AbK2WIlut2yiz+ByE3z48OHDh2/PNwvN2/IlD99boNn8szYDPnz48OHDt+Ez2oEPHz58+Ax8+PDhM/Dh+8bjNwsT6UeXT3jfAAAAAElFTkSuQmCC">
-    
-</ul>
-
-    
 
     <!-- Tags (bookmark) -->
     
@@ -490,8 +483,8 @@
     
         <h1 id="B-Sample-Game"><a href="#B-Sample-Game" class="headerlink" title="B. Sample Game"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11255/BB">B. Sample Game</a></h1><p>题意：有一个随机数生成器，每个数生成的概率为$p_i$，不断生成直到最后一个数小于先前的任意一个数时停止，共生成x个数，问$x^2$的期望</p>
 <p>首先可以把$x^2$分解为$1+3+\cdots+(2x+1)$，即从每一步的增量考虑转移方法，若当前长度为x，则增量为2x+1，考虑增量的期望$E(2x+1)=2E(x)+1$，于是只要借助$E(x)$就能进行转移了</p>
-<p>因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits_{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits_{j=1}^{i-1}p_j)+1$</p>
-<p>再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits_{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits_{j=1}^{i-1}p_j$</p>
+<p>因此可以先处理出$f[i]$表示第一个数为$i$时的期望长度$E(x)$，$f[i]=(\sum\limits<em>{j=i+1}^nf[j]p_j+p_if[i]+\sum\limits</em>{j=1}^{i-1}p_j)+1$</p>
+<p>再通过$f[i]$计算$f2[i]$，表示第一个数为$i$时长度平方的期望$E(x^2)$，$f2[i]=\sum\limits<em>{j=i+1}^n p_j(f2[j]+2f[j]+1)+p_i(f2[i]+2f[i]+1)+4\sum\limits</em>{j=1}^{i-1}p_j$</p>
 <p>答案为$ans=\sum\limits_{i=1}^nf2[i]p_i$</p>
 <span id="more"></span>
 <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
@@ -552,8 +545,8 @@ int main() &#123;
 &#125;
 </code></pre>
 <h1 id="E-Tree-Xor"><a href="#E-Tree-Xor" class="headerlink" title="E. Tree Xor"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11255/E">E. Tree Xor</a></h1><p>题意：给定一棵树，每条边有边权，每个点的点权在一个区间$[l_i,j_i]$内，要求一条边所连的两个点的点权异或值为该边边权，问树点权的方案数</p>
-<p>                          v_i\in[l_i,r_i]$，问同时满足这n个式子的x有多少种</p>
-<p>                            a\leq b$问题），然后题目要求实际上就是把这n种限制取并集，一个简单的方法是，在字典树上访问所有$n\log n$个区间，给这些区间的子树上+1，然后最后dfs一遍统计有多少个点访问了n次。当然也可以用线段树维护区间最大值和最大值访问次数之类的方法去做。</p>
+<p>从根节点出发，深搜时每经过一条边就把值$val$和该边权异或，转化为n个这样的式子：$x\ xor\ v_i\in[l_i,r_i]$，问同时满足这n个式子的x有多少种</p>
+<p>结合字典树可以发现，对于一个式子，满足的x至多在$O(\log)$个连续的区间内（同前几场的$c\ xor\ a\leq b$问题），然后题目要求实际上就是把这n种限制取并集，一个简单的方法是，在字典树上访问所有$n\log n$个区间，给这些区间的子树上+1，然后最后dfs一遍统计有多少个点访问了n次。当然也可以用线段树维护区间最大值和最大值访问次数之类的方法去做。</p>
 <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
 #define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39; &#39;
 #define debugl(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; &#39;\n&#39;
@@ -712,7 +705,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <h1 id="J-Average"><a href="#J-Average" class="headerlink" title="J. Average"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11255/J">J. Average</a></h1><p>题意比较简单，最后问题求得是给定一个数列a，求长度$\leq k$的连续区间，使得区间平均值最大，即$\max \sum_\limits{i=l}^ra_i\frac{1}{r-l+1}$</p>
-<p>方法是二分答案，二分一个平均值$ans$，然后判断是否存在一个长度超过k的区间满足$\sum\limits_{i=l}^ra_i\ge (r-l+1)ans$，转化一下即$\sum\limits_{i=l}^r a_i-ans\ge 0$</p>
+<p>方法是二分答案，二分一个平均值$ans$，然后判断是否存在一个长度超过k的区间满足$\sum\limits<em>{i=l}^ra_i\ge (r-l+1)ans$，转化一下即$\sum\limits</em>{i=l}^r a_i-ans\ge 0$</p>
 <p>所以只要把数列每个位置都减去ans，然后判断是否有一个长度超过k的区间求和&gt;0即可，这步记录每个位置的最小前缀和，$O(n)$完成</p>
 
         
@@ -870,7 +863,7 @@ int main() &#123;
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -888,7 +881,7 @@ int main() &#123;
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">24</span></a>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">25</span></a>
             </ul>
         </li>
         
@@ -1148,10 +1141,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
-    
-        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
-    
 
 
 <!-- Window Load -->
@@ -1163,10 +1158,13 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
-        
-        
-        HanabiBrowser.start('pre code',true);
     
 </script>
 

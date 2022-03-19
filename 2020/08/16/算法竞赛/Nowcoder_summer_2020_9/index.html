@@ -83,6 +83,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -378,18 +383,6 @@
     -->
 
     <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">devices other</i>
-    <span class="visuallyhidden">devices other</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-    
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADjklEQVR42u3aQW4jMQwEQP//08l1gcBONyk5XqDmZBjjjFRz6FDk48v1z/VAgAMHDhw4cODAgQPHB3M84uvZr15//+yeZ09/dufr3672ggMHDhw4LnD8EkXlsjZwyTf5OqO94MCBAweOaxzPAun1VpPP+Zby2J5FOA4cOHDg+EyOZKF7oDZWceDAgQPH/86RHMm1oEnJlxwm4sCBAweOT+BIIi2/v21i5UeEyUt601kpDhw4cOBYDzR8/ue3znfgwIEDB44fHPvrUV7JGMS+ZVWsHwcOHDhwHOWYFVSzAi8/8svLsz0ZDhw4cOC4wZEXbLNoTJpJOVzyffE6ceDAgQPHUY5Zu2hTqrXhncd2G944cODAgeM2RzvW0G7jLF/SiIpWhQMHDhw4jnLkZdusMNtEdR2Zs5E7HDhw4MBxlCNvQeWto/2xYBLkdXtpVtHiwIEDB46SI4/YTbgm25iN1uUNp6ILhwMHDhw4Fhy3hxVmR37Ji9mvAQcOHDhw3OOYDc+1ZLNRtnr0rS3tcODAgQPHUY7k8bNjxDzCZ1tt0euKFgcOHDhwrDnyI7+2cdWG32zDeUGIAwcOHDjuceTbnh3bzZ6V/KolKypaHDhw4MBx9DQsb+qcPc7bH/m1g3c4cODAgeM2RxuWeYi2xLOibhbDOHDgwIHjLEeyxLZU24wv5K2j9rVFQYsDBw4cOI5y5I2o9pv2WWcPAYsSDgcOHDhwrDnyWD3VmsrvT7a0H8jAgQMHDhxnOTZ/Om9WbYbt8kKu/acBBw4cOHDc48jbOe1w22bo4ezm67YTDhw4cOAYccxGCnKsfQnXvqqv8sKBAwcOHDc4ZiNow2Bbt7iG286DFgcOHDhwLDj2RVfboGrvnB0LruY7cODAgQPHgqNd6H7RwziMt9qi4MCBAweOsxztyEI+yjAbgzhVwr1GwYEDBw4c9zj2xVXy2zZQ22if/SuAAwcOHDhucMyaN3kQzkYWXod0y/1L2OPAgQMHjqMc7VFgXvjtw7gdg8jDFQcOHDhw3OZol5IUUZuQzo8p82fVAw04cODAgWPNkUfmbARhNnawRxwGLQ4cOHDgeAtHPhjXHh3mwZkjRn8ZBw4cOHD8KccmetuyMEG50nbCgQMHDhyHOJKl34jAthhLjg6LohEHDhw4cFzgyAcaZuVc23zKBybaZhUOHDhw4LjN4cKBAwcOHDhw4MCBA8eHXd/WxRDxEJWqtwAAAABJRU5ErkJggg==">
-    
-</ul>
-
     
 
     <!-- Tags (bookmark) -->
@@ -800,7 +793,7 @@ int main() &#123;
 <p>tot[i]表示走完i这颗子树之后hp的变化量<br>dp[i]表示在走i这颗子树过程中最多损失多少hp（或者说需要多少hp才能走完i这颗子树）<br>需要注意的是这道题同时包含了点值和边值两种权值，需要定义清楚到底包含了哪些点和边（代码里tot[i]和dp[i]都包含了i这个点连向父结点的那条边）</p>
 <p>目标就是安排访问子树的顺序，使得dp[1]尽可能小。</p>
 <p>比较显然的是一定先走tot[x]&gt;0的子树，再走tot[x]<0的子树（不理解的话可以考虑一下只有两颗子树，一颗tot[x]>0一颗tot[x]<0的情形），且对于tot[x]>0的子树内部一定按照dp[x]的大小从小到大排序，问题的关键是如何安排tot[x]&lt;0的子树的内部顺序。</p>
-<p>此处重点是有一个所谓的相邻交换最优原则（借用题解上面的说法）：考虑任意相邻的i和j（先走i，再走j），交换i和j的顺序只会对这两颗子树产生影响，那么什么情况下交换i和j的顺序后一定是更优的呢？即$min\{dp[i],dp[j]-tot[i]\}&gt;min\{dp[j],dp[i]-tot[j]\}$，那么交换后一定比当前的顺序更优。由于只考虑tot[x]&lt;0的情况，于是可以把这个不等式转化一下，也就是$tot[i]+dp[i]&lt;tot[j]+dp[j]$</p>
+<p>此处重点是有一个所谓的相邻交换最优原则（借用题解上面的说法）：考虑任意相邻的i和j（先走i，再走j），交换i和j的顺序只会对这两颗子树产生影响，那么什么情况下交换i和j的顺序后一定是更优的呢？即$min{dp[i],dp[j]-tot[i]}&gt;min{dp[j],dp[i]-tot[j]}$，那么交换后一定比当前的顺序更优。由于只考虑tot[x]&lt;0的情况，于是可以把这个不等式转化一下，也就是$tot[i]+dp[i]&lt;tot[j]+dp[j]$</p>
 <p>这样一来，我们把所有子树根据tot[x]+dp[x]从大到小排序后的顺序一定是最优解之一，因为对于其他的情况，根据相邻交换最优原则，总是可以通过一系列的相邻交换，最终使得顺序安排是有序的，且每一步相邻交换都可以确保是使得结果更优的。（所以这个结论的证明其实是一个反证法）至于tot[x]+dp[x]相同的点，它们之间的顺序其实无关紧要。</p>
 <pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 #define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot; : &quot;&lt;&lt;x&lt;&lt;endl;
@@ -1093,7 +1086,7 @@ int main() &#123;
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -1111,7 +1104,7 @@ int main() &#123;
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">24</span></a>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">25</span></a>
             </ul>
         </li>
         
@@ -1371,10 +1364,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
-    
-        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
-    
 
 
 <!-- Window Load -->
@@ -1386,10 +1381,13 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
-        
-        
-        HanabiBrowser.start('pre code',true);
     
 </script>
 

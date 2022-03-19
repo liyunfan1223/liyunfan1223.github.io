@@ -60,7 +60,7 @@ C简单题
 D最短路、树相关 待补
 F数学、思维
 首先由于$n’$最终取值范围为$[1,n]$，所以枚举$n’$可以得到一个$O(n)$的做法
-然后把$[1,n]$分块为$[1,\sqrt m],[\sqrt{m}+1,\min\{n,m\}]$两部分，枚举第一部分n’取值，复杂度$O(\sqrt n)$，对于第二部分，可以把式子写成$m’=n’k$，此时$k$的取值范围为$[1,\sqrt m]$，枚举k，对于每个固定的k，可以找到一个贪心方案使代价最小，所以第二部分的代价也是$O(\sqrt m)$.">
+然后把$[1,n]$分块为$[1,\sqrt m],[\sqrt{m}+1,\min{n,m}]$两部分，枚举第一部分n’取值，复杂度$O(\sqrt n)$，对于第二部分，可以把式子写成$m’=n’k$，此时$k$的取值范围为$[1,\sqrt m]$，枚举k，对于每个固定的k，可以找到一个贪心方案使代价最小，所以第二部分的代价也是$O(\sqrt m)$.">
     <meta name="keywords" content=",XCPC">
     <meta name="theme-color" content="#0097A7">
 
@@ -87,6 +87,11 @@ F数学、思维
         <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
         
 
     
@@ -246,7 +251,7 @@ C简单题
 D最短路、树相关 待补
 F数学、思维
 首先由于$n’$最终取值范围为$[1,n]$，所以枚举$n’$可以得到一个$O(n)$的做法
-然后把$[1,n]$分块为$[1,\sqrt m],[\sqrt{m}+1,\min\{n,m\}]$两部分，枚举第一部分n’取值，复杂度$O(\sqrt n)$，对于第二部分，可以把式子写成$m’=n’k$，此时$k$的取值范围为$[1,\sqrt m]$，枚举k，对于每个固定的k，可以找到一个贪心方案使代价最小，所以第二部分的代价也是$O(\sqrt m)$.">
+然后把$[1,n]$分块为$[1,\sqrt m],[\sqrt{m}+1,\min{n,m}]$两部分，枚举第一部分n’取值，复杂度$O(\sqrt n)$，对于第二部分，可以把式子写成$m’=n’k$，此时$k$的取值范围为$[1,\sqrt m]$，枚举k，对于每个固定的k，可以找到一个贪心方案使代价最小，所以第二部分的代价也是$O(\sqrt m)$.">
     <meta property="og:article:tag" content="XCPC"> 
 
     
@@ -389,18 +394,6 @@ F数学、思维
 
     <!-- Qrcode -->
     
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">devices other</i>
-    <span class="visuallyhidden">devices other</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-    
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAELUlEQVR42u3bQXLjMAwEwPz/07vXrdqyPQMoiUU3TylblsjWgQCIfP0xgvGFABMmTJgwYTIwYcKE6e2ZvuLx6Ff55y+m9c81z6///ynPnzhcIyZMmDBhOogpX0D720cTbZ+Vs+5fEiZMmDBhOpXp0WJmW/XmzskGv/k2CikwYcKECdMHMyUhQpJ8Jqns7O98JpgwYcKECVMyiaTg2xZe8yLvbP6YMGHChOnTmPJyaluuzQuv+f2TAOXXauGYMGHChOnNmPLt+b5//2h/EyZMmDBhehumduQJ57XNQEl4kT89miEmTJgwYTqCKd848+QzLwq3x5z50Wke9GDChAkTprOZ2q23LZvOSr15oXkTuKxSX0yYMGHCdBOmvGE0b3nZJL2bNtb2zi9+hQkTJkyYjmBqN9S2qPpi040bW9vmoeSJq9QXEyZMmDDdlmmWoOal2FnBd3/42ibhmDBhwoTpE5jaIuwsMc6PLTdl6DyZx4QJEyZMpzLVZdDRPzm0AcRm45+tCxMmTJgwncSUJ4fttro5+MxLut/YAosJEyZMmA5i2kxlU2bd4M5eZHEfTJgwYcJ0BNNVG3CL3oYIz19P8grrzzFhwoQJ0xFMycacBwRtO+mmIPs1GnlAgwkTJkyYTmV68eP4mpw7f9YsUU+ChjogwIQJEyZMt2Wabbf7BpprX1I724vjJkyYMGHC9JZMUTtLDJFvz8nnOVb+LSZMmDBh+hym/d85QR5G5EehsytfgGLChAkTpiOY2lLvjClPO/OEeRNwRCvFhAkTJkxHMM1KsW2yuiny1g03i8I0JkyYMGE6j2mz5W+A2ifOrs/n/6JxBxMmTJgw3Zyp5Zg13LRwbRm3fW11QIAJEyZMmG7L1G72bZm1bQx63izbzn8WiGDChAkTpjOYkmPC/cbcptObw9TN/DFhwoQJ09lMbdL4Hclq8sLyZ+XtPkVAgAkTJkyYbsWUl3RnxdkWui0Tz+4QzRMTJkyYMB3ENJtE297aHpHmJeNNkffht5gwYcKE6Qimtmlm1qzTLjKfSZuoJ0kvJkyYMGE6iWmWRs425tnB5KwkvTnIxIQJEyZM5zG123keLrRhwVXBxyxYwYQJEyZMpzI9X95sg5+1riZl4lmi3oYXmDBhwoTpDKZNkXcTTMwOPq9tbP2hWjgmTJgwYfpVpnbkhd08DW7LuFcFAS/WggkTJkyYjmBqN+lZKtsuMjmAzFtOZ60/mDBhwoTpJKY2CGhbbTafz1LlPCB4+DoxYcKECdNxTPmG2qaas+m2R6pXlZIxYcKECROmNiltDzv3QcmsSQgTJkyYMGGakbUvIG/iGR5VJkkyJkyYMGE6jqndXPNlPKdsn7W5vrgGEyZMmDAdxLQpiW5oNoeRs1UUyTYmTJgwYTqCyYgCAgMTJkyYMGHCZGDChOldxl9687EgbYRh2QAAAABJRU5ErkJggg==">
-    
-</ul>
-
-    
 
     <!-- Tags (bookmark) -->
     
@@ -495,7 +488,7 @@ F数学、思维
 <h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><p>最短路、树相关 待补</p>
 <h1 id="F"><a href="#F" class="headerlink" title="F"></a>F</h1><p>数学、思维</p>
 <p>首先由于$n’$最终取值范围为$[1,n]$，所以枚举$n’$可以得到一个$O(n)$的做法</p>
-<p>然后把$[1,n]$分块为$[1,\sqrt m],[\sqrt{m}+1,\min\{n,m\}]$两部分，枚举第一部分n’取值，复杂度$O(\sqrt n)$，对于第二部分，可以把式子写成$m’=n’k$，此时$k$的取值范围为$[1,\sqrt m]$，枚举k，对于每个固定的k，可以找到一个贪心方案使代价最小，所以第二部分的代价也是$O(\sqrt m)$.</p>
+<p>然后把$[1,n]$分块为$[1,\sqrt m],[\sqrt{m}+1,\min{n,m}]$两部分，枚举第一部分n’取值，复杂度$O(\sqrt n)$，对于第二部分，可以把式子写成$m’=n’k$，此时$k$的取值范围为$[1,\sqrt m]$，枚举k，对于每个固定的k，可以找到一个贪心方案使代价最小，所以第二部分的代价也是$O(\sqrt m)$.</p>
 <span id="more"></span>
 <h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1><p>并查集，可以发现每一条边相邻的块都是2个，只有一个相邻块被占领时，这条边记录进答案，两个块都被占领时，这条边不记录进答案。</p>
 <p>模拟赛写这题的时候一直在想怎么把每条边都映射到一个数，再用数组记录这条边的状态，然后就要开两个map，时间常数非常大一直tle。但是实际上由于一条边只和两个块相关，所以只要用相邻的两个块判断边的状态就可以了。</p>
@@ -662,7 +655,7 @@ F数学、思维
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -680,7 +673,7 @@ F数学、思维
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">24</span></a>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">25</span></a>
             </ul>
         </li>
         
@@ -940,10 +933,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
-    
-        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
-    
 
 
 <!-- Window Load -->
@@ -955,10 +950,13 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
-        
-        
-        HanabiBrowser.start('pre code',true);
     
 </script>
 
