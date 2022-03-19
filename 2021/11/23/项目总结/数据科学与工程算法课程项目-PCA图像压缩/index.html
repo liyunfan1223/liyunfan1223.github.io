@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            数据科学与工程算法课程项目-PCA图像压缩 | 
+        
+        Moonglade
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon_io_c/favicon-32x32.png">
+    <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: ;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Moonglade">
+    <meta name="msapplication-starturl" content="http://example.com/2021/11/23/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-PCA%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2021/11/23/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-PCA%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="数据科学与工程算法课程项目-PCA图像压缩 | Moonglade">
+    <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Tue Nov 23 2021 17:11:48 GMT+0800">
+        <meta property="article:modified_time" content="Sat Mar 19 2022 18:34:31 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2021/11/23/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-PCA%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%91%98%E8%A6%81"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. 项目概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. 问题描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E6%96%B9%E6%B3%95"><span class="post-toc-number">4.</span> <span class="post-toc-text">3. 方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Traditional-PCA"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Traditional PCA</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Multi-Block-PCA"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Multi-Block PCA</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2D-PCA"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">2D PCA</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="post-toc-number">5.</span> <span class="post-toc-text">4. 实验结果</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B5%8B%E8%AF%95block-size%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">测试block_size的影响</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AF%94%E8%BE%83%E7%AE%97%E6%B3%95%E6%9C%89%E6%95%88%E6%80%A7"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">比较算法有效性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%9B%B4%E8%A7%82%E5%B1%95%E7%A4%BA"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">直观展示</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#PSNR"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">PSNR</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AF%94%E8%BE%83%E7%AE%97%E6%B3%95%E9%AB%98%E6%95%88%E6%80%A7"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">比较算法高效性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E7%BB%93%E8%AE%BA"><span class="post-toc-number">6.</span> <span class="post-toc-text">5. 结论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                数据科学与工程算法课程项目-PCA图像压缩
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>11月 23, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=数据科学与工程算法课程项目-PCA图像压缩&url=http://example.com/2021/11/23/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-PCA%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9/index.html&pic=http://example.com/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=数据科学与工程算法课程项目-PCA图像压缩&url=http://example.com/2021/11/23/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-PCA%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/11/23/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-PCA%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2021/11/23/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-PCA%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本项目针对三种类型，每种类型包含100个样本的256px*256px的图片数据集使用PCA方式进行图像压缩。本项目分析了传统PCA方法应用于图像压缩时可能存在的缺陷，并为了克服这些缺陷提出了Multi-Block PCA和2D PCA两种改进后的PCA方法，对这三种PCA方法进行了设计、实现和比较，分析不同算法在不同数据集、不同压缩率下的图像质量和算法效率，探究在不同应用场景下最适合该场景的图像压缩PCA算法。</p>
+<p>This project is aimed at three types, each type contains 100 samples of 256px*256px image data set using PCA method for image compression. This project analyzes the possible shortcomings of the traditional PCA method when applied to image compression, and in order to overcome these shortcomings, two improved PCA methods, Multi-Block PCA and 2D PCA, are proposed, and these three PCA methods are implemented and tested. And compare, analyze the image quality and algorithm efficiency of different algorithms under different data sets and different compression ratios, and explore the image compression PCA algorithm that is most suitable for the scene in different application scenarios.</p>
+<h2 id="1-项目概述"><a href="#1-项目概述" class="headerlink" title="1. 项目概述"></a>1. 项目概述</h2><p>在多元统计分析中，<strong>主成分分析</strong>（<strong>Principal components analysis</strong>，<strong>PCA</strong>）是一种统计分析、简化数据集的方法。它利用正交变换来对一系列可能相关的变量的观测值进行线性变换，从而投影为一系列线性不相关变量的值，这些不相关变量称为主成分（Principal Components）。具体地，主成分可以看做一个线性方程，其包含一系列线性系数来指示投影方向。PCA对原始数据的正则化或预处理敏感（相对缩放）。</p>
+<p>传统的PCA方法将图像转化为维数为m的向量，生成n行m列的数据矩阵X，包含n个样本，每个样本包含m维属性。对该数据矩阵采用PCA方法进行压缩，选取k个主成分，将每个图片压缩成一个长度为k的向量，并通过一个$k\times m$的矩阵重构图像，起到图像压缩的效果。</p>
+<p>但在该项目中将说明，传统PCA方法并不适用于所有应用场合，尤其在图像压缩时，由于图像数据的特点（高维度，维度间存在相关性），传统PCA对于这种特点的数据效果不够好。因此该项目选择了一些改进后的PCA方法代替传统PCA，分析和比较了这些方法之间的异同和优劣。</p>
+<p>该项目主要提出了Multi-Block PCA和2D PCA两种方法解决该问题。</p>
+<h2 id="2-问题描述"><a href="#2-问题描述" class="headerlink" title="2. 问题描述"></a>2. 问题描述</h2><p>在本项目中，数据集图片来自飞机、农田、海岸三种类型，每种类型由100张256px*256px的彩色图片组成。我们需要对彩色图片进行PCA压缩，以压缩率和PSNR作为压缩标准，尽可能以较低的压缩率获得较高的PSNR，对于彩色图片，分别对RGB三个通道计算PSNR值并取平均作为评价标准。</p>
+<p>数据集：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211122162544243.png" alt="image-20211122162544243"></p>
+<p>效果：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211122212745837.png" alt="image-20211122212745837"></p>
+<p>为此，该项目根据已有的研究成果，对给定的数据集分别尝试了传统PCA、Multi-Block PCA和2D-PCA三种方法进行图像压缩，并分别对结果和性能进行测试和比较。</p>
+<h2 id="3-方法"><a href="#3-方法" class="headerlink" title="3. 方法"></a>3. 方法</h2><p>在介绍Multi-Block PCA以及2D-PCA之前，首先对传统的PCA方法进行介绍，并解释传统PCA方法在该问题下的不足之处。</p>
+<h3 id="Traditional-PCA"><a href="#Traditional-PCA" class="headerlink" title="Traditional PCA"></a>Traditional PCA</h3><p>传统PCA方法步骤如下：</p>
+<ol>
+<li>计算中心化向量$\overline x = \frac{1}{n}\sum\limits_{i=1}^n x_i$，并去中心化$y_i=x_i-\overline x$</li>
+<li>构造$d\times n$维矩阵$Y=[y_1,y_2,\cdots,y_n]$，计算$d\times d$维协方差矩阵$C=\frac{YY^T}{n-1}$</li>
+<li>对$C$​矩阵进行正交对角化（或对$Y$​矩阵进行SVD分解），假定$\lambda_i$​对应的特征向量为$u_i$​</li>
+<li>保留前$k$个大于$\alpha$的特征对应的特征向量</li>
+<li>降维重建向量$\hat{z_i}=[u_1,\cdots,u_k]^Tx_i$</li>
+<li>重构原矩阵$\hat {x_i} = [u_1,\cdots, u_k]\hat {z_i} + \overline x$</li>
+</ol>
+<p>其压缩率$CR$计算公式为$CR=\frac{k\times n_samples+k\times M\times N}{M\times N\times n_samples}$，其中k为选取的主成分个数，n_samples为样本个数，M、N分别为图象长宽像素数，可以反推得到$k=\frac{(CR\times M\times N\times n_samples)}{N_samples+M\times N}$</p>
+<p>传统方法在该项目中主要有两个缺陷：</p>
+<ol>
+<li>图像为高维数据，在PCA过程中需要计算大小为$d\times d$​​协方差矩阵，协方差矩阵过大，使得计算的代价较大，同时也可能导致一定的误差</li>
+<li>将二维图像转化为一维向量时忽略了图像的特性，即维度之间的相关性，例如利用图像的局部性，相邻的像素点通常有较强的相关性，而传统的PCA方法在二维转一维的过程中破坏了这些相关性</li>
+</ol>
+<p>为了减少计算代价，可以对数据矩阵进行SVD分解代替对协方差矩阵的特征分解，减少计算量。由线性代数知识可知$YY^T$与$Y^TY$有相同的特征值，那么可以先对$Y^TY$这个大小为$n\times n$​的矩阵进行特征值分解，求出特征值后再由幂法近似迭代求出特征值对应的特征向量。</p>
+<p>实际上这一步方法很多，也有大量针对该问题的算法研究，如sklearn矩阵分解模块提供的基于矩阵变换的SVD分解等等，但这些算法研究不在本项目的讨论范围之内。</p>
+<p>为了解决第二个问题，接下来介绍该项目主要使用的两种改进后的PCA方法。</p>
+<h3 id="Multi-Block-PCA"><a href="#Multi-Block-PCA" class="headerlink" title="Multi-Block PCA"></a>Multi-Block PCA</h3><p>Multi-Block PCA首先将原图像首先切分成若干的小块（如切成16*16个16px*16px的小块）。利用图像的局部性和维度之间的相关性，同一块内的数据可能存在一定的相关性，而不同块之间的相关性相对会较小。基于这样一种假设，我们可以对每一块局部的小块独立进行压缩，使得PCA过程仅关注分块内的信息，不会受其他块信息的干扰，从而有效降低压缩率。</p>
+<p>如图所示，图片 B. Qiu, V. Prinet, E. Perrier and O. Monga, “Multi-block PCA method for image change detection”</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211122220102129.png" alt="image-20211122220102129"></p>
+<p>即将数据矩阵切分成如下形式：</p>
+<script type="math/tex; mode=display">
+X=
+\left[
+\begin{array}{}
+A_{0,0}&A_{0,1}&\cdots&A_{0,n-1}\\
+A_{1,0}&A_{1,1}&\cdots&A_{1,n-1}\\
+\vdots&&&\vdots\\
+A_{n-1, 0}&A_{n-1,1}&\cdots&A_{n-1,n-1}
+\end{array}
+\right]</script><p>其中</p>
+<script type="math/tex; mode=display">
+A_{ij}=
+\left[
+\begin{array}{}
+x_{u,v}&x_{u,v+1}&\cdots&x_{u,v+bs-1}\\
+x_{u+1,v}&x_{u+1,v+1}&\cdots&x_{u+1,v+bs-1}\\
+\vdots&&&\vdots\\
+x_{u+bs-1, v}&A_{u+bs-1,v+1}&\cdots&A_{u+bs-1,v+bs-1}
+\end{array}
+\right]</script><p>$bs$代表块大小(blocksize)，$u=(i-1)bs, v = (j-1)bs$</p>
+<p>其压缩率$CR$计算公式为$CR=\frac{k\times n_samples+k\times bs\times bs}{bs\times bs\times n_samples}$，其中k为选取的主成分个数，n_samples为样本个数，可以反推得到$k=\frac{(CR\times bs\times bs\times n_samples)}{100+bs\times bs}$</p>
+<p>具体步骤描述如下：</p>
+<ol>
+<li>确定分块大小blocksize</li>
+<li>提取分块信息转化为一维向量$x_i$，将所有图片对应位置的分块构建为数据矩阵$X$</li>
+<li>计算$X$的协方差矩阵$C$</li>
+<li>对C进行特征值分解，保留前$k$大特征值对应的特征向量，构建特征矩阵$V$</li>
+<li>计算降维向量$Z=V^T X$</li>
+<li>重构分块$\hat X = VZ + X_{mean}$​</li>
+<li>重复步骤2-6，计算每个分块的重构分块</li>
+<li>将所有重构分块拼接在一起组成重构图像</li>
+</ol>
+<h3 id="2D-PCA"><a href="#2D-PCA" class="headerlink" title="2D PCA"></a>2D PCA</h3><p>相较于传统PCA，2D PCA不用将图片转换为1D向量，极大的减少了数据的维度。基本思路和PCA相同，也是将数据投影到某组基上，然后使得投影之后数据的协方差矩阵成为对角阵。投影后数据的协方差矩阵为：</p>
+<p>$S_x=E[(Y-EY)(Y-EY)^T]=E[AX-E(AX)][AX-E(AX)]^T=E[(A-EA)X][(A-EA)X]^T$</p>
+<p>利用$tr(AB)=tr(BA)$公式变形后得到$S_x=X^T[E(A-EA)^T(A-EA)]X$</p>
+<p>再定义矩阵$G_t=E(A-EA)^T(A-EA)$，即原数据的协方差矩阵</p>
+<p>接着对$G_t$矩阵进行特征值分解，取前k大的特征向量进行数据压缩</p>
+<p>其压缩率$CR$计算公式为$CR=\frac{k\times n_samples\times M+k\times M}{M\times N\times n_samples}$，其中k为选取的主成分个数，n_samples为样本个数，可以反推得到$k=\frac{(CR\times N\times M\times n_samples)}{n_samples\times M+M}$</p>
+<p>具体步骤如下：</p>
+<ol>
+<li>求出所有图像的平均矩阵$average = \overline X$</li>
+<li>根据上式计算$G_t$矩阵，即$G_t=\sum\limits_i(X_i-average)^T(X_i-average)$</li>
+<li>对$G_t$进行特征值分解，保留前$k$大特征值对应的特征向量，构建特征矩阵$V$</li>
+<li>计算降维向量$Z=(X-average)V$</li>
+<li>重构矩阵$\hat X = ZV^T+average$</li>
+</ol>
+<h2 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h2><h3 id="测试block-size的影响"><a href="#测试block-size的影响" class="headerlink" title="测试block_size的影响"></a>测试block_size的影响</h3><p>为了进一步比较三种PCA算法，需要先为Multi-Block PCA找到合适的block_size。通过设置不同的block_size参数，计算在该参数下Multi-Block在不同压缩率下的表现情况。可以发现三种数据集（飞机、海岸、农田）图像的复杂程度递减，因此选择压缩难度中等的’beach’作为测试数据集。</p>
+<p>测试标准：有效性：计算PSNR，度量原图像和重构图像的误差</p>
+<script type="math/tex; mode=display">
+PSNR=10\log_{10}(\frac{MAXI^2}{MSE})</script><p>其中$MSE=\sum\limits<em>{i}\sum\limits</em>{j}\sum\limits_{k}(X[i,j,k]-\hat X[i,j,k])^2, MAXI=255$</p>
+<p>高效性：测量程序运行时间</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">block_size = 4</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CR</td>
+<td style="text-align:center">0.25</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:center">PSNR</td>
+<td style="text-align:center">38.65</td>
+<td style="text-align:center">43.60</td>
+<td style="text-align:center">50.64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">block_size = 8</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CR</td>
+<td style="text-align:center">0.25</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:center">PSNR</td>
+<td style="text-align:center">37.69</td>
+<td style="text-align:center">43.90</td>
+<td style="text-align:center">49.23</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">block_size=16</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CR</td>
+<td style="text-align:center">0.25</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:center">PSNR</td>
+<td style="text-align:center">36.26</td>
+<td style="text-align:center">42.61</td>
+<td style="text-align:center">48.47</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">block_size=32</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CR</td>
+<td style="text-align:center">0.25</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:center">PSNR</td>
+<td style="text-align:center">34.02</td>
+<td style="text-align:center">40.32</td>
+<td style="text-align:center">47.51</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">block_size</th>
+<th style="text-align:center">runtime(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">7.85</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">6.21</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">60.49</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:center">466.69</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>综合比较不同block_size下的重构图像质量和程序运行时间，选择block_size=8作为Multi-Block算法的超参数，此时算法的性能表现和运行效率都比较高</p>
+<h3 id="比较算法有效性"><a href="#比较算法有效性" class="headerlink" title="比较算法有效性"></a>比较算法有效性</h3><p>基于以上三种PCA方法的实现，设计了多组实验测试方法的有效性和高效性，主要从压缩率和PSNR两个指标作为评价的量化标准。</p>
+<p>在保证压缩率分别为5%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 95%的情况下选择一张图片直观展示压缩后的图像情况，并对PSNR进行测试。</p>
+<p>为了保证压缩率符合要求，首先根据压缩率反推出对应算法所需要保留的主成分维度k，然后设置参数k，使得对应算法在保留k个特征向量的情况下进行压缩测试，保证实际压缩率尽可能接近期望的压缩率。</p>
+<h4 id="直观展示"><a href="#直观展示" class="headerlink" title="直观展示"></a>直观展示</h4><p>原图像：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211122222958542.png" alt="image-20211122222958542"></p>
+<p>Traditional PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211122222756655.png" alt="image-20211122222756655"></p>
+<p>Multi-Block PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211122222916095.png" alt="image-20211122222916095"></p>
+<p>2D PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211122222939597.png" alt="image-20211122222939597"></p>
+<p>原图像：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123131157813.png" alt="image-20211123131157813"></p>
+<p>Traditional PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123131402602.png" alt="image-20211123131402602"></p>
+<p>Multi-Block PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123131410444.png" alt="image-20211123131410444"></p>
+<p>2D PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123131418974.png" alt="image-20211123131418974"></p>
+<p>原图像：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123131852989.png" alt="image-20211123131852989"></p>
+<p>Traditional PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123131916218.png" alt="image-20211123131916218"></p>
+<p>Multi-Block PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123131923409.png" alt="image-20211123131923409"></p>
+<p>2D PCA：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123131934417.png" alt="image-20211123131934417"></p>
+<h4 id="PSNR"><a href="#PSNR" class="headerlink" title="PSNR"></a>PSNR</h4><p>绘制结果如下：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123133148966.png" alt="image-20211123133148966"></p>
+<p>由图像可知，在普遍情况下（5%&lt;=CR&lt;=80%）压缩效果Multi-Block PCA &gt; 2D-PCA &gt; traditional PCA，当压缩率趋向于1时，各种算法表现不稳定，可能出现2D-PCA和传统PCA表现更好的情况。但考虑到这些情况实际意义较小（压缩率过大时相当于没有压缩），因此普遍来说可以认为Multi-Block算法在该数据集下表现最佳。</p>
+<p>横向比较三张图，可以发现airplane中三种算法表现差异最大，agricultural表现差异最小。这可以由数据集图像本身的复杂程度解释，airplane复杂程度最高，因此对算法的要求更高，糟糕的算法更容易产生糟糕的结果；而agricultural图像最简单，同一图像内和图像间都变化较小，因此即使使用较差的压缩算法，结果仍然可接受。</p>
+<h3 id="比较算法高效性"><a href="#比较算法高效性" class="headerlink" title="比较算法高效性"></a>比较算法高效性</h3><p>通过测量算法运行时间来作为算法高效性判断依据。</p>
+<p>类似于验证算法有效性的方法，绘制不同算法在不同数据集下以不同压缩率运行所需要的时间</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211123133248358.png" alt="image-20211123133248358"></p>
+<p>从运行时间的角度来说，三种算法的效率2D-PCA &gt; traditional PCA &gt; Multi-Block PCA。</p>
+<p>这与三种算法的实现方式有关，传统PCA和Multi-Block PCA都需要将二维数据转为一维再进行PCA降维，而2D-PCA没有这一步，这使得PCA过程中的维度数量有很大的差别，进而导致算法复杂度不同。粗略分析，对于$m$个$n\times n$的图像，单次2D-PCA的复杂度为$O(mn^2)$​​，传统PCA和Multi-Block PCA的时间复杂度则远大于该复杂度（具体时间复杂度依赖于PCA算法中所采取的SVD算法复杂度，在此不进行分析）。</p>
+<h2 id="5-结论"><a href="#5-结论" class="headerlink" title="5. 结论"></a>5. 结论</h2><p>根据以上测试结果，从有效性和高效性两个角度进行比较，可以发现传统PCA的确在数据集上的表现不如Multi-Block PCA和2D PCA两种改进后的算法。</p>
+<p>比较Multi-Block PCA和2D PCA则可以发现，在压缩率相同的情况下Multi-Block PCA生成的压缩图像质量稍好于2D PCA，但2D PCA在运行时间上明显好于Multi-Block PCA。说明Multi-Block PCA和2D PCA分别适用于不同的应用场景，Multi-Block适用于对压缩质量要求较高，但对压缩时间要求不高的场合；2D PCA适用于对压缩时间要求较高的场合，同时压缩质量也能有一定的保证。</p>
+<p>在选择压缩率时，可以根据上面绘制的压缩率-PSNR图进行选择。根据PSNR指标，PSNR高于40dB说明图像质量极好（即非常接近原始图像），在30—40dB通常表示图像质量是好的（即失真可以察觉但可以接受），在20—30dB说明图像质量差，PSNR低于20dB通常图像不可接受。</p>
+<p>另外，由于数据集为彩色图，在图像压缩时会出现某些像素点明显失真的情况，表现为画面某些像素点出现明显错误的颜色，如下图：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20211122215202095.png" alt="image-20211122215202095"></p>
+<p>这一现象可以由图像压缩中的近似误差来解释，由于RGB三种颜色的通道每一个像素点都是由一个0~255的数字表示的，在运算过程中每一步都会对256取模，这会导致某些像素点在0附近时会被近似到255，使得该通道原本无色的像素点变为纯色。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1]B. Qiu, V. Prinet, E. Perrier and O. Monga, “Multi-block PCA method for image change detection,” <em>12th International Conference on Image Analysis and Processing, 2003.Proceedings.</em>, 2003, pp. 385-390, doi: 10.1109/ICIAP.2003.1234080.</p>
+<p>[2]S. T. Lim, D. F. W. Yap and N. A. Manap, “Medical image compression using block-based PCA algorithm,” <em>2014 International Conference on Computer, Communications, and Control Technology (I4CT)</em>, 2014, pp. 171-175, doi: 10.1109/I4CT.2014.6914169.</p>
+<p>[3]D. Marvadi, C. Paunwala, M. Joshi and A. Vora, “Comparative analysis of 3D face recognition using 2D-PCA and 2D-LDA approaches,” <em>2015 5th Nirma University International Conference on Engineering (NUiCONE)</em>, 2015, pp. 1-5, doi: 10.1109/NUICONE.2015.7449603.</p>
+<p>附代码main.py</p>
+<pre><code class="lang-python"># 对数据集应用三种PCA压缩方式并记录压缩效果、运行时间
+import cv2 
+import numpy as np
+
+from PIL import Image
+from sklearn.metrics import mean_squared_error
+from methods.pca_sklearn import *
+from methods.pca_two_dimentions import *
+from methods.pca_block_by_block import *
+import time
+
+def read_img(file_list, sample_num, size_n, size_m):
+    data = []
+    for filename in file_list:
+        img = cv2.imread(filename, 1)
+        # 预处理，调整尺寸为256px * 256px 插值填充
+        img = cv2.resize(img, (size_n, size_m), interpolation=cv2.INTER_AREA)
+        img_arr = np.asarray(img, dtype = int)
+        data.append(img_arr)
+
+    data = np.asarray(data, dtype = np.uint8)
+    return data
+
+
+
+def save_images(pic_name, sample_num, compressed_data, size_n, size_m):
+    # 保存图像
+    for i in range(sample_num):
+        # 注意rgb顺序 实际上是bgr
+        img_b = compressed_data[i,:,:,0]
+        img_g = compressed_data[i,:,:,1]
+        img_r = compressed_data[i,:,:,2]
+        img = np.ndarray((size_n, size_m, 3), dtype = np.uint8)
+        img[:,:,0] = img_r
+        img[:,:,1] = img_g
+        img[:,:,2] = img_b
+        # print(img.shape)
+        image = Image.fromarray(img, &#39;RGB&#39;) 
+        save_path = &#39;result/&#39; + pic_name + &#39;/&#39; + pic_name + &quot;%02d.tif&quot; % i
+        image.save(save_path)
+
+
+def calc_MSE_and_PSNR(data, compressed_data, sample_num, size_n, size_m):
+    # 对三个通道和100张图分别计算PSNR，取平均
+    MSE_SUM = np.mean((data - compressed_data) ** 2)
+    MSE = MSE_SUM
+    PSNR = 10 * np.log10(255 ** 2 / MSE)
+    return MSE, PSNR
+
+if (__name__ == &#39;__main__&#39;):
+    pic_name = &#39;airplane&#39;
+    sample_num = 100
+    # variance_ratio = 0.9
+    CR_list = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.99]
+    size_n = 256
+    size_m = 256
+    file_list = []
+    for i in range(sample_num):
+        filename = &#39;data/&#39; + pic_name + &quot;/&quot; + pic_name + &quot;%02d.tif&quot; % i
+        file_list.append(filename)
+    # 读取三个通道的数据(data[100,256,256,3])
+    data = read_img(file_list, sample_num, size_n, size_m)
+    f = open(&#39;result-%s.txt&#39; % pic_name, &#39;w&#39;, encoding = &#39;utf-8&#39;)
+    f.write(&#39;Test started.\n&#39;)
+    f.write(&#39;datasets: %s\n&#39; % pic_name)
+    f.write(&#39;method: traditional_pca\n&#39;)
+    print(&#39;method: traditional_pca&#39;)
+    for CR in CR_list:
+        start = time.time()
+        compressed_data, compression_ratio = compression_sklearn_pca_by_CR(data, CR)
+        # compressed_data, compression_ratio = two_dimention_pca_by_CR(data, CR)
+        # compressed_data, compression_ratio = compression_block_pca_by_CR(data, CR, 8)
+        MSE, PSNR = calc_MSE_and_PSNR(data, compressed_data, sample_num, size_n, size_m)
+        t = time.time() - start 
+        f.write(&#39;CR: %.2f\t compression_ratio: %.2f\t MSE: %.2f\t PSNR: %.2f\t time: %.2fs\n&#39; % (CR, compression_ratio, MSE, PSNR, t))
+    # save_images(pic_name, sample_num, compressed_data, size_n, size_m)
+
+    f.write(&#39;method: block_by_block_pca; block_size = 8\n&#39;)
+    print(&#39;method: block_by_block_pca; block_size = 8&#39;)
+    for CR in CR_list:
+        start = time.time()
+        # compressed_data, compression_ratio = compression_sklearn_pca_by_CR(data, CR)
+        # compressed_data, compression_ratio = two_dimention_pca_by_CR(data, CR)
+        compressed_data, compression_ratio = compression_block_pca_by_CR(data, CR, 8)
+        MSE, PSNR = calc_MSE_and_PSNR(data, compressed_data, sample_num, size_n, size_m)
+        t = time.time() - start 
+        f.write(&#39;CR: %.2f\t compression_ratio: %.2f\t MSE: %.2f\t PSNR: %.2f\t time: %.2fs\n&#39; % (CR, compression_ratio, MSE, PSNR, t))
+
+    f.write(&#39;method: two_dimentions_pca\n&#39;)
+    print(&#39;method: two_dimentions_pca&#39;)
+    for CR in CR_list:
+        start = time.time()
+        # compressed_data, compression_ratio = compression_sklearn_pca_by_CR(data, CR)
+        compressed_data, compression_ratio = two_dimention_pca_by_CR(data, CR)
+        # compressed_data, compression_ratio = compression_block_pca_by_CR(data, CR, 8)
+        MSE, PSNR = calc_MSE_and_PSNR(data, compressed_data, sample_num, size_n, size_m)
+        t = time.time() - start 
+        f.write(&#39;CR: %.2f\t compression_ratio: %.2f\t MSE: %.2f\t PSNR: %.2f\t time: %.2fs\n&#39; % (CR, compression_ratio, MSE, PSNR, t))
+</code></pre>
+<p>methods/pca_block_by_block.py</p>
+<pre><code class="lang-python">import numpy as np
+
+def block_pca(data, block_size, variance_ratio):
+    data_mean = np.mean(data, axis = 1, keepdims=True)
+    data -= data_mean
+    C = data.T @ data / (100 - 1)
+    eig, V = np.linalg.eig(C)
+    V = V.T
+    idx = np.argsort(eig)[::-1]
+    # print(idx)
+    eig = eig[idx]
+    eig_sum = sum(eig)
+    V = V[idx]
+    # variance_ratio = 0.95
+    variance_sum = 0
+    n_components = 0
+    W = []
+
+    while (variance_sum / eig_sum &lt; variance_ratio):
+        variance_sum += eig[n_components]
+        W.append(V[n_components])
+        n_components += 1
+    # print(n_components)
+    W = np.asarray(W)
+    W = W.T
+    z = W.T @ data.T
+    new_data = (W @ z).T
+
+    new_data += data_mean
+
+    ori_size = block_size * block_size * 100
+    com_size = n_components * 100 + n_components * block_size * block_size
+
+    return new_data.reshape(100, block_size, block_size), com_size / ori_size
+
+
+def block_pca_by_n_c(data, block_size, n_c):
+    data_mean = np.mean(data, axis = 1, keepdims=True)
+    data -= data_mean
+    C = data.T @ data / (100 - 1)
+    eig, V = np.linalg.eig(C)
+    V = V.T
+    idx = np.argsort(eig)[::-1]
+    # print(idx)
+    eig = eig[idx]
+    eig_sum = sum(eig)
+    V = V[idx]
+    # variance_ratio = 0.95
+    variance_sum = 0
+    n_components = 0
+    W = []
+
+    while (n_components &lt; n_c):
+        variance_sum += eig[n_components]
+        W.append(V[n_components])
+        n_components += 1
+    # print(n_components)
+    W = np.asarray(W)
+    W = W.T
+    z = W.T @ data.T
+    new_data = (W @ z).T
+
+    new_data += data_mean
+
+    ori_size = block_size * block_size * 100
+    com_size = n_components * 100 + n_components * block_size * block_size
+    # CR = (n_components * 100 + n_components * block_size * block_size) / (block_size * block_size * 100)
+    # -&gt; n_c = (CR * bs * bs * 100) / (100 + bs * bs)
+    return new_data.reshape(100, block_size, block_size), com_size / ori_size
+
+def compression_block_pca(data, variance_ratio, block_size): # data[100, 256, 256, 3]
+    print(&#39;compression_block_pca:&#39;)
+    # block_size = 8
+    n_samples = data.shape[0]
+    size_n = data.shape[1]
+    size_m = data.shape[2]
+    n_channel = data.shape[3]
+    n_row = size_n // block_size
+    n_col = size_m // block_size
+    data_total = np.ndarray((n_row, n_col, 100, block_size * block_size, 3))
+    # print(data.shape)
+    for i in range(n_channel):
+        for r in range(n_row):
+            for c in range(n_col):
+                for j in range(n_samples):
+                    ur = r * block_size
+                    dr = (r + 1) * block_size
+                    lc = c * block_size
+                    rc = (c + 1) * block_size
+                    data_total[r, c, j, :, i] = np.asarray(data[j, ur:dr, lc:rc, i]).reshape(1, block_size * block_size)
+    # print(data_total.shape)
+    compressed_data = np.ndarray((100, 256, 256, 3))
+    ratio_sum = 0
+    cnt = 0
+    for i in range(n_channel):
+        for r in range(n_row):
+            for c in range(n_col):
+                data_block = data_total[r, c, :, :, i]
+                ur = r * block_size
+                dr = (r + 1) * block_size
+                lc = c * block_size
+                rc = (c + 1) * block_size
+                # print(data_block.shape)
+                compressed_data[:, ur:dr, lc:rc, i], ratio = block_pca(data_block, block_size, variance_ratio)
+                ratio_sum += ratio
+                # print(cnt)
+                cnt += 1
+    return compressed_data, ratio_sum / (n_channel * n_row * n_col)
+
+def compression_block_pca_by_CR(data, CR, block_size): # data[100, 256, 256, 3]
+    print(&#39;compression_block_pca:&#39;)
+    # block_size = 16
+    n_samples = data.shape[0]
+    size_n = data.shape[1]
+    size_m = data.shape[2]
+    n_channel = data.shape[3]
+    n_row = size_n // block_size
+    n_col = size_m // block_size
+    data_total = np.ndarray((n_row, n_col, 100, block_size * block_size, 3))
+    n_c = int((CR * block_size * block_size * 100) / (100 + block_size * block_size)) + 1
+    print(CR, n_c)
+    # print(data.shape)
+    for i in range(n_channel):
+        for r in range(n_row):
+            for c in range(n_col):
+                for j in range(n_samples):
+                    ur = r * block_size
+                    dr = (r + 1) * block_size
+                    lc = c * block_size
+                    rc = (c + 1) * block_size
+                    data_total[r, c, j, :, i] = np.asarray(data[j, ur:dr, lc:rc, i]).reshape(1, block_size * block_size)
+    # print(data_total.shape)
+    compressed_data = np.ndarray((100, 256, 256, 3))
+    ratio_sum = 0
+    cnt = 0
+    for i in range(n_channel):
+        for r in range(n_row):
+            for c in range(n_col):
+                data_block = data_total[r, c, :, :, i]
+                ur = r * block_size
+                dr = (r + 1) * block_size
+                lc = c * block_size
+                rc = (c + 1) * block_size
+                # print(data_block.shape)
+                compressed_data[:, ur:dr, lc:rc, i], ratio = block_pca_by_n_c(data_block, block_size, n_c)
+                ratio_sum += ratio
+                # print(cnt)
+                cnt += 1
+    return compressed_data, ratio_sum / (n_channel * n_row * n_col)
+</code></pre>
+<p>methods/pca_two_dimentions.py</p>
+<pre><code class="lang-python">import numpy as np
+def two_dimention_pca(data, variance_ratio): # data[100, 256, 256, 3]
+    print(&#39;two_dimention_pca:&#39;)
+    n_samples = data.shape[0]
+    size_n = data.shape[1]
+    size_m = data.shape[2]
+    n_channel = data.shape[3]
+    compressed_data = np.ndarray((n_samples, size_n, size_m, n_channel))
+    ratio = 0
+    for i in range(n_channel):
+        average = np.zeros((size_n, size_m))
+        for j in range(n_samples):
+            average += data[j, :, :, i]
+        average /= n_samples
+        G_t = np.zeros((size_m, size_m))
+        for j in range(n_samples):
+            img = data[j, :, :, i]
+            temp = img - average
+            G_t = G_t + np.dot(temp.T, temp) / n_samples
+        eig, V = np.linalg.eig(G_t)
+        idx = np.argsort(eig)
+        idx = idx[::-1]
+        eig_sum = sum(eig)
+        eig = eig[idx]
+        V = V.T
+        V = V[idx]
+        variance_sum = 0
+        n_components = 0
+        W = []
+
+        while (variance_sum / eig_sum &lt; variance_ratio):
+            variance_sum += eig[n_components]
+            W.append(V[n_components])
+            n_components += 1
+        # print(n_components)
+        W = np.asarray(W)
+        W = W.T
+        # print(W.shape)
+        newx = (data[:,:,:,i] - average) @ W
+        X = newx @ W.T + average
+        # print(X.shape)
+        ori_size = n_samples * size_n * size_m
+        com_size = n_components * n_samples * size_m + n_components * size_m
+
+        ratio = com_size / ori_size
+        compressed_data[:,:,:,i] = X
+
+    ratio /= n_channel
+    return compressed_data, ratio
+
+def two_dimention_pca_by_CR(data, CR): # data[100, 256, 256, 3]
+    print(&#39;two_dimention_pca:&#39;)
+    n_samples = data.shape[0]
+    size_n = data.shape[1]
+    size_m = data.shape[2]
+    n_channel = data.shape[3]
+    compressed_data = np.ndarray((n_samples, size_n, size_m, n_channel))
+    n_c = int(CR * n_samples * size_n * size_m / (n_samples * size_m + size_m)) + 1
+    print(CR, n_c)
+    ratio = 0
+    for i in range(n_channel):
+        average = np.zeros((size_n, size_m))
+        for j in range(n_samples):
+            average += data[j, :, :, i]
+        average /= n_samples
+        G_t = np.zeros((size_m, size_m))
+        for j in range(n_samples):
+            img = data[j, :, :, i]
+            temp = img - average
+            G_t = G_t + np.dot(temp.T, temp) / n_samples
+        eig, V = np.linalg.eig(G_t)
+        idx = np.argsort(eig)
+        idx = idx[::-1]
+        eig_sum = sum(eig)
+        eig = eig[idx]
+        V = V.T
+        V = V[idx]
+        variance_sum = 0
+        n_components = 0
+        W = []
+
+        while (n_components &lt; n_c):
+            variance_sum += eig[n_components]
+            W.append(V[n_components])
+            n_components += 1
+        # print(n_components)
+        W = np.asarray(W)
+        W = W.T
+        # print(W.shape)
+        newx = (data[:,:,:,i] - average) @ W
+        X = newx @ W.T + average
+        # print(X.shape)
+        ori_size = n_samples * size_n * size_m
+        com_size = n_components * n_samples * size_m + n_components * size_m
+        # CR = (n_components * n_samples * size_m + n_components * size_m) / (n_samples * size_n * size_m)
+        # -&gt; n_components = CR * n_samples * size_n * size_m / (n_samples * size_m + size_m)
+        ratio += com_size / ori_size
+        compressed_data[:,:,:,i] = X
+
+    ratio /= n_channel
+    return compressed_data, ratio
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/11/25/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/B-tree%E6%9E%84%E5%BB%BA%E8%BD%AE%E6%8E%92%E7%B4%A2%E5%BC%95-python%E5%AE%9E%E7%8E%B0/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/11/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/DMS-mid-term/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/favicon_io/android-chrome-512x512.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">29</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=T');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

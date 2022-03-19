@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            数据科学与工程算法课程项目-文本摘要 | 
+        
+        Moonglade
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon_io_c/favicon-32x32.png">
+    <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: ;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Moonglade">
+    <meta name="msapplication-starturl" content="http://example.com/2021/12/24/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://example.com/2021/12/24/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="数据科学与工程算法课程项目-文本摘要 | Moonglade">
+    <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Fri Dec 24 2021 17:11:59 GMT+0800">
+        <meta property="article:modified_time" content="Sat Mar 19 2022 18:34:31 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://example.com/2021/12/24/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%91%98%E8%A6%81"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="post-toc-number">2.</span> <span class="post-toc-text">项目概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%8F%8F%E8%BF%B0"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">任务描述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">实验要求</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="post-toc-number">3.</span> <span class="post-toc-text">问题描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">数据来源</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%96%87%E6%9C%AC%E9%A2%84%E5%A4%84%E7%90%86"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">文本预处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">模拟退火算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9C%B4%E7%B4%A0Greedy%E7%AE%97%E6%B3%95"><span class="post-toc-number">4.0.4.</span> <span class="post-toc-text">朴素Greedy算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%94%B9%E8%BF%9BGreedy%E7%AE%97%E6%B3%95"><span class="post-toc-number">4.0.5.</span> <span class="post-toc-text">改进Greedy算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Stochastic-Greedy%E7%AE%97%E6%B3%95"><span class="post-toc-number">4.0.6.</span> <span class="post-toc-text">Stochastic-Greedy算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Lazy-Greedy%E5%8A%A0%E9%80%9F"><span class="post-toc-number">4.0.7.</span> <span class="post-toc-text">Lazy-Greedy加速</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="post-toc-number">5.</span> <span class="post-toc-text">实验结果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="post-toc-number">6.</span> <span class="post-toc-text">结论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="post-toc-number">7.</span> <span class="post-toc-text">代码</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                数据科学与工程算法课程项目-文本摘要
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>12月 24, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=数据科学与工程算法课程项目-文本摘要&url=http://example.com/2021/12/24/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/index.html&pic=http://example.com/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=数据科学与工程算法课程项目-文本摘要&url=http://example.com/2021/12/24/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/12/24/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://example.com/2021/12/24/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>该项目主要实现了文本摘要，以最大化子模函数为目标，从专题下的电影评论中抽取100条作为摘要。</p>
+<p>解决问题的方法主要使用基于贪心的爬山算法，通过搜索资料和阅读论文，了解到了一些针对贪心算法的优化方法，能够提高算法的效率，并实现了模拟退火算法进行对照实验。该项目对这些方法进行了分析、实现和比较。</p>
+<p>The project mainly implements text summarization, with the goal of maximizing the sub-module function, and extracts 100 movie reviews from the topic as summaries.</p>
+<p>The method to solve the problem mainly uses the hill climbing algorithm based on greedy. Through searching information and reading papers, I have learned some optimization methods for the greedy algorithm, which can improve the efficiency of the algorithm. This project analyzes, implements and compares these methods.</p>
+<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><h4 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h4><ul>
+<li><p>从Web爬取某一主题的文本数据</p>
+</li>
+<li><p>对爬取到的文本库进行预处理，以提取关键词。预处理技术如：分词、去除停用词、stemming等</p>
+</li>
+<li><p>实现基于最大子覆盖问题的文本摘要算法，并从语料库中抽取100条摘要（集合元素可以是word或k-gram）</p>
+</li>
+<li><p>实验报告中应说明摘要算法的性能，如执行时间、摘要的质量等</p>
+</li>
+<li><p>实验任务的核心是子模函数最大化算法的实现和改进</p>
+</li>
+</ul>
+<h4 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h4><ul>
+<li>禁止直接调包实现，直接调包实验0分；</li>
+<li>代码编写语言不做要求，可使用python, C, java等；</li>
+<li>实验完成后，每人均需提交源代码；</li>
+<li>严禁相互抄袭，一旦发现双方实验成绩均为0分。</li>
+</ul>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>本项目数据集来源为从IMDb上爬取约10,000条的电影评论，在对爬取到的文本库进行预处理后，以最大化子模函数为目标从语料库抽取100条摘要。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h4 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h4><p>数据来源为IMDb上爬取的电影《肖申克的救赎》中的9,196条评论，语种为英语。经过分句和分词后，共包含44,638句，17,127个词项。</p>
+<p>原始数据集如下：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20211220180813.png" alt="image-20211220180813176"></p>
+<h4 id="文本预处理"><a href="#文本预处理" class="headerlink" title="文本预处理"></a>文本预处理</h4><p>利用python中nltk模块进行文本预处理，包括</p>
+<ol>
+<li><p>分词</p>
+</li>
+<li><p>大小写转换</p>
+</li>
+<li>去除停用词</li>
+<li>去除标点符号</li>
+<li>单词变体还原</li>
+<li>提取词根</li>
+</ol>
+<pre><code class="lang-python">def tokenizor(s):
+    # 分词
+    token_words = word_tokenize(s)
+    # 大小写转换
+    token_words = [word.lower() for word in token_words]
+    # 去除停用词
+    token_words = [word for word in token_words if word not in stopwords.words(&#39;english&#39;)]
+    # 去除标点符号
+    token_words = [word for word in token_words if word not in characters]
+    # 单词变体还原
+    token_words = [wordnet_lematizer.lemmatize(word) for word in token_words]
+    # 提取词根
+    token_words = [lancaster_stemmer.stem(word) for word in token_words]
+    return token_words
+</code></pre>
+<ol>
+<li>生成词典并将句子转化为集合</li>
+</ol>
+<pre><code class="lang-python">def readData():
+    f = open(&#39;cleand_review.txt&#39;,mode=&#39;r&#39;,encoding=&#39;utf-8&#39;)
+    lines = f.readlines()
+    sentences = [&#39;&#39; for _ in range(len(lines))]
+    words = [[] for _ in range(len(lines))]
+    X = []
+    wordDict = defaultdict()
+    elements = set()
+    for i in range(len(lines)):
+        line = lines[i]
+        line = line.strip(&#39;\n&#39;).split(&#39;\t&#39;)
+        sentences[i] = line[0]
+        words[i] = line[1].split(&#39;,&#39;)[:-1]
+        for word in words[i]:
+            elements.add(word)
+
+    elements = np.sort(list(elements))
+    labels = np.arange(len(elements)).astype(int)
+    for i in range(len(elements)):
+        wordDict[str(elements[i])] = labels[i]
+    for i in range(len(words)):
+        temp = set()
+        for j in range(len(words[i])):
+            temp.add(wordDict[words[i][j]])
+        X.append(temp)
+    return sentences, wordDict, X, len(elements)
+</code></pre>
+<p>预处理后的语料如下：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20211220180849.png" alt="image-20211220180849859"></p>
+<h4 id="模拟退火算法"><a href="#模拟退火算法" class="headerlink" title="模拟退火算法"></a>模拟退火算法</h4><p>解决最大化子模函数的常用算法有爬山算法，为了评估爬山算法的效果和性能，首先通过模拟退火算法求解，评估其摘要质量和算法性能。</p>
+<p>实现过程如下：</p>
+<p>每次随机调整选择的摘要，若调整后的解更优则选择新解，若新解更劣，计算当前解和新解之差$\Delta$，以概率$e^{-\frac{\Delta}{T}}$的概率接受新解。 </p>
+<pre><code class="lang-python">def SimulatedAnnealing(X, wordNum, initial_t, ratio, eps):
+    sentenceNum = len(X)
+    s_vis = np.zeros(sentenceNum)
+    w_vis = np.zeros(wordNum)
+    pick_list = []
+    pick_word = set()
+    temperature = initial_t
+    for i in range(100):
+        j = np.random.randint(sentenceNum)
+        while j in pick_list:
+            j = np.random.randint(sentenceNum)
+        pick_list.append(j)
+
+    pre_val = get_coverage(pick_list, X)
+
+    T = initial_t
+    epoch = 0
+    while(T &gt; eps):
+        epoch += 1
+        cur_pick_list = pick_list.copy()
+        for _ in range(1):
+            i = cur_pick_list[np.random.randint(100)]
+            j = np.random.randint(sentenceNum)
+            while j in cur_pick_list:
+                j = np.random.randint(sentenceNum)
+            cur_pick_list.remove(i)
+            cur_pick_list.append(j)
+
+        cur_val = get_coverage(cur_pick_list, X)
+        diff = cur_val - pre_val
+        if (diff &gt; 0):
+            pick_list = cur_pick_list
+            pre_val = cur_val
+        else:
+            pass
+            if (np.random.random() &lt; np.exp(diff / T)):
+                pick_list = cur_pick_list
+                pre_val = cur_val
+        # print(pre_val, T)
+        T *= ratio
+</code></pre>
+<h4 id="朴素Greedy算法"><a href="#朴素Greedy算法" class="headerlink" title="朴素Greedy算法"></a>朴素Greedy算法</h4><p>通过朴素的贪心算法解决最大子覆盖问题。我们的目标是找到一个元素个数不大于$k$的集合$A$，使得$f(A)$尽可能的大。</p>
+<p>设全集为$V$，朴素贪心算法每次从$V-A$中找到一个使得$f(A)$增长最大的元素$(e\in V-A使得f(A\cup {e}最大)$，进行k次，得到一个大小为$k$的近似解$A$</p>
+<p>时间复杂度分析：算法需要迭代k次，每次需要在全集中扫描，每次扫描计算$f(A\cup {e})$，计算$f(A\cup{e})$的代价至多为词项个数$w$，即时间复杂度为$O(knw)$。</p>
+<pre><code class="lang-python">def HillClimbing1(X, wordNum):
+    sentenceNum = len(X)
+    pick_list = []
+    pick_word = set()
+    pre_cov = 0
+    for _ in range(100):
+        mx = 0
+        mxp = 0
+        for i in range(sentenceNum):
+            if i in pick_list:
+                continue
+            new_pick_word = get_union(pick_word, X[i])
+            if (len(new_pick_word) - len(pick_word)) &gt; mx:
+                mx = len(new_pick_word) - len(pick_word)
+                mxp = i
+        pick_list.append(mxp)
+        pick_word = get_union(pick_word, X[mxp])
+    return pick_list, pick_word
+</code></pre>
+<h4 id="改进Greedy算法"><a href="#改进Greedy算法" class="headerlink" title="改进Greedy算法"></a>改进Greedy算法</h4><p>在朴素Greedy算法的基础上，为了计算$f(A\cup{e})$，需要对两个集合取交集。为了减少这部分的计算开销，可以维护一个数组<code>n_effective_words​</code>，记录每个句子中还未被覆盖的词项的个数，用该数组的值$O(1)$代替交集运算。每次将一个新的元素加入集合后更新数组，其均摊复杂度为$O(nq)$，$q$为每句句子的平均词项个数，整体时间复杂度优化为$O(nk+nq)$。</p>
+<pre><code class="lang-python">def HillClimbing2(X, wordNum):
+    sentenceNum = len(X)
+    pick_list = []
+    pick_word = set()
+    pre_cov = 0
+    n_effective_words = np.zeros(sentenceNum)
+    doc_for_word = defaultdict(list)
+    for i in range(sentenceNum):
+        n_effective_words[i] = len(X[i])
+        for x in X[i]:
+            doc_for_word[x].append(i)
+    for _ in range(100):
+        mx = 0
+        mxp = 0
+        for i in range(sentenceNum):
+            if i in pick_list:
+                continue
+            if (n_effective_words[i]) &gt; mx:
+                mx = n_effective_words[i]
+                mxp = i
+        pick_list.append(mxp)
+        for x in X[mxp]:
+            if x not in pick_word:
+                pick_word.add(x)
+                for doc in doc_for_word[x]:
+                    n_effective_words[doc] -= 1
+    return pick_list, pick_word
+</code></pre>
+<h4 id="Stochastic-Greedy算法"><a href="#Stochastic-Greedy算法" class="headerlink" title="Stochastic-Greedy算法"></a>Stochastic-Greedy算法</h4><p>Stochastic-Greedy算法每次迭代不是从$V-A$中遍历查找，而是从$V-A$中随机采样出一个子集$R$，遍历$R$查找。该算法来自AAAI2015的一篇论文 <a target="_blank" rel="noopener" href="http://arxiv.org/abs/1409.7938"><strong>Lazier Than Lazy Greedy</strong></a> ，第一作者是来自<em>ETH Zurich</em> 的 <em>Baharan Mirzasoleiman</em>，论文中证明，如果$R$的大小设为$\frac{n}{k}\log\frac{1}{\epsilon}$，那么Stochastic-Greedy 算法可达到$1-1/e-\epsilon$的近似程度。该算法的时间复杂度为$O(n\log(1/\epsilon)+nq)$。</p>
+<pre><code class="lang-python">def HillClimbing3(X, wordNum):
+    sentenceNum = len(X)
+    k = 100
+    pick_list = []
+    pick_word = set()
+    n_effective_words = np.zeros(sentenceNum)
+    doc_for_word = defaultdict(list)
+    for i in range(sentenceNum):
+        n_effective_words[i] = len(X[i])
+        for x in X[i]:
+            doc_for_word[x].append(i)
+    eps = 0.05
+    R = int(sentenceNum / k * np.log(1 / eps)) + 1
+    print(R)   
+    for _ in range(k):
+        mx = 0
+        mxp = 0
+        for _ in range(R):
+            i = np.random.randint(sentenceNum)
+            if i in pick_list:
+                continue
+            if (n_effective_words[i]) &gt; mx:
+                mx = n_effective_words[i]
+                mxp = i
+        pick_list.append(mxp)
+        for x in X[mxp]:
+            if x not in pick_word:
+                pick_word.add(x)
+                for doc in doc_for_word[x]:
+                    n_effective_words[doc] -= 1
+    return pick_list, pick_word
+</code></pre>
+<h4 id="Lazy-Greedy加速"><a href="#Lazy-Greedy加速" class="headerlink" title="Lazy-Greedy加速"></a>Lazy-Greedy加速</h4><p>该方法在论文Cost-effective Outbreak Detection in Networks中被提出。利用了子模函数的单调性优化贪心算法。</p>
+<p>Lazy-Greedy算法在每次迭代不一定会计算所有句子的增益分数。而是先将$V-A$中第$i-1$个迭代计算后的分数列表先进行由大到小的排序，在选取最大值对应的句子后，增益分数第二大的句子就成为了第$i$个迭代中的最大值，假设为$a$。在第$i$次迭代计算时，优先对$a$先进行增益分数的更新计算，根据子模函数的单调性可知，若更新后$a$的增益分数仍然最大，则$a$一定是目前集合$V-A$的最大值，不需要再对其他元素进行计算。</p>
+<p>Lazy greedy算法虽然在一定程度上提升了贪心算法的效率，但是它本质上却没有改变贪心算法的复杂度。在最坏情况下，每轮迭代中lazy greedy仍然需要计算所有$V-A$中句子的增益分数。</p>
+<p>另一方面，在实现过程中，每轮迭代前首先要对所有$V-A$中句子的增益分数排序，若直接排序的开销通常为$O(n\log n)$，因此需要使用更加巧妙的排序方法减少开销，难度较高，否则其时间复杂度会比不使用该优化方法更劣，因此本项目只对Lazy-Greedy方法作了解，并没有在代码层面上实现。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>摘要结果：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/20211222192446.png" alt="image-20211222192446452"></p>
+<p>本次实验对朴素Greedy算法、改进Greedy算法和Stochastic-Greedy算法进行了实现与测试，对比三者的运行效率和摘要效果。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>模拟退火算法</th>
+<th>朴素Greedy算法</th>
+<th>改进Greedy算法</th>
+<th>Stochastic-Greedy算法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>执行时间(s)</td>
+<td>37.95</td>
+<td>145.768</td>
+<td>4.328</td>
+<td>0.854</td>
+</tr>
+<tr>
+<td>摘要覆盖大小</td>
+<td>2101</td>
+<td>2831</td>
+<td>2831</td>
+<td>2719</td>
+</tr>
+<tr>
+<td>摘要覆盖率</td>
+<td>12.70%</td>
+<td>16.52%</td>
+<td>16.52%</td>
+<td>15.87%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>可见爬山算法的摘要质量效果远好于模拟退火算法，说明爬山算法在求解近似解时有较好的效果。</p>
+<p>相较于朴素Greedy算法，改进Greedy算法在不影响摘要效果的情况下大幅度减少了算啊的执行时间。Stochastic-Greedy在保证一定摘要质量的前提下大幅度提高算法执行效率。</p>
+<p>因此可以认为，改进Greedy算法和Stochastic-Greedy算法适合不同的应用场景。某些对摘要质量要求较高的场景适合使用改进Greedy算法，而对摘要生成效率要求较高的场景可以考虑使用Stochastic-Greedy算法进行文本摘要。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本实验通过最大化子模函数实现的文本摘要，实验内容包括了数据爬取，数据清洗和预处理，以及通过基于贪心的爬山算法求近似解，包含了采集、加工、分析等完整的数据流程。</p>
+<p>对于文本摘要问题，本次实验实现了三种不同的贪心算法对问题求近似解，其中改进Greedy算法是对朴素Greedy算法在实现方式上的优化，在不影响最终解的情况下优化算法的时间复杂度；Stochastic-Greedy则参考了论文Lazier Than Lazy Greedy中的实现和证明，论文中证明，如果$R$的大小设为$\frac{n}{k}\log\frac{1}{\epsilon}$，那么Stochastic-Greedy 算法可达到$1-1/e-\epsilon$的近似程度。同时也对Lazy greedy算法进行了分析和了解，正确实现的Lazy greedy算法相较于改进Greedy算法可以在常数上有一定优化，但实现难度较高，因此未在代码层面实现。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>scrapy/imdb_reviews.py</p>
+<pre><code class="lang-python">import re
+import requests
+import time
+import csv
+from selenium import webdriver
+from bs4 import BeautifulSoup
+from requests.exceptions import RequestException
+
+def generate_movie_list_link():
+    movie_list_url = &quot;https://www.imdb.com/chart/top?pf_rd_m=A2FGELUUNOQJNL&amp;pf_rd_p=470df400-70d9-4f35-bb05-8646a1195842&amp;pf_rd_r=MZ4XKE9SDGQAA8DTYPWX&amp;pf_rd_s=right-4&amp;pf_rd_t=15506&amp;pf_rd_i=moviemeter&amp;ref_=chtmvm_ql_3&quot;
+    return  movie_list_url
+
+def generate_movie_review_list_link(url):
+    URL = url
+    try:
+        response = requests.get(URL)
+        if response.status_code == 200:
+            html = response.text
+            print(html)
+            soup = BeautifulSoup(html,&#39;lxml&#39;)
+            movies = soup.select(&#39;.titleColumn&#39;)
+
+            movie_reviews_url_list = [[0] * 2 for j in range(250)]
+            i = 0
+            for movie in movies:
+                # header = movie.select_one(&#39;.lister-item-header&#39;)
+                movie_link = movie.select_one(&#39;a&#39;)[&#39;href&#39;]                     #电影链接
+                id_pattern = re.compile(r&#39;(?&lt;=tt)\d+(?=/?)&#39;)
+                movie_id = int(id_pattern.search(movie_link).group())           #imdb电影id
+                movie_reviews_url = &quot;https://www.imdb.com/title/tt&quot;+&quot;%07d&quot; % movie_id +&quot;/reviews?spoiler=hide&amp;sort=helpfulnessScore&amp;dir=desc&amp;ratingFilter=0&quot;
+
+                movie_reviews_url_list[i] = [movie_id,movie_reviews_url]
+                i += 1
+                #print(i,movie_id,movie_reviews_url)
+                #time.sleep(1)
+            return movie_reviews_url_list
+        else:
+            print(&quot;Error when request URL&quot;)
+    except RequestException:
+        print(&quot;Request Failed&quot;)
+        return None
+
+#获取imdb电影评论页面所有非spoiler的用户评论
+def get_imdb_movie_review(url,movieId):
+    NETWORK_STATUS = True  # 判断状态变量
+    URL = url
+    print(URL)
+    try:
+        response = requests.get(URL)
+        if response.status_code == 200:
+            original_html = response.text
+            original_soup = BeautifulSoup(original_html,&#39;lxml&#39;)
+            #需要下载Chromedriver
+            driver = webdriver.Chrome(&quot;C:/Users/MorphLing/AppData/Local/Google/Chrome/User Data/chromedriver.exe&quot;)
+            driver.get(URL)
+
+            # 判断是否需要模拟点击load more 按钮
+            tot = 25
+            while(tot &lt; 10000):
+                temp_response = driver.page_source
+                temp_html = temp_response
+                temp_soup = BeautifulSoup(temp_html,&#39;lxml&#39;)
+                load_more = temp_soup.select(&#39;.ipl-load-more__button&#39;)
+                #需要模拟点击
+                if(len(load_more) == 1):
+                    button_load_more = driver.find_element_by_class_name(&#39;ipl-load-more__button&#39;)
+                    button_is_or_not_visible = driver.find_element_by_class_name(&#39;ipl-load-more__button&#39;).is_displayed()
+                    if(button_is_or_not_visible is True):       #button按钮不可见时停止点击
+                        button_load_more.click()
+                        tot += 25
+                        print(tot)
+                        time.sleep(2)
+                    else:
+                        break
+                else:
+                    break
+
+            final_response = driver.page_source
+            html = final_response
+            soup = BeautifulSoup(html,&#39;lxml&#39;)
+
+            movie_id = movieId
+            reviews = soup.select(&#39;.review-container&#39;)
+            movie_reviews_list = [[0] * 4 for j in range(tot)]
+
+            i = 0
+            for review in reviews:
+                header = review.select_one(&#39;.display-name-date&#39;)
+                user_link = header.select_one(&#39;a&#39;)[&#39;href&#39;]
+                user_id_pattern = re.compile(r&#39;(?&lt;=ur)\d+(?=/?)&#39;)
+                user_id = int(user_id_pattern.search(user_link).group())    #用户id
+                review_date = header.select_one(&#39;.review-date&#39;).string      #用户评论时间
+
+                content = review.select_one(&#39;.content&#39;)
+                user_review = content.select_one(&#39;.text.show-more__control&#39;)     #用户评论
+                movie_reviews_list[i][0] = user_id
+                movie_reviews_list[i][1] = review_date
+                movie_reviews_list[i][2] = user_review
+                movie_reviews_list[i][3] = movie_id
+
+                i += 1
+                #print(i,user_id,review_date,user_review,movie_id)
+                time.sleep(0.01)
+
+            driver.close()      #关闭网页
+            return movie_reviews_list
+        else:
+            print(&quot;Error when request URL&quot;)
+    except RequestException:
+        print(&quot;Request Failed&quot;)
+        return None
+    except requests.exceptions.Timeout:
+        NETWORK_STATUS = False  # 请求超时改变状态
+        if NETWORK_STATUS == False:
+            #&#39;&#39;&#39;请求超时&#39;&#39;&#39;
+            driver.close()  # 关闭网页
+            print(&#39;请求超时，重复请求&#39;)
+            get_imdb_movie_review(URL, movieId)
+
+if __name__ == &#39;__main__&#39;:
+    i = 0
+    count = 0
+    with open(&#39;movie_review3.csv&#39;, &#39;w&#39;, newline=&quot;&quot;,encoding=&#39;utf-8&#39;) as csvfile:
+        csvwriter = csv.writer(csvfile, dialect=(&quot;excel&quot;))
+        csvwriter.writerow([&quot;userId&quot;, &quot;reviewDate&quot;, &quot;userReview&quot;,&quot;movieId&quot;])
+        movie_list_url = generate_movie_list_link()
+        movie_review_url_list =  generate_movie_review_list_link(movie_list_url)
+        print(movie_review_url_list)
+
+        l = [[0] * 4 for j in range(10500)]
+        l = get_imdb_movie_review(movie_review_url_list[0][1], movie_review_url_list[0][0])
+        k = 0
+        while(l[k][0] != 0):
+            csvwriter.writerow(l[k])
+            k += 1
+            count += 1
+
+    print(&quot;爬虫完毕，共爬取&quot;+str(count)+&quot;个用户评论&quot;)
+</code></pre>
+<p>HillClimbing-1.py</p>
+<pre><code class="lang-python">import numpy as np
+from collections import defaultdict
+import time
+
+def readData():
+    f = open(&#39;cleand_review2.txt&#39;,mode=&#39;r&#39;,encoding=&#39;utf-8&#39;)
+    lines = f.readlines()
+    sentences = [&#39;&#39; for _ in range(len(lines))]
+    words = [[] for _ in range(len(lines))]
+    X = []
+    wordDict = defaultdict()
+    elements = set()
+    for i in range(len(lines)):
+        line = lines[i]
+        line = line.strip(&#39;\n&#39;).split(&#39;\t&#39;)
+        sentences[i] = line[0]
+        words[i] = line[1].split(&#39;,&#39;)[:-1]
+        for word in words[i]:
+            elements.add(word)
+
+    elements = np.sort(list(elements))
+    labels = np.arange(len(elements)).astype(int)
+    for i in range(len(elements)):
+        wordDict[str(elements[i])] = labels[i]
+    for i in range(len(words)):
+        temp = set()
+        for j in range(len(words[i])):
+            temp.add(wordDict[words[i][j]])
+        X.append(temp)
+    return sentences, wordDict, X, len(elements)
+
+def get_coverage(pick_list, X):
+    cov_set = set()
+    for i in pick_list:
+        for x in X[i]:
+            cov_set.add(x)
+    return len(cov_set)
+
+def get_union(x, y):
+    return x.union(y)
+
+def HillClimbing(X, wordNum):
+    sentenceNum = len(X)
+    pick_list = []
+    pick_word = set()
+    pre_cov = 0
+    for _ in range(100):
+        mx = 0
+        mxp = 0
+        for i in range(sentenceNum):
+            if i in pick_list:
+                continue
+            new_pick_word = get_union(pick_word, X[i])
+            if (len(new_pick_word) - len(pick_word)) &gt; mx:
+                mx = len(new_pick_word) - len(pick_word)
+                mxp = i
+        pick_list.append(mxp)
+        pick_word = get_union(pick_word, X[mxp])
+    return pick_list, pick_word
+
+if __name__ == &#39;__main__&#39;:
+    sentences, wordDict, X, wordNum = readData()
+    st = time.time()
+    pick_list, pick_word = HillClimbing(X, wordNum)
+    print(len(pick_word) / len(wordDict) * 100)
+    print(time.time() - st)
+</code></pre>
+<p>SimulatedAnnealing.py</p>
+<pre><code class="lang-python">import numpy as np
+from collections import defaultdict
+import time
+
+def readData():
+    f = open(&#39;cleand_review2.txt&#39;,mode=&#39;r&#39;,encoding=&#39;utf-8&#39;)
+    lines = f.readlines()
+    sentences = [&#39;&#39; for _ in range(len(lines))]
+    words = [[] for _ in range(len(lines))]
+    X = []
+    wordDict = defaultdict()
+    elements = set()
+    for i in range(len(lines)):
+        line = lines[i]
+        line = line.strip(&#39;\n&#39;).split(&#39;\t&#39;)
+        sentences[i] = line[0]
+        words[i] = line[1].split(&#39;,&#39;)[:-1]
+        for word in words[i]:
+            elements.add(word)
+
+    elements = np.sort(list(elements))
+    labels = np.arange(len(elements)).astype(int)
+    for i in range(len(elements)):
+        wordDict[str(elements[i])] = labels[i]
+    for i in range(len(words)):
+        temp = set()
+        for j in range(len(words[i])):
+            temp.add(wordDict[words[i][j]])
+        X.append(temp)
+    return sentences, wordDict, X, len(elements)
+
+def get_coverage(pick_list, X):
+    cov_set = set()
+    for i in pick_list:
+        for x in X[i]:
+            cov_set.add(x)
+    return len(cov_set)
+
+def SimulatedAnnealing(X, wordNum, initial_t, ratio, eps):
+    sentenceNum = len(X)
+    s_vis = np.zeros(sentenceNum)
+    w_vis = np.zeros(wordNum)
+    pick_list = []
+    pick_word = set()
+    temperature = initial_t
+    for i in range(100):
+        j = np.random.randint(sentenceNum)
+        while j in pick_list:
+            j = np.random.randint(sentenceNum)
+        pick_list.append(j)
+
+    pre_val = get_coverage(pick_list, X)
+
+    T = initial_t
+    epoch = 0
+    while(T &gt; eps):
+        epoch += 1
+        cur_pick_list = pick_list.copy()
+        for _ in range(1):
+            i = cur_pick_list[np.random.randint(100)]
+            j = np.random.randint(sentenceNum)
+            while j in cur_pick_list:
+                j = np.random.randint(sentenceNum)
+            cur_pick_list.remove(i)
+            cur_pick_list.append(j)
+
+        cur_val = get_coverage(cur_pick_list, X)
+        diff = cur_val - pre_val
+        if (diff &gt; 0):
+            pick_list = cur_pick_list
+            pre_val = cur_val
+        else:
+            pass
+            if (np.random.random() &lt; np.exp(diff / T)):
+                pick_list = cur_pick_list
+                pre_val = cur_val
+        # print(pre_val, T)
+        T *= ratio
+    # print(epoch)
+
+if __name__ == &#39;__main__&#39;:
+    sentences, wordDict, X, wordNum = readData()
+    print(X)
+    st = time.time()
+    result = SimulatedAnnealing(X, wordNum, 100, 0.9996, 0.01)  
+    print(time.time() - st)
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/12/24/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8-%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB-python%E5%AE%9E%E7%8E%B0/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/11/25/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/B-tree%E6%9E%84%E5%BB%BA%E8%BD%AE%E6%8E%92%E7%B4%A2%E5%BC%95-python%E5%AE%9E%E7%8E%B0/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/favicon_io/android-chrome-512x512.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">29</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=T');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

@@ -246,7 +246,7 @@
 
     
         <meta property="article:published_time" content="Sun Oct 31 2021 19:13:43 GMT+0800">
-        <meta property="article:modified_time" content="Sat Feb 26 2022 18:21:01 GMT+0800">
+        <meta property="article:modified_time" content="Sat Mar 19 2022 17:42:06 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -318,7 +318,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80-%E6%9E%84%E5%BB%BA%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95%E6%96%87%E4%BB%B6dict-index-txt"><span class="post-toc-number">1.</span> <span class="post-toc-text">(一) 构建倒排索引文件dict.index.txt</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%84%E5%BB%BA%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95%E6%96%87%E4%BB%B6dict-index-txt"><span class="post-toc-number">1.</span> <span class="post-toc-text">构建倒排索引文件dict.index.txt</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A2%84%E5%87%86%E5%A4%87"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">预准备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%86%E5%9D%97%E5%A4%A7%E5%B0%8F%EF%BC%8C%E9%85%8D%E7%BD%AE%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%8A%E9%99%90"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">设置分块大小，配置线程池上限</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E5%88%86%E5%9D%97"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">多线程处理分块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AA%E7%B4%A2%E5%BC%95%E5%9D%97"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">合并多个索引块</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%83%E5%B0%94%E6%9F%A5%E8%AF%A2"><span class="post-toc-number">2.</span> <span class="post-toc-text">布尔查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码</span></a></li></ol>
     </ul>
     
 
@@ -464,235 +464,448 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><strong>使用环境</strong></p>
-<p>Windows10, python3.8.3</p>
-<h2 id="一-构建倒排索引文件dict-index-txt"><a href="#一-构建倒排索引文件dict-index-txt" class="headerlink" title="(一) 构建倒排索引文件dict.index.txt"></a>(一) 构建倒排索引文件dict.index.txt</h2><ol>
-<li>预准备</li>
-</ol>
-<ul>
-<li><p>设置分块大小（每块包含多少个文件），对输入文件进行分块</p>
-</li>
-<li><p>配置线程池线程上限</p>
-</li>
-</ul>
-<pre><code class="lang-python"># 配置线程池参数
-  max_worker = 20 # 线程池上线
-  filenum = 100000 # 文件总数
-  blocksize = 1000 # 每个block的文件数量
-  pool = ThreadPoolExecutor(max_workers = max_worker)
-  threads = []
-  blocknum = (filenum - 1) // blocksize + 1 # 计算总共需要几个block
-  begin_time = time()
-  print(&quot;max_worker:%d\tFilenum:%d\tBlocksize:%d\tBlocknum:%d&quot; %(max_worker, filenum, blocksize, blocknum))
-  print(&quot;开始构建局部索引...&quot;)
+        <h2 id="构建倒排索引文件dict-index-txt"><a href="#构建倒排索引文件dict-index-txt" class="headerlink" title="构建倒排索引文件dict.index.txt"></a>构建倒排索引文件dict.index.txt</h2><h3 id="预准备"><a href="#预准备" class="headerlink" title="预准备"></a>预准备</h3><h4 id="设置分块大小，配置线程池上限"><a href="#设置分块大小，配置线程池上限" class="headerlink" title="设置分块大小，配置线程池上限"></a>设置分块大小，配置线程池上限</h4><pre><code class="lang-python"># 配置线程池参数
+max_worker = 8 # 线程池上线
+filenum = 100000 # 文件总数
+blocksize = 5000 # 每个block的文件数量
+pool = ThreadPoolExecutor(max_workers = max_worker)
+threads = []
+
+blocknum = (filenum - 1) // blocksize + 1 # 计算总共需要几个block
+begin_time = time()
+print(&quot;max_worker:%d\tFilenum:%d\tBlocksize:%d\tBlocknum:%d&quot; %(max_worker, filenum, blocksize, blocknum))
+print(&quot;开始构建局部索引...&quot;)
 # 将文档分入不同的block
-  for i in range(filenum // blocksize):
+for i in range(filenum // blocksize):
     thread = pool.submit(job, i * blocksize + 1, i * blocksize + blocksize, i + 1)
     threads.append(thread)
 
-# 将剩余的文档归入最后一个block
-  if filenum % blocksize != 0:
-    thread = pool.submit(job, filenum - (filenum % blocksize) + 1, filenum, filenum // blocksize + 1)
-    threads.append(thread)
+    # 将剩余的文档归入最后一个block
+    if filenum % blocksize != 0:
+        thread = pool.submit(job, filenum - (filenum % blocksize) + 1, filenum, filenum // blocksize + 1)
+        threads.append(thread)
 </code></pre>
-<ol>
-<li><p>多线程处理分块</p>
-<ol>
-<li><p>文本预处理（空格和制表符分词、大小写转换、去除Top100停用词）</p>
-</li>
-<li><p>在内存中生成倒排记录表并进行压缩(Delta编码记录增量</p>
-</li>
-<li><p>对条目按照词项的字典序排序</p>
+<h3 id="多线程处理分块"><a href="#多线程处理分块" class="headerlink" title="多线程处理分块"></a>多线程处理分块</h3><ol>
+<li>文本预处理（空格和制表符分词、大小写转换、去除Top100停用词）</li>
+<li>在内存中生成倒排记录表并进行压缩(Delta编码记录增量)</li>
+<li>对条目按照词项的字典序排序</li>
+</ol>
 <pre><code class="lang-python"># 预处理读入数据
 def job(docl, docr, blockid):
-  wordsDict = &#123;&#125;
-  lastDocId = &#123;&#125;
-  stopWords = [&quot;###end###&quot;,&quot;.&quot;,&quot;,&quot;,&quot;the&quot;,&quot;and&quot;,&quot;in&quot;,&quot;of&quot;,&quot;a&quot;,&quot;to&quot;,&quot;&#39;s&quot;,&quot;na&quot;,&quot;&#39;&#39;&quot;,&quot;for&quot;,&quot;on&quot;,&quot;that&quot;,&quot;at&quot;,&quot;with&quot;,&quot;is&quot;,&quot;from&quot;,&quot;by&quot;,&quot;was&quot;,&quot;/location/location/contains&quot;,
-  &quot;as&quot;,&quot;said&quot;,&quot;his&quot;,&quot;who&quot;,&quot;he&quot;,&quot;an&quot;,&quot;has&quot;,&quot;mr.&quot;,&quot;it&quot;,&quot;new&quot;,&quot;--&quot;,&quot;-lrb-&quot;,&quot;-rrb-&quot;,&quot;;&quot;,&quot;:&quot;,&quot;have&quot;,&quot;be&quot;,&quot;but&quot;,&quot;are&quot;,&quot;had&quot;,&quot;its&quot;,&quot;which&quot;,&quot;not&quot;,&quot;this&quot;,&quot;about&quot;,&quot;one&quot;,&quot;after&quot;, &quot;will&quot;,&quot;last&quot;,&quot;when&quot;,&quot;president&quot;,&quot;two&quot;,&quot;were&quot;,&quot;more&quot;,&quot;been&quot;,&quot;their&quot;,&quot;like&quot;,&quot;would&quot;,&quot;or&quot;,&quot;years&quot;,&quot;they&quot;,&quot;her&quot;,&quot;other&quot;,&quot;united&quot;,&quot;first&quot;,&quot;up&quot;,&quot;where&quot;,&quot;also&quot;,&quot;china&quot;, &quot;new_york&quot;,&quot;m.059rby&quot;,&quot;american&quot;,&quot;city&quot;,&quot;states&quot;,&quot;than&quot;,&quot;$&quot;,&quot;over&quot;,&quot;york&quot;,&quot;into&quot;,&quot;most&quot;,&quot;year&quot;,&quot;brooklyn&quot;,&quot;she&quot;,&quot;out&quot;,&quot;there&quot;,&quot;all&quot;,&quot;iraq&quot;,&quot;state&quot;,&quot;former&quot;, &quot;m.0d05w3&quot;,&quot;including&quot;,&quot;three&quot;,&quot;some&quot;,&quot;manhattan&quot;,&quot;now&quot;,&quot;world&quot;,&quot;i&quot;,&quot;people&quot;]
-  for docid in range(docl, docr + 1):
-    f = open(&quot;data/&quot; + str(docid) + &quot;.txt&quot;, &#39;r&#39;, encoding = &#39;utf-8&#39;)
-    lines = f.readlines()
+    wordsDict = &#123;&#125;
+    lastDocId = &#123;&#125;
+    stopWords = []
+    for docid in range(docl, docr + 1):
+        f = open(&quot;data/&quot; + str(docid) + &quot;.txt&quot;, &#39;r&#39;, encoding = &#39;utf-8&#39;)
+        lines = f.readlines()
+        f.close()
+        tempDict = &#123;&#125;
+        for line in lines:
+            # 按照空格和制表符分割
+            words = re.split(&#39;[ \t]&#39;, line.strip())
+            for word in words:
+                # 去除停用词
+                if (word in stopWords): continue
+                # 将大写转化为小写
+                word = word.lower()
+                if (word in tempDict):
+                    continue
+                tempDict[word] = 1
+                if not (word in wordsDict):
+                    wordsDict[word] = [str(docid), 1]
+                    lastDocId[word] = docid
+                else:
+                    # 倒排记录表压缩(Delta编码,记录增量)
+                    wordsDict[word][0] += &#39;,&#39; + str(docid - lastDocId[word])
+                    lastDocId[word] = docid
+                    wordsDict[word][1] += 1
+                    # df[word] += 1
+    # 词项从小到大按照字典序排序
+    wordsDict = &#123;key: wordsDict[key] for key in sorted(wordsDict)&#125;
+    outWordsDict(wordsDict, blockid)
+</code></pre>
+<ol>
+<li>将块记录写回磁盘文件</li>
+</ol>
+<pre><code class="lang-python"># 将局部索引输出到硬盘上
+def outWordsDict(wordsDict, blockid):
+    f = open(&quot;target/block&quot; + str(blockid) + &quot;.txt&quot;, &#39;w&#39;, encoding = &#39;utf-8&#39;)
+    for key in wordsDict.keys():
+        # print(key)
+        f.write(key + &#39;\t&#39; + str(wordsDict[key][1]) + &#39;\t&#39; + wordsDict[key][0] + &#39;\n&#39;)
+    f.flush()
     f.close()
-    tempDict = &#123;&#125;
+</code></pre>
+<p>分块结果如图，存放在target文件夹下作为索引中间文件</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/clip_image002.png" alt="img"></p>
+<h3 id="合并多个索引块"><a href="#合并多个索引块" class="headerlink" title="合并多个索引块"></a>合并多个索引块</h3><ol>
+<li><p>打开所有块索引文件，读取每个块的第一条索引条目，利用堆结构维护条目，以词项为关键字，维护词项字典序最小的条目</p>
+</li>
+<li><p>从堆中取出词项字典序最小的条目，若对应文件仍未读完，则将对应文件的下一条条目也插入堆中</p>
+</li>
+<li><p>根据当前取出的条目，在内存中维护当前词项的docList（对Delta编码解压，记录真实docID）</p>
+</li>
+<li><p>当前词项的所有条目都处理完毕时（堆顶元素的词项的字典序大于当前词项），对docList再次进行Delta编码压缩，并将该倒排索引记录写回磁盘</p>
+</li>
+<li><p>重复步骤2)、3)、4)，直到每个块索引文件的条目都被处理完毕，即堆元素全部弹出，堆大小为0，此时倒排记录表dict.index.txt生成完毕</p>
+</li>
+</ol>
+<pre><code class="lang-python"># 合并多个索引块，利用堆结构维护
+def mergeBlocks(blocknum):
+    files = []
+    heap = []
+    word_now = &#39;&#39;
+    df_now = 0
+    result_now = []
+    f_out = open(&quot;dict.index2.txt&quot;, &#39;w&#39;, encoding = &#39;utf-8&#39;) # 合并索引所在文件
+    for i in range(blocknum):
+        f = open(&quot;target/block&quot; + str(i + 1) + &quot;.txt&quot;, &#39;r&#39;, encoding = &#39;utf-8&#39;, buffering = 100)
+        files.append(f)
+        line = f.readline()
+        item = line.strip().split(&#39;\t&#39;)
+        item.append(i)
+        heappush(heap, item)
+    while(len(heap) &gt; 0):
+        # 取出小根堆顶的索引条目，并继续读取对应的下一个条目
+        item_now = heappop(heap)
+        doc = item_now[3]
+        line = files[doc].readline()
+        # 若条目未读完，则将下一个条目放入堆中
+        if line:
+            item = line.strip().split(&#39;\t&#39;)
+            item.append(doc)
+            heappush(heap, item)
+        if (item_now[0] != word_now):
+            # 当前维护的词项与下一条词项不同，说明当前词项已全部读取，将当前词项及索引写回磁盘
+            if (word_now != &#39;&#39;):
+                # heapify(result_now)
+                writeBackFile(f_out, word_now, df_now, result_now)
+            word_now = item_now[0]
+            df_now = int(item_now[1])
+            result_now = []
+            # 用另一个堆维护当前词项的文档
+            accmulatedDocId = 0
+            for docid in item_now[2].split(&#39;,&#39;):
+                accmulatedDocId += int(docid)
+                heappush(result_now, accmulatedDocId)
+        else:
+            df_now += int(item_now[1])
+            # 用另一个堆维护当前词项的文档
+            accmulatedDocId = 0
+            for docid in item_now[2].split(&#39;,&#39;):
+                # 记录真实docID（累加和）
+                accmulatedDocId += int(docid)
+                heappush(result_now, accmulatedDocId)
+    # 将最后一个条目写回磁盘
+
+    if (word_now != &#39;&#39;):
+        writeBackFile(f_out, word_now, df_now, result_now)
+
+def writeBackFile(f_out, word_now, df_now, result_now):
+    # 先将result_now一个一个取出，再按照Delta编码增量方式重新压缩
+    docList = []
+    while(len(result_now) != 0):
+        docList.append(heappop(result_now))
+    for i in range(len(docList) - 1, 0, -1):
+        # print(i)
+        docList[i] -= docList[i - 1]
+    docstr = &#39;&#39;
+    for doc in docList:
+        docstr += &#39;,&#39; + str(doc)
+    docstr = docstr[1:]
+    f_out.write(word_now + &#39;\t&#39; + str(df_now) + &#39;\t&#39; + docstr + &#39;\n&#39;)
+</code></pre>
+<p>倒排索引记录如图：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/clip_image002.png" alt="img"></p>
+<p>说明：该合并方法保证了内存中只需要维护一个大小不超过分块个数的堆结构以及当前词项的条目，由于每个分块内的索引都是按词项排序的，所以合并过程中可以只读取每个分块索引最前面的条目，并按照词项字典序从小到大一个一个确定词项条目内容。每确定了一个词项的条目后直接将该条目写回磁盘，不再占用内存空间，这样一来即使最终倒排索引表总大小超过内存限制，在生成倒排表的过程中内存也能容纳所有需要的数据。</p>
+<h2 id="布尔查询"><a href="#布尔查询" class="headerlink" title="布尔查询"></a>布尔查询</h2><ol>
+<li><p>读取已构建的倒排索引文件dict.index.txt</p>
+</li>
+<li><p>记录每个词项在文件中对应的条目（即行号）</p>
+</li>
+</ol>
+<pre><code class="lang-python">import linecache
+def getLineDict(filename):
+    f = open(filename, &#39;r&#39;, encoding=&#39;utf-8&#39;)
+    lines = f.readlines()
+    lineDict = &#123;&#125;
+    # print(len(lines))
+    cnt = 0
     for line in lines:
-        # 按照空格和制表符分割
-        words = re.split(&#39;[ \t]&#39;, line.strip())
-        for word in words:
-            if (word in stopWords): continue
-            # 将大写转化为小写
-        word = word.lower()
-        if (word in tempDict):
-              continue
-        tempDict[word] = 1
-        if not (word in wordsDict):
-               wordsDict[word] = [str(docid), 1]
-              lastDocId[word] = docid
-           else:
-            # 倒排记录表压缩(Delta编码,记录增量)
-            wordsDict[word][0] += &#39;,&#39; + str(docid - lastDocId[word])
-             lastDocId[word] = docid
-             wordsDict[word][1] += 1
-               # 词项从小到大按照字典序排序
-              wordsDict = &#123;key: wordsDict[key] for key in sorted(wordsDict)&#125;
-              outWordsDict(wordsDict, blockid)
+        word, df, res = line.strip().split(&#39;\t&#39;)
+        cnt += 1
+        lineDict[word] = cnt
+    return lineDict
+</code></pre>
+<ol>
+<li><p>读取用户输入，解析布尔查询输入，支持以下三种查询</p>
+<ol>
+<li>A</li>
+<li>A and B</li>
+<li>A or B</li>
+</ol>
+</li>
+<li><p>根据输入找到词项对应的行号，在倒排索引文件中读取指定行号，获取每个词项所在的docID列表</p>
+<pre><code class="lang-python">def getIndex(lineDict, word):
+    if not (word in lineDict):
+        return []
+    index = []
+    line = linecache.getline(&#39;dict.index.txt&#39;, lineDict[word])
+    # print(line)
+    word, df, res = line.strip().split(&#39;\t&#39;)
+    res = res.split(&#39;,&#39;)
+    for i in range(len(res)):
+        res[i] = int(res[i])
+    # 根据压缩后的倒排记录表计算原记录表
+    for i in range(1, len(res)):
+        res[i] += res[i - 1]
+    return res
 </code></pre>
 </li>
-</ol>
+<li><p>将列表转化为集合，通过求集合交集/补集的方式进行布尔运算</p>
+</li>
+<li><p>输出运算结果，即为查询结果</p>
+<pre><code class="lang-python">while(query[0] != &#39;exit()&#39;):
+        if (len(query) == 1):
+            docListA = getIndex(lineDict, query[0])
+            if (len(docListA) == 0):
+                print(&#39;no result.&#39;, end=&#39;&#39;)
+            for docId in docListA:
+                print(docId, end=&#39; &#39;)
+            print()
+        else:
+            docListA = getIndex(lineDict, query[0])
+            docListB = getIndex(lineDict, query[2])
+            op = query[1]
+            if (op == &#39;and&#39;):
+                result = set(docListA).intersection(set(docListB))
+            else:
+                result = set(docListA).union(set(docListB))
+            result = sorted(list(result))
+            if (len(result) == 0):
+                print(&#39;no result.&#39;, end=&#39;&#39;)
+            for docId in result:
+                print(docId, end=&#39; &#39;)
+            print()
+        query = input().split(&#39; &#39;)
+</code></pre>
+</li>
+<li><p>重复步骤3、4、5、6，直到用户中止查询</p>
 </li>
 </ol>
-<p>4)   将块索引记录写回磁盘文件</p>
-<p># 将局部索引输出到硬盘上</p>
-<p>def outWordsDict(wordsDict, blockid):</p>
-<p>  f = open(“target/block” + str(blockid) + “.txt”, ‘w’, encoding = ‘utf-8’)</p>
-<p>  for key in wordsDict.keys():</p>
-<p>​    # print(key)</p>
-<p>​    f.write(key + ‘\t’ + str(wordsDict[key][1]) + ‘\t’ + wordsDict[key][0] + ‘\n’)</p>
-<p>  f.flush()</p>
-<p>  f.close()</p>
-<p>​       分块结果如图，存放在target文件夹下作为索引中间文件</p>
-<p> <img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="img"></p>
-<p>\3.    合并多个索引块</p>
-<p>1)   打开所有块索引文件，读取每个块的第一条索引条目，利用堆结构维护条目，以词项为关键字，维护词项字典序最小的条目</p>
-<p>2)   从堆中取出词项字典序最小的条目，若对应文件仍未读完，则将对应文件的下一条条目也插入堆中</p>
-<p>3)   根据当前取出的条目，在内存中维护当前词项的docList（对Delta编码解压，记录真实docID）</p>
-<p>4)   当前词项的所有条目都处理完毕时（堆顶元素的词项的字典序大于当前词项），对docList再次进行Delta编码压缩，并将该倒排索引记录写回磁盘</p>
-<p>5)   重复步骤2)、3)、4)，直到每个块索引文件的条目都被处理完毕，即堆元素全部弹出，堆大小为0，此时倒排记录表dict.index.txt生成完毕</p>
-<p># 合并多个索引块，利用堆结构维护</p>
-<p>def mergeBlocks(blocknum):</p>
-<p>  files = []</p>
-<p>  heap = []</p>
-<p>  word_now = ‘’</p>
-<p>  df_now = 0</p>
-<p>  result_now = []</p>
-<p>  f_out = open(“dict.index.txt”, ‘w’, encoding = ‘utf-8’) # 合并索引所在文件</p>
-<p>  for i in range(blocknum):</p>
-<p>​    f = open(“target/block” + str(i + 1) + “.txt”, ‘r’, encoding = ‘utf-8’, buffering = 100)</p>
-<p>​    files.append(f)</p>
-<p>​    line = f.readline()</p>
-<p>​    item = line.strip().split(‘\t’)</p>
-<p>​    item.append(i)</p>
-<p>​    heappush(heap, item)</p>
-<p>  while(len(heap) &gt; 0):</p>
-<p>​    # 取出小根堆顶的索引条目，并继续读取对应的下一个条目</p>
-<p>​    item_now = heappop(heap)</p>
-<p>​    doc = item_now[3]</p>
-<p>​    line = files[doc].readline()</p>
-<p>​    # 若条目未读完，则将下一个条目放入堆中</p>
-<p>​    if line:</p>
-<p>​      item = line.strip().split(‘\t’)</p>
-<p>​      item.append(doc)</p>
-<p>​      heappush(heap, item)</p>
-<p>​    if (item_now[0] != word_now):</p>
-<p>​      # 当前维护的词项与下一条词项不同，说明当前词项已全部读取，将当前词项及索引写回磁盘</p>
-<p>​      if (word_now != ‘’):</p>
-<p>​        # heapify(result_now)</p>
-<p>​        writeBackFile(f_out, word_now, df_now, result_now)</p>
-<p>​      word_now = item_now[0]</p>
-<p>​      df_now = int(item_now[1])</p>
-<p>​      result_now = []</p>
-<p>​      # 用另一个堆维护当前词项的文档</p>
-<p>​      accmulatedDocId = 0</p>
-<p>​      for docid in item_now[2].split(‘,’):</p>
-<p>​        accmulatedDocId += int(docid)</p>
-<p>​        heappush(result_now, accmulatedDocId)</p>
-<p>​    else:</p>
-<p>​      df_now += int(item_now[1])</p>
-<p>​      # 用另一个堆维护当前词项的文档</p>
-<p>​      accmulatedDocId = 0</p>
-<p>​      for docid in item_now[2].split(‘,’):</p>
-<p>​        # 记录真实docID（累加和）</p>
-<p>​        accmulatedDocId += int(docid)</p>
-<p>​        heappush(result_now, accmulatedDocId)</p>
-<p>  # 将最后一个条目写回磁盘</p>
-<p>  if (word_now != ‘’):</p>
-<p>​    writeBackFile(f_out, word_now, df_now, result_now)</p>
-<p>def writeBackFile(f_out, word_now, df_now, result_now):</p>
-<p>  # 先将result_now一个一个取出，再按照差分方式重新压缩</p>
-<p>  docList = []</p>
-<p>  while(len(result_now) != 0):</p>
-<p>​    docList.append(heappop(result_now))</p>
-<p>  for i in range(len(docList) - 1, 0, -1):</p>
-<p>​    # print(i)</p>
-<p>​    docList[i] -= docList[i - 1]</p>
-<p>  docstr = ‘’</p>
-<p>  for doc in docList:</p>
-<p>​    docstr += ‘,’ + str(doc)</p>
-<p>  docstr = docstr[1:]</p>
-<p>  f_out.write(word_now + ‘\t’ + str(df_now) + ‘\t’ + docstr + ‘\n’)</p>
-<p>倒排索引结果如图：</p>
-<p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png" alt="img"></p>
-<p>说明：该合并方法保证了内存中只需要维护一个大小不超过分块个数的堆结构以及当前词项的条目，由于每个分块内的索引都是按词项排序的，所以合并过程中可以只读取每个分块索引最前面的条目，并按照词项字典序从小到大一个一个确定词项条目内容。每确定了一个词项的条目后直接将该条目写回磁盘，不再占用内存空间，这样一来即使最终倒排索引表总大小超过内存限制，在生成倒排表的过程中内存也能容纳所有需要的数据。</p>
-<p>(二) 布尔查询</p>
-<p>\1.    读取已构建的倒排索引文件dict.index.txt</p>
-<p>\2.    记录每个词项在文件中对应的条目（即行号）</p>
-<p>def getLineDict(filename):</p>
-<p>  f = open(filename, ‘r’, encoding=’utf-8’)</p>
-<p>  lines = f.readlines()</p>
-<p>  lineDict = {}</p>
-<p>  print(len(lines))</p>
-<p>  cnt = 0</p>
-<p>  for line in lines:</p>
-<p>​    word, df, res = line.strip().split(‘\t’)</p>
-<p>​    cnt += 1</p>
-<p>​    lineDict[word] = cnt</p>
-<p>  return lineDict</p>
-<p>\3.    读取用户输入，解析布尔查询输入，支持以下三种查询</p>
-<p>1)   A</p>
-<p>2)   A and B</p>
-<p>3)   A or B</p>
-<p>\4.    根据输入找到词项对应的行号，在倒排索引文件中读取指定行号，获取每个词项所在的docID列表</p>
-<p>def getIndex(lineDict, word):</p>
-<p>  if not (word in lineDict):</p>
-<p>​    return []</p>
-<p>  index = []</p>
-<p>  line = linecache.getline(‘dict.index.txt’, lineDict[word])</p>
-<p>  # print(line)</p>
-<p>  word, df, res = line.strip().split(‘\t’)</p>
-<p>  res = res.split(‘,’)</p>
-<p>  for i in range(len(res)):</p>
-<p>​    res[i] = int(res[i])</p>
-<p>  # 根据压缩后的倒排记录表计算原记录表</p>
-<p>  for i in range(1, len(res)):</p>
-<p>​    res[i] += res[i - 1]</p>
-<p>  return res</p>
-<p>\5.    将列表转化为集合，通过求集合交集/补集的方式进行布尔运算</p>
-<p>\6.    输出运算结果，即为查询结果</p>
-<p>while(query[0] != ‘exit()’):</p>
-<p>​    if (len(query) == 1):</p>
-<p>​      docListA = getIndex(lineDict, query[0])</p>
-<p>​      for docId in docListA:</p>
-<p>​        print(docId, end=’ ‘)</p>
-<p>​      print()</p>
-<p>​    else:</p>
-<p>​      docListA = getIndex(lineDict, query[0])</p>
-<p>​      docListB = getIndex(lineDict, query[2])</p>
-<p>​      op = query[1]</p>
-<p>​      if (op == ‘and’):</p>
-<p>​        result = set(docListA).intersection(set(docListB))</p>
-<p>​      else:</p>
-<p>​        result = set(docListA).union(set(docListB))</p>
-<p>​      result = sorted(list(result))</p>
-<p>​      for docId in result:</p>
-<p>​        print(docId, end=’ ‘)</p>
-<p>​      print()</p>
-<p>​    query = input().split(‘ ‘)</p>
-<p>\7.    重复步骤3、4、5、6，直到用户中止查询</p>
-<p>测试：</p>
-<p>​    查询A：</p>
-<p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png" alt="img"></p>
-<p>​    查询A and B：</p>
-<p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image008.png" alt="img"></p>
-<p>​    查询A or B：</p>
-<p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image010.png" alt="img"></p>
-<p>​    结束查询：</p>
-<p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image012.png" alt="img"></p>
-<p>五、 <strong>总结</strong></p>
-<p>本次实验使用了SPIMI算法实现了倒排索引表构建，构建分块索引时，由于块与块之间独立，使用了多线程的方式提高构建分块索引的效率，同时对记录表采用Delta编码的方式压缩空间大小。合并索引块时，由于每个分块内的索引都是按词项排序的，所以合并过程中内存中可以只存放每个分块索引当前最前面的条目，并用堆结构维护这些条目。每确定了一个词项的条目后直接将该条目写回磁盘，不再占用内存空间，这样一来即使最终倒排索引表总大小超过内存限制，在生成倒排表的过程中内存也能容纳所有需要的数据，因此可以生成任意大小的倒排索引表。</p>
-<p>在读取倒排索引表时，为了避免索引表过大内存无法容纳，并不会直接将整张索引表读入内存，而仅将(词项-行号)信息读入内存，每个词项对应的docID将在解析用户输入后再去读取文件对应的行号来获取。这样一来内存中只需要存放(词项-行号)的信息，以及当前涉及当前查询词项的docList，即可以对任意大小的倒排索引表进行查询。同时，解析所有词项的docID在时间上效率也较低，由于绝大多数与查询不相关的词项docID是不需要解析的，这样的写法也可以避免这些不必要的解析操作。</p>
-<p>实验过程中，存在一些参数设置，如每个分块对应的文件个数以及线程池上限，经程序效率测试发现，分块实际上会使程序整体运行效率降低，分块数量越多效率通常越低。 </p>
-<p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image014.png" alt="img"></p>
-<p><img src="../../../../../../MORPHL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image016.png" alt="img"></p>
-<p>我认为这是由于输入数据规模并不是特别大（约50M），无论怎样分块，内存都能够同时容纳所有数据，而分块操作反而增加了一定的IO代价，块数越多则IO代价越大，造成了现在的现象。但对于大规模文本（如100G以上），不进行分块则会由于内存不能够同时容纳全部数据而造成“抖动”现象，对整体执行效率产生较大影响，因此分块的作用可能需要在足够大规模的文本数据集上才能得以体现。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本次实验使用了SPIMI算法实现了倒排索引表构建，构建分块索引时，由于块与块之间独立，使用了多线程的方式提高构建分块索引的效率，同时对记录表采用Delta编码的方式压缩空间大小。合并索引块时，由于每个分块内的索引都是按词项排序的，所以合并过程中内存中可以只存放每个分块索引当前最前面的条目，并用堆结构维护这些条目。每确定了一个词项的条目后直接将该条目写回磁盘，不再占用内存空间，这样一来即使最终倒排索引表总大小超过内存限制，在生成倒排表的过程中内存也能容纳所有需要的数据，因此可以生成任意大小的倒排索引表。</p>
+<p>在执行布尔查询读取倒排索引表时，为了避免索引表过大内存无法容纳，并不会直接将整张索引表读入内存，而仅将(词项-行号)信息读入内存，每个词项对应的docID将在解析用户输入后再去读取文件对应的行号来获取。这样一来内存中只需要存放(词项-行号)的信息，以及当前涉及当前查询词项的docList，即可以对任意大小的倒排索引表进行查询。同时，解析所有词项的docID在时间上效率也较低，由于绝大多数与查询不相关的词项docID是不需要解析的，这样的写法也可以避免这些不必要的解析操作。</p>
+<p>实验过程中，存在一些参数设置，如每个分块对应的文件个数以及线程池上限，经程序效率测试发现，分块实际上会使程序整体运行效率降低，分块数量越多效率通常越低。</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/clip_image001.png" alt="img"></p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/clip_image001.png" alt="img"></p>
+<p>可能是因为输入数据规模并不是特别大（约50M），无论怎样分块，内存都能够同时容纳所有数据，而分块操作反而增加了一定的IO代价，块数越多则IO代价越大，造成了现在的现象。但对于大规模文本（如100G以上），不进行分块则会由于内存不能够同时容纳全部数据而造成“抖动”现象，对整体执行效率产生较大影响，因此分块的作用可能需要在足够大规模的文本数据集上才能得以体现。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>main.py</p>
+<pre><code class="lang-python">import time
+from concurrent.futures import ThreadPoolExecutor
+import re
+from heapq import *
+from time import *
+
+# 预处理读入数据
+def job(docl, docr, blockid):
+    wordsDict = &#123;&#125;
+    lastDocId = &#123;&#125;
+    stopWords = []
+    for docid in range(docl, docr + 1):
+        f = open(&quot;data/&quot; + str(docid) + &quot;.txt&quot;, &#39;r&#39;, encoding = &#39;utf-8&#39;)
+        lines = f.readlines()
+        f.close()
+        tempDict = &#123;&#125;
+        for line in lines:
+            # 按照空格和制表符分割
+            words = re.split(&#39;[ \t]&#39;, line.strip())
+            for word in words:
+                # 去除停用词
+                if (word in stopWords): continue
+                # 将大写转化为小写
+                word = word.lower()
+                if (word in tempDict):
+                    continue
+                tempDict[word] = 1
+                if not (word in wordsDict):
+                    wordsDict[word] = [str(docid), 1]
+                    lastDocId[word] = docid
+                else:
+                    # 倒排记录表压缩(Delta编码,记录增量)
+                    wordsDict[word][0] += &#39;,&#39; + str(docid - lastDocId[word])
+                    lastDocId[word] = docid
+                    wordsDict[word][1] += 1
+                    # df[word] += 1
+    # 词项从小到大按照字典序排序
+    wordsDict = &#123;key: wordsDict[key] for key in sorted(wordsDict)&#125;
+    outWordsDict(wordsDict, blockid)
+
+# 将局部索引输出到硬盘上
+def outWordsDict(wordsDict, blockid):
+    f = open(&quot;target/block&quot; + str(blockid) + &quot;.txt&quot;, &#39;w&#39;, encoding = &#39;utf-8&#39;)
+    for key in wordsDict.keys():
+        # print(key)
+        f.write(key + &#39;\t&#39; + str(wordsDict[key][1]) + &#39;\t&#39; + wordsDict[key][0] + &#39;\n&#39;)
+    f.flush()
+    f.close()
+
+# 合并多个索引块，利用堆结构维护
+def mergeBlocks(blocknum):
+    files = []
+    heap = []
+    word_now = &#39;&#39;
+    df_now = 0
+    result_now = []
+    f_out = open(&quot;dict.index2.txt&quot;, &#39;w&#39;, encoding = &#39;utf-8&#39;) # 合并索引所在文件
+    for i in range(blocknum):
+        f = open(&quot;target/block&quot; + str(i + 1) + &quot;.txt&quot;, &#39;r&#39;, encoding = &#39;utf-8&#39;, buffering = 100)
+        files.append(f)
+        line = f.readline()
+        item = line.strip().split(&#39;\t&#39;)
+        item.append(i)
+        heappush(heap, item)
+    while(len(heap) &gt; 0):
+        # 取出小根堆顶的索引条目，并继续读取对应的下一个条目
+        item_now = heappop(heap)
+        doc = item_now[3]
+        line = files[doc].readline()
+        # 若条目未读完，则将下一个条目放入堆中
+        if line:
+            item = line.strip().split(&#39;\t&#39;)
+            item.append(doc)
+            heappush(heap, item)
+        if (item_now[0] != word_now):
+            # 当前维护的词项与下一条词项不同，说明当前词项已全部读取，将当前词项及索引写回磁盘
+            if (word_now != &#39;&#39;):
+                # heapify(result_now)
+                writeBackFile(f_out, word_now, df_now, result_now)
+            word_now = item_now[0]
+            df_now = int(item_now[1])
+            result_now = []
+            # 用另一个堆维护当前词项的文档
+            accmulatedDocId = 0
+            for docid in item_now[2].split(&#39;,&#39;):
+                accmulatedDocId += int(docid)
+                heappush(result_now, accmulatedDocId)
+        else:
+            df_now += int(item_now[1])
+            # 用另一个堆维护当前词项的文档
+            accmulatedDocId = 0
+            for docid in item_now[2].split(&#39;,&#39;):
+                # 记录真实docID（累加和）
+                accmulatedDocId += int(docid)
+                heappush(result_now, accmulatedDocId)
+    # 将最后一个条目写回磁盘
+
+    if (word_now != &#39;&#39;):
+        writeBackFile(f_out, word_now, df_now, result_now)
+
+def writeBackFile(f_out, word_now, df_now, result_now):
+    # 先将result_now一个一个取出，再按照Delta编码增量方式重新压缩
+    docList = []
+    while(len(result_now) != 0):
+        docList.append(heappop(result_now))
+    for i in range(len(docList) - 1, 0, -1):
+        # print(i)
+        docList[i] -= docList[i - 1]
+    docstr = &#39;&#39;
+    for doc in docList:
+        docstr += &#39;,&#39; + str(doc)
+    docstr = docstr[1:]
+    f_out.write(word_now + &#39;\t&#39; + str(df_now) + &#39;\t&#39; + docstr + &#39;\n&#39;)
+
+if __name__ == &#39;__main__&#39;:
+    # 配置线程池参数
+    max_worker = 8 # 线程池上线
+    filenum = 100000 # 文件总数
+    blocksize = 5000 # 每个block的文件数量
+    pool = ThreadPoolExecutor(max_workers = max_worker)
+    threads = []
+
+    blocknum = (filenum - 1) // blocksize + 1 # 计算总共需要几个block
+    begin_time = time()
+    print(&quot;max_worker:%d\tFilenum:%d\tBlocksize:%d\tBlocknum:%d&quot; %(max_worker, filenum, blocksize, blocknum))
+    print(&quot;开始构建局部索引...&quot;)
+    # 将文档分入不同的block
+    for i in range(filenum // blocksize):
+        thread = pool.submit(job, i * blocksize + 1, i * blocksize + blocksize, i + 1)
+        threads.append(thread)
+
+    # 将剩余的文档归入最后一个block
+    if filenum % blocksize != 0:
+        thread = pool.submit(job, filenum - (filenum % blocksize) + 1, filenum, filenum // blocksize + 1)
+        threads.append(thread)
+
+    # 等待线程结束
+    for thread in threads:
+        thread.result()
+    print(&quot;局部索引构建完毕，开始合并局部索引块... (%.4fs)&quot; %(time() - begin_time))
+    # 合并所有局部块索引并生成倒排索引
+    mergeBlocks(blocknum)
+    print(&quot;合并完毕，倒排索引dict.index.txt已生成. (%.4fs)&quot; % (time() - begin_time))
+</code></pre>
+<p>query.py</p>
+<pre><code class="lang-python"># 根据已生成的倒排索引处理布尔查询
+# 支持以下三种查询
+# 1. A
+# 2. A and B
+# 3. A or B
+import linecache
+def getLineDict(filename):
+    f = open(filename, &#39;r&#39;, encoding=&#39;utf-8&#39;)
+    lines = f.readlines()
+    lineDict = &#123;&#125;
+    # print(len(lines))
+    cnt = 0
+    for line in lines:
+        word, df, res = line.strip().split(&#39;\t&#39;)
+        cnt += 1
+        lineDict[word] = cnt
+    return lineDict
+
+def getIndex(lineDict, word):
+    if not (word in lineDict):
+        return []
+    index = []
+    line = linecache.getline(&#39;dict.index.txt&#39;, lineDict[word])
+    # print(line)
+    word, df, res = line.strip().split(&#39;\t&#39;)
+    res = res.split(&#39;,&#39;)
+    for i in range(len(res)):
+        res[i] = int(res[i])
+    # 根据压缩后的倒排记录表计算原记录表
+    for i in range(1, len(res)):
+        res[i] += res[i - 1]
+    return res
+
+if __name__ == &#39;__main__&#39;:
+    lineDict = getLineDict(&#39;dict.index.txt&#39;)
+    query = input().split(&#39; &#39;)
+    # 输入exit()停止程序，否则不断循环执行询问
+    while(query[0] != &#39;exit()&#39;):
+        if (len(query) == 1):
+            docListA = getIndex(lineDict, query[0])
+            if (len(docListA) == 0):
+                print(&#39;no result.&#39;, end=&#39;&#39;)
+            for docId in docListA:
+                print(docId, end=&#39; &#39;)
+            print()
+        else:
+            docListA = getIndex(lineDict, query[0])
+            docListB = getIndex(lineDict, query[2])
+            op = query[1]
+            if (op == &#39;and&#39;):
+                result = set(docListA).intersection(set(docListB))
+            else:
+                result = set(docListA).union(set(docListB))
+            result = sorted(list(result))
+            if (len(result) == 0):
+                print(&#39;no result.&#39;, end=&#39;&#39;)
+            for docId in result:
+                print(docId, end=&#39; &#39;)
+            print()
+        query = input().split(&#39; &#39;)
+</code></pre>
 
         
     
@@ -849,7 +1062,7 @@ def job(docl, docr, blockid):
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -867,7 +1080,7 @@ def job(docl, docr, blockid):
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">25</span></a>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">29</span></a>
             </ul>
         </li>
         
