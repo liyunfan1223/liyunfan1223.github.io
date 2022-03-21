@@ -246,7 +246,7 @@
 
     
         <meta property="article:published_time" content="Sun Mar 20 2022 13:13:29 GMT+0800">
-        <meta property="article:modified_time" content="Tue Mar 22 2022 00:41:18 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 22 2022 00:48:28 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -481,6 +481,7 @@
 <li><p>如何更新权重：现在问题被限制在<strong>两层之间</strong>，在当前层$l$的误差$\delta^l$的基础上，求误差关于权重的偏导数，并根据偏导数调整权重即可，类似于第三点举的例子$\delta(z)=0a_1+5a_2+1000a_3$，只不过此时$0、5、1000$不再是常数，而是被替换成$w_1,w_2,w_3$，只要根据$\frac{\partial \delta(z)}{\partial w}$使$w$沿梯度方向下降。</p>
 </li>
 </ol>
+<p>感性理解之后还是要开始做推导，毕竟核心还是链式法则的应用。整个过程除了链式求导，还要对几种偏导数的结果形式有了解，比如标量对向量求导、标量对矩阵、向量对向量求导的结果分别是向量、矩阵、矩阵。了解这些结果的布局形式对推导能否顺利进行来说是很重要的。</p>
 <h3 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h3><ul>
 <li><p>$w^l:$第$l$层的权重矩阵，这里用$w^l_{jk}$表示从$l-1$层的第$k$个神经元到$l$层的第$j$个神经元的连接上的权重</p>
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/202203210123254.png" alt="image-20220321012346133"></p>
@@ -656,7 +657,8 @@ x_i,\quad x_i >0
 \end{array}
 \right.</script><p>用矩阵形式表示比较麻烦，直接用Hadamard乘积的方式传播即可。</p>
 <h3 id="python代码实现"><a href="#python代码实现" class="headerlink" title="python代码实现"></a>python代码实现</h3><p>按照通常的习惯，输入矩阵的shape是(data_size, input_size)，第一维表示批量大小，第二维表示输入向量，同样对应的输出矩阵的shape是(data_size, output_size)。所以我们给出的输入和输出向量实际上是行向量。</p>
-<p>在理论中一个$n\rightarrow m$的权重矩阵维度应当是$(m, n)$的，但在实现中也对这个矩阵进行了转置，变为$(n,m)$。类似的，几乎所有矩阵需要经过转置处理。总之需要比较小心地处理这些转置，但好在除了转置之外也没有额外的问题需要解决了。</p>
+<p>在理论中一个$n\rightarrow m$的权重矩阵维度应当是$(m, n)$的，但在实现中也对这个矩阵进行了转置，变为$(n,m)$。类似的，几乎所有矩阵需要经过转置处理。目前来说我还是没有找到一个很好的方法去理解各种转置之间的关系，很容易对计算过程中各个结果的维度感到茫然。目前的解决方法是，干脆在过程中不要过度考虑矩阵和向量的维度形式，把注意力放在理解结果的意义上，至于维度就放在最后再去考虑，只要每一步都有明确的意义，维度、转置等操作只是一个计算过程。</p>
+<p>总之需要比较小心地处理这些转置，但好在除了转置之外也没有额外的问题需要解决了。</p>
 <pre><code class="lang-python">import numpy as np
 
 class Matmul:
