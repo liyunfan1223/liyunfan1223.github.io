@@ -475,7 +475,7 @@
     
         <p><br></p>
 <span id="more"></span>
-<h1 id="2021-04-05"><a href="#2021-04-05" class="headerlink" title="2021.04.05"></a>2021.04.05</h1><h2 id="随机变量间的独立性"><a href="#随机变量间的独立性" class="headerlink" title="随机变量间的独立性"></a>随机变量间的独立性</h2><p>设联合分布函数$F(x<em>1,x_2,…,x_n)$，$F_i(x_i)$为$X_i$的边际分布函数，若$F(x_1,x_2,…,x_n)=\prod\limits</em>{i=1}^nF_i(x_i)$，则称$X_1,X_2,…,X_n$相互独立</p>
+<h1 id="2021-04-05"><a href="#2021-04-05" class="headerlink" title="2021.04.05"></a>2021.04.05</h1><h2 id="随机变量间的独立性"><a href="#随机变量间的独立性" class="headerlink" title="随机变量间的独立性"></a>随机变量间的独立性</h2><p>设联合分布函数$F(x_1,x_2,…,x_n)$，$F_i(x_i)$为$X_i$的边际分布函数，若$F(x_1,x_2,…,x_n)=\prod\limits_{i=1}^nF_i(x_i)$，则称$X_1,X_2,…,X_n$相互独立</p>
 <ul>
 <li>离散随机变量场合</li>
 <li>连续随机变量场合</li>
@@ -489,13 +489,13 @@
 <p><strong>r项分布的最低阶边际分布是r个二项分布$b(n,p_i)$,i=1,2,…,r</strong></p>
 <h2 id="多维均匀分布-x-1-x-2-…-’-sim-U-D"><a href="#多维均匀分布-x-1-x-2-…-’-sim-U-D" class="headerlink" title="多维均匀分布$(x_1,x_2,…)’\sim U(D)$"></a>多维均匀分布$(x_1,x_2,…)’\sim U(D)$</h2><p>$p(x_1,…,x_n)=\frac{1}{S_D}$</p>
 <h2 id="多维指数分布"><a href="#多维指数分布" class="headerlink" title="多维指数分布"></a>多维指数分布</h2><p>$F(x_1,x_2)=1-e^{-x_1}-e^{-x_2}+e^{-x_1-x_2+\lambda x_1x_2},x1,x2&gt;0$</p>
-<p>边际分布$F<em>{x_1}(x_1)=F(x_1,+\infty)=\lim\limits</em>{x_2\rightarrow \infty}(1-e^{-x_1}-e^{-x_2}+e^{-x_1-x_2+\lambda x_1x_2})=1-e^{x_1}$</p>
-<p>$P<em>{X_1}(x_1)=\frac{d}{dx}F</em>{X_1}(x_1)=e^{-x_1}\sim Exp(1)$</p>
-<h2 id="多维正态分布"><a href="#多维正态分布" class="headerlink" title="多维正态分布"></a>多维正态分布</h2><p>$P(X)=p(x_1,…,x_n)=(2\pi)^{-\frac{n}{2}}|\Sigma|^{-\frac{1}{2}}exp{-\frac{1}{2}(\vec{x}-\vec u )\Sigma^{-1}(\vec x - \vec u )}$</p>
+<p>边际分布$F_{x_1}(x_1)=F(x_1,+\infty)=\lim\limits_{x_2\rightarrow \infty}(1-e^{-x_1}-e^{-x_2}+e^{-x_1-x_2+\lambda x_1x_2})=1-e^{x_1}$</p>
+<p>$P_{X_1}(x_1)=\frac{d}{dx}F_{X_1}(x_1)=e^{-x_1}\sim Exp(1)$</p>
+<h2 id="多维正态分布"><a href="#多维正态分布" class="headerlink" title="多维正态分布"></a>多维正态分布</h2><p>$P(X)=p(x_1,…,x_n)=(2\pi)^{-\frac{n}{2}}|\Sigma|^{-\frac{1}{2}}exp\{-\frac{1}{2}(\vec{x}-\vec u )\Sigma^{-1}(\vec x - \vec u )\}$</p>
 <p>其中$\vec u=(u_1,…,u_n)^T$$\Sigma$，是一个$n\times n$的对称矩阵且正定</p>
 <p>n=2时为二维正态分布，记为$(X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$，其中$-\infty &lt; \mu_1,\mu_2 &lt; \infty, \sigma_1,\sigma_2 &gt;0, -1\leqslant\rho\leqslant 1$</p>
 <p>$\mu_1,\mu_2$分别是X与Y的均值，$\sigma_1^2,\sigma_2^2$分别是X与Y的方差，$\rho$时X与Y的相关系数</p>
-<p>$p(x,y)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}exp{-\frac{1}{2(1-\rho^2)}[\frac{(x-\mu_1)^2}{\sigma_1^2}-2\rho \frac{(x-\mu_1)(x-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}]}$</p>
+<p>$p(x,y)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}exp\{-\frac{1}{2(1-\rho^2)}[\frac{(x-\mu_1)^2}{\sigma_1^2}-2\rho \frac{(x-\mu_1)(x-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}]\}$</p>
 <h1 id="2021-04-11"><a href="#2021-04-11" class="headerlink" title="2021.04.11"></a>2021.04.11</h1><h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><h2 id="独立同分布-IID"><a href="#独立同分布-IID" class="headerlink" title="独立同分布(IID)"></a>独立同分布(IID)</h2><p>性质：若X、Y相互独立，则$E(XY)=E(X)E(Y)$</p>
 <ul>
 <li>$Var(X\pm Y)=Var(X)+Var(Y)$</li>
@@ -537,18 +537,18 @@
 <ul>
 <li><p>增补变量法</p>
 <p>乘积形式：</p>
-<p>若X与Y相互独立，其密度函数分别为$p<em>X(x),p_Y(y)$则$U=XY$的密度函数为$p_U(u)=\int</em>{-\infty}^\infty p_X(\frac{u}{v})p_Y(v)\frac{1}{|v|}dv$</p>
+<p>若X与Y相互独立，其密度函数分别为$p_X(x),p_Y(y)$则$U=XY$的密度函数为$p_U(u)=\int_{-\infty}^\infty p_X(\frac{u}{v})p_Y(v)\frac{1}{|v|}dv$</p>
 <p>证明：$u=xy,v=y$代换后得到$p(u,v)$再求边际密度</p>
 <p>商的形式：</p>
-<p>$U=X/Y,p<em>U(u)=\int</em>{-\infty}^\infty p_X(uv)p_Y(v)|v|dv$</p>
+<p>$U=X/Y,p_U(u)=\int_{-\infty}^\infty p_X(uv)p_Y(v)|v|dv$</p>
 </li>
 </ul>
 <h2 id="条件分布"><a href="#条件分布" class="headerlink" title="条件分布"></a>条件分布</h2><ul>
 <li><p>离散情形</p>
-<p>$p<em>{i|j}=P(X=x_i|Y=y_j)=\frac{P(X=x_i,Y=y_j)}{P(Y=y_j)}=\frac{p</em>{ij}}{p_{\cdot j}}$</p>
-<p>$p<em>{j|i}=P(Y=y_j|X=x_i)=\frac{P(X=x_i,Y=y_j)}{P(X=x_j)}=\frac{p</em>{ij}}{p_{i \cdot}}$</p>
-<p>$F(x|y<em>j)=\sum\limits</em>{x<em>i\leqslant x}P(X=x_i|Y=y_j)=\sum\limits</em>{x<em>i\leqslant x}p</em>{i|j}$</p>
-<p>$F(y|x<em>i)=\sum\limits</em>{y<em>j\leqslant y}P(Y=y_j|X=x_i)=\sum\limits</em>{y<em>j\leqslant y}p</em>{j|i}$</p>
+<p>$p_{i|j}=P(X=x_i|Y=y_j)=\frac{P(X=x_i,Y=y_j)}{P(Y=y_j)}=\frac{p_{ij}}{p_{\cdot j}}$</p>
+<p>$p_{j|i}=P(Y=y_j|X=x_i)=\frac{P(X=x_i,Y=y_j)}{P(X=x_j)}=\frac{p_{ij}}{p_{i \cdot}}$</p>
+<p>$F(x|y_j)=\sum\limits_{x_i\leqslant x}P(X=x_i|Y=y_j)=\sum\limits_{x_i\leqslant x}p_{i|j}$</p>
+<p>$F(y|x_i)=\sum\limits_{y_j\leqslant y}P(Y=y_j|X=x_i)=\sum\limits_{y_j\leqslant y}p_{j|i}$</p>
 </li>
 <li><p>连续情形</p>
 <p>连续情形下，$P(Y=y)=0$，所以不能用条件概率直接计算$P(X\leqslant x|Y=y)$，所以将$P(X\leqslant x|Y=y)$看成$h\rightarrow 0$时的$P(X\leqslant x|y\leqslant Y\leqslant y+h)$的极限</p>
@@ -563,8 +563,8 @@
 <p>$p(x,y)=p_X(x)p(y|x)$</p>
 <p>$p(x,y)=p_Y(y)p(x|y)$</p>
 <p>这说明，由边际分布和条件分布就可以得到联合分布</p>
-<p>$p<em>X(x)=\int</em>{-\infty}^\infty p_Y(y)p(x|y)dy$</p>
-<p>$p<em>Y(y)=\int</em>{-\infty}^\infty p_X(x)p(y|x)dx$</p>
+<p>$p_X(x)=\int_{-\infty}^\infty p_Y(y)p(x|y)dy$</p>
+<p>$p_Y(y)=\int_{-\infty}^\infty p_X(x)p(y|x)dx$</p>
 </li>
 <li><p>贝叶斯公式</p>
 <p>$p(x|y)=\frac{p(y|x)p(x)}{\int_{-\infty}^\infty p_X(x)p(y|x)dx}$</p>
@@ -734,7 +734,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -752,7 +752,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">29</span></a>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">30</span></a>
             </ul>
         </li>
         

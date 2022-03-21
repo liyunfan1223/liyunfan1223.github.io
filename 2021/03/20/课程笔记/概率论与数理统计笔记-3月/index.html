@@ -502,13 +502,13 @@
 <ol>
 <li>$\Omega \in F$</li>
 <li>若$A\in F$，则$\overline{A}\in F$</li>
-<li>若$A <em> n\in F$，n=1,2…， 则$\bigcup\limits </em>  {n=1}^{+\infty}A _ n\in F$</li>
+<li>若$A _ n\in F$，n=1,2…， 则$\bigcup\limits _  {n=1}^{+\infty}A _ n\in F$</li>
 </ol>
 <p>则称$F$为Borel事件域，或$\sigma$事件域或$\sigma$代数</p>
 <h1 id="2021-03-05"><a href="#2021-03-05" class="headerlink" title="2021.03.05"></a>2021.03.05</h1><h2 id="概率性质"><a href="#概率性质" class="headerlink" title="概率性质"></a>概率性质</h2><ol>
 <li><p>不可能事件概率为0 $P(\emptyset)=0$</p>
 </li>
-<li><p>有限可加性 若$A<em>iA_j=\emptyset(1\le i\ne j \le n)$，则$P(\bigcup</em>\limits{i=1}^nA<em>i)=\sum</em>\limits{i=1}^nP(A_i)$</p>
+<li><p>有限可加性 若$A_iA_j=\emptyset(1\le i\ne j \le n)$，则$P(\bigcup_\limits{i=1}^nA_i)=\sum_\limits{i=1}^nP(A_i)$</p>
 </li>
 <li><p>$P(\overline{A})=1-P(A)$</p>
 </li>
@@ -522,7 +522,7 @@
 </li>
 <li><p>$P(A\bigcup B)=P(A)+P(B)-P(AB)$</p>
 </li>
-<li><p>下连续性 $\lim<em>\limits{n\rightarrow \infty}P(A_n)=P(\lim\limits</em>{n\rightarrow \infty}A<em>n)$ 其中$\lim</em>\limits{n\rightarrow \infty}A<em>n=\bigcup</em>\limits{n=1}^{+\infty}A_n$</p>
+<li><p>下连续性 $\lim_\limits{n\rightarrow \infty}P(A_n)=P(\lim\limits_{n\rightarrow \infty}A_n)$ 其中$\lim_\limits{n\rightarrow \infty}A_n=\bigcup_\limits{n=1}^{+\infty}A_n$</p>
 </li>
 <li><p>上连续性</p>
 </li>
@@ -580,7 +580,7 @@
 <h2 id="负二项分布-X-sim-Nb-r-p"><a href="#负二项分布-X-sim-Nb-r-p" class="headerlink" title="负二项分布$X\sim Nb(r,p)$"></a>负二项分布$X\sim Nb(r,p)$</h2><p>X为事件A第r次出现时的试验次数</p>
 <p>若$X_i\sim Ge(p)$，此时有$X=X_1+X_2+…+X_r\sim Nb(r,p)$</p>
 <h2 id="泊松分布"><a href="#泊松分布" class="headerlink" title="泊松分布"></a>泊松分布</h2><p>分布列：$P(X=k)\frac{\lambda^k}{k!}e^{-\lambda},k=0,1,2,…,$</p>
-<p>其和为1：$\sum\limits<em>{k=0}^\infty \frac{\lambda^k}{k!}e^{-\lambda}=e^{-\lambda}\sum\limits</em>{k=0}^\infty\frac{\lambda^k}{k!}=e^{-\lambda}e^\lambda=1$（泰勒展开）</p>
+<p>其和为1：$\sum\limits_{k=0}^\infty \frac{\lambda^k}{k!}e^{-\lambda}=e^{-\lambda}\sum\limits_{k=0}^\infty\frac{\lambda^k}{k!}=e^{-\lambda}e^\lambda=1$（泰勒展开）</p>
 <p><strong>泊松定理：</strong>在n重伯努利试验中，记事件A在一次试验中发生的概率为$p_n$（与试验次数n有关），如果当$n\rightarrow\infty$时，有$np_n\rightarrow\lambda$，则</p>
 <script type="math/tex; mode=display">
 \lim\limits_{n\rightarrow \infty}\tbinom{n}{k}p_n^k(1-p_n)^{n-k}=\frac{\lambda^k}{k!}e^{-\lambda}</script><p>即泊松分布可以作为二项分布的一种近似</p>
@@ -620,7 +620,7 @@ p(x)=
 <p>这是因为：$P(X=a)=\int_a^ap(x)dx=0$</p>
 <p>这表明：不可能事件概率为0，但概率为0的事件不一定是不可能事件</p>
 <ul>
-<li><p>对于连续随机变量X，在事件${a\le X \le b}$中剔除$x=a$或$x=b$，不影响其概率</p>
+<li><p>对于连续随机变量X，在事件$\{a\le X \le b\}$中剔除$x=a$或$x=b$，不影响其概率</p>
 </li>
 <li><p>在若干点上改变密度函数$p(x)$的值并不影响其积分的值，从而不影响其分布函数$F(x)$的值，这意味着一个连续分布的概率函数不唯一</p>
 </li>
@@ -639,13 +639,13 @@ p_2(x)=\left\{
 0, &其他
 \end{array}
 \right.</script><p>$p_1(x)$与$p_2(x)$“几乎处处相等”，这两个函数在概率意义上是无差别的</p>
-<h2 id="正态分布-高斯分布-X-sim-N-mu-sigma-2"><a href="#正态分布-高斯分布-X-sim-N-mu-sigma-2" class="headerlink" title="正态分布/高斯分布$X\sim N(\mu, \sigma^2)$"></a>正态分布/高斯分布$X\sim N(\mu, \sigma^2)$</h2><p>$p(x)=\frac{1}{\sqrt{2\pi \sigma^2}}exp{-\frac{1}{2\sigma^2}(x-\mu)^2},-\infty&lt;x&lt;\infty$</p>
+<h2 id="正态分布-高斯分布-X-sim-N-mu-sigma-2"><a href="#正态分布-高斯分布-X-sim-N-mu-sigma-2" class="headerlink" title="正态分布/高斯分布$X\sim N(\mu, \sigma^2)$"></a>正态分布/高斯分布$X\sim N(\mu, \sigma^2)$</h2><p>$p(x)=\frac{1}{\sqrt{2\pi \sigma^2}}exp\{-\frac{1}{2\sigma^2}(x-\mu)^2\},-\infty&lt;x&lt;\infty$</p>
 <p>参数$\mu$位置参数，$\sigma$尺度参数</p>
 <p>标准正态分布：$\mu=0,\sigma=1$，记$u$表示标准正态分布随机变量，$u\sim N(0,1)$<br>通常，记标准正态分布的密度函数为$\phi(u)$，分布函数为$\Phi(u)$，即</p>
 <p>$\phi(u)=\frac{1}{2\pi}e^{-\frac{u^2}{2}},-\infty&lt;u&lt;\infty$</p>
 <p>$\Phi(u)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^ue^{-\frac{t^2}{2}}dt,-\infty&lt;u&lt;\infty$</p>
 <p>若$X\sim N(\mu,\sigma^2)$，则$X$与$u$的关系？</p>
-<p><strong>正态分布族：</strong>$\mathbb{P}={N(\mu,\sigma^2):-\infty&lt;\mu&lt;\infty, \sigma^2&gt;0}$</p>
+<p><strong>正态分布族：</strong>$\mathbb{P}=\{N(\mu,\sigma^2):-\infty&lt;\mu&lt;\infty, \sigma^2&gt;0\}$</p>
 <p>定理：若$X\sim N(\mu,\sigma^2)$，$u=\frac{x-\mu}{\sigma}$，则$u\sim N(0,1)$</p>
 <p>证明见p97</p>
 <p>根据该定理可以得到计算公式</p>
@@ -672,7 +672,7 @@ F(x)=
 \end{array}
 \right.</script><p>指数分布的无记忆性：$P(X&gt;s+t|X&gt;s)=P(X&gt;t)$</p>
 <p>泊松分布和指数分布的关系：当某事件再长为$t$的时间$[0,t]$发生次数$N(t)$服从参数为$\lambda t$的泊松分布，则相继两次故障之间的间隔$T$服从指数分布</p>
-<p>证：p102，事件${T\ge t}$说明此设备再$[0,t]$时间内没有发生故障，即${T\ge t}={N(t)=0}$，我们得，当$t<0$时$F_T(t)=P(T\le t)=0$，当$t\ge 0$时，有$F_T(t)=P(T\le t)=1-P(T>t)=1-(N(t)=0)=1-e^{-\lambda t}$</p>
+<p>证：p102，事件$\{T\ge t\}$说明此设备再$[0,t]$时间内没有发生故障，即$\{T\ge t\}=\{N(t)=0\}$，我们得，当$t<0$时$F_T(t)=P(T\le t)=0$，当$t\ge 0$时，有$F_T(t)=P(T\le t)=1-P(T>t)=1-(N(t)=0)=1-e^{-\lambda t}$</p>
 <p>泊松分布说明事件间隔为指数分布，指数分布可以刻画寿命（时间）</p>
 <h2 id="伽马分布-X-sim-Ga-alpha-lambda"><a href="#伽马分布-X-sim-Ga-alpha-lambda" class="headerlink" title="伽马分布$X\sim Ga(\alpha, \lambda)$"></a>伽马分布$X\sim Ga(\alpha, \lambda)$</h2><p>$\Gamma(\alpha)=\int_0^\infty x^{\alpha-1}e^{-x}dx$</p>
 <p>$\Gamma(1)=1, \Gamma(\frac{1}{2})=\sqrt\pi$（利用正态分布计算，正则性，p103）</p>
@@ -745,7 +745,7 @@ E(X)=
 <p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220226180322074.png" alt="image-20220226180322074"></p>
 <p>条件：随机变量X的期望、方差都存在</p>
 <ul>
-<li>大偏差：事件${|X-E(X)\geqslant\epsilon}$</li>
+<li>大偏差：事件$\{|X-E(X)\geqslant\epsilon\}$</li>
 <li>大偏差发生概率$P(|X-E(X)\geqslant\epsilon)$</li>
 </ul>
 <h2 id="矩"><a href="#矩" class="headerlink" title="矩"></a>矩</h2><ul>
@@ -753,12 +753,12 @@ E(X)=
 <li>中心矩：$\nu_k=E(X-E(X))^k$</li>
 </ul>
 <p>期望和方差是特殊的矩</p>
-<p>原点矩和中心矩的关系：$\nu<em>k=E(X-E(X))^k=E(X-\mu_1)^k=\sum\limits</em>{i=0}^k\binom{k}{i}\mu_i(-\mu_1)^{k-i}$</p>
+<p>原点矩和中心矩的关系：$\nu_k=E(X-E(X))^k=E(X-\mu_1)^k=\sum\limits_{i=0}^k\binom{k}{i}\mu_i(-\mu_1)^{k-i}$</p>
 <h2 id="伽马分布期望和方差"><a href="#伽马分布期望和方差" class="headerlink" title="伽马分布期望和方差"></a>伽马分布期望和方差</h2><p>$E(X)=\frac{\lambda^\alpha}{\Gamma(\alpha)}\int_0^\infty x^{\alpha}e^{-\lambda x}dx=\frac{\lambda^\alpha}{\Gamma(\alpha)}\frac{\Gamma(\alpha+1)}{\lambda^{\alpha+1}}\int_0^\infty x^{(\alpha+1)-1}e^{-\lambda x}dx=\frac{\alpha}{\lambda}$</p>
 <p>$V(X)=\frac{\alpha}{\lambda^2}$ 过程见p103</p>
-<h2 id="正态分布的k阶矩"><a href="#正态分布的k阶矩" class="headerlink" title="正态分布的k阶矩"></a>正态分布的k阶矩</h2><p>若$X\sim N(0,\sigma^2)$，则$\mu<em>k=E(X^k)=\frac{1}{\sqrt{2\pi}\sigma}\int</em>{-\infty}^\infty x^k exp{-\frac{x^2}{2\sigma^2}}dx=\frac{\sigma^k}{\sqrt{2\pi}}\int_{-\infty}^\infty u^kexp{-\frac{u^2}{2}}du$（？）</p>
+<h2 id="正态分布的k阶矩"><a href="#正态分布的k阶矩" class="headerlink" title="正态分布的k阶矩"></a>正态分布的k阶矩</h2><p>若$X\sim N(0,\sigma^2)$，则$\mu_k=E(X^k)=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^\infty x^k exp\{-\frac{x^2}{2\sigma^2}\}dx=\frac{\sigma^k}{\sqrt{2\pi}}\int_{-\infty}^\infty u^kexp\{-\frac{u^2}{2}\}du$（？）</p>
 <p>最后一步没看懂，但是这个也可以分部积分算：</p>
-<p>$\mu<em>k=\frac{1}{\sqrt{2\pi \sigma^2}}\int</em>{-\infty}^\infty x^kexp{-\frac{x^2}{2\sigma^2}}dx=\frac{1}{k+1}x^{k+1}e^{-\frac{x^2}{2\sigma^2}}|<em>{-\infty}^\infty-\int</em>{-\infty}^\infty\frac{1}{(k+1)\sigma^2}x^{k+2}e^{-\frac{x^2}{2\sigma^2}}dx=\frac{1}{(k+1)\sigma^2}\mu_k$</p>
+<p>$\mu_k=\frac{1}{\sqrt{2\pi \sigma^2}}\int_{-\infty}^\infty x^kexp\{-\frac{x^2}{2\sigma^2}\}dx=\frac{1}{k+1}x^{k+1}e^{-\frac{x^2}{2\sigma^2}}|_{-\infty}^\infty-\int_{-\infty}^\infty\frac{1}{(k+1)\sigma^2}x^{k+2}e^{-\frac{x^2}{2\sigma^2}}dx=\frac{1}{(k+1)\sigma^2}\mu_k$</p>
 <p>即得递推式：$\mu_k=\sigma^2(k-1)\mu_k-2$</p>
 <p>且$\mu_1=0,\mu_2=\sigma^2$</p>
 <p>结论：</p>
@@ -778,8 +778,8 @@ E(X)=
 <p>偏度和峰度都是描述分布形状的特征数</p>
 </li>
 </ul>
-<h2 id="分位数"><a href="#分位数" class="headerlink" title="分位数"></a>分位数</h2><p>设随机连续变量X的分布函数为$F(x)$，密度函数为$p(x)$，对任意$p\in(0,1)$，称满足条件$F(x<em>p)=\int</em>{-\infty}^{x_p}p(x)dx=p$的$x_p$为此分布的p分位数，又称下侧$p$分位数</p>
-<p>同理，称满足条件$1-F(x<em>p’)=\int</em>{x_p’}^\infty p(x)dx=p$的$x_p’$为此分布的上侧p分位数</p>
+<h2 id="分位数"><a href="#分位数" class="headerlink" title="分位数"></a>分位数</h2><p>设随机连续变量X的分布函数为$F(x)$，密度函数为$p(x)$，对任意$p\in(0,1)$，称满足条件$F(x_p)=\int_{-\infty}^{x_p}p(x)dx=p$的$x_p$为此分布的p分位数，又称下侧$p$分位数</p>
+<p>同理，称满足条件$1-F(x_p’)=\int_{x_p’}^\infty p(x)dx=p$的$x_p’$为此分布的上侧p分位数</p>
 <ul>
 <li>中位数：p=0.5时的p分位数$x_{0.5}$</li>
 </ul>
@@ -840,7 +840,7 @@ p_Y(y)=\left\{
 <h2 id="卡方分布"><a href="#卡方分布" class="headerlink" title="卡方分布"></a>卡方分布</h2><p>$Gamma(\frac{n}{2},\frac{1}{2})\sim \Chi^2(n)$</p>
 <p>推导得$E(X)=n,Var(X)=2n$</p>
 <p>卡方分布可以看成伽马分布的特例</p>
-<h2 id="多维随机变量"><a href="#多维随机变量" class="headerlink" title="多维随机变量"></a>多维随机变量</h2><p>若$X_1(\omega),X_2(\omega),…,X_n(\omega)$是定义在同一个样本空间$\Omega={\omega}$上的n个随机变量，则称$X(\omega)=(X_1(\omega),X_2(\omega),…,X_n(\omega))$为n维随机变量，或随机向量(r.v)</p>
+<h2 id="多维随机变量"><a href="#多维随机变量" class="headerlink" title="多维随机变量"></a>多维随机变量</h2><p>若$X_1(\omega),X_2(\omega),…,X_n(\omega)$是定义在同一个样本空间$\Omega=\{\omega\}$上的n个随机变量，则称$X(\omega)=(X_1(\omega),X_2(\omega),…,X_n(\omega))$为n维随机变量，或随机向量(r.v)</p>
 <h2 id="联合分布函数-joint-c-d-f"><a href="#联合分布函数-joint-c-d-f" class="headerlink" title="联合分布函数(joint c.d.f)"></a>联合分布函数(joint c.d.f)</h2><p>$F(x_1,x_2,…,x_n)=P(X_1\leqslant x_1,X_2\leqslant x_2,…,X_n\leqslant x_n)$</p>
 <p>性质：</p>
 <ol>
@@ -858,14 +858,14 @@ G(x,y)=\left\{
 1,&x+y\geqslant 0
 \end{array}
 \right.</script><h2 id="边际分布"><a href="#边际分布" class="headerlink" title="边际分布"></a>边际分布</h2><p>已知$F(x,y)$求$F_x(X)$</p>
-<p>$F_X(x)=P({X\leqslant x})=P({X\leqslant x}\bigcap \Omega)=P({X\leqslant x}\bigcap{Y\leqslant \infty})=F(x,+\infty)$</p>
+<p>$F_X(x)=P(\{X\leqslant x\})=P(\{X\leqslant x\}\bigcap \Omega)=P(\{X\leqslant x\}\bigcap\{Y\leqslant \infty\})=F(x,+\infty)$</p>
 <p>即$F_X(x)=F(x,+\infty),F_Y(y)=F(+\infty,y)$称为边际分布</p>
 <h2 id="联合分布列"><a href="#联合分布列" class="headerlink" title="联合分布列"></a>联合分布列</h2><p>性质</p>
 <ol>
 <li>非负性 $p_{ij}\geqslant 0$</li>
-<li>正则性 $\sum\limits<em>{i=1}^\infty\sum\limits</em>{j=1}^\infty p_{ij}=1$</li>
+<li>正则性 $\sum\limits_{i=1}^\infty\sum\limits_{j=1}^\infty p_{ij}=1$</li>
 </ol>
-<h2 id="联合密度函数"><a href="#联合密度函数" class="headerlink" title="联合密度函数"></a>联合密度函数</h2><p>如果存在二元非负函数$p(x,y)$使得二维随机变量$(X,Y)$的分布函数$F(x,y)$可表示为$F(x,y)=\int<em>{-\infty}^x\int</em>{-\infty}^yp(u,v)dvdu$，则称$(X,Y)$为二维连续随机变量，称$p(u,v)$为$(X,Y)$的联合密度函数</p>
+<h2 id="联合密度函数"><a href="#联合密度函数" class="headerlink" title="联合密度函数"></a>联合密度函数</h2><p>如果存在二元非负函数$p(x,y)$使得二维随机变量$(X,Y)$的分布函数$F(x,y)$可表示为$F(x,y)=\int_{-\infty}^x\int_{-\infty}^yp(u,v)dvdu$，则称$(X,Y)$为二维连续随机变量，称$p(u,v)$为$(X,Y)$的联合密度函数</p>
 <p>有$p(x,y)=\frac{\delta^2}{\delta x\delta y}F(x,y)$，求偏导交换次序的条件：偏导数连续</p>
 <p>性质</p>
 <ul>
@@ -1028,7 +1028,7 @@ G(x,y)=\left\{
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -1046,7 +1046,7 @@ G(x,y)=\left\{
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">29</span></a>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">30</span></a>
             </ul>
         </li>
         
