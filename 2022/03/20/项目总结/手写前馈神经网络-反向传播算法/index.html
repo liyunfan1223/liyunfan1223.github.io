@@ -246,7 +246,7 @@
 
     
         <meta property="article:published_time" content="Sun Mar 20 2022 13:13:29 GMT+0800">
-        <meta property="article:modified_time" content="Mon Mar 21 2022 23:46:15 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 22 2022 00:41:18 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -651,8 +651,8 @@ x_i,\quad x_i >0
 \frac{\partial f_5(X)_i}{\partial x_j}=
 \left\{
 \begin{array}{}
-0,\quad i=j\\
-1,\quad i\ne j
+0,& i\ne j\ or\ x_i\le 0\\
+1,& i=j\ and\ x_i>0
 \end{array}
 \right.</script><p>用矩阵形式表示比较麻烦，直接用Hadamard乘积的方式传播即可。</p>
 <h3 id="python代码实现"><a href="#python代码实现" class="headerlink" title="python代码实现"></a>python代码实现</h3><p>按照通常的习惯，输入矩阵的shape是(data_size, input_size)，第一维表示批量大小，第二维表示输入向量，同样对应的输出矩阵的shape是(data_size, output_size)。所以我们给出的输入和输出向量实际上是行向量。</p>
