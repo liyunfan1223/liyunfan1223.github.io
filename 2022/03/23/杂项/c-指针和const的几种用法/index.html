@@ -45,7 +45,7 @@
     
     <title>
         
-            pytorch使用小结 | 
+            c++指针和const的几种用法 | 
         
         Moonglade
     </title>
@@ -55,8 +55,7 @@
     <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="针对pytorch官方文档常用的api进行梳理。重使用不重原理实现，以经验为主。
-可能会读一些简单的源码，解释不一定准确，可能随时会改。">
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="">
     <meta name="theme-color" content="#0097A7">
 
@@ -223,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Moonglade">
-    <meta name="msapplication-starturl" content="https://moonglade.top/2022/03/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/pytorch%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/">
+    <meta name="msapplication-starturl" content="https://moonglade.top/2022/03/23/%E6%9D%82%E9%A1%B9/c-%E6%8C%87%E9%92%88%E5%92%8Cconst%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Moonglade">
@@ -238,17 +237,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://moonglade.top/2022/03/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/pytorch%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/">
+    <meta property="og:url" content="https://moonglade.top/2022/03/23/%E6%9D%82%E9%A1%B9/c-%E6%8C%87%E9%92%88%E5%92%8Cconst%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="pytorch使用小结 | Moonglade">
+    <meta property="og:title" content="c++指针和const的几种用法 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
-    <meta property="og:description" content="针对pytorch官方文档常用的api进行梳理。重使用不重原理实现，以经验为主。
-可能会读一些简单的源码，解释不一定准确，可能随时会改。">
+    <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Tue Mar 01 2022 19:57:42 GMT+0800">
-        <meta property="article:modified_time" content="Sun Mar 13 2022 01:10:43 GMT+0800">
+        <meta property="article:published_time" content="Wed Mar 23 2022 16:40:55 GMT+0800">
+        <meta property="article:modified_time" content="Wed Mar 23 2022 16:41:50 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -256,7 +254,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://moonglade.top/2022/03/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/pytorch%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/index.html" />
+        <link rel="canonical" href="https://moonglade.top/2022/03/23/%E6%9D%82%E9%A1%B9/c-%E6%8C%87%E9%92%88%E5%92%8Cconst%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -320,7 +318,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AEConfuguration"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置Confuguration</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%A0%E9%87%8FTensor"><span class="post-toc-number">2.</span> <span class="post-toc-text">张量Tensor</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A2%AF%E5%BA%A6%E5%BC%80%E5%85%B3"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">梯度开关</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BD%AC%E6%8D%A2"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">转换</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AEData"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据Data</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TensorDataset"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">TensorDataset</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DataLoader"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">DataLoader</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CNeutral-network"><span class="post-toc-number">4.</span> <span class="post-toc-text">神经网络Neutral network</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">网络模型</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82Layer"><span class="post-toc-number">5.</span> <span class="post-toc-text">网络层Layer</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0Loss-Function"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">损失函数Loss Function</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8Optimizer"><span class="post-toc-number">6.</span> <span class="post-toc-text">优化器Optimizer</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8C%87%E9%92%88%E5%92%8Cconst"><span class="post-toc-number">1.</span> <span class="post-toc-text">指针和const</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8D%E5%90%8C%E4%BD%8D%E7%BD%AE%E7%9A%84const"><span class="post-toc-number">2.</span> <span class="post-toc-text">不同位置的const</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0%E5%92%8C%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="post-toc-number">3.</span> <span class="post-toc-text">函数和二维数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="post-toc-number">4.</span> <span class="post-toc-text">函数指针</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0%E5%89%8D%E5%90%8Econst%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-number">5.</span> <span class="post-toc-text">函数前后const的作用</span></a></li></ol>
     </ul>
     
 
@@ -352,7 +350,7 @@
         
     
             <p class="article-headline-p">
-                pytorch使用小结
+                c++指针和const的几种用法
             </p>
         </div>
 
@@ -371,7 +369,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>MorphLing</strong>
-        <span>3月 01, 2022</span>
+        <span>3月 23, 2022</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -414,7 +412,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=pytorch使用小结&url=https://moonglade.top/2022/03/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/pytorch%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/index.html&pic=https://moonglade.top/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=c++指针和const的几种用法&url=https://moonglade.top/2022/03/23/%E6%9D%82%E9%A1%B9/c-%E6%8C%87%E9%92%88%E5%92%8Cconst%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95/index.html&pic=https://moonglade.top/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -423,7 +421,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=pytorch使用小结&url=https://moonglade.top/2022/03/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/pytorch%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/index.html&via=MorphLing" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=c++指针和const的几种用法&url=https://moonglade.top/2022/03/23/%E6%9D%82%E9%A1%B9/c-%E6%8C%87%E9%92%88%E5%92%8Cconst%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95/index.html&via=MorphLing" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -432,7 +430,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://moonglade.top/2022/03/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/pytorch%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://moonglade.top/2022/03/23/%E6%9D%82%E9%A1%B9/c-%E6%8C%87%E9%92%88%E5%92%8Cconst%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -441,7 +439,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://moonglade.top/2022/03/01/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/pytorch%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://moonglade.top/2022/03/23/%E6%9D%82%E9%A1%B9/c-%E6%8C%87%E9%92%88%E5%92%8Cconst%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -466,218 +464,77 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>针对<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/index.html">pytorch官方文档</a>常用的api进行梳理。重使用不重原理实现，以经验为主。</p>
-<p>可能会读一些简单的源码，解释不一定准确，可能随时会改。</p>
-<span id="more"></span>
-<h2 id="配置Confuguration"><a href="#配置Confuguration" class="headerlink" title="配置Confuguration"></a>配置Confuguration</h2><ol>
-<li><p>固定种子</p>
-<pre><code class="lang-python">seed = 2
-torch.manual_seed(seed)
+        <h2 id="指针和const"><a href="#指针和const" class="headerlink" title="指针和const"></a>指针和const</h2><p>对比两种情况：</p>
+<pre><code class="lang-cpp">int age = 20;
+const int * pt = &amp;age; // 合法 但认为pt指向const int 所以无法通过pt修改age
 </code></pre>
-</li>
-<li><p>cuda</p>
-<ul>
-<li><code>torch.cuda.is_available</code> 判断运行环境是否支持CUDA</li>
-<li><code>torch.device</code> 根据参数获取计算设备 </li>
-</ul>
-<pre><code class="lang-python">device = torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+<pre><code class="lang-cpp">const int age = 20;
+int * pt = &amp;age; // 不合法 因为非const指针不能指向const
 </code></pre>
-</li>
-</ol>
-<h2 id="张量Tensor"><a href="#张量Tensor" class="headerlink" title="张量Tensor"></a>张量Tensor</h2><p>tensor和array的区别主要在于：tensor可以驻留在GPU上加速。所以pytorch中网络输入输出也是tensor。</p>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><ol>
-<li><p>通用方法：<code>torch.tensor</code> / <code>torch.as_tensor</code> 将传入的数据（list or numpy.array）转化为tensor</p>
-<p>如果传入numpy array，<code>torch.tensor</code>会复制一份新的数据，而<code>torch.as_tensor</code>则共享同一份数据，如果传的是list则两种方法都会复制数据</p>
-<pre><code class="lang-python">ar1 = np.array([1, 2, 3])
-ts1 = torch.tensor(ar1, dtype=torch.float, device=torch.device(&#39;cuda&#39;))
-ts1[1] = 10
-ar1[2] = 20
-print(ar1, ts1)
-
-[ 1  2 20] tensor([ 1., 10.,  3.], device=&#39;cuda:0&#39;)
+<p>于是在函数传参时有以下情况：</p>
+<pre><code class="lang-cpp">void foo(int *a);
+int b = 10;
+foo(&amp;b); // 合法 用int *接int *
+const int c = 11;
+foo(&amp;c); // 不合法 用int * 接 const int *
 </code></pre>
-</li>
-<li><p>创建全0或全1的tensor：<code>torch.zeores</code>和<code>torch.ones</code></p>
-</li>
-<li><p><code>torch.from_numpy()</code>方法，可以看一下<code>from_numpy()</code>和<code>tensor()</code>方法的区别：<a target="_blank" rel="noopener" href="https://blog.csdn.net/github_28260175/article/details/105382060">https://blog.csdn.net/github_28260175/article/details/105382060</a></p>
-<p>简而言之，当ndarray的类型为float32时都可以，但当类型不为float32时，<code>tensor()</code>方法可能会与预期不符，因此应该尽量用<code>from_numpy()</code>方法</p>
-</li>
-</ol>
-<h3 id="梯度开关"><a href="#梯度开关" class="headerlink" title="梯度开关"></a>梯度开关</h3><ol>
-<li><p>创建tensor时设置requires_grad参数</p>
-<pre><code class="lang-python">ar2 = np.array([1, 2, 3])
-ts2 = torch.tensor(ar2, dtype=torch.float,requires_grad=True, device=torch.device(&#39;cuda&#39;))
-out = ts2.sum()
-out.backward()
-ts2.grad
----
-tensor([1., 1., 1.], device=&#39;cuda:0&#39;)
+<pre><code class="lang-cpp">void foo(const int *a);
+int b = 10;
+foo(&amp;b); // 合法 
+const int c = 11;
+foo(&amp;c); // 合法
 </code></pre>
-</li>
-<li><p>调用<code>requires_grad_()</code>或<code>detach()</code>方法转换已有tensor</p>
-<pre><code class="lang-python">ar3 = np.array([1, 2, 3])
-ts3 = torch.tensor(ar2, dtype=torch.float, device=torch.device(&#39;cuda&#39;))
-ts3 = ts3.requires_grad_()
-# ts3 = ts3.detach()
-out = ts3.sum()
-out.backward()
-ts3.grad
----
-tensor([1., 1., 1.], device=&#39;cuda:0&#39;)
+<h2 id="不同位置的const"><a href="#不同位置的const" class="headerlink" title="不同位置的const"></a>不同位置的const</h2><pre><code class="lang-cpp">int age = 20;
+const int * pt = &amp;age; // pt指向一个const int 但自身非const
+int * const ps = &amp;age; // pt指向一个int 自身被const修饰
+const int * const pq = &amp;age; // pt指向一个const int 自身被const修饰
 </code></pre>
-</li>
-</ol>
-<h3 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h3><ol>
-<li><p><code>item()</code>方法 当tensor只有一个数时取出这个数</p>
-<pre><code class="lang-python">ones = torch.zeros([2,4], dtype=torch.float32)
-ones[1, 1].item()
----
-0.0
+<p>如果不是指针，那么const位置不同没有区别，都是值被const修饰</p>
+<pre><code class="lang-cpp">// 没有区别
+const int a;
+int const a;
 </code></pre>
-</li>
-<li><p><code>numpy()</code>方法 tensor转ndarray，不复制（共享同一份数据）</p>
-<pre><code class="lang-python">ones = torch.zeros([2,4], dtype=torch.float32)
-npa = ones.numpy()
-npa[1, 1] = 1
-ones
----
-tensor([[0., 0., 0., 0.],
-        [0., 1., 0., 0.]])
+<h2 id="函数和二维数组"><a href="#函数和二维数组" class="headerlink" title="函数和二维数组"></a>函数和二维数组</h2><p>数组名被视为其地址，因此相应的形参是一个指针。问题在于对于二维数组，如何正确声明指针。</p>
+<pre><code class="lang-cpp">int data[100][4];
+int (*pt)[4] = data;
 </code></pre>
-</li>
-<li><p>数据类型转换，如：<code>float()</code>方法，tensor.float() 等价于self.to(torch.float32)，在打印会显示dtype，如果为float32就不显示，可以认为tensor默认是float32</p>
-<pre><code class="lang-python">ar3 = np.array([1, 2, 3])
-ts3 = torch.tensor(ar3)
-ts3 = ts3.to(torch.float32)
-print(ts3)
-ts3 = ts3.to(torch.float16)
-print(ts3)
-ts3 = ts3.to(torch.int32)
-print(ts3)
----
-tensor([1., 2., 3.])
-tensor([1., 2., 3.], dtype=torch.float16)
-tensor([1, 2, 3], dtype=torch.int32
+<p>同样在函数传递时，如果要传递二维数组，也要用同样的方法声明指针。</p>
+<pre><code class="lang-cpp">// 以下两种声明等价
+int sum(int (*ar)[4]);
+int sum(int ar[][4]);
+sum(data);
 </code></pre>
-<ol>
-<li><p><code>cuda()</code>方法，将tensor放入CUDA memory并返回。一般只会把小批量的数据放入cuda中防止炸显存。</p>
-<pre><code class="lang-python">print(ts4)
-ts4 = ts4.cuda()
-print(ts4)
----
-tensor([1, 2, 3, 4, 5, 6], dtype=torch.int32)
-tensor([1, 2, 3, 4, 5, 6], device=&#39;cuda:0&#39;, dtype=torch.int32)
+<p>ar指向数组（由4个int组成的数组），在获取数据时，需要对指针ar执行两次解除引用，才能得到数据。</p>
+<pre><code class="lang-cpp">ar[r][c] == *(*(ar + r) + c); // 两者等价
 </code></pre>
-</li>
-<li><p><code>view()</code>方法，改变tensor的shape，显然共享数据。类似的方法是view_as(tensor)，转化为和另一个tensor一样的形状</p>
-<pre><code class="lang-python">print(ts4)
-ts5 = ts4.view(-1, 3)
-print(ts5)
-ts5[1, 1] = 100
-ts4
----
-tensor([  1,   2,   3,   4, 100,   6], device=&#39;cuda:0&#39;, dtype=torch.int32)
-tensor([[  1,   2,   3],
-      [  4, 100,   6]], device=&#39;cuda:0&#39;, dtype=torch.int32)
-tensor([  1,   2,   3,   4, 100,   6], device=&#39;cuda:0&#39;, dtype=torch.int32)
+<h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><pre><code class="lang-cpp">void foo(const int *x);
+void (*pt)(const int *); // 定义函数指针
+pt = foo; // 赋值
+int a =  10;
+// 以下两种写法等价 但第一种写法更明显提示了当前正在使用函数指针
+// 第一种写法认为pf是指针，*pf是函数
+// 第二种写法认为函数名foo是指向该函数的指针，那么指针pf应和函数名foo对等
+// 实际上两种写法逻辑上冲突 但C++进行了折衷 即两种方式都是正确的
+(*pt)(&amp;a);
+pt(&amp;a);
 </code></pre>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="数据Data"><a href="#数据Data" class="headerlink" title="数据Data"></a>数据Data</h2><pre><code class="lang-python">import torch.utils.data as torchdata
+<h2 id="函数前后const的作用"><a href="#函数前后const的作用" class="headerlink" title="函数前后const的作用"></a>函数前后const的作用</h2><p>函数前的const表示返回值被const修饰</p>
+<pre><code class="lang-cpp">const int *foo() &#123;
+    int *pt = new int();
+    return pt;
+&#125;
+int * pt = foo();// 不合法 不能用int *接const int *
 </code></pre>
-<p>主要是将tensor转化为【数据集】，其实就是用一种可以用迭代器访问的方式组织tensor，便于后续训练，分批量之类的功能也在这里完成。</p>
-<h3 id="TensorDataset"><a href="#TensorDataset" class="headerlink" title="TensorDataset"></a>TensorDataset</h3><pre><code class="lang-python">class TensorDataset(Dataset[Tuple[Tensor, ...]]):
-    r&quot;&quot;&quot;Dataset wrapping tensors.
-
-    Each sample will be retrieved by indexing tensors along the first dimension.
-
-    Args:
-        *tensors (Tensor): tensors that have the same size of the first dimension.
-    &quot;&quot;&quot;
-    tensors: Tuple[Tensor, ...]
-
-    def __init__(self, *tensors: Tensor) -&gt; None:
-        assert all(tensors[0].size(0) == tensor.size(0) for tensor in tensors), &quot;Size mismatch between tensors&quot;
-        self.tensors = tensors
-
-    def __getitem__(self, index):
-        return tuple(tensor[index] for tensor in self.tensors)
-
-    def __len__(self):
-        return self.tensors[0].size(0)
+<p>函数后的const只用于成员函数，表示函数不能修改成员变量</p>
+<pre><code class="lang-cpp">class A &#123;
+private:
+    int a;
+public:
+    void foo() const &#123;
+        a++; // 不合法 函数不能修改成员变量
+    &#125;;
+&#125;;
 </code></pre>
-<p>将多个<strong>长度相同</strong>的tensor打包，通常用于打包输入和标签。其实只提供了两种方法，长度len和下标访问。</p>
-<pre><code class="lang-python">print(ts1)
-print(ts2)
-print(ts3)
-tensorset = torchdata.TensorDataset(ts1, ts2, ts3)
-print(len(tensorset))
-print(tensorset[1])
----
-tensor([ 1., 10.,  3.], device=&#39;cuda:0&#39;)
-tensor([1., 2., 3.], device=&#39;cuda:0&#39;, requires_grad=True)
-tensor([1., 2., 3.], device=&#39;cuda:0&#39;, requires_grad=True)
-3
-(tensor(10., device=&#39;cuda:0&#39;), tensor(2., device=&#39;cuda:0&#39;, grad_fn=&lt;SelectBackward0&gt;), tensor(2., device=&#39;cuda:0&#39;, grad_fn=&lt;SelectBackward0&gt;))
-</code></pre>
-<h3 id="DataLoader"><a href="#DataLoader" class="headerlink" title="DataLoader"></a>DataLoader</h3><p>可以将TensorDataset转dataset，也可以只转一个tensor。</p>
-<p>常用的参数就是batch_size和shuffle，决定每一批数据集大小，以及是否打乱</p>
-<pre><code class="lang-python">tensorset = torchdata.TensorDataset(ts1, ts2, ts3)
-dataloader = torchdata.DataLoader(tensorset, batch_size = 2, shuffle = True)
-for data in dataloader:
-    print(data)
----
-[tensor([10.,  1.], device=&#39;cuda:0&#39;), tensor([2., 1.], device=&#39;cuda:0&#39;, grad_fn=&lt;StackBackward0&gt;), tensor([2., 1.], grad_fn=&lt;StackBackward0&gt;)]
-[tensor([3.], device=&#39;cuda:0&#39;), tensor([3.], device=&#39;cuda:0&#39;, grad_fn=&lt;StackBackward0&gt;), tensor([3.], grad_fn=&lt;StackBackward0&gt;)]
-</code></pre>
-<p>迭代器访问的时候也可以像这样把不同的数据分开来：</p>
-<pre><code class="lang-python">tensorset = torchdata.TensorDataset(ts1, ts2, ts3)
-
-dataloader = torchdata.DataLoader(tensorset, batch_size = 2, shuffle = True)
-
-for d1, d2, d3 in dataloader:
-    print(d1)
----
-tensor([10.,  3.], device=&#39;cuda:0&#39;)
-tensor([1.], device=&#39;cuda:0&#39;)
-</code></pre>
-<h2 id="神经网络Neutral-network"><a href="#神经网络Neutral-network" class="headerlink" title="神经网络Neutral network"></a>神经网络Neutral network</h2><pre><code class="lang-python">from torch import nn
-</code></pre>
-<h3 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h3><p>nn.Module是所有网络模型的父类。搭建网络模型通常会从nn.Module继承一个类，然后重写<code>__init__()</code>和<code>forward()</code>，以最简单的三成MLP为例：</p>
-<pre><code class="lang-python">class NeuralNet(nn.Module):
-    def __init__(self, input_size, hidden_size, num_classes):
-        super(NeuralNet, self).__init__()
-        # 输入层 -&gt; 隐藏层
-        self.fc1 = nn.Linear(input_size, hidden_size)
-        # 隐藏层 -&gt; 输出层
-        self.fc2 = nn.Linear(hidden_size, num_classes)
-    def forward(self, x):
-        out = self.fc1(x)
-        out = self.fc2(out)
-        return out
-</code></pre>
-<ol>
-<li><code>cpu()</code>和<code>cuda()</code>方法，将模型的所有参数移入CPU/GPU</li>
-<li><code>eval()</code>和<code>train()</code>方法，设置当前模型用于评估还是训练（评估时会停用Dropout层等）<code>eval()</code>等价于<code>train(false)</code></li>
-<li><code>to()</code>方法，目前主要用两种<ol>
-<li><code>to(device)</code>，功能应该和<code>cpu()</code>和<code>cuda()</code>一样</li>
-<li><code>to(dtype)</code>，将模型参数转化成对应类型，和<code>float()</code>、<code>double()</code>方法效果一样</li>
-</ol>
-</li>
-</ol>
-<h2 id="网络层Layer"><a href="#网络层Layer" class="headerlink" title="网络层Layer"></a>网络层Layer</h2><ol>
-<li>线性层Linear</li>
-</ol>
-<h3 id="损失函数Loss-Function"><a href="#损失函数Loss-Function" class="headerlink" title="损失函数Loss Function"></a>损失函数Loss Function</h3><ol>
-<li>交叉熵CrossEntropy()</li>
-<li>二分类损失函数BCELoss()</li>
-</ol>
-<h2 id="优化器Optimizer"><a href="#优化器Optimizer" class="headerlink" title="优化器Optimizer"></a>优化器Optimizer</h2><ol>
-<li>SGD</li>
-<li>Adam</li>
-</ol>
 
         
     
@@ -728,21 +585,13 @@ tensor([1.], device=&#39;cuda:0&#39;)
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2022/03/12/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2022/02/26/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/" id="post_nav-older" class="next-content">
+        <a href="/2022/03/20/%E6%9D%82%E9%A1%B9/%E6%89%8B%E5%86%99%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -834,7 +683,7 @@ tensor([1.], device=&#39;cuda:0&#39;)
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
