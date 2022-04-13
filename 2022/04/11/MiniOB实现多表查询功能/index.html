@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            MiniOB实现多表查询功能 | 
+        
+        Moonglade
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon_io_c/favicon-32x32.png">
+    <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: ;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Moonglade">
+    <meta name="msapplication-starturl" content="https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="MiniOB实现多表查询功能 | Moonglade">
+    <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Mon Apr 11 2022 18:37:24 GMT+0800">
+        <meta property="article:modified_time" content="Wed Apr 13 2022 13:50:36 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TupleSet%E3%80%81Tuple%E3%80%81TupleValue"><span class="post-toc-number">1.</span> <span class="post-toc-text">TupleSet、Tuple、TupleValue</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Query"><span class="post-toc-number">2.</span> <span class="post-toc-text">Query</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Executor"><span class="post-toc-number">3.</span> <span class="post-toc-text">Executor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%80%EF%BC%9A%E6%9E%84%E5%BB%BA%E5%87%BA%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E8%99%9A%E6%8B%9F%E8%A1%A8%E7%9A%84schema"><span class="post-toc-number">4.</span> <span class="post-toc-text">任务一：构建出查询结果虚拟表的schema</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%BA%8C%EF%BC%9A%E5%88%A4%E6%96%AD%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E6%9D%A1%E4%BB%B6-execute-stage-cpp"><span class="post-toc-number">5.</span> <span class="post-toc-text">任务二：判断多表联查条件(execute_stage.cpp)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%89%EF%BC%9A%E5%A4%9A%E6%AE%B5%E5%B0%8F%E5%85%83%E7%BB%84%E5%90%88%E6%88%90%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%85%83%E7%BB%84-execute-stage-cpp"><span class="post-toc-number">6.</span> <span class="post-toc-text">任务三：多段小元组合成一个大元组(execute_stage.cpp)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%9B%9B%EF%BC%9A%E5%AE%9E%E7%8E%B0%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF-execute-stage-cpp"><span class="post-toc-number">7.</span> <span class="post-toc-text">任务四：实现笛卡尔积(execute_stage.cpp)</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                MiniOB实现多表查询功能
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>4月 11, 2022</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=MiniOB实现多表查询功能&url=https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html&pic=https://moonglade.top/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=MiniOB实现多表查询功能&url=https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>实现能够支持多张表的笛卡尔积关联查询。请注意查询语句可能会带条件。查询结果展示的格式可以参考单表查询，每一列必须带有表信息，比如:</p>
+<pre><code>t1.id | t2.id
+1 | 1
+</code></pre><p>要求能够成功执行下面测试语句</p>
+<pre><code class="lang-sql">create table t1(id int, sex int);
+create table t2(id int, age int);
+create table t3(id int, salary int);
+select t1.*,t2.* from t1,t2;
+select t1.id,t2.id from t1,t2;
+select * from t1,t2;
+select * from t1,t2 where t1.id=t2.id and t2.age &gt; 10;
+select * from t1,t2,t3;
+</code></pre>
+<p>实现该功能只需要修改<code>sql/executor/execute_stage.cpp</code>中<code>do_select</code>函数的功能，当然还需要要实现一些别的函数来计算笛卡尔积和验证。</p>
+<pre><code class="lang-cpp">// 这里没有对输入的某些信息做合法性校验，比如查询的列名、where条件中的列名等，没有做必要的合法性校验
+// 需要补充上这一部分.
+// 校验部分也可以放在resolve，不过跟execution放一起也没有关系
+RC ExecuteStage::do_select(const char *db, const Query *sql,
+                           SessionEvent *session_event) &#123;
+  RC rc = RC::SUCCESS;
+  Session *session = session_event-&gt;get_client()-&gt;session;
+  Trx *trx = session-&gt;current_trx();
+  const Selects &amp;selects = sql-&gt;sstr.selection;
+
+  // 把所有的表和只跟这张表关联的condition都拿出来，生成最底层的select
+  // 执行节点
+  std::vector&lt;SelectExeNode *&gt; select_nodes;
+  for (size_t i = 0; i &lt; selects.relation_num; i++) &#123;
+    const char *table_name = selects.relations[i];
+    SelectExeNode *select_node = new SelectExeNode;
+    rc = create_selection_executor(trx, selects, db, table_name, *select_node);
+    if (rc != RC::SUCCESS) &#123;
+      delete select_node;
+      for (SelectExeNode *&amp;tmp_node: select_nodes) &#123;
+        delete tmp_node;
+      &#125;
+      end_trx_if_need(session, trx, false);
+      return rc;
+    &#125;
+    select_nodes.push_back(select_node);
+  &#125;
+  if (select_nodes.empty()) &#123;
+    LOG_ERROR(&quot;No table given&quot;);
+    end_trx_if_need(session, trx, false);
+    return RC::SQL_SYNTAX;
+  &#125;
+
+  std::vector&lt;TupleSet&gt; tuple_sets;
+  for (SelectExeNode *&amp;node: select_nodes) &#123;
+    TupleSet tuple_set;
+    rc = node-&gt;execute(tuple_set);
+    if (rc != RC::SUCCESS) &#123;
+      for (SelectExeNode *&amp;tmp_node: select_nodes) &#123;
+        delete tmp_node;
+      &#125;
+      end_trx_if_need(session, trx, false);
+      return rc;
+    &#125; else &#123;
+      tuple_sets.push_back(std::move(tuple_set));
+    &#125;
+  &#125;
+
+  std::stringstream ss;
+  TupleSet print_tuples;
+  if (tuple_sets.size() &gt; 1) &#123;
+    // 本次查询了多张表，需要做join操作
+    TupleSchema join_schema;
+    TupleSchema old_schema;
+    for (std::vector&lt;TupleSet&gt;::const_reverse_iterator
+                 rit = tuple_sets.rbegin(),
+                 rend = tuple_sets.rend();
+         rit != rend; ++rit) &#123;
+      // 这里是某张表投影完的所有字段，如果是select * from t1,t2;
+      // old_schema=[t1.a, t1.b, t2.a, t2.b]
+      old_schema.append(rit-&gt;get_schema());
+    &#125;
+
+    std::vector&lt;int&gt; select_order;
+    //TODO 根据列名输出顺序，添加 old_schema 对应字段到 join_schema 中，并构建select_order数组
+    // 如果是select * ，添加所有字段
+    // 如果是select t1.*，表名匹配的加入字段
+    // 如果是select t1.age，表名+字段名匹配的加入字段
+      print_tuples.set_schema(join_schema);
+
+    // 构建联查的conditions需要找到对应的表
+    // C x 3 数组
+    // 每一条的3个元素代表（左值的属性在新schema的下标，CompOp运算符，右值的属性在新schema的下标）
+    std::vector&lt;std::vector&lt;int&gt;&gt; condition_idxs;
+    for (size_t i = 0; i &lt; selects.condition_num; i++) &#123;
+      const Condition &amp;condition = selects.conditions[i];
+      if (condition.left_is_attr == 1 &amp;&amp;
+          condition.right_is_attr == 1) &#123;
+        std::vector&lt;int&gt; temp_con;
+        const char *l_table_name = condition.left_attr.relation_name;
+        const char *l_field_name = condition.left_attr.attribute_name;
+        const CompOp comp = condition.comp;
+        const char *r_table_name = condition.right_attr.relation_name;
+        const char *r_field_name = condition.right_attr.attribute_name;
+        temp_con.push_back(print_tuples.get_schema().index_of_field(
+                l_table_name, l_field_name));
+        temp_con.push_back(comp);
+        temp_con.push_back(print_tuples.get_schema().index_of_field(
+                r_table_name, r_field_name));
+        condition_idxs.push_back(temp_con);
+      &#125;
+    &#125;
+    //TODO 元组的拼接需要实现笛卡尔积
+    //TODO 将符合连接条件的元组添加到print_tables中
+
+      print_tuples.print(ss);
+    &#125; else &#123;
+      // 当前只查询一张表，直接返回结果即可
+      tuple_sets.front().print(ss);
+    &#125;
+    for (SelectExeNode *&amp;tmp_node: select_nodes) &#123;
+      delete tmp_node;
+    &#125;
+    session_event-&gt;set_response(ss.str());
+    end_trx_if_need(session, trx, true);
+    return rc;
+&#125;
+</code></pre>
+<p>先看几个关键数据结构，解决一些关键问题：</p>
+<h2 id="TupleSet、Tuple、TupleValue"><a href="#TupleSet、Tuple、TupleValue" class="headerlink" title="TupleSet、Tuple、TupleValue"></a>TupleSet、Tuple、TupleValue</h2><p>可以简单把这三个类和关系型数据里的表概念结合，<code>TupleSet</code>可理解成表，<code>Tuple</code>理解成表的一行（一个元组）、<code>TupleValue</code>表示某行某列上的值</p>
+<ul>
+<li><p><code>TupleSet</code>包含两个属性：<code>tuples_</code>和<code>schema_</code>，schema记录了表的列信息、tuples记录了具体的数据</p>
+</li>
+<li><p><code>Tuple</code>包含一个属性：<code>values_</code>，记录了一行中所有的值，每个值都是一个<code>TupleValue</code></p>
+</li>
+</ul>
+<h2 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h2><p>SQL查询语句的语法解析部分已经写好，解析后的SQL信息被记录在<code>Query *sql</code>中，看一下<code>Query</code>类的声明</p>
+<pre><code class="lang-cpp">typedef struct Query &#123;
+  enum SqlCommandFlag flag;
+  union Queries sstr;
+&#125; Query;
+</code></pre>
+<p><code>SqlCommandFlag</code>标注当前SQL语句类型，此处一定为<code>SCF_SELECT</code>，即SELECT语句，<code>Queries</code>包含了具体SQL信息</p>
+<pre><code class="lang-cpp">union Queries &#123;
+  Selects selection;
+  Inserts insertion;
+  Deletes deletion;
+  Updates update;
+  CreateTable create_table;
+  DropTable drop_table;
+  CreateIndex create_index;
+  DropIndex drop_index;
+  DescTable desc_table;
+  LoadData load_data;
+  char *errors;
+&#125;;
+</code></pre>
+<p>不同的SQL类型对应不同类型的信息，但存储方式为union，此处只关心<code>Selects</code>类型</p>
+<pre><code class="lang-cpp">typedef struct &#123;
+  size_t attr_num;                // Length of attrs in Select clause
+  RelAttr attributes[MAX_NUM];    // attrs in Select clause
+  size_t relation_num;            // Length of relations in Fro clause
+  char *relations[MAX_NUM];       // relations in From clause
+  size_t condition_num;           // Length of conditions in Where clause
+  Condition conditions[MAX_NUM];  // conditions in Where clause
+  size_t aggregation_num;
+  Aggregation aggregations[MAX_NUM];
+&#125; Selects;
+</code></pre>
+<p>记录了attributes、relations、conditions、aggregations，很容易和sql语句对应上，attributes是SELECT的属性、relations是FROM中连接的表，conditions是WHERE后的条件，aggregations暂时还没用到，例如sql语句</p>
+<pre><code class="lang-sql">SELECT t1.id, t2.age from t1, t2 where t1.id=t2.id and t2.age &gt; 10;
+</code></pre>
+<p>以下都以该语句为例子，这里一个一个说：</p>
+<ul>
+<li><p>attributes</p>
+<pre><code class="lang-cpp">typedef struct &#123;
+  char *relation_name;   // relation name (may be NULL) 表名
+  char *attribute_name;  // attribute name              属性名
+&#125; RelAttr;
+</code></pre>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220411185856616.png" alt="image-20220411185856616"></p>
+<p>需要说明的是，如果是<code>SELECT *</code>的情况，对应的relation_name和attribute_name都为NULL</p>
+<p>但如果是<code>SELECT t1.*</code>的情况，则relation_name=”t1”, attribute_name=”*”</p>
+<p>另外，很重要的一点是attributes的存储是逆序的，需要注意到这一点才能按顺序正确输出</p>
+</li>
+<li><p>relations</p>
+<p>直接用字符串记录表名</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220411190147383.png" alt="image-20220411190147383"></p>
+</li>
+<li><p>conditions</p>
+<pre><code class="lang-cpp">typedef struct _Condition &#123;
+  int left_is_attr;  // TRUE if left-hand side is an attribute
+  // 1时，操作符左边是属性名，0时，是属性值
+  Value left_value;   // left-hand side value if left_is_attr = FALSE
+  RelAttr left_attr;  // left-hand side attribute
+  CompOp comp;        // comparison operator
+  int right_is_attr;  // TRUE if right-hand side is an attribute
+  // 1时，操作符右边是属性名，0时，是属性值
+  RelAttr right_attr;  // right-hand side attribute if right_is_attr = TRUE
+                       // 右边的属性
+  Value right_value;   // right-hand side value if right_is_attr = FALSE
+&#125; Condition;
+</code></pre>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220411190320349.png" alt="image-20220411190320349"></p>
+<p>记录了左右值的表名和属性名，是否为属性以及操作类型，只有当值为非属性时读<code>value</code>值，否则读<code>attr</code>值。如<code>t2.age&gt;10</code>中<code>right_is_attr=0</code>，说明10非属性值，此时读<code>right_value</code>，<code>left_is_attr=1</code>，此时读<code>left_attr</code></p>
+</li>
+</ul>
+<h2 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h2><p>这部分创建和调用执行器的函数已给出，实际上可以根据返回结果当成黑箱用，可以最后再看具体实现方式。</p>
+<ul>
+<li><p>现在已知sql语义信息被完整包含在Selects中，接下来要创建并调用执行器，对每张连接涉及的表(relations)执行一次，创建结果为一个<code>SelectExeNode</code>，包含以下属性:</p>
+<pre><code class="lang-cpp">private:
+    Trx *trx_ = nullptr;
+    Table *table_;
+    TupleSchema tuple_schema_;
+    std::vector&lt;DefaultConditionFilter *&gt; condition_filters_;
+</code></pre>
+<ul>
+<li><code>trx_</code>是一个事务相关的属性</li>
+<li><code>table_</code>记录了本次执行对应的table地址</li>
+<li><code>tuple_schema_</code>记录了被表里select到的属性schema（如果没有被select到就不包含）</li>
+<li><code>condition_filters_</code>记录了选择条件，但涉及多表的选择条件不会被记录在此处，需要在计算笛卡尔积后再进行检验</li>
+</ul>
+</li>
+<li><p>执行结果为一个<code>TupleSet</code>，相当于一张新表，<code>schema_</code>只包含SELECT中被选择的属性，<code>tuples_</code>只包含满足选择conditions的数据</p>
+<pre><code class="lang-cpp">private:
+    std::vector&lt;Tuple&gt; tuples_;
+    TupleSchema schema_;
+</code></pre>
+<p>这里执行结果的schema顺序与sql语句中的查询顺序有关。</p>
+<p>实际上顺序是这样的：首先按表的顺序倒序扫，对于每张表内的schema，顺序与sql语句中的顺序相同。</p>
+<p>例如<code>SELECT t1.id, t2.age, t1.sex, t2.id from t1, t2 where t1.id=t2.id and t2.age &gt; 10;</code>，对应的结果为：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220411203600197.png" alt="image-20220411203600197"></p>
+</li>
+</ul>
+<p>现在可以拿到【对于每张表，剔除掉不符合要求的行列后生成的新表】，那么接下来的任务比较明确了：</p>
+<ol>
+<li>构建出查询结果虚拟表的schema</li>
+<li>生成表的笛卡尔积</li>
+<li>判断笛卡尔积的结果是否满足多表联查条件</li>
+<li>将满足条件的行添加入输出中</li>
+</ol>
+<h2 id="任务一：构建出查询结果虚拟表的schema"><a href="#任务一：构建出查询结果虚拟表的schema" class="headerlink" title="任务一：构建出查询结果虚拟表的schema"></a>任务一：构建出查询结果虚拟表的schema</h2><p>我们需要构建出查询结果虚拟表的<code>schema</code>，并且需要按照 <code>selects.attribute</code> 的顺序添加。并构建<code>select_order</code>数组记录顺序。</p>
+<p>在实现中，我们首先把每个表的每个字段都无序拼接起来，用于后面的对应和查找，如果查询语句是 <code>select * from t1,t2;</code> 那么构建的 <code>old_schema</code> 应该是这种形式 <code>[t1.a, t1.b, t2.a, t2.b]</code>，然后我们需要根据 <code>select</code> 选择的内容进行查找和匹配，主要有三种情况：<code>*</code> ，<code>t1.*</code> ，<code>t1.age</code>请根据注释要求进行匹配，把对应字段添加到 <code>join_schema</code> 中。</p>
+<p>因为old_schema本身是由执行出来的<code>tuple_sets</code>拼接出来的，已经只包含SELECT要选的属性了，所以这里主要做的其实仅仅是对old_schema按照SELECT出来的顺序重新排序，并记录这个顺序。</p>
+<pre><code class="lang-cpp">// TODO 根据列名输出顺序，添加 old_schema 对应字段到 join_schema 中，并构建select_order数组
+// 如果是select * ，添加所有字段
+// 如果是select t1.*，表名匹配的加入字段
+// 如果是select t1.age，表名+字段名匹配的加入字段
+std::vector&lt;int&gt; orders;
+for (int i = selects.attr_num - 1; i &gt;= 0; i--) &#123;
+    for (int j = 0; j &lt; old_schema.fields().size(); j++) &#123;
+        if (selects.attributes[i].relation_name == NULL
+            || (strcmp(selects.attributes[i].relation_name, old_schema.field(j).table_name()) == 0
+                &amp;&amp; (strcmp(selects.attributes[i].attribute_name, old_schema.field(j).field_name()) == 0
+                    || strcmp(selects.attributes[i].attribute_name, &quot;*&quot;) == 0))) &#123;
+            join_schema.add(old_schema.field(j));
+            orders.push_back(j);
+        &#125;
+    &#125;
+&#125;
+print_tuples.set_schema(join_schema);
+</code></pre>
+<h2 id="任务二：判断多表联查条件-execute-stage-cpp"><a href="#任务二：判断多表联查条件-execute-stage-cpp" class="headerlink" title="任务二：判断多表联查条件(execute_stage.cpp)"></a>任务二：判断多表联查条件(execute_stage.cpp)</h2><p>我们需要根据表的连接关系去除不符合逻辑的数据，在该函数中 <em><code>res_tuple</code> 是需要进行筛选的某一行，</em><code>condition_idxs</code>是 C x 3 数组，其每一条的3个元素代表（左值的属性在新schema的下标，<code>CompOp</code>运算符，右值的属性在新schema的下标），那么我们需要筛选表中某一行 <code>res_tuple</code>是否满足多表联查条件即：左值=右值。</p>
+<p>这里只需要处理相等条件，即<code>comp == EUQAL_TO</code>，对于其他选择条件，在执行器中已被处理。</p>
+<pre><code class="lang-cpp">// 需要满足多表联查条件
+bool match_join_condition(const Tuple *res_tuple,
+                          const std::vector&lt;std::vector&lt;int&gt;&gt; condition_idxs) &#123;
+  // res_tuple 是 需要进行筛选的某一行
+  // condition_idxs 是 C x 3 数组
+  // 每一条的3个元素代表（左值的属性在新schema的下标，CompOp运算符，右值的属性在新schema的下标）
+  //TODO 判断表中某一行 res_tuple 是否满足多表联查条件即：左值=右值
+
+  for (int i = 0; i &lt; condition_idxs.size(); i++) &#123;
+      CompOp comp = CompOp(condition_idxs[i][1]);
+      const TupleValue &amp;left_value = res_tuple-&gt;get(condition_idxs[i][0]);
+      const TupleValue &amp;right_value = res_tuple-&gt;get(condition_idxs[i][2]);
+
+      if (comp == EQUAL_TO &amp;&amp; left_value.compare(right_value)) &#123;
+        return false;
+      &#125;
+  &#125;
+  return true;
+&#125;
+</code></pre>
+<h2 id="任务三：多段小元组合成一个大元组-execute-stage-cpp"><a href="#任务三：多段小元组合成一个大元组-execute-stage-cpp" class="headerlink" title="任务三：多段小元组合成一个大元组(execute_stage.cpp)"></a>任务三：多段小元组合成一个大元组(execute_stage.cpp)</h2><p>这是一个辅助生成笛卡尔积的函数。</p>
+<p>这里我们需要把多个元组按照SQL查询的顺序合并成一个元组，我们用orders数组来记录顺序，举例</p>
+<p><code>temp_tuples=[[1,2,3],[4,5,6]]</code> ，而<code>order=[3,4,5,0,1,2]</code> ，那么合并后结果 <code>res_tuple=[4,5,6,1,2,3]</code> 。</p>
+<pre><code class="lang-cpp">// 将多段小元组合成一个大元组
+Tuple merge_tuples(
+    const std::vector&lt;std::vector&lt;Tuple&gt;::const_iterator&gt; temp_tuples,
+    std::vector&lt;int&gt; orders) &#123;
+  std::vector&lt;std::shared_ptr&lt;TupleValue&gt;&gt; temp_res;
+  Tuple res_tuple;
+  //TODO 先把每个字段都放到对应的位置上(temp_res)
+  //TODO 再依次(orders)添加到大元组(res_tuple)里即可
+  for (auto iter: temp_tuples) &#123;
+      for (auto value: iter-&gt;values()) &#123;
+          temp_res.push_back(value);
+      &#125;
+  &#125;
+  for (int order: orders) &#123;
+      res_tuple.add(temp_res[order]);
+  &#125;
+  return res_tuple;
+&#125;
+</code></pre>
+<h2 id="任务四：实现笛卡尔积-execute-stage-cpp"><a href="#任务四：实现笛卡尔积-execute-stage-cpp" class="headerlink" title="任务四：实现笛卡尔积(execute_stage.cpp)"></a>任务四：实现笛卡尔积(execute_stage.cpp)</h2><p>比较重点的是如何生成笛卡尔积。思路是先根据每张表的大小，确定最终结果的条数，再确定最终结果的每一条，对应了每张小表的哪一条，要保证最后的结果没有重复。，问题是如何确定第$i$条数据在A、B、C三张表里分别对应哪条数据。参考k进制的思路，区别在于每一位的进制都取决于对应表的大小。</p>
+<p>例如A、B、C三个表分别由3、4、5条数据，显然最终有$3\times 4\times 5=60$条数据，用三位数分别表示三张表的行号，那么000开始，逐渐增加，000,001,002,…,010,…,100,…,最后为234。如果当前为第$i$条结果，计算第二张表对应的行就为$(i / 5) \% 4$，这个计算方法和求k进制某一位上的值方法几乎一样，只要注意计算不同位对应的不同进制。</p>
+<pre><code class="lang-cpp">//TODO 元组的拼接需要实现笛卡尔积
+//TODO 将符合连接条件的元组添加到print_tables中
+int tuple_number = 1;
+std::vector&lt;int&gt; rec_tot(tuple_sets.size());
+for (int i = tuple_sets.size() - 1; i &gt;= 0; i--) &#123;
+    auto rit = &amp;tuple_sets[i];
+    rec_tot[i] = tuple_number;
+    tuple_number *= rit-&gt;size();
+&#125;
+for (int i = 0; i &lt; tuple_number; i++) &#123;
+    std::vector&lt;std::vector&lt;Tuple&gt;::const_iterator&gt; vec;
+    for (int j = tuple_sets.size() - 1; j &gt;= 0; j--) &#123;
+        auto rit = &amp;tuple_sets[j];
+        vec.push_back(rit-&gt;tuples().begin() + (i / rec_tot[j]) % rit-&gt;size());
+    &#125;
+    Tuple merge_res = merge_tuples(vec, orders);
+    bool c = match_join_condition(&amp;merge_res, condition_idxs);
+    if (c)
+        print_tuples.add(std::move(merge_res));
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2022/03/23/%E6%9D%82%E9%A1%B9/c-%E6%8C%87%E9%92%88%E5%92%8Cconst%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/favicon_io/android-chrome-512x512.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/04/">四月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">26</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=T');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>
