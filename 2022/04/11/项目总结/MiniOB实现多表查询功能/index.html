@@ -45,7 +45,7 @@
     
     <title>
         
-            MiniOB实现多表查询功能 | 
+            MiniOB实现多表查询和聚合函数功能 | 
         
         Moonglade
     </title>
@@ -222,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Moonglade">
-    <meta name="msapplication-starturl" content="https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/">
+    <meta name="msapplication-starturl" content="https://moonglade.top/2022/04/11/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Moonglade">
@@ -237,16 +237,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/">
+    <meta property="og:url" content="https://moonglade.top/2022/04/11/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="MiniOB实现多表查询功能 | Moonglade">
+    <meta property="og:title" content="MiniOB实现多表查询和聚合函数功能 | Moonglade">
     <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
     <meta property="og:description" content="">
     
 
     
         <meta property="article:published_time" content="Mon Apr 11 2022 18:37:24 GMT+0800">
-        <meta property="article:modified_time" content="Wed Apr 13 2022 13:50:36 GMT+0800">
+        <meta property="article:modified_time" content="Mon May 30 2022 22:06:20 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -254,7 +254,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" />
+        <link rel="canonical" href="https://moonglade.top/2022/04/11/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -318,7 +318,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TupleSet%E3%80%81Tuple%E3%80%81TupleValue"><span class="post-toc-number">1.</span> <span class="post-toc-text">TupleSet、Tuple、TupleValue</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Query"><span class="post-toc-number">2.</span> <span class="post-toc-text">Query</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Executor"><span class="post-toc-number">3.</span> <span class="post-toc-text">Executor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%80%EF%BC%9A%E6%9E%84%E5%BB%BA%E5%87%BA%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E8%99%9A%E6%8B%9F%E8%A1%A8%E7%9A%84schema"><span class="post-toc-number">4.</span> <span class="post-toc-text">任务一：构建出查询结果虚拟表的schema</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%BA%8C%EF%BC%9A%E5%88%A4%E6%96%AD%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E6%9D%A1%E4%BB%B6-execute-stage-cpp"><span class="post-toc-number">5.</span> <span class="post-toc-text">任务二：判断多表联查条件(execute_stage.cpp)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%89%EF%BC%9A%E5%A4%9A%E6%AE%B5%E5%B0%8F%E5%85%83%E7%BB%84%E5%90%88%E6%88%90%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%85%83%E7%BB%84-execute-stage-cpp"><span class="post-toc-number">6.</span> <span class="post-toc-text">任务三：多段小元组合成一个大元组(execute_stage.cpp)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%9B%9B%EF%BC%9A%E5%AE%9E%E7%8E%B0%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF-execute-stage-cpp"><span class="post-toc-number">7.</span> <span class="post-toc-text">任务四：实现笛卡尔积(execute_stage.cpp)</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TupleSet%E3%80%81Tuple%E3%80%81TupleValue"><span class="post-toc-number">1.</span> <span class="post-toc-text">TupleSet、Tuple、TupleValue</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Query"><span class="post-toc-number">2.</span> <span class="post-toc-text">Query</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Executor"><span class="post-toc-number">3.</span> <span class="post-toc-text">Executor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%80%EF%BC%9A%E6%9E%84%E5%BB%BA%E5%87%BA%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E8%99%9A%E6%8B%9F%E8%A1%A8%E7%9A%84schema"><span class="post-toc-number">4.</span> <span class="post-toc-text">任务一：构建出查询结果虚拟表的schema</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%BA%8C%EF%BC%9A%E5%88%A4%E6%96%AD%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E6%9D%A1%E4%BB%B6-execute-stage-cpp"><span class="post-toc-number">5.</span> <span class="post-toc-text">任务二：判断多表联查条件(execute_stage.cpp)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%89%EF%BC%9A%E5%A4%9A%E6%AE%B5%E5%B0%8F%E5%85%83%E7%BB%84%E5%90%88%E6%88%90%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%85%83%E7%BB%84-execute-stage-cpp"><span class="post-toc-number">6.</span> <span class="post-toc-text">任务三：多段小元组合成一个大元组(execute_stage.cpp)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%9B%9B%EF%BC%9A%E5%AE%9E%E7%8E%B0%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF-execute-stage-cpp"><span class="post-toc-number">7.</span> <span class="post-toc-text">任务四：实现笛卡尔积(execute_stage.cpp)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="post-toc-number">8.</span> <span class="post-toc-text">聚合函数</span></a></li></ol>
     </ul>
     
 
@@ -350,7 +350,7 @@
         
     
             <p class="article-headline-p">
-                MiniOB实现多表查询功能
+                MiniOB实现多表查询和聚合函数功能
             </p>
         </div>
 
@@ -412,7 +412,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=MiniOB实现多表查询功能&url=https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html&pic=https://moonglade.top/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=MiniOB实现多表查询和聚合函数功能&url=https://moonglade.top/2022/04/11/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html&pic=https://moonglade.top/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -421,7 +421,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=MiniOB实现多表查询功能&url=https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html&via=MorphLing" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=MiniOB实现多表查询和聚合函数功能&url=https://moonglade.top/2022/04/11/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html&via=MorphLing" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -430,7 +430,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://moonglade.top/2022/04/11/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -439,7 +439,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://moonglade.top/2022/04/11/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://moonglade.top/2022/04/11/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/MiniOB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -786,6 +786,773 @@ for (int i = 0; i &lt; tuple_number; i++) &#123;
     if (c)
         print_tuples.add(std::move(merge_res));
 </code></pre>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><pre><code class="lang-cpp">/* Copyright (c) 2021 Xie Meiyi(xiemeiyi@hust.edu.cn) and OceanBase and/or its
+affiliates. All rights reserved. miniob is licensed under Mulan PSL v2. You can
+use this software according to the terms and conditions of the Mulan PSL v2. You
+may obtain a copy of Mulan PSL v2 at: http://license.coscl.org.cn/MulanPSL2 THIS
+SOFTWARE IS PROVIDED ON AN &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT,
+MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+See the Mulan PSL v2 for more details. */
+
+//
+// Created by Longda on 2021/4/13.
+//
+
+#include &quot;execute_stage.h&quot;
+
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+
+#include &quot;common/io/io.h&quot;
+#include &quot;common/lang/string.h&quot;
+#include &quot;common/log/log.h&quot;
+#include &quot;common/seda/timer_stage.h&quot;
+#include &quot;event/execution_plan_event.h&quot;
+#include &quot;event/session_event.h&quot;
+#include &quot;event/sql_event.h&quot;
+#include &quot;event/storage_event.h&quot;
+#include &quot;session/session.h&quot;
+#include &quot;sql/executor/execution_node.h&quot;
+#include &quot;sql/executor/tuple.h&quot;
+#include &quot;storage/common/condition_filter.h&quot;
+#include &quot;storage/common/table.h&quot;
+#include &quot;storage/default/default_handler.h&quot;
+#include &quot;storage/trx/trx.h&quot;
+
+using namespace common;
+
+RC create_selection_executor(Trx *trx, const Selects &amp;selects, const char *db,
+                             const char *table_name,
+                             SelectExeNode &amp;select_node);
+
+//! Constructor
+ExecuteStage::ExecuteStage(const char *tag) : Stage(tag) &#123;&#125;
+
+//! Destructor
+ExecuteStage::~ExecuteStage() &#123;&#125;
+
+//! Parse properties, instantiate a stage object
+Stage *ExecuteStage::make_stage(const std::string &amp;tag) &#123;
+  ExecuteStage *stage = new (std::nothrow) ExecuteStage(tag.c_str());
+  if (stage == nullptr) &#123;
+    LOG_ERROR(&quot;new ExecuteStage failed&quot;);
+    return nullptr;
+  &#125;
+  stage-&gt;set_properties();
+  return stage;
+&#125;
+
+//! Set properties for this object set in stage specific properties
+bool ExecuteStage::set_properties() &#123;
+  //  std::string stageNameStr(stageName);
+  //  std::map&lt;std::string, std::string&gt; section = theGlobalProperties()-&gt;get(
+  //    stageNameStr);
+  //
+  //  std::map&lt;std::string, std::string&gt;::iterator it;
+  //
+  //  std::string key;
+
+  return true;
+&#125;
+
+//! Initialize stage params and validate outputs
+bool ExecuteStage::initialize() &#123;
+  LOG_TRACE(&quot;Enter&quot;);
+
+  std::list&lt;Stage *&gt;::iterator stgp = next_stage_list_.begin();
+  default_storage_stage_ = *(stgp++);
+  mem_storage_stage_ = *(stgp++);
+
+  LOG_TRACE(&quot;Exit&quot;);
+  return true;
+&#125;
+
+//! Cleanup after disconnection
+void ExecuteStage::cleanup() &#123;
+  LOG_TRACE(&quot;Enter&quot;);
+
+  LOG_TRACE(&quot;Exit&quot;);
+&#125;
+
+void ExecuteStage::handle_event(StageEvent *event) &#123;
+  LOG_TRACE(&quot;Enter\n&quot;);
+
+  handle_request(event);
+
+  LOG_TRACE(&quot;Exit\n&quot;);
+  return;
+&#125;
+
+void ExecuteStage::callback_event(StageEvent *event, CallbackContext *context) &#123;
+  LOG_TRACE(&quot;Enter\n&quot;);
+
+  // here finish read all data from disk or network, but do nothing here.
+  ExecutionPlanEvent *exe_event = static_cast&lt;ExecutionPlanEvent *&gt;(event);
+  SQLStageEvent *sql_event = exe_event-&gt;sql_event();
+  sql_event-&gt;done_immediate();
+
+  LOG_TRACE(&quot;Exit\n&quot;);
+  return;
+&#125;
+
+void ExecuteStage::handle_request(common::StageEvent *event) &#123;
+  ExecutionPlanEvent *exe_event = static_cast&lt;ExecutionPlanEvent *&gt;(event);
+  SessionEvent *session_event = exe_event-&gt;sql_event()-&gt;session_event();
+  Query *sql = exe_event-&gt;sqls();
+  const char *current_db =
+      session_event-&gt;get_client()-&gt;session-&gt;get_current_db().c_str();
+
+  CompletionCallback *cb = new (std::nothrow) CompletionCallback(this, nullptr);
+  if (cb == nullptr) &#123;
+    LOG_ERROR(&quot;Failed to new callback for ExecutionPlanEvent&quot;);
+    exe_event-&gt;done_immediate();
+    return;
+  &#125;
+  exe_event-&gt;push_callback(cb);
+
+  switch (sql-&gt;flag) &#123;
+    case SCF_SELECT: &#123;  // select
+      RC rc =
+          do_select(current_db, sql, exe_event-&gt;sql_event()-&gt;session_event());
+      if (rc != RC::SUCCESS) &#123;
+        session_event-&gt;set_response(&quot;FAILURE\n&quot;);
+      &#125;
+      exe_event-&gt;done_immediate();
+    &#125; break;
+
+    case SCF_INSERT:
+    case SCF_UPDATE:
+    case SCF_DELETE:
+    case SCF_CREATE_TABLE:
+    case SCF_SHOW_TABLES:
+    case SCF_DESC_TABLE:
+    case SCF_DROP_TABLE:
+    case SCF_CREATE_INDEX:
+    case SCF_DROP_INDEX:
+    case SCF_LOAD_DATA: &#123;
+      StorageEvent *storage_event = new (std::nothrow) StorageEvent(exe_event);
+      if (storage_event == nullptr) &#123;
+        LOG_ERROR(&quot;Failed to new StorageEvent&quot;);
+        event-&gt;done_immediate();
+        return;
+      &#125;
+
+      default_storage_stage_-&gt;handle_event(storage_event);
+    &#125; break;
+    case SCF_SYNC: &#123;
+      RC rc = DefaultHandler::get_default().sync();
+      session_event-&gt;set_response(strrc(rc));
+      exe_event-&gt;done_immediate();
+    &#125; break;
+    case SCF_BEGIN: &#123;
+      session_event-&gt;get_client()-&gt;session-&gt;set_trx_multi_operation_mode(true);
+      session_event-&gt;set_response(strrc(RC::SUCCESS));
+      exe_event-&gt;done_immediate();
+    &#125; break;
+    case SCF_COMMIT: &#123;
+      Trx *trx = session_event-&gt;get_client()-&gt;session-&gt;current_trx();
+      RC rc = trx-&gt;commit();
+      session_event-&gt;get_client()-&gt;session-&gt;set_trx_multi_operation_mode(false);
+      session_event-&gt;set_response(strrc(rc));
+      exe_event-&gt;done_immediate();
+    &#125; break;
+    case SCF_ROLLBACK: &#123;
+      Trx *trx = session_event-&gt;get_client()-&gt;session-&gt;current_trx();
+      RC rc = trx-&gt;rollback();
+      session_event-&gt;get_client()-&gt;session-&gt;set_trx_multi_operation_mode(false);
+      session_event-&gt;set_response(strrc(rc));
+      exe_event-&gt;done_immediate();
+    &#125; break;
+    case SCF_HELP: &#123;
+      const char *response =
+          &quot;show tables;\n&quot;
+          &quot;desc `table name`;\n&quot;
+          &quot;create table `table name` (`column name` `column type`, ...);\n&quot;
+          &quot;create index `index name` on `table` (`column`);\n&quot;
+          &quot;insert into `table` values(`value1`,`value2`);\n&quot;
+          &quot;update `table` set column=value [where `column`=`value`];\n&quot;
+          &quot;delete from `table` [where `column`=`value`];\n&quot;
+          &quot;select [ * | `columns` ] from `table`;\n&quot;;
+      session_event-&gt;set_response(response);
+      exe_event-&gt;done_immediate();
+    &#125; break;
+    case SCF_EXIT: &#123;
+      // do nothing
+      const char *response = &quot;Unsupported\n&quot;;
+      session_event-&gt;set_response(response);
+      exe_event-&gt;done_immediate();
+    &#125; break;
+    default: &#123;
+      exe_event-&gt;done_immediate();
+      LOG_ERROR(&quot;Unsupported command=%d\n&quot;, sql-&gt;flag);
+    &#125;
+  &#125;
+&#125;
+
+void end_trx_if_need(Session *session, Trx *trx, bool all_right) &#123;
+  if (!session-&gt;is_trx_multi_operation_mode()) &#123;
+    if (all_right) &#123;
+      trx-&gt;commit();
+    &#125; else &#123;
+      trx-&gt;rollback();
+    &#125;
+  &#125;
+&#125;
+
+std::string agg_to_string(Aggregation agg) &#123;
+  std::string res = &quot;&quot;;
+  //TODO 构造聚合函数名字
+  switch (agg.func_name) &#123;
+    //TODO AGG_MAX
+    //TODO AGG_MIN
+    //TODO AGG_COUNT
+    //TODO AGG_AVG
+      case AGG_MAX:
+          res += &quot;MAX&quot;;
+          break;
+      case AGG_MIN:
+          res += &quot;MIN&quot;;
+          break;
+      case AGG_COUNT:
+          res += &quot;COUNT&quot;;
+          break;
+      case AGG_AVG:
+          res += &quot;AVG&quot;;
+          break;
+  &#125;
+  res += &quot;(&quot;;
+  if (1 == agg.is_value) &#123;
+    AttrType type = agg.value-&gt;type;
+    void *val = agg.value-&gt;data;
+    std::string str;
+    //TODO 构造输出表达字符串
+    switch (type) &#123;
+      //TODO INT
+      //TODO FLOAT
+      //TODO DATES
+        case UNDEFINED:
+            break;
+        case CHARS:
+            break;
+        case INTS:
+            res += std::to_string(*(int *)val);
+            break;
+        case DATES:
+            res += &quot;DATES&quot;;
+            break;
+        case FLOATS:
+            res += std::to_string(*(float *)val);
+            break;
+    &#125;
+  &#125;
+  else&#123;
+    //TODO 如果有relation_name和field_name的话也要添加
+    if (agg.attribute.relation_name != NULL) &#123;
+        res += agg.attribute.relation_name;
+        res += &quot;.&quot;;
+    &#125;
+    res += agg.attribute.attribute_name;
+  &#125;
+  res += &quot;)&quot;;
+  return res;
+&#125;
+
+void aggregation_exec(const Selects &amp;selects, TupleSet *res_tuples) &#123;
+  if (selects.aggregation_num &gt; 0) &#123;
+    TupleSchema agg_schema;
+    //TODO 设置schema
+    //TODO 依次添加字段值
+    for (size_t i = 0; i &lt; selects.aggregation_num; i++) &#123;
+        const Aggregation &amp;agg = selects.aggregations[i];
+        int idx = -1;
+        auto &amp;temp = res_tuples-&gt;get_schema();
+        auto &amp;fields = res_tuples-&gt;get_schema().fields();
+        for (int i = 0; i &lt; res_tuples-&gt;schema().fields().size(); i++) &#123;
+            if (agg.attribute.attribute_name == NULL) continue; // 处理count(1)情况
+            if ( (agg.attribute.relation_name == NULL || strcmp(agg.attribute.relation_name, fields[i].table_name()) == 0) &amp;&amp;
+            (strcmp(agg.attribute.attribute_name, fields[i].field_name()) == 0) ) &#123;
+                idx = i;
+                break;
+            &#125;
+        &#125;
+        if (idx == -1) &#123;
+            agg_schema.add(INTS, &quot;&quot;, agg_to_string(agg).c_str());
+        &#125; else &#123;
+            auto tupleField = res_tuples-&gt;get_schema().field(idx);
+            agg_schema.add(tupleField.type(), tupleField.table_name(), agg_to_string(agg).c_str());
+        &#125;
+    &#125;
+    Tuple out;
+    for (size_t i = 0; i &lt; selects.aggregation_num; i++) &#123;
+      const Aggregation &amp;agg = selects.aggregations[i];
+      const std::vector&lt;Tuple&gt; &amp;tuples = res_tuples-&gt;tuples();
+//      TupleValue tupleValue;
+        int idx = -1;
+        auto fields = res_tuples-&gt;get_schema().fields();
+        for (int i = 0; i &lt; res_tuples-&gt;schema().fields().size(); i++) &#123;
+            if (agg.attribute.attribute_name == NULL) continue; // 处理count(1)情况
+            if ( (agg.attribute.relation_name == NULL || strcmp(agg.attribute.relation_name, fields[i].table_name()) == 0) &amp;&amp;
+                 (strcmp(agg.attribute.attribute_name, fields[i].field_name()) == 0) ) &#123;
+                idx = i;
+                break;
+            &#125;
+        &#125;
+        AttrType attrType;
+        if (idx != -1) &#123;
+            attrType = res_tuples-&gt;get_schema().field(idx).type();
+        &#125;
+        switch (agg.func_name) &#123;
+
+        case FuncName::AGG_MAX: &#123;
+            switch (attrType) &#123;
+                case INTS: &#123;
+                    int mx = -999999999;
+                    for (auto &amp;tuple: tuples) &#123;
+                        int val = ((IntValue *) tuple.get_pointer(idx).get())-&gt;get_value();
+                        mx = std::max(mx, val);
+                    &#125;
+                    out.add(mx);
+                    break;
+                &#125;
+                case FLOATS: &#123;
+                    float mx = -999999999;
+                    for (auto &amp;tuple: tuples) &#123;
+                        float val = ((FloatValue *) tuple.get_pointer(idx).get())-&gt;get_value();
+                        float mx = std::max(mx, val);
+                    &#125;
+                    out.add(mx);
+                    break;
+                &#125;
+            &#125;
+            break;
+        &#125;
+        case FuncName::AGG_MIN: &#123;
+          //TODO 遍历所有元组，获取最值
+
+            switch (attrType) &#123;
+                case INTS: &#123;
+                    int mn = 999999999;
+                    for (auto &amp;tuple: tuples) &#123;
+                        int val = ((IntValue *) tuple.get_pointer(idx).get())-&gt;get_value();
+                        mn = std::min(mn, val);
+                    &#125;
+                    out.add(mn);
+                    break;
+                &#125;
+                case FLOATS: &#123;
+                    float mn = 999999999;
+                    for (auto &amp;tuple: tuples) &#123;
+                        float val = ((FloatValue *) tuple.get_pointer(idx).get())-&gt;get_value();
+                        float mn = std::min(mn, val);
+                    &#125;
+                    out.add(mn);
+                    break;
+                &#125;
+            &#125;
+            break;
+        //TODO 增加这条记录
+        &#125;
+        case FuncName::AGG_COUNT: &#123;
+          // 值为size的大小
+          // count(1) or count(id)?
+          if (idx == -1) &#123;
+              out.add((int)tuples.size());
+          &#125; else &#123;
+              switch (attrType) &#123;
+                  case INTS: &#123;
+                      int cnt = 0;
+                      for (auto &amp;tuple: tuples) &#123;
+                          int val = ((IntValue *) tuple.get_pointer(idx).get())-&gt;get_value();
+                          if (val != NULL) cnt++;
+                      &#125;
+                      out.add(cnt);
+                      break;
+                  &#125;
+                  case FLOATS: &#123;
+                      int cnt = 0;
+                      for (auto &amp;tuple: tuples) &#123;
+                          float val = ((FloatValue *) tuple.get_pointer(idx).get())-&gt;get_value();
+                          if (val != NULL) cnt++;
+                      &#125;
+                      out.add(cnt);
+                      break;
+                  &#125;
+              &#125;
+
+          &#125;
+          //TODO 增加这条记录
+          break;
+        &#125;
+        case FuncName::AGG_AVG: &#123;
+            //TODO 遍历所有元组，获取和
+            float sum = 0;
+            switch (attrType) &#123;
+                case INTS: &#123;
+                    for (auto &amp;tuple: tuples) &#123;
+                        int val = ((IntValue *) tuple.get_pointer(idx).get())-&gt;get_value();
+                        sum += val;
+                    &#125;
+                    break;
+                &#125;
+                case FLOATS: &#123;
+                    for (auto &amp;tuple: tuples) &#123;
+                        float val = ((FloatValue *) tuple.get_pointer(idx).get())-&gt;get_value();
+                        sum += val;
+                    &#125;
+                    break;
+                &#125;
+            &#125;
+            //TODO 增加这条记录
+            out.add(sum / tuples.size());
+            break;
+        &#125;
+      &#125;
+    &#125;
+    //等所有值都计算完再去清除res
+    res_tuples-&gt;clear();
+    res_tuples-&gt;set_schema(agg_schema);
+    res_tuples-&gt;add(std::move(out));
+  &#125;
+  return;
+&#125;
+
+// 需要满足多表联查条件
+bool match_join_condition(const Tuple *res_tuple,
+                          const std::vector&lt;std::vector&lt;int&gt;&gt; condition_idxs) &#123;
+    // res_tuple 是 需要进行筛选的某一行
+    // condition_idxs 是 C x 3 数组
+    // 每一条的3个元素代表（左值的属性在新schema的下标，CompOp运算符，右值的属性在新schema的下标）
+    //TODO 判断表中某一行 res_tuple 是否满足多表联查条件即：左值=右值
+    for (int i = 0; i &lt; condition_idxs.size(); i++) &#123;
+        CompOp comp = CompOp(condition_idxs[i][1]);
+        const TupleValue &amp;left_value = res_tuple-&gt;get(condition_idxs[i][0]);
+        const TupleValue &amp;right_value = res_tuple-&gt;get(condition_idxs[i][2]);
+        if (comp == EQUAL_TO &amp;&amp; left_value.compare(right_value)) &#123;
+            return false;
+        &#125;
+    &#125;
+    return true;
+&#125;
+// 将多段小元组合成一个大元组
+Tuple merge_tuples(
+        const std::vector&lt;std::vector&lt;Tuple&gt;::const_iterator&gt; temp_tuples,
+        std::vector&lt;int&gt; orders) &#123;
+    std::vector&lt;std::shared_ptr&lt;TupleValue&gt;&gt; temp_res;
+    Tuple res_tuple;
+    //TODO 先把每个字段都放到对应的位置上(temp_res)
+    //TODO 再依次(orders)添加到大元组(res_tuple)里即可
+    for (auto iter: temp_tuples) &#123;
+        for (auto value: iter-&gt;values()) &#123;
+            temp_res.push_back(value);
+        &#125;
+    &#125;
+    for (int order: orders) &#123;
+        res_tuple.add(temp_res[order]);
+    &#125;
+    return res_tuple;
+&#125;
+
+// 这里没有对输入的某些信息做合法性校验，比如查询的列名、where条件中的列名等，没有做必要的合法性校验
+// 需要补充上这一部分.
+// 校验部分也可以放在resolve，不过跟execution放一起也没有关系
+RC ExecuteStage::do_select(const char *db, const Query *sql,
+                           SessionEvent *session_event) &#123;
+  RC rc = RC::SUCCESS;
+  Session *session = session_event-&gt;get_client()-&gt;session;
+  Trx *trx = session-&gt;current_trx();
+  const Selects &amp;selects = sql-&gt;sstr.selection;
+
+  // 把所有的表和只跟这张表关联的condition都拿出来，生成最底层的select
+  // 执行节点
+  std::vector&lt;SelectExeNode *&gt; select_nodes;
+  for (size_t i = 0; i &lt; selects.relation_num; i++) &#123;
+    const char *table_name = selects.relations[i];
+    SelectExeNode *select_node = new SelectExeNode;
+    rc = create_selection_executor(trx, selects, db, table_name, *select_node);
+    if (rc != RC::SUCCESS) &#123;
+      delete select_node;
+      for (SelectExeNode *&amp;tmp_node: select_nodes) &#123;
+        delete tmp_node;
+      &#125;
+      end_trx_if_need(session, trx, false);
+      return rc;
+    &#125;
+    select_nodes.push_back(select_node);
+  &#125;
+  if (select_nodes.empty()) &#123;
+    LOG_ERROR(&quot;No table given&quot;);
+    end_trx_if_need(session, trx, false);
+    return RC::SQL_SYNTAX;
+  &#125;
+
+  std::vector&lt;TupleSet&gt; tuple_sets;
+  for (SelectExeNode *&amp;node: select_nodes) &#123;
+    TupleSet tuple_set;
+    rc = node-&gt;execute(tuple_set);
+    if (rc != RC::SUCCESS) &#123;
+      for (SelectExeNode *&amp;tmp_node: select_nodes) &#123;
+        delete tmp_node;
+      &#125;
+      end_trx_if_need(session, trx, false);
+      return rc;
+    &#125; else &#123;
+      tuple_sets.push_back(std::move(tuple_set));
+    &#125;
+  &#125;
+
+  std::stringstream ss;
+  TupleSet print_tuples;
+  if (tuple_sets.size() &gt; 1) &#123;
+    // 本次查询了多张表，需要做join操作
+    TupleSchema join_schema;
+    TupleSchema old_schema;
+    for (std::vector&lt;TupleSet&gt;::const_reverse_iterator
+                 rit = tuple_sets.rbegin(),
+                 rend = tuple_sets.rend();
+         rit != rend; ++rit) &#123;
+      // 这里是某张表投影完的所有字段，如果是select * from t1,t2;
+      // old_schema=[t1.a, t1.b, t2.a, t2.b]
+      old_schema.append(rit-&gt;get_schema());
+    &#125;
+
+    std::vector&lt;int&gt; select_order;
+    //TODO 根据列名输出顺序，添加 old_schema 对应字段到 join_schema 中，并构建select_order数组
+    // 如果是select * ，添加所有字段
+    // 如果是select t1.*，表名匹配的加入字段
+    // 如果是select t1.age，表名+字段名匹配的加入字段
+
+    std::vector&lt;int&gt; orders;
+    for (int i = selects.attr_num - 1; i &gt;= 0; i--) &#123;
+        for (int j = 0; j &lt; old_schema.fields().size(); j++) &#123;
+            if (selects.attributes[i].relation_name == NULL
+                || (strcmp(selects.attributes[i].relation_name, old_schema.field(j).table_name()) == 0
+                    &amp;&amp; (strcmp(selects.attributes[i].attribute_name, old_schema.field(j).field_name()) == 0
+                        || strcmp(selects.attributes[i].attribute_name, &quot;*&quot;) == 0))) &#123;
+                join_schema.add(old_schema.field(j));
+                orders.push_back(j);
+            &#125;
+        &#125;
+    &#125;
+
+    print_tuples.set_schema(join_schema);
+
+    // 构建联查的conditions需要找到对应的表
+    // C x 3 数组
+    // 每一条的3个元素代表（左值的属性在新schema的下标，CompOp运算符，右值的属性在新schema的下标）
+    std::vector&lt;std::vector&lt;int&gt;&gt; condition_idxs;
+    for (size_t i = 0; i &lt; selects.condition_num; i++) &#123;
+      const Condition &amp;condition = selects.conditions[i];
+      if (condition.left_is_attr == 1 &amp;&amp;
+          condition.right_is_attr == 1) &#123;
+        std::vector&lt;int&gt; temp_con;
+        const char *l_table_name = condition.left_attr.relation_name;
+        const char *l_field_name = condition.left_attr.attribute_name;
+        const CompOp comp = condition.comp;
+        const char *r_table_name = condition.right_attr.relation_name;
+        const char *r_field_name = condition.right_attr.attribute_name;
+        temp_con.push_back(print_tuples.get_schema().index_of_field(
+                l_table_name, l_field_name));
+        temp_con.push_back(comp);
+        temp_con.push_back(print_tuples.get_schema().index_of_field(
+                r_table_name, r_field_name));
+        condition_idxs.push_back(temp_con);
+      &#125;
+    &#125;
+    //TODO 元组的拼接需要实现笛卡尔积
+    //TODO 将符合连接条件的元组添加到print_tables中
+    int tuple_number = 1;
+    std::vector&lt;int&gt; rec_tot(tuple_sets.size());
+    for (int i = tuple_sets.size() - 1; i &gt;= 0; i--) &#123;
+        auto rit = &amp;tuple_sets[i];
+        rec_tot[i] = tuple_number;
+        tuple_number *= rit-&gt;size();
+    &#125;
+    for (int i = 0; i &lt; tuple_number; i++) &#123;
+        std::vector&lt;std::vector&lt;Tuple&gt;::const_iterator&gt; vec;
+        for (int j = tuple_sets.size() - 1; j &gt;= 0; j--) &#123;
+            auto rit = &amp;tuple_sets[j];
+            vec.push_back(rit-&gt;tuples().begin() + (i / rec_tot[j]) % rit-&gt;size());
+        &#125;
+        Tuple merge_res = merge_tuples(vec, orders);
+        bool c = match_join_condition(&amp;merge_res, condition_idxs);
+        if (c)
+            print_tuples.add(std::move(merge_res));
+    //TODO 添加聚合算子
+      aggregation_exec(selects, &amp;print_tuples);
+      print_tuples.print(ss);
+    &#125;
+  &#125; else &#123;
+    //TODO 添加聚合算子
+      aggregation_exec(selects, &amp;tuple_sets.front());
+    // 当前只查询一张表，直接返回结果即可
+      tuple_sets.front().print(ss);
+    &#125;
+    for (SelectExeNode *&amp;tmp_node: select_nodes) &#123;
+      delete tmp_node;
+    &#125;
+    session_event-&gt;set_response(ss.str());
+    end_trx_if_need(session, trx, true);
+    return rc;
+&#125;
+
+
+bool match_table(const Selects &amp;selects, const char *table_name_in_condition,
+                 const char *table_name_to_match) &#123;
+  if (table_name_in_condition != nullptr) &#123;
+    return 0 == strcmp(table_name_in_condition, table_name_to_match);
+  &#125;
+
+  return selects.relation_num == 1;
+&#125;
+
+static RC schema_add_field(Table *table, const char *field_name,
+                           TupleSchema &amp;schema) &#123;
+  const FieldMeta *field_meta = table-&gt;table_meta().field(field_name);
+  if (nullptr == field_meta) &#123;
+    LOG_WARN(&quot;No such field. %s.%s&quot;, table-&gt;name(), field_name);
+    return RC::SCHEMA_FIELD_MISSING;
+  &#125;
+
+  schema.add_if_not_exists(field_meta-&gt;type(), table-&gt;name(),
+                           field_meta-&gt;name());
+  return RC::SUCCESS;
+&#125;
+
+// 把所有的表和只跟这张表关联的condition都拿出来，生成最底层的select 执行节点
+RC create_selection_executor(Trx *trx, const Selects &amp;selects, const char *db,
+                             const char *table_name,
+                             SelectExeNode &amp;select_node) &#123;
+  Table *table;
+
+  // attribute tables check
+  for (size_t i = 0; i &lt; selects.attr_num; i++) &#123;
+    if (selects.attributes[i].relation_name == nullptr) &#123;
+      continue;
+    &#125;
+    table = DefaultHandler::get_default().find_table(
+        db, selects.attributes[i].relation_name);
+    if (nullptr == table) &#123;
+      LOG_WARN(&quot;No such table [%s] in db [%s]&quot;,
+               selects.attributes[i].relation_name, db);
+      return RC::SCHEMA_TABLE_NOT_EXIST;
+    &#125;
+  &#125;
+
+  // condition tables check
+  for (size_t i = 0; i &lt; selects.condition_num; i++) &#123;
+    if (selects.conditions[i].left_is_attr == 1) &#123;
+      if (selects.conditions[i].left_attr.relation_name == nullptr) &#123;
+        continue;
+      &#125;
+      table = DefaultHandler::get_default().find_table(
+          db, selects.conditions[i].left_attr.relation_name);
+      if (nullptr == table) &#123;
+        LOG_WARN(&quot;No such table [%s] in db [%s]&quot;,
+                 selects.conditions[i].left_attr.relation_name, db);
+        return RC::SCHEMA_TABLE_NOT_EXIST;
+      &#125;
+    &#125;
+    if (selects.conditions[i].left_is_attr == 1) &#123;
+      if (selects.conditions[i].right_attr.relation_name == nullptr) &#123;
+        continue;
+      &#125;
+      table = DefaultHandler::get_default().find_table(
+          db, selects.conditions[i].right_attr.relation_name);
+      if (nullptr == table) &#123;
+        LOG_WARN(&quot;No such table [%s] in db [%s]&quot;,
+                 selects.conditions[i].right_attr.relation_name, db);
+        return RC::SCHEMA_TABLE_NOT_EXIST;
+      &#125;
+    &#125;
+  &#125;
+
+  // 列出跟这张表关联的Attr
+  TupleSchema schema;
+  table = DefaultHandler::get_default().find_table(db, table_name);
+  if (nullptr == table) &#123;
+    LOG_WARN(&quot;No such table [%s] in db [%s]&quot;, table_name, db);
+    return RC::SCHEMA_TABLE_NOT_EXIST;
+  &#125;
+
+  //如果是聚合函数：count/min/max/avg(PARAMETER)，直接select PARAMETER
+  if (selects.aggregation_num &gt; 0 &amp;&amp; selects.attr_num == 0) &#123;
+    for (int i = selects.aggregation_num - 1; i &gt;= 0; i--) &#123;
+      if (1 == selects.aggregations[i].is_value) &#123;
+        // 列出这张表所有字段
+        TupleSchema::from_table(table, schema);
+        break;  // 没有校验，给出* 之后，再写字段的错误
+      &#125;
+      const RelAttr &amp;attr = selects.aggregations[i].attribute;
+      if (nullptr == attr.relation_name ||
+          0 == strcmp(table_name, attr.relation_name)) &#123;
+        if (0 == strcmp(&quot;*&quot;, attr.attribute_name)) &#123;
+          // 列出这张表所有字段
+          TupleSchema::from_table(table, schema);
+          break;
+        &#125; else &#123;
+          // 列出这张表相关字段
+          RC rc = schema_add_field(table, attr.attribute_name, schema);
+          if (rc != RC::SUCCESS) &#123;
+            return rc;
+          &#125;
+        &#125;
+      &#125;
+    &#125;
+  &#125; else &#123;  // 正常的投影操作
+    for (int i = selects.attr_num - 1; i &gt;= 0; i--) &#123;
+      const RelAttr &amp;attr = selects.attributes[i];
+      if (nullptr == attr.relation_name ||
+          0 == strcmp(table_name, attr.relation_name)) &#123;
+        if (0 == strcmp(&quot;*&quot;, attr.attribute_name)) &#123;
+          // 列出这张表所有字段
+          TupleSchema::from_table(table, schema);
+          break;  // 没有校验，给出* 之后，再写字段的错误
+        &#125; else &#123;
+          // 列出这张表相关字段
+          RC rc = schema_add_field(table, attr.attribute_name, schema);
+          if (rc != RC::SUCCESS) &#123;
+            return rc;
+          &#125;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+
+  // 找出仅与此表相关的过滤条件, 或者都是值的过滤条件
+  std::vector&lt;DefaultConditionFilter *&gt; condition_filters;
+  for (size_t i = 0; i &lt; selects.condition_num; i++) &#123;
+    const Condition &amp;condition = selects.conditions[i];
+    if ((condition.left_is_attr == 0 &amp;&amp;
+         condition.right_is_attr == 0) ||  // 两边都是值
+        (condition.left_is_attr == 1 &amp;&amp; condition.right_is_attr == 0 &amp;&amp;
+         match_table(selects, condition.left_attr.relation_name,
+                     table_name)) ||  // 左边是属性右边是值
+        (condition.left_is_attr == 0 &amp;&amp; condition.right_is_attr == 1 &amp;&amp;
+         match_table(selects, condition.right_attr.relation_name,
+                     table_name)) ||  // 左边是值，右边是属性名
+        (condition.left_is_attr == 1 &amp;&amp; condition.right_is_attr == 1 &amp;&amp;
+         match_table(selects, condition.left_attr.relation_name, table_name) &amp;&amp;
+         match_table(selects, condition.right_attr.relation_name,
+                     table_name))  // 左右都是属性名，并且表名都符合
+    ) &#123;
+      DefaultConditionFilter *condition_filter = new DefaultConditionFilter();
+      RC rc = condition_filter-&gt;init(*table, condition);
+      if (rc != RC::SUCCESS) &#123;
+        delete condition_filter;
+        for (DefaultConditionFilter *&amp;filter : condition_filters) &#123;
+          delete filter;
+        &#125;
+        return rc;
+      &#125;
+      condition_filters.push_back(condition_filter);
+    &#125;
+  &#125;
+
+  return select_node.init(trx, table, std::move(schema),
+                          std::move(condition_filters));
+&#125;
+</code></pre>
 
         
     
@@ -835,6 +1602,14 @@ for (int i = 0; i &lt; tuple_number; i++) &#123;
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2022/05/30/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/%E5%A4%8F%E5%A4%A9%E6%98%AF%E4%B8%80%E4%B8%AA-%E4%B8%8D%E5%BE%97%E5%AE%89%E5%AE%81%E7%9A%84%E5%AD%A3%E8%8A%82/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -934,7 +1709,7 @@ for (int i = 0; i &lt; tuple_number; i++) &#123;
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2022/04/">四月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/04/">四月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
