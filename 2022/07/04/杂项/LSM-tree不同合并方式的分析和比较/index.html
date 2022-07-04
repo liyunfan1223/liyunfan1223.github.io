@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            LSM-tree不同合并方式的分析和比较 | 
+        
+        Moonglade
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon_io_c/favicon-32x32.png">
+    <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: ;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Moonglade">
+    <meta name="msapplication-starturl" content="https://moonglade.top/2022/07/04/%E6%9D%82%E9%A1%B9/LSM-tree%E4%B8%8D%E5%90%8C%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%AF%94%E8%BE%83/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://moonglade.top/2022/07/04/%E6%9D%82%E9%A1%B9/LSM-tree%E4%B8%8D%E5%90%8C%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%AF%94%E8%BE%83/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="LSM-tree不同合并方式的分析和比较 | Moonglade">
+    <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Mon Jul 04 2022 12:17:40 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jul 04 2022 13:19:20 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://moonglade.top/2022/07/04/%E6%9D%82%E9%A1%B9/LSM-tree%E4%B8%8D%E5%90%8C%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%AF%94%E8%BE%83/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#LSM-tree%E4%B8%8D%E5%90%8C%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%AF%94%E8%BE%83"><span class="post-toc-number">1.</span> <span class="post-toc-text">LSM-tree不同合并方式的分析和比较</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%91%98%E8%A6%81"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LSM-tree%E7%9A%84%E5%8E%86%E5%8F%B2%E7%94%B1%E6%9D%A5"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">LSM-tree的历史由来</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LSM-tree%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">LSM-tree的基本结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LSM-tree%E7%9A%84%E7%BB%84%E4%BB%B6%E5%AE%9E%E7%8E%B0"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">LSM-tree的组件实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LSM-tree%E7%9A%84%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">LSM-tree的合并方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LSM-tree%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">LSM-tree的常见优化方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AF%94%E8%BE%83Leveling%E5%92%8CTiering%E4%B8%A4%E7%A7%8D%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">比较Leveling和Tiering两种合并方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%A3%E4%BB%B7%E5%88%86%E6%9E%90"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">代价分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%86%99%E4%BB%A3%E4%BB%B7"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">写代价</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%95%E7%82%B9%E6%9F%A5%E8%AF%A2"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">单点查询</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2"><span class="post-toc-number">1.4.2.3.</span> <span class="post-toc-text">区间查询</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%A9%BA%E9%97%B4%E6%94%BE%E5%A4%A7"><span class="post-toc-number">1.4.2.4.</span> <span class="post-toc-text">空间放大</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9C%A8%E5%88%86%E5%8C%BA%E4%BC%98%E5%8C%96%E4%B8%8A%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">在分区优化上的差异</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Leveling%E5%88%86%E5%8C%BA"><span class="post-toc-number">1.4.3.1.</span> <span class="post-toc-text">Leveling分区</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Tiering%E5%88%86%E5%8C%BA"><span class="post-toc-number">1.4.3.2.</span> <span class="post-toc-text">Tiering分区</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Dostoevsky%EF%BC%9A%E4%B8%80%E7%A7%8D%E6%94%B9%E8%BF%9B%E7%9A%84%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Dostoevsky：一种改进的合并方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Lazy-Leveling"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">Lazy Leveling</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Fluid-LSM-Tree"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">Fluid LSM-Tree</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E6%9C%AA%E6%9D%A5%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">合并方式的未来研究方向</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E5%8C%BAtiering%E7%BB%93%E6%9E%84"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">分区tiering结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B7%B7%E5%90%88%E5%90%88%E5%B9%B6%E7%AD%96%E7%95%A5"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">混合合并策略</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">结论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">参考</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                LSM-tree不同合并方式的分析和比较
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>7月 04, 2022</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LSM-tree不同合并方式的分析和比较&url=https://moonglade.top/2022/07/04/%E6%9D%82%E9%A1%B9/LSM-tree%E4%B8%8D%E5%90%8C%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%AF%94%E8%BE%83/index.html&pic=https://moonglade.top/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LSM-tree不同合并方式的分析和比较&url=https://moonglade.top/2022/07/04/%E6%9D%82%E9%A1%B9/LSM-tree%E4%B8%8D%E5%90%8C%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%AF%94%E8%BE%83/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://moonglade.top/2022/07/04/%E6%9D%82%E9%A1%B9/LSM-tree%E4%B8%8D%E5%90%8C%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%AF%94%E8%BE%83/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://moonglade.top/2022/07/04/%E6%9D%82%E9%A1%B9/LSM-tree%E4%B8%8D%E5%90%8C%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%AF%94%E8%BE%83/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="LSM-tree不同合并方式的分析和比较"><a href="#LSM-tree不同合并方式的分析和比较" class="headerlink" title="LSM-tree不同合并方式的分析和比较"></a>LSM-tree不同合并方式的分析和比较</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文首先介绍了LSM-tree的基本概念，包括历史由来、基本结构、组件实现、合并方式和常见的优化方法。接着以Leveling和Tiering两种合并方式为例，引出了不同合并方法在不同操作上的性能取舍，并从磁盘I/O的角度进行代价分析，从写代价、单点查询、区间查询和空间放大的角度分析不同合并方式的开销。然后介绍了一种基于Leveling和Tiering，将两者结合的Dostoevsky合并方式，介绍这种方式的优缺点。最后介绍了关于合并方式的未来研究方向。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>LSM-tree被广泛采用于现代NoSQL系统中的存储层。因此有大量的相关研究，比如数据库系统和操作系统两大领域都在尝试对LSM-tree进行改善。</p>
+<p>与传统的索引结构in-place的更新方式不同，LSM-tree采取一种out-of-place的更新方式：首先在内存中对所有写操作进行缓存，并在之后将它们刷进磁盘，并通过一连串的IO进行合并。这种设计带来了许多好处，包括非常好的写效率、高空间利用率、可协调性和对并发控制、并发恢复的简化。这些优势使得LSM-trees能够服务于各种类型的负载。</p>
+<p>由于LSM-tree的流行性，有许多关于LSM-tree的设计优化被提出，这篇文章首先对LSM-tree的基本概念作简单的介绍，接着以leveling和tiering两种合并方式为切入点，分析两种合并方式在性能差异，介绍与两者相关的优化，以及未来的研究方向。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="LSM-tree的历史由来"><a href="#LSM-tree的历史由来" class="headerlink" title="LSM-tree的历史由来"></a>LSM-tree的历史由来</h3><p>索引结构可以有两种方式来处理更新，分别是in-place和out-of-place。使用in-place方式更新的结构，比如B+-tree，通过直接覆盖旧记录来存储新的更新。比如Fig 1a中，通过将键值k1的value从v1更新至v4，那么键值对(k1, v1)直接因这次更新被修改了。这些结构（in-place update）通常倾向于读优化，因为只有每个记录的最近版本被存储了。然而，这种设计牺牲了写性能，因为更新会导致随机IO，而且通常索引页会被更新和删除划分成很多个碎片，导致空间利用率的降低。</p>
+<p>下图比较了in-place update和out-of-place update的差异。</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627175052394.png" alt="image-20220627175052394"></p>
+<center>Fig 1</center>
+
+<p>相反，对于out-of-place update结构，比如LSM-tree，总是更新到新的位置而不是覆盖旧的记录。比如Fig 1b，更新(k1, v4)被存到了新的地方，而不是直接更新(k1, v1)。这种设计改进了写性能因为能利用连续IO来处理读操作。这同样能够简化恢复操作，因为没有覆盖旧数据。但最主要的问题是，这种设计的读性能被牺牲了，因为一个记录可能被存在多处位置。进一步说，这些结构通常需要一个将分散数据重新组织和处理，来不断地改进存储和查询效率。</p>
+<p>out-of-place的想法从1970年代就被提出并用于数据库系统，但那时还存在许多问题，比如将数据存储到仅追加的日志会导致低的读效率，因为相关的记录被分散在整个日志中。另一个问题是低的空间利用率，因为无用的日志没有被移除。同时也没有标准的代价模型去分析各种代价之间的权衡，直到1996年LSM-tree被提出解决了这些问题。</p>
+<h3 id="LSM-tree的基本结构"><a href="#LSM-tree的基本结构" class="headerlink" title="LSM-tree的基本结构"></a>LSM-tree的基本结构</h3><p>最初的LSM-tree设计包含了一系列组件$C_0,C_1,\cdots,C_k$，就如Fig 2中所示。每个组件的结构都像一颗B+-tree，$C_0$驻留在内存并服务于即将到来的写操作，剩下的所有组件驻留在磁盘中。当$C_i$写满了，一个滚动合并进程会被触发，将$C_i$中一定范围的叶节点页(leaf pages)合并入$C_{i+1}$。这种设计通常指的是现在所说的层级合并策略。但这种最开始的层级合并进程并没有被现在的基于LSM-tree的层数系统使用，因为它的实现复杂度过高。最初关于LSM-tree的论文表示，当处于一个稳定的负载时，叶节点的数量保持静态，如果所有的相邻组件的大小比例都相同($T_i=|C_{i+1}|/|C_i|$)，写性能此时能够被优化。这个原则对所有LSM-tree的后续实现和改进产生影响。</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627152634307.png" alt=""></p>
+<center>Fig 2</center>
+
+<h3 id="LSM-tree的组件实现"><a href="#LSM-tree的组件实现" class="headerlink" title="LSM-tree的组件实现"></a>LSM-tree的组件实现</h3><p>从内部来看，LSM-tree的组件可以使用任何索引结构来实现。如今LSM-tree的实现通常会用内存组件构成一个并发数据结构，比如skip-list或者B+-tree，在磁盘组件上则用B+-tree或者SSTable(sorted-string tables)，一个SSTable包含一系列数据块和一个索引块；数据块存储了按照key排序后的键值对，索引块存储了所有数据块的键值区间。</p>
+<p>由数据结构的特点发现，SSTable可以通过index结构找到要读取的数据块磁盘位置，那么对于单点的插入和查询在磁盘IO上的复杂度是$O(1)$的，这为后面的代价分析提供了基础。</p>
+<h3 id="LSM-tree的合并方式"><a href="#LSM-tree的合并方式" class="headerlink" title="LSM-tree的合并方式"></a>LSM-tree的合并方式</h3><p>在LSM-tree上询问需要搜索多个组件才能保证一致，也就是要找到每个键值的最后版本。这里分成点查和区间查，点查需要找到特定键对应的值，可以简单地从最新的组件找到最旧的组件，这样第一次匹配一定就是最后版本，可以立刻停下。区间查可以同时查询所有的组件，把查询结果放进一个优先队列来保证一致。当磁盘组件随着时间积累，查询性能会逐渐变差，因为需要检查更多的组件。为了解决这个问题，磁盘组件会逐渐合并并减少组件数量。</p>
+<p>合并实际上是LSM tree这种架构里面的核心问题，也直接影响到实现的效率和成本。我们可以假设合并操作存在两个极端情况：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627161943029.png" alt="image-20220627161943029"></p>
+<center>Fig 3</center>
+
+<ul>
+<li><p>第一种极端如Fig 3左上的log方案，即完全不进行合并，所有数据全部写入Log，然后直接灌入SStable，这种做法更新代价当然是最低的，直接写入磁盘即可。但是一旦要查询或者更新一个键值对，开销就会非常大。因为此时磁盘上的记录既没有排序，也没有去除废弃的记录，只能线性一个一个查，效率低下。而且空间利用率非常低，数据会随着输入线性增长，磁盘空间会被迅速占满。</p>
+</li>
+<li><p>第二种极端如Fig 3右下sorted array方案，每次得到一条新的写入，立刻进行compaction，时刻维持整个数据更新到最新值，并保持sorted状态。这样的查询效率显然最高，但是需要每次更新都去调整，进行排序和更新的开销太大。</p>
+</li>
+</ul>
+<p>所以现实中的LSM-tree都是在这两种方案之间的折中。会在更新积累到一定程度后再做一次合并。</p>
+<h3 id="LSM-tree的常见优化方法"><a href="#LSM-tree的常见优化方法" class="headerlink" title="LSM-tree的常见优化方法"></a>LSM-tree的常见优化方法</h3><p>这里有两种常见的优化方法，已经被用在了如今大多数LSM-tree的实现中：</p>
+<p><strong>布隆过滤器：</strong>布隆过滤器是一个节约空间的概率数据结构，能够帮助回答集合成员查询问题。它支持两种操作：插入一个key，和回答给定集合中是否包含一个key。插入key时，对key进行多次hash操作，映射到为一个二进制向量的多个位置，置这些位置为1。检查指定的key是否存在时，同样方法哈希，如果多个哈希的位置都是1，说明该key可能存在，否则一定不存在。这种设计下布隆过滤器报告可能会有假阳性，但不会有假阴性。布隆过滤器可以被放置在磁盘组件的顶端，来改进点查询效率。在搜索磁盘组件之前，可以首先检查布隆过滤器，只有当布隆过滤器认为可能存在key时再去B+-tree上搜索。另一种用法是在每个叶节点页上加一个布隆过滤器，这样只要先在非叶节点上搜索（假设非页节点总是小到能够被cache容纳），用布隆过滤器减少对叶节点的访问，以此减少磁盘IO次数。需要注意的是，布隆过滤器造成的假阳性不会影响到查询的正确性，但会造成一些IO的浪费。这个假阳性的概率可以由$(1-e^{-kn/m})^k$计算，k是hash函数个数，n是键值个数，m是向量长度。进一步可以计算出，使得假阳性概率最低的最优的哈希函数个数$k=\frac{m}{n}\ln 2$。因为布隆过滤器很小，能够被缓存在内存中，磁盘IO的次数会显著减少。</p>
+<p><strong>分区：</strong>另一种常见的优化是把LSM-tree磁盘组件分成多个通常大小固定的小分区。为了减少术语上造成的误解，我们用SSTable来表示这样的分区。这个优化有很多好处，首先，分区把一次大合并操作拆分成多个小合并，这和每次merge操作的进程时间、创建新组件的临时磁盘空间需求是相关的。进一步，分区可以优化连续新建key的负载，以及只有重叠key的混合更新。对于连续新建的key，实际上不会有合并发生，因为没有重复的key区间。对于混合更新，组件冷区间的合并频率会大幅减少。最开始的LSM-tree由于滚动合并的设计，可以自然从分区中受益，但由于级联合并在实现上的复杂性，如今的LSM-tree通常使用物理上的分区，而不是级联合并。一种早期的分区方法是用分区指数文件(PE-file)。一个PE-file包含多个分区，每个分区可以在逻辑上看成一颗独立的LSM-tree。一个分区可以在它过大的时候被进一步分成两个分区。但是这种设计要求分区之间有严格的区间限制，会减少合并的自由度。</p>
+<h2 id="比较Leveling和Tiering两种合并方式"><a href="#比较Leveling和Tiering两种合并方式" class="headerlink" title="比较Leveling和Tiering两种合并方式"></a>比较Leveling和Tiering两种合并方式</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>之前提到，不同的合并方式会对LSM-tree的读写性能、空间利用率产生不同的影响。这里主要考虑两种基础的合并策略：Leveling和Tiering。</p>
+<p>Fig 4a表示leveling合并策略，每一层只包含一个组件，但是第L层的组件比第L-1层的组件大T倍。结果就是，第L层的组件会被第L-1层的组件合并多次，直到它被填满，并被合并入L+1层的组件。如图中的例子，level 0被合并入level 1，使得level 1的组件变得更大了。</p>
+<p>相反，tiering合并策略在每一层都维护最多T个组件，当第L层满了，它的T个组件会被一起合并到一个L+1层的新组件。图中，level 0的两个组件一起合并形成了一个level 1的新组件。值得一提的是，如果level L已经达到配置中的最大层数，那么生成的新组件会停留在第L层。实际情况中，对于一个稳定的工作负载（插入量等于删除量，那么level的总数保持静态）。总的来说，leveling合并策略优化查询性能，因为组件更少，搜索需要的代价也更少。而tiering合并策略更注重优化写，因为它减少了合并的频率。</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627112829615.png" alt=""></p>
+<center> Fig 4</center>
+
+<h3 id="代价分析"><a href="#代价分析" class="headerlink" title="代价分析"></a>代价分析</h3><p>为了进一步理解LSM-tree的性能取舍，需要具体分析写、点查询、区间查询和空间放大的代价分析上。代价会被磁盘IO次数来决定。分析过程只考虑了一个未分区的LSM-tree，并只考虑最坏情况下的代价。</p>
+<p>假设LSM-tree的大小比例为T，并假设共有L层。实际情况下，对于稳定的LSM-tree，插入和删除的数据量相同，L维持静态。假设B是页大小，也就是每一页能存放的记录条数。P是一个内存组件的页数。那么，一个内存组件可以容纳至多$B\cdot P$条数据，并且第i层可以容纳最多$T^{i+1}\cdot B\cdot P$条数据。给定N为数据总量，最大的level包含了大约$N\cdot \frac{T}{T+1}$条数据，因为它比上一层大T倍。于是，数据量为N时，层的数量可以被估计成$L=\lceil \log_T(\frac{N}{B\cdot P}\cdot \frac{T}{T+1}\rceil$。</p>
+<p>现在开始分析各种操作会产生的代价。</p>
+<h4 id="写代价"><a href="#写代价" class="headerlink" title="写代价"></a>写代价</h4><p>写代价衡量了插入一条数据进LSM-tree的均摊IO代价。需要注意，因为插入一条数据进内存并不会带来任何磁盘IO，所以度量了把记录合并入最深一层的整体IO代价。对于leveling merge，每层的组件都会被合并T-1次，直到它被填满，并推入下一层。对于tiering merge，同一层的多个组件只会被合并一次，并直接被推入下一层。因为每一个磁盘页包含B条记录，每条记录的写代价会变为$O(T\cdot\frac{L}{B})$（对于leveling）和$O(\frac{L}{B})$（对于tiering）。</p>
+<p>为了方便理解，这里具体解释一下复杂度的计算，可以考虑一条记录是如何从第0层逐层合并入最后一层的，在leveling策略下，每条记录在每一层都会参与合并T次，这部分的开销是$O(T\cdot L)$；tiering策略下，每条记录在每一层只会参与1次合并，总体开销是$O(L)$，由于一次IO可以同时操作B条记录，所以分母上除去B。</p>
+<h4 id="单点查询"><a href="#单点查询" class="headerlink" title="单点查询"></a>单点查询</h4><p>单点查询的I/O代价取决于LSM-tree中组件的数量。在不使用布隆过滤器的情况下，一次点查询的IO开销将会是$O(L)$(leveling)或$O(T\cdot L)$(tiering)。然而，布隆过滤器能极大改进点查的开销。对于一个无结果的点查，例如说搜索一个不存在的key，所有磁盘IO都由布隆过滤器假阳性造成。假设所有布隆过滤器有M位，且在所有level上有同样的假阳性概率。对于N个key，每个布隆过滤器假阳性概率是$O(e^{-\frac{M}{N}})$。所以对于不存在的key，查询开销是$O(L\cdot e^{-\frac{M}{N}})$(leveling)和$O(T\cdot L\cdot e^{-\frac{m}{N}})$(tiering)。key存在且唯一时，至少需要一次I/O来获取条目，假设布隆过滤器误报率远小于1，那么成功的点查询的I/O成本都将是$O(1)$。</p>
+<h4 id="区间查询"><a href="#区间查询" class="headerlink" title="区间查询"></a>区间查询</h4><p>区间查询的I/O代价取决于查询长度。设s是区间查询不同的键值数量，当$\frac{s}{B}&gt;2\cdot L$时区间查询被认为是长的，此时I/O代价由最深的level决定，因为最深的level包含了大部分数据。否则为短查询，此时I/O代价来自所有level，因为查询必须向每个磁盘组件发出一个I/O。因此长范围查询的开销是$O(\frac{s}{B})$(leveling)和$O(T\cdot \frac{s}{B})$(tiering)。短范围开销是$O(L)$(leveling)和$O(T\cdot L)$(tiering)。</p>
+<h4 id="空间放大"><a href="#空间放大" class="headerlink" title="空间放大"></a>空间放大</h4><p>空间放大的原因是一个键值可能存在于不同位置上，导致空间利用率下降，我们定义空间放大为条目总数除以唯一(unique)条目数量。对于leveling，最差的情况是前L-1个level上都有数据，这大概包括了$\frac{1}{T}$的总数据，这些数据都是对最大level中条目的更新造成的。所以最差情况下leveling的写放大是$O(\frac{T+1}{T})$。对于tiering，最差情况是最大层中的所有组件的key集合都完全相同，所以最差情况下tiering的空间放大是$O(T)$。</p>
+<p>几种情况下Leveling和Tiering的代价开销可以总结如下表：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627125134196.png" alt="image-20220627125134196"></p>
+<center>Table 1</center>
+
+<p>总体而言，leveling可以优化查询性能和空间利用率，但是组件必须更频繁地合并，导致更高的写入成本。同时由于布隆过滤器的优化，两者在点查询的代价上其实差距很小，但区间查询和空间利用率会受到显著影响。</p>
+<h3 id="在分区优化上的差异"><a href="#在分区优化上的差异" class="headerlink" title="在分区优化上的差异"></a>在分区优化上的差异</h3><p>虽然说分区与合并策略是正交的，也就是leveling和tiering两种分区策略都可以支持分区优化，但是分区优化的实现方式是不同的。目前似乎只有基于LSM-tree的工业存储系统（如LevelDB和RocksDB）完全实现了leveling策略下的分区，一些论文也提出了各种形式的tiering策略下的分区方法，以获得更好的写性能。</p>
+<h4 id="Leveling分区"><a href="#Leveling分区" class="headerlink" title="Leveling分区"></a>Leveling分区</h4><p>在LevelDB首创的分区leveling合并策略中，每个level的磁盘组件被范围划分成多个固定大小的SSTable。如Fig 5所示，每个SSTable都有一个用来表示其key范围的标记。注意到level 0的磁盘组件没有分区，因为它们是直接从内存中刷下来的。这种设计可以帮助系统处理突发的写请求，因为level 0可以容忍多个未分区的组件。在合并过程中，我们将选取L+1里与被合并SSTable存在重叠的SSTable，并生成新的L+1层的SSTable。例如Fig 5中，标记为0-30的SSTable将和下一层0-15、16-32的SSTable合并，产生新的标记为0-10、11-19、20-32的SSTable，而原本的SSTable将被垃圾回收。可以使用不同的策略来选择接下来在每个Level合并哪个SSTable。例如，LevelDB使用循环策略（round-robin policy）以最小化总的写开销。</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627172443097.png" alt="image-20220627172443097"></p>
+<center>Fig 5</center>
+
+<h4 id="Tiering分区"><a href="#Tiering分区" class="headerlink" title="Tiering分区"></a>Tiering分区</h4><p>分区优化也可以应用到tiering合并中。然而，这样做的一个主要问题是，每个level可能包含多个具有重叠键范围的SSTables。这些SSTable必须根据它们的新旧程度进行适当的排序，以确保正确性。在每个层次上，可以采用两种可能的方案来组织SSTable，分别是垂直分组和水平分组。在这两种方案中，每一层的SSTable被组织成组。垂直分组方案将键范围重叠的SSTable分组在一起，使分组具有分离的键范围。因此，它可以被看作是分区leveling合并策略的一种扩展，用分组的方式满足tiering的特点。或者在水平分组方案下，每个逻辑磁盘组件被范围划分为一组SSTable，直接作为一个组。这允许在SSTable单元的基础上增量地形成磁盘组件。下面我们将详细讨论这两种方案。</p>
+<p>首先是Fig 6所示的垂直分组策略。这种策略下，有着重叠区间的SSTables会被分到同组，这样组间就有不相交的键区间了。在合并操作过程中，一组内的所有SSTable都会被合并，产生的SSTable的区间会根据下一层分组情况来。比如图中0-30、0-31这一组被合并了，由于下一层的分组情况，生成了0-12、17-31两个SSTable，并被添加入对应的组。请注意合并前后的状态不同，合并前，0-30、0-31有重叠的区间，所以当遇到一个点查询，这两个SSTable都要被查。但经过合并，0-12、17-31没有重叠区间，那就只有一个需要被点查询访问。并且这种设计下，SSTable不再是固定大小，而是取决于下一层的分组情况。</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627174710049.png" alt="image-20220627174710049"></p>
+<center>Fig 6</center>
+
+<p>再来看Fig 7所示的水平分组策略是怎样的。这种策略下，每一个组件都被按照区间分入了一个固定大小的SSTables的集合，直接作为一个逻辑上的组。每一组还会维护一个活跃组，也是第一个接受上一层被合并的SSTable的组。在未分区的情况下，这个活跃组可以看成是上一层被合并部分的组件。一次合并操作会选择那些有重叠区间的SSTables，并把生成的SSTable添加到下一层的活跃组。如图所示，第一层标记了35-70和35-65的SSTable被一起合并了，35-52和53-70被添加到第二层的第一个组。然而，尽管SSTable在水平分组下是固定大小的，一个SSTable仍然可能与其他组内的SSTables有大量的重叠区间。</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627174739581.png" alt="image-20220627174739581"></p>
+<center> Fig 7</center>
+
+<h2 id="Dostoevsky：一种改进的合并方式"><a href="#Dostoevsky：一种改进的合并方式" class="headerlink" title="Dostoevsky：一种改进的合并方式"></a>Dostoevsky：一种改进的合并方式</h2><p>上面介绍的两种合并方式，简单来说，Leveling 会有写放大问题，而 Tiering 则会有读放大以及空间放大问题。为了更好地在空间和性能上平衡这些问题，提出了Dostoevsky方法，它并没有单纯的采用 Leveling 或者 Tiering，而是采用将两者结合的方式。</p>
+<h3 id="Lazy-Leveling"><a href="#Lazy-Leveling" class="headerlink" title="Lazy Leveling"></a>Lazy Leveling</h3><p>Lazy Leveling混合了 Tiering 以及 Leveling，在最大层使用 Leveling，而其它层使用 Tiering。另外，因为小的 Level 现在使用的是 Tiering，为了加速点查，Dostoevsky 为不同的 Level 的 Bloom filter 使用了不同的内存。</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627181545752.png" alt="image-20220627181545752"></p>
+<center>Fig 8</center>
+
+<p>Lazy Leveling相较于Leveling，主要达到做到了以下三点：</p>
+<ol>
+<li>降低了更新的开销</li>
+<li>在点查询、长区间查询和空间利用率维持原有的性能优势</li>
+<li>在短查询上的性能效果仍然保持良好</li>
+</ol>
+<h3 id="Fluid-LSM-Tree"><a href="#Fluid-LSM-Tree" class="headerlink" title="Fluid LSM-Tree"></a>Fluid LSM-Tree</h3><p>在 Lazy Leveling基础上面，Dostoevsky引入了Fluid LSM-Tree，相比于Lazy Leveling最大层是Leveling，其它层是 Tiering，Fluid使用了一个可调解的方式，在最大层使用最多Z runs，而其它层最多使用K runs。</p>
+<p>这里引入了runs的概念，runs就是一个或者多个有序不重叠的SSTable文件。从Level 1层开始，Leveling 的runs就是 1，而Tiering则可能是T-1。</p>
+<p>可以发现：</p>
+<ol>
+<li>Z = 1， K = 1，就是 Leveled Compaction</li>
+<li>Z = T - 1， K = T - 1，就是 Tiered Compaction</li>
+<li>Z = 1， K = T - 1，就是 Lazy Leveling</li>
+</ol>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/image-20220627182409229.png" alt="image-20220627182409229"></p>
+<center> Fig 9 </center>
+
+<p>Fig 9 是使用Fluid模型之后不同case的开销，但这里的代价分析更加复杂。很难通过分析和计算的方式去确定 Z 和 K，这一部分似乎只能通过tuning，也就是不断调整 Z，K 和 T，在不同的应用场景去测试，从而找到一个比较优的配置。</p>
+<h2 id="合并方式的未来研究方向"><a href="#合并方式的未来研究方向" class="headerlink" title="合并方式的未来研究方向"></a>合并方式的未来研究方向</h2><h3 id="分区tiering结构"><a href="#分区tiering结构" class="headerlink" title="分区tiering结构"></a>分区tiering结构</h3><p>Tiering已经被许多LSM树改进，以减少LSM树的写放大。本文讨论了两种可能的分区tiering方案，即水平分组和垂直分组，这基本已覆盖了所有tiering分组方案。然而，这两种方案的性能特点和权衡尚不清楚。一般来说，垂直分组在选择合并SSTable时具有更大的自由度，而水平分组则确保SSTable的大小是固定的。系统地评价这两种方案，并可能设计出结合两者优点的新方案，是今后的一个研究方向。</p>
+<h3 id="混合合并策略"><a href="#混合合并策略" class="headerlink" title="混合合并策略"></a>混合合并策略</h3><p>大多数LSM树的改进都假定在LSM树的所有级别上采用同样的合并策略。然而，在某些工作负载下这被证明是次优的。leveling和tiering的混合合并策略可以提供比leveling更好的写性能，并且对点查找、长距离查询和空间放大的影响最小。本文给出了一种混合合并策略，即Dostoevsky方法，但进一步设计和实现这种带有混合合并策略的LSM树，并分析因此而产生的新问题将是一个未来的研究方向。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>LSM-tree在现代NoSQL系统中越来越受欢迎，因为它具有超强的写性能、高空间利用率、磁盘上数据的不变性和可调性等优点。这些因素使得LSM树能够被广泛采用和部署，以服务于各种工作负载。</p>
+<p>本文中对LSM-tree的基本概念进行了解和回顾，并在LSM-tree的一个核心问题：合并方式上进行了深入的了解，回顾已有的研究工作，介绍了Leveling、Tiering和Dostoevsky等合并方法，并从代价的角度分析不同操作上的开销，并介绍不同操作的开销之间如何权衡。并在本文的最后讨论了更改分区tiering结构和混合合并策略的两种未来研究方向。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><p>Chen Luo · Michael J. Carey: LSM-based Storage Techniques: A Survey</p>
+</li>
+<li><p>Dayan, N., Idreos, S.: Dostoevsky: Better space-time trade-offs for LSM-tree based key-value stores via adaptive removal of superfluous merging. In: ACM SIGMOD, pp. 505–520 (2018)</p>
+</li>
+<li>WIPIPEDIA: Log-structured merge-tree</li>
+<li>LevelDB documents: <a target="_blank" rel="noopener" href="https://github.com/google/leveldb/blob/main/doc/impl.md">https://github.com/google/leveldb/blob/main/doc/impl.md</a></li>
+<li>RocksDB Leveled-Compaction: <a target="_blank" rel="noopener" href="https://github.com/facebook/rocksdb/wiki/Leveled-Compaction">https://github.com/facebook/rocksdb/wiki/Leveled-Compaction</a></li>
+<li>ScyllaDB’s Compaction Strategies Series: Space Amplification in Size-Tiered Compaction: <a target="_blank" rel="noopener" href="https://www.scylladb.com/2018/01/17/compaction-series-space-amplification/">https://www.scylladb.com/2018/01/17/compaction-series-space-amplification/</a></li>
+</ol>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2022/07/04/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/%E5%BF%83%E7%81%B5%E6%8D%95%E6%89%8B/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2022/06/06/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/%E5%9B%A0%E4%B8%BA%E5%A4%AA%E5%A5%BD%E7%AC%91%E4%BA%86%E6%89%80%E4%BB%A5%E4%B8%80%E5%AE%9A%E8%A6%81%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/favicon_io/android-chrome-512x512.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/07/">七月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/06/">六月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/04/">四月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">27</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=T');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>
