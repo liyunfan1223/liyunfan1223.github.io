@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Effective C++ 阅读笔记(三) | 
+        
+        Moonglade
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon_io_c/favicon-32x32.png">
+    <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: ;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Moonglade">
+    <meta name="msapplication-starturl" content="https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%89/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%89/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Effective C++ 阅读笔记(三) | Moonglade">
+    <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Fri Mar 03 2023 10:36:10 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 03 2023 10:36:58 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%89/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Item-13-Use-objects-to-manage-resources"><span class="post-toc-number">1.</span> <span class="post-toc-text">Item 13: Use objects to manage resources.</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#auto-ptr-%E5%92%8C-shared-ptr"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">auto_ptr 和 shared_ptr</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Item-14-Think-carefully-about-copying-behavior-in-resource-managing-classes"><span class="post-toc-number">2.</span> <span class="post-toc-text">Item 14: Think carefully about copying behavior in resource-managing classes.</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Item-15-Provide-access-to-raw-resources-in-resourcemanaging-classes"><span class="post-toc-number">3.</span> <span class="post-toc-text">Item 15: Provide access to raw resources in resourcemanaging classes.</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Item-16-Use-the-same-form-in-corresponding-uses-of-new-and-delete"><span class="post-toc-number">4.</span> <span class="post-toc-text">Item 16: Use the same form in corresponding uses of new and delete.</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E5%A6%82%E4%BD%95%E7%9F%A5%E6%99%93%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">编译器如何知晓数组长度</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Item-17-Store-newed-objects-in-smart-pointers-in-standalone-statements"><span class="post-toc-number">5.</span> <span class="post-toc-text">Item 17: Store newed objects in smart pointers in standalone statements.</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Effective C++ 阅读笔记(三)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>3月 03, 2023</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Effective C++ 阅读笔记(三)&url=https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%89/index.html&pic=https://moonglade.top/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Effective C++ 阅读笔记(三)&url=https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%89/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%89/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%89/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>每当用完一个资源后，你必须把它释放掉，否则情况就很糟糕，比如<code>C++</code>中通常使用动态分配的内存，如果你分配了内存又没有释放掉，就会发生内存泄漏。除了内存之外，类似的资源还有很多，比如文件描述符、锁、GUI中的字体和笔刷、数据库的连接、网络 socket 等等。</p>
+<p>通常来说，手动进行资源的申请和分配是很困难的，特别是考虑到程序可能在某个地方抛异常、一个函数可能有多个返回位置，包括当一个不熟悉完整程序的人来维护代码的时候。这些场景下尤其容易出问题。由经验可知，更好的方法是用面向对象的方式进行资源管理，这个方法基本能解决所有资源管理相关的问题。</p>
+<h2 id="Item-13-Use-objects-to-manage-resources"><a href="#Item-13-Use-objects-to-manage-resources" class="headerlink" title="Item 13: Use objects to manage resources."></a>Item 13: Use objects to manage resources.</h2><p>这里的核心就是用对象管理资源的思想，也就是常说的 RAII ( Resource Acquisition Is Initialization )。</p>
+<p>比如看下面这个没有用对象管理，而是手动管理的例子：</p>
+<pre><code class="lang-cpp">class Investment &#123; ... &#125;;
+Investment* createInvestment();
+void f()
+&#123;
+    Investment *pInv = createInvestment(); // call factory function
+    ... // use pInv
+    delete pInv; // release object
+&#125;
+</code></pre>
+<p>有很多种可能性导致函数不能正常执行到最后这句<code>delete</code>，比如：</p>
+<ul>
+<li>提前<code>return</code>，类似的是在循环中的<code>break</code>或<code>continue</code></li>
+<li>中间的部分抛异常</li>
+</ul>
+<p>一旦发生这种情况就会产生内存溢出。比较好的解决方式是利用作用域，通过初始化对象的方式获取资源，通过对象的析构函数释放资源，最常见的方法是用<code>auto_ptr</code>：</p>
+<pre><code class="lang-cpp">void f()
+&#123;
+    std::auto_ptr&lt;Investment&gt; pInv(createInvestment()); // call factory
+    // function  use pInv as before
+    ...
+&#125;
+</code></pre>
+<p>这里涉及到两个用对象管理资源的重要原则：</p>
+<ul>
+<li>任何资源被获取后，立刻将其和一个对象关联起来。这种思想通常被称为<code>RAII</code>，有时可能并不是对资源的初始化，而是分配，但无论如何都是将资源和对象进行关联，使用对象的生命周期来管理资源。</li>
+<li>通过资源管理对象的析构函数来释放资源。也就是利用对象生命周期来管理资源的方式，当离开作用域时析构函数会被自动调用（无论通过何种方式离开作用域）。当然，这个释放资源的析构函数最好不要抛异常，否则可能会有同时抛多个异常无法处理的问题，这在<code>Item 9</code>中讨论过。</li>
+</ul>
+<h3 id="auto-ptr-和-shared-ptr"><a href="#auto-ptr-和-shared-ptr" class="headerlink" title="auto_ptr 和 shared_ptr"></a>auto_ptr 和 shared_ptr</h3><p>在<code>C++</code>中，<code>auto_ptr</code>和<code>shared_ptr</code>都可以被用来作为资源管理对象，但相对来说<code>auto_ptr</code>有一些奇怪的特性，进行拷贝的结果非常反直觉。因为<code>auto_ptr</code>要求，一个对象同时只能被一个<code>auto_ptr</code>指向（否则会导致对象被重复<code>delete</code>），所以<code>auto_ptr</code>的拷贝函数会导致原对象失效置为<code>null</code>，比如下面的例子：</p>
+<pre><code class="lang-cpp">std::auto_ptr&lt;Investment&gt; // pInv1 points to the
+pInv1(createInvestment()); // object returned from createInvestment
+std::auto_ptr&lt;Investment&gt; pInv2(pInv1); // pInv2 now points to the object; pInv1 is now null
+pInv1 = pInv2; // now pInv1 points to the object, and pInv2 is null
+</code></pre>
+<p>这个特性会导致<code>STL</code>拒绝模板类型为<code>auto_ptr</code>的容器，因为<code>STL</code>模板类型要求使用的拷贝行为是正常的，例如<code>std::vector&lt;std::auto_ptr&lt;int&gt;&gt; vc;</code>这样的定义会报 warning。</p>
+<p><code>shared_ptr</code>相对来说更好一些，会通过引用计数的方式决定何时释放资源，它是一个 reference-counting smart pointer (RCSP)，和垃圾回收的机制很像。</p>
+<p>但是<code>auto_ptr</code>和<code>shared_ptr</code>有同样的缺点，就是释放资源使用的是<code>delete</code>而不是<code>delete []</code>，这导致它们无法释放数组资源。比如下面的写法是有问题的：</p>
+<pre><code class="lang-cpp">std::auto_ptr&lt;std::string&gt; aps(new std::string[10]) // bad idea! the wrong delete form will be used
+std::tr1::shared_ptr&lt;int&gt; spi(new int[1024]); // same problem
+</code></pre>
+<p>一般来说，可以用<code>vector</code>和<code>string</code>作为数据的替换对象，如果一定要用数组，则可以用<code>boost::scoped_array</code>和<code>boost::shared_array</code>。</p>
+<p>另外，<code>auto_ptr</code>和<code>shared_ptr</code>只是两种常见的实现方式，用对象管理资源的思想和这两个对象本身无关。当你需要一些自定义的管理方式时，也可以自己实现一个数据管理类。</p>
+<h2 id="Item-14-Think-carefully-about-copying-behavior-in-resource-managing-classes"><a href="#Item-14-Think-carefully-about-copying-behavior-in-resource-managing-classes" class="headerlink" title="Item 14: Think carefully about copying behavior in resource-managing classes."></a>Item 14: Think carefully about copying behavior in resource-managing classes.</h2><p>对资源管理类进行拷贝行为，可能有以下几种处理：</p>
+<ul>
+<li><p>禁止</p>
+<p>如果对一个 RAII 类拷贝行为是没有意义的，就应该明确禁止。在<code>C++11</code>中通过<code>delete</code>关键字来禁止生成拷贝函数。</p>
+</li>
+<li><p>引用计数</p>
+<p>典型的是<code>shared_ptr</code>，每次拷贝会增加引用计数器，直到没有一个类指向资源时释放资源。</p>
+<p>类似的，也可以通过在我们自己的 RAII 类中增加一个<code>shared_ptr</code>成员来实现类似的功能。<code>shared_ptr</code>允许修改引用计数器变为 0 时进行的操作，比如可以不是释放内存空间，而是释放锁：</p>
+<pre><code class="lang-cpp">class Lock &#123;
+public:
+    explicit Lock(Mutex *pm) // init shared_ptr with the Mutex
+    : mutexPtr(pm, unlock) // to point to and the unlock func as the deleter†
+    &#123;
+        lock(mutexPtr.get()); // see Item 15 for info on “get”
+    &#125;
+private:
+    std::tr1::shared_ptr&lt;Mutex&gt; mutexPtr; // use shared_ptr
+&#125;;
+</code></pre>
+</li>
+<li><p>拷贝所有资源</p>
+<p>比如 STL 中的 <code>string</code>，会同时拷贝指针和指针指向的内存空间，也就是进行一次深拷贝。这种情况下，资源管理类的作用仅仅是为了保证每一份拷贝都能够在不需要的时候被释放掉。</p>
+</li>
+<li><p>转移所有权</p>
+<p>当你希望同时只有一个 RAII 对象指向资源时可以使用，进行拷贝时，将资源所有权从被拷贝的对象转移给拷贝者。这是比较奇怪的用法，典型是<code>auto_ptr</code>。</p>
+</li>
+</ul>
+<h2 id="Item-15-Provide-access-to-raw-resources-in-resourcemanaging-classes"><a href="#Item-15-Provide-access-to-raw-resources-in-resourcemanaging-classes" class="headerlink" title="Item 15: Provide access to raw resources in resourcemanaging classes."></a>Item 15: Provide access to raw resources in resourcemanaging classes.</h2><p>RAII 类通常要提供直接对资源进行访问的方法，也就是要能够将 RAII 对象转化为资源对象，通常有隐式和显式两种转换方法，以<code>shared_ptr</code>为例，定义<code>std::shared_ptr&lt;Investment&gt; pInv(createInvestment())</code>：</p>
+<ul>
+<li>显式转换：<code>pInv.get()</code>获得<code>Invectment *</code>指针</li>
+<li>隐式转换又包含两类：<ol>
+<li>重载<code>-&gt;</code>和<code>*</code>操作符，通过<code>pInt-&gt;isTaxFree()</code>调用指向对象的<code>isTaxFree</code>方法、<code>*pInt</code>获取指向的对象。</li>
+<li>提供隐式转换函数，例如<code>operator int() const &#123; return f; &#125;</code>。当这种转换非常频繁时，隐式转换函数能提高开发效率，但相应的可能会导致意料之外的转换。例如用户原本可以通过函数传递的参数类型，让编译器来帮助它们找出一些错误，但提供隐式转换函数后编译器不再报错，可能导致一些问题更难发现。</li>
+</ol>
+</li>
+</ul>
+<p>是否提供隐式转换涉及到了一些接口的设计原则，同时又和类的封装性相关。从设计上来说，RAII 类的功能并不是为了封装什么，而仅仅是为了保证资源泄露不会发生。但这不意味着 RAII 类就不能进行封装，而且很多 RAII 类可以同时做到，自身结构封装良好，同时提供方便的访问资源的形式，典型的就是<code>shared_ptr</code>，其中关于引用计数的部分是封装的，对用户不可见，但其指向的指针又通过重载<code>-&gt;</code>和<code>*</code>等操作符，能够方便地使用。关于如何设计类和接口的问题将在之后深入讨论。</p>
+<h2 id="Item-16-Use-the-same-form-in-corresponding-uses-of-new-and-delete"><a href="#Item-16-Use-the-same-form-in-corresponding-uses-of-new-and-delete" class="headerlink" title="Item 16: Use the same form in corresponding uses of new and delete."></a>Item 16: Use the same form in corresponding uses of new and delete.</h2><p>要使用形式相同的<code>new</code>和<code>delete</code>。</p>
+<p>简单来说就是有两种形式：非数组形式<code>new</code>和<code>delete</code>，以及数组形式<code>new[]</code>和<code>delete[]</code>。在使用非数组形式的<code>delete</code>时，只会调用指针所指向的一个对象的析构函数，而使用数组形式的<code>delete[]</code>时，会根据数组长度调用数组中每个对象的析构函数。如果使用数组形式的<code>new[]</code>却使用非数组形式的<code>delete</code>，显然会造成内存泄漏。</p>
+<h3 id="编译器如何知晓数组长度"><a href="#编译器如何知晓数组长度" class="headerlink" title="编译器如何知晓数组长度"></a>编译器如何知晓数组长度</h3><p>这里自然引入了一个问题：在使用数组形式的<code>delete[]</code>时，编译器是如何知晓数组长度的？首先这个问题并没有标准答案，这取决于编译器自己的实现方法，通常来说的方案是这样的，当程序中调用<code>new T[N]</code>时，除了要申请一个大小为<code>N * sizeof T</code>的空间之外，还需要额外申请一块<code>cookie</code>，即实际申请的内存大小是<code>(N * sizeof T) + (cookie size)</code>，这个<code>cookie</code>通常放在数组之前，用于记录数组的长度，结构示意如下：</p>
+<p><img src="https://morphling-picgo.oss-cn-shanghai.aliyuncs.com/202208301016231.png" alt="image-20220830101609108"></p>
+<p>这样一来，每当编译器需要知道数组长度时，只要读取<code>cookie</code>中的数据即可。我自己给出一个示例如下：</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+
+#define debug(x) std::cerr &lt;&lt; #x &lt;&lt; &quot;: &quot; &lt;&lt; x &lt;&lt; std::endl
+
+const int N = 34;
+
+int main() &#123;
+  int *a = new int[N], *b = new int[N];
+  debug((char *)b - (char *)a);
+  debug(((char *)b - (char *)a) - (N * sizeof(int)));
+  debug(a[-2]);
+  debug(b[-2]);
+  return 0;
+&#125;
+</code></pre>
+<p>output：</p>
+<pre><code>(char *)b - (char *)a: 144
+((char *)b - (char *)a) - (N * sizeof(int)): 8
+a[-2]: 145
+b[-2]: 145
+</code></pre><p>编译器为<code>g++</code>，当我使用<code>new int[N]</code>创建<code>int</code>数组时，可以发现申请的内存字节大小首先保证不小于<code>N * sizeof int + 8(cookie size)</code>，接着进行16字节对齐。而数组长度则存储在数组<code>[-2]</code>下标，即从数组<code>[0]</code>下标往前找8个字节所对应的内存中。（读取值实际上为数组占用内存大小 +1，+1 的原因还不太清楚）</p>
+<p>可以在文档中找到编译器对于数组长度存储方式的定义：<a target="_blank" rel="noopener" href="https://github.com/gcc-mirror/gcc/blob/16e2427f50c208dfe07d07f18009969502c25dc8/gcc/cp/init.c#L3319-L3325">https://github.com/gcc-mirror/gcc/blob/16e2427f50c208dfe07d07f18009969502c25dc8/gcc/cp/init.c#L3319-L3325</a></p>
+<p>我们可以讨论一下这种设计的缺陷：</p>
+<ul>
+<li>缺少标准定义，不同编译器可能对记录数组长度的方式有不同的实现</li>
+<li>缺少封装，把数组长度记录在一个不受保护的内存空间中，很可能被修改导致未定义的行为</li>
+<li>数组失去灵活性，从内存访问的角度讲，我们完全可以从数组的任何一个地方开始访问，或者把数组的某个片段取出来作为一个新数组来使用，但由于这个性质，新数组的一些操作就无法进行了，比如无法正常进行资源释放</li>
+</ul>
+<p>这些问题很难解决（可以说是 C/C++ 语言本身的一种缺陷?），只能尽力避免，比如用自己封装好的类去管理数组的创建和释放（vector），或者在编程的时候更加小心谨慎一些（…）。</p>
+<p>该部分参考：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/72341945/how-does-a-compiler-store-information-about-an-arrays-size">https://stackoverflow.com/questions/72341945/how-does-a-compiler-store-information-about-an-arrays-size</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.quora.com/How-does-the-C++-compiler-know-the-size-of-an-array-for-a-free-or-delete-operation-but-not-know-the-size-of-it-at-runtime">https://www.quora.com/How-does-the-C++-compiler-know-the-size-of-an-array-for-a-free-or-delete-operation-but-not-know-the-size-of-it-at-runtime</a></p>
+</li>
+</ul>
+<h2 id="Item-17-Store-newed-objects-in-smart-pointers-in-standalone-statements"><a href="#Item-17-Store-newed-objects-in-smart-pointers-in-standalone-statements" class="headerlink" title="Item 17: Store newed objects in smart pointers in standalone statements."></a>Item 17: Store newed objects in smart pointers in standalone statements.</h2><p>用单独的语句来定义智能指针并初始化。</p>
+<p>这里的意思是尽量不要和其他的调用混在同一句中，比如调用函数时可能会导致内存泄漏：</p>
+<pre><code class="lang-cpp">int priority();
+void processWidget(std::shared_ptr&lt;Widget&gt; pw, int priority);
+processWidget(std::shared_ptr&lt;Widget&gt;(new Widget), priority());
+</code></pre>
+<p>调用<code>processWidget</code>函数时需要先构造参数，这里有三个步骤要完成：</p>
+<ol>
+<li><code>new Widget</code></li>
+<li><code>priority()</code></li>
+<li><code>std::shared_ptr&lt;Widget&gt;()</code></li>
+</ol>
+<p>问题是这三个步骤的顺序是不确定的（除了<code>std::shared_ptr&lt;Widget&gt;()</code>一定在<code>new Widget</code>之后），也就是说，可能会出现先调用<code>new Widget</code>，再调用<code>priority()</code>，结果<code>priority()</code>抛出异常，那么<code>new Widget</code>生成的指针就丢失了，发生了内存泄漏。</p>
+<p>所以更好的方法是把<code>new</code>和<code>shared_ptr</code>的初始化放在一句中：</p>
+<pre><code class="lang-cpp">std::shared_ptr&lt;Widget&gt; pw(new Widget); // store newed object in a smart pointer in a standalone statement
+processWidget(pw, priority()); // this call won’t leak
+</code></pre>
+<p>这里涉及到 C++ 对于执行顺序的调整，通常来说，在同一句中执行的顺序是不确定的（在 C#、JAVA 等语言中可能顺序是固定的），但不同句之间很少进行顺序的调整。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/C-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%BA%8C/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/favicon_io/android-chrome-512x512.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2023/03/">三月 2023<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/07/">七月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/06/">六月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/04/">四月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">27</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=T');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>

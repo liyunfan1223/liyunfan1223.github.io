@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Effective C++ 阅读笔记(二) | 
+        
+        Moonglade
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon_io_c/favicon-32x32.png">
+    <link rel="icon" href="/img/favicon_io_c/android-chrome-512x512.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tranquil-heart.min.css?ul3p9I9MsbOxK0L+BHzDDg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: ;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Moonglade">
+    <meta name="msapplication-starturl" content="https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%BA%8C/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Moonglade">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon_io_c/apple-touch-icon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%BA%8C/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Effective C++ 阅读笔记(二) | Moonglade">
+    <meta property="og:image" content="/img/favicon_io_c/android-chrome-512x512.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Fri Mar 03 2023 10:36:06 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 03 2023 10:36:40 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%BA%8C/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Constructors-Destructors-and-Assignment-Operators"><span class="post-toc-number">1.</span> <span class="post-toc-text">Constructors, Destructors, and Assignment Operators</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Item-5-Know-what-functions-C-silently-writes-and-calls"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Item 5: Know what functions C++ silently writes and calls.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Item-6-Explicit-disallow-the-use-of-compiler-generated-functions-you-do-not-want"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Item 6: Explicit disallow the use of compiler generated functions you do not want.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Item-7-Declare-destructors-virtual-in-polymorphic-base-classes"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Item 7: Declare destructors virtual in polymorphic base classes.</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%83%A8%E5%88%86%E9%94%80%E6%AF%81%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">部分销毁问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#virtual%E5%85%B3%E9%94%AE%E5%AD%97"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">virtual关键字</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Item-8-Prevent-exceptions-from-leaving-destructors"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Item 8: Prevent exceptions from leaving destructors.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Item-9-Never-call-virtual-functions-during-construction-or-destruction"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Item 9: Never call virtual functions during construction or destruction.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Item-10-Have-assignment-operators-return-a-reference-to-this"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Item 10: Have assignment operators return a reference to *this.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Item-11-Handle-assignment-to-self-in-operator"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">Item 11: Handle assignment to self in operator&#x3D;.</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%87%AA%E8%BA%AB%E7%9A%84%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">拷贝赋值自身的安全问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BC%82%E5%B8%B8%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">异常安全问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%94%A8-%E2%80%9Ccopy-and-swap%E2%80%9D-%E7%9A%84%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E5%87%BD%E6%95%B0"><span class="post-toc-number">1.7.3.</span> <span class="post-toc-text">用 “copy and swap” 的方式实现拷贝赋值函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Item-12-Copy-all-parts-of-an-object"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">Item 12: Copy all parts of an object.</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%8B%B7%E8%B4%9D%E5%87%BD%E6%95%B0%E8%A6%81%E5%8C%85%E5%90%AB%E6%89%80%E6%9C%89%E9%83%A8%E5%88%86"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">拷贝函数要包含所有部分</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%87%8F%E5%B0%91%E4%B8%A4%E7%A7%8D%E6%8B%B7%E8%B4%9D%E5%87%BD%E6%95%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E5%86%97%E4%BD%99"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">减少两种拷贝函数的代码冗余</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Effective C++ 阅读笔记(二)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/favicon_io/android-chrome-512x512.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MorphLing</strong>
+        <span>3月 03, 2023</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Effective C++ 阅读笔记(二)&url=https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%BA%8C/index.html&pic=https://moonglade.top/img/favicon_io_c/favicon-32x32.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Effective C++ 阅读笔记(二)&url=https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%BA%8C/index.html&via=MorphLing" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%BA%8C/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://moonglade.top/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%BA%8C/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Constructors-Destructors-and-Assignment-Operators"><a href="#Constructors-Destructors-and-Assignment-Operators" class="headerlink" title="Constructors, Destructors, and Assignment Operators"></a>Constructors, Destructors, and Assignment Operators</h2><h3 id="Item-5-Know-what-functions-C-silently-writes-and-calls"><a href="#Item-5-Know-what-functions-C-silently-writes-and-calls" class="headerlink" title="Item 5: Know what functions C++ silently writes and calls."></a>Item 5: Know what functions C++ silently writes and calls.</h3><p>C++ 的类会自动实现以下函数：</p>
+<ul>
+<li>默认构造函数</li>
+<li>拷贝构造函数</li>
+<li>拷贝赋值函数</li>
+<li>析构函数</li>
+</ul>
+<p>也就是定义一个空类时，实际上有：</p>
+<pre><code class="lang-cpp">class Empty &#123;
+public:
+    Empty() &#123; ... &#125; // default constructor
+    Empty(const Empty&amp; rhs) &#123; ... &#125; // copy constructor
+    ~Empty() &#123; ... &#125; // destructor — see below for whether it’s virtual
+    Empty&amp; operator=(const Empty&amp; rhs) &#123; ... &#125; // copy assignment operator
+&#125;;
+</code></pre>
+<p>其中的拷贝构造和拷贝赋值函数都采用深拷贝的方式，也就是会对类的每一个成员函数都进行赋值。正因如此会有一些糟糕的情况，比如类里有引用或者<code>const</code>成员，此时的拷贝赋值函数的定义变得非常不明确，所以编译器就不会自动生成拷贝构造函数：</p>
+<pre><code class="lang-cpp">template&lt;typename T&gt;
+class NamedObject &#123;
+ public:
+  NamedObject(std::string&amp; name, const T&amp; value): nameValue(name), objectValue(value) &#123;&#125;
+ public:
+    std::string&amp; nameValue; // this is now a reference
+    const T objectValue;    // this is now const
+&#125;;
+
+std::string newDog(&quot;Persephone&quot;);
+std::string oldDog(&quot;Satch&quot;);
+NamedObject&lt;int&gt; p(newDog, 2); 
+NamedObject&lt;int&gt; s(oldDog, 36); 
+p = s; // 不通过，因为找不到拷贝构造函数
+</code></pre>
+<h3 id="Item-6-Explicit-disallow-the-use-of-compiler-generated-functions-you-do-not-want"><a href="#Item-6-Explicit-disallow-the-use-of-compiler-generated-functions-you-do-not-want" class="headerlink" title="Item 6: Explicit disallow the use of compiler generated functions you do not want."></a>Item 6: Explicit disallow the use of compiler generated functions you do not want.</h3><p>这里给出了一种通过私有继承来禁止使用编译器自动生成的函数，比如拷贝构造和拷贝赋值函数的方法：</p>
+<pre><code class="lang-cpp">class Uncopyable &#123;
+protected: // allow construction
+    Uncopyable() &#123;&#125; // and destruction of
+    ~Uncopyable() &#123;&#125; // derived objects...
+private:
+    Uncopyable(const Uncopyable&amp;); // ...but prevent copying
+    Uncopyable&amp; operator=(const Uncopyable&amp;);
+&#125;;
+
+class HomeForSale: private Uncopyable &#123; // class no longer
+    ... // declares copy ctor or
+&#125;;
+</code></pre>
+<p>如果不使用私有继承，而是直接在类中将拷贝构造函数定义为 private 也是一个方法，但是缺点是，可能有一个内部成员函数，或者一个友元函数，同样有使用这个函数的权限，这不会在编译阶段报错，只会在链接阶段报错（因为这个拷贝构造函数只有声明没有定义）：</p>
+<pre><code class="lang-cpp">class HomeForSale &#123; // class no longer
+ public:
+  HomeForSale()&#123;&#125;
+  void foo() &#123;
+    HomeForSale h_temp(*this);
+  &#125;
+ private:
+  HomeForSale(const HomeForSale&amp;);
+&#125;;
+
+HomeForSale h1;
+HomeForSale h2(h1); // 无法通过编译，因为调用了 private 方法
+h1.foo(); // 可以通过编译，但链接阶段报错
+</code></pre>
+<p>为了避免这种情况，更好的方法是写一个类并私有继承这个类：</p>
+<pre><code class="lang-cpp">class Uncopyable &#123;
+ protected: // allow construction
+  Uncopyable() &#123;&#125; // and destruction of
+  ~Uncopyable() &#123;&#125; // derived objects...
+ private:
+  Uncopyable(const Uncopyable&amp;); // ...but prevent copying
+  Uncopyable&amp; operator=(const Uncopyable&amp;);
+&#125;;
+
+class HomeForSale : private Uncopyable&#123; // class no longer
+ public:
+  HomeForSale()&#123;&#125;
+  void foo() &#123;
+    HomeForSale h_temp(*this); // 无法通过编译，因为拷贝构造函数被隐式删除了
+  &#125;
+&#125;;
+</code></pre>
+<p>结果是类似的，<code>HomeForSale</code>的拷贝构造和拷贝赋值函数被禁用了，而默认构造函数和析构函数则被保留，好处则在于，内部函数调用拷贝构造函数这一步在编译阶段就能够报错，不用等到链接阶段。这是由于<code>HomeForSale</code>私有继承了<code>Uncopyable</code>，根据构造/析构函数经过继承后的调用原则，对于构造函数是先调用父类的构造函数，再调用子类的构造函数；对于析构函数则是先调用子类的析构函数，再调用父类的析构函数。根据私有继承的原则，父类的<code>protected</code>属性被子类继承为<code>private</code>属性，而父类的<code>private</code>属性对子类不可见。从而产生禁用了拷贝赋值和拷贝构造函数的现象。</p>
+<p>补充：现在这个方法可能也有点过时了，<code>C++11</code>中引入了<code>delete</code>关键字来显式禁止编译器生成这些默认函数，比如 IDE 的语法检测工具可能会提示你修改为使用<code>delete</code>的写法。但我们还是可以通过这个例子了解一些类的构造析构函数以及继承相关的原理。</p>
+<h3 id="Item-7-Declare-destructors-virtual-in-polymorphic-base-classes"><a href="#Item-7-Declare-destructors-virtual-in-polymorphic-base-classes" class="headerlink" title="Item 7: Declare destructors virtual in polymorphic base classes."></a>Item 7: Declare destructors virtual in polymorphic base classes.</h3><p>被继承父类（基类）的析构函数经常需要被<code>virtual</code>修饰，否则会产生一些未定义的行为。</p>
+<h4 id="部分销毁问题"><a href="#部分销毁问题" class="headerlink" title="部分销毁问题"></a>部分销毁问题</h4><p>这个问题发生的场景是，创建了一个指向子类的指针，却保存为父类并删除该指针，如果父类<code>TimeKeeper</code>的析构函数没有被<code>virtual</code>修饰，会导致子类<code>AtomicClock</code>的析构函数不被调用的问题，从而发生内存溢出，例如下面两种定义：</p>
+<pre><code class="lang-cpp">class TimeKeeper &#123;
+ public:
+  TimeKeeper() &#123;
+      std::cout &lt;&lt; &quot;Time Keeper Constructor.&quot; &lt;&lt; std::endl;
+  &#125;;
+  ~TimeKeeper() &#123;
+      std::cout &lt;&lt; &quot;TIme Keeper Destructor.&quot; &lt;&lt; std::endl;
+  &#125;;
+&#125;;
+class AtomicClock: public TimeKeeper &#123;
+ public:
+  AtomicClock() &#123;
+    std::cout &lt;&lt; &quot;Atomic Clock Constructor.&quot; &lt;&lt; std::endl;
+  &#125;
+  ~AtomicClock() &#123;
+    std::cout &lt;&lt; &quot;Atomic Clock Destructor.&quot; &lt;&lt; std::endl;
+  &#125;
+&#125;;
+
+TimeKeeper* getTimeKeeper() &#123;
+  return new AtomicClock;
+&#125;;
+
+int main() &#123;
+  TimeKeeper* ptk = getTimeKeeper();
+  delete ptk;
+  return 0;
+&#125;
+</code></pre>
+<p>当<code>TimeKeeper</code>的析构函数没有被<code>virtual</code>修饰时，输出为：</p>
+<pre><code>Time Keeper Constructor.
+Atomic Clock Constructor.
+Time Keeper Destructor.
+</code></pre><p>此时，<code>AtomicClock</code>的析构函数没有被调用。</p>
+<p>当<code>TimeKeeper</code>的析构函数被<code>virtual</code>修饰时，输出为：</p>
+<pre><code>Time Keeper Constructor.
+Atomic Clock Constructor.
+Atomic Clock Destructor.
+Time Keeper Destructor.
+</code></pre><p><code>virtual</code>相当于告诉编译器，这个函数允许在衍生类中被重新实现，总之被修饰<code>virtual</code>后的函数行为是符合标准的。</p>
+<p>同时，因为有上面这个问题存在，很多 STL 在设计上是不应该作为基类被继承的，比如<code>class SpecialString: public std::string</code>，由于<code>string</code>并没有被<code>virtual</code>修饰，当一个<code>SpecialString*</code>被存为<code>string*</code>时，可能会发生类似的未被定义的情况。 从这里也可以看到<code>C++</code>语法上的一个缺陷，就是没有禁止某个类或者方法被继承的机制，而在 java 中可以用<code>final</code>关键字，在 C# 中可以用<code>sealed</code>类。</p>
+<h4 id="virtual关键字"><a href="#virtual关键字" class="headerlink" title="virtual关键字"></a>virtual关键字</h4><p>关于<code>virtual</code>还有几点关键知识：</p>
+<ul>
+<li>virtual 的一个缺点是会增加类的空间开销，并且使得类在 C 或 Fortran 等其他语言的移植中受到影响。主要原因是虚函数会引入 virtual table pointer，它指向了一个称之为 virtual table 的函数指针数组。当虚函数被调用时，相当于需要用对应的 virtual table pointer 进行查表，在 virtual table 中找到对应的函数。这个 virtual table pointer 的大小和操作系统位数相关，比如对于 32 位操作系统，指针大小就为 32 位，每个虚函数就额外需要 32 位的存储空间。</li>
+<li>当某个函数被定义时既被<code>virtual</code>修饰，又以<code>=0</code>结尾，说明该函数被定义为一个纯虚函数，比如<code>virtual ~AWOV() = 0;</code>。纯虚函数会使得这个类变为一个抽象类，无法被实例化。语法上要注意，这样写只是声明了一个纯虚函数，还需要再额外定义<code>AWOV::~AWOV() &#123;&#125;</code>。</li>
+<li>如果在设计上，保证不存在通过基类方法操作派生对象的情况，那就不需要使用<code>virtual</code>关键字。比如上一节的<code>Uncopyable</code>就不需要用<code>virtual</code>修饰析构函数。这种通过基类方法操作派生对象的情况只会出现在多态场景，也就是一个基类派生出多个子类，这也就是<code>virtual</code>的使用场景。</li>
+<li>一个简单的原则：一个类的析构函数是否应该被<code>virtual</code>修饰，这通常和析构函数本身无关，而是在于该类是否有其他方法被<code>virtual</code>修饰了。只要有一个方法被<code>virtual</code>修饰，析构函数也应该被<code>virtual</code>修饰。反之则不需要，因为基本不会出现只有一个析构函数被<code>virtual</code>修饰而其他函数都没有被<code>virtual</code>修饰的情况。</li>
+</ul>
+<h3 id="Item-8-Prevent-exceptions-from-leaving-destructors"><a href="#Item-8-Prevent-exceptions-from-leaving-destructors" class="headerlink" title="Item 8: Prevent exceptions from leaving destructors."></a>Item 8: Prevent exceptions from leaving destructors.</h3><p>不要在析构函数里抛异常，因为这可能导致同时抛出两个或更多异常，这对<code>C++</code>来说是无法处理的。</p>
+<ul>
+<li><p>在抛出异常时，如果当前代码块没有处理这个异常，则会把这个异常抛给上一层调用进行处理，问题在于在返回上一层之前，局部变量需要调用自己的析构函数来释放掉，如果在析构函数中再次抛异常，此时相当于同时抛两个异常，就会引发未定义的行为。此外，例如<code>vector</code>这样的 STL，在作为局部函数被销毁时会调用其中每一个元素的析构函数来进行销毁，如果在销毁元素的过程中抛异常也会导致同时抛出多个异常。</p>
+</li>
+<li><p>有两种解决方法，但是其实都不是很优雅，一是把析构函数中的抛异常改为直接终止程序，比如通过<code>std::abort()</code>；二是不抛异常，直接使用 try…catch 把异常处理掉。</p>
+</li>
+<li><p>相对来说，如果一定要在释放资源的过程中抛异常，比较好的方法是在一个新定义的、非析构的函数，比如<code>close()</code>，在这个函数里释放资源并抛异常，这样用户就可以自己掌握异常处理的时机和方式了。</p>
+</li>
+<li>总之，永远不要在析构函数里抛出异常。</li>
+</ul>
+<h3 id="Item-9-Never-call-virtual-functions-during-construction-or-destruction"><a href="#Item-9-Never-call-virtual-functions-during-construction-or-destruction" class="headerlink" title="Item 9: Never call virtual functions during construction or destruction."></a>Item 9: Never call virtual functions during construction or destruction.</h3><p>不要在构造函数和析构函数中调用虚函数，如下面这个例子：</p>
+<pre><code class="lang-cpp">class Transaction &#123; // base class for all
+public: // transactions
+    Transaction();
+    virtual void logTransaction() const = 0; // make type-dependent log entry
+&#125;;
+Transaction::Transaction() // implementation of base class ctor
+&#123;
+    logTransaction(); // as final action, log this transaction
+&#125;
+class BuyTransaction: public Transaction &#123; // derived class
+public:
+    virtual void logTransaction() const; // how to log transactions of this type ...
+&#125;;
+class SellTransaction: public Transaction &#123; // derived class
+public:
+    virtual void logTransaction() const; // how to log transactions of this type
+&#125;;
+</code></pre>
+<p>功能上是为了对于买订单和卖订单，用不同的方式记录日志，所以把<code>logTransaction</code>定义为虚函数，分别在<code>BuyTransaction</code>和<code>SellTransaction</code>中有不同的实现，然后在<code>Transaction</code>的构造函数中调用这个虚函数。</p>
+<p>但是结果是不符合期望的：在基类<code>Transaction</code>调用虚函数时，无论这个对象属于哪个派生类，都只会调用<code>Transaction</code>本身的实现。在这个例子中，由于<code>Transaction</code>里的<code>logTransaction</code>只有一个纯虚函数的声明而没有定义，因此会在链接阶段就报错。</p>
+<p>实际上这种设计是很合理的，因为构造函数的调用顺序是先调用基类，再调用派生类，假设在<code>Transaction</code>的构造函数中真的调用了其派生类中实现的函数，其中很可能会涉及派生类的属性，但此时派生类的属性还没有经过初始化，这显然会出大错。进一步说，这和虚函数其实也没什么关系，本质上是，在基类的构造函数中，派生类的属性和方法是不可见的，在构造函数调用时，这个对象的运行时状态就是<code>Transcation</code>，而不是<code>BuyTransaction</code>或者<code>SellTransaction</code>，这个状态会持续到基类的构造函数结束，直到开始执行派生类的构造函数。这个现象在析构函数中同样存在，唯一的区别是先调用派生类的析构函数，接着才是基类的。</p>
+<p>上面给的这个例子其实很容易就找到错误，因为很少会在基类中给出纯虚函数的定义，缺少定义会直接导致链接阶段的报错，但在下面这个场景，虽然发生了类似的错误却不会报错，这样的错误会更加难以发现：</p>
+<pre><code class="lang-cpp">class Transaction &#123;
+public:
+    Transaction()
+    &#123; init(); &#125; // call to non-virtual...
+    virtual void logTransaction() const = 0;
+private:
+    void init()
+    &#123;
+        logTransaction(); // ...that calls a virtual!
+    &#125;
+&#125;;
+</code></pre>
+<p>这个没有定义的纯虚函数没有直接在构造函数中被调用，而是由<code>init()</code>间接调用了，导致编译器无法在链接阶段找到这个错误。但实际上执行阶段的结果是一样的，由于派生类在构造函数中不可见，会去尝试调用基类的这个纯虚函数，并抛异常：</p>
+<pre><code>pure virtual method called
+terminate called without an active exception
+
+Process finished with exit code 6
+</code></pre><p>如果真的需要对于不同的派生类在构造函数中就进行不同的行为，比如对于不同的订单打印不同的日志，比较好的方式是把差异体现在派生类的某个私有<code>static</code>方法里，并且直接通过构造函数的参数传递，<code>static</code>保证了不会有派生类对象未初始化的问题。由于差异在<code>static</code>方法里体现了，也就不需要<code>virtual</code>关键字来进行方法重载了：</p>
+<pre><code class="lang-cpp">class Transaction &#123;
+public:
+    explicit Transaction(const std::string&amp; logInfo);
+    void logTransaction(const std::string&amp; logInfo) const; // now a non-virtual func
+    ...
+&#125;;
+Transaction::Transaction(const std::string&amp; logInfo)
+&#123;
+    ...
+    logTransaction(logInfo); // now a non-virtual call
+&#125;
+class BuyTransaction: public Transaction &#123;
+public:
+    BuyTransaction( parameters )
+    : Transaction(createLogString( parameters )) // pass log info to base class constructor
+    &#123; ... &#125; 
+    ... 
+private:
+    static std::string createLogString( parameters );
+&#125;;
+</code></pre>
+<h3 id="Item-10-Have-assignment-operators-return-a-reference-to-this"><a href="#Item-10-Have-assignment-operators-return-a-reference-to-this" class="headerlink" title="Item 10: Have assignment operators return a reference to *this."></a>Item 10: Have assignment operators return a reference to *this.</h3><p>重载赋值运算时，记得返回<code>*this</code>。除了<code>=</code>，还包括<code>+=</code>、<code>-=</code>、<code>*=</code>之类的运算符。</p>
+<p>这样的好处主要是支持了链式赋值，也就是类似于下面的形式：</p>
+<pre><code class="lang-cpp">int x, y, z;
+x = y = z = 15;
+</code></pre>
+<p>所有内置的数据类型和<code>STL</code>都遵守了这个原则，所以最好在自己写代码时也遵守它。</p>
+<h3 id="Item-11-Handle-assignment-to-self-in-operator"><a href="#Item-11-Handle-assignment-to-self-in-operator" class="headerlink" title="Item 11: Handle assignment to self in operator=."></a>Item 11: Handle assignment to self in operator=.</h3><p>在实现拷贝赋值函数的时候需要注意一些特殊情况，特别是当拷贝赋值自身的时候，比如：</p>
+<pre><code class="lang-cpp">class Widget &#123; ... &#125;;
+Widget w;
+w = w;
+</code></pre>
+<p>除了这种浅显的情况，还有一些不容易发现的情况会导致拷贝赋值自身：</p>
+<pre><code class="lang-cpp">a[i] = a[j]; // 当 i == j
+*px = *py; // 当 px, py 指向同一个地址
+</code></pre>
+<p>甚至是两个类型不同的对象，比如一个基类和一个派生类，因为基类指针是可以指向派生类的：</p>
+<pre><code class="lang-cpp">class Base &#123; ... &#125;;
+class Derived: public Base &#123; ... &#125;;
+void doSomething(const Base&amp; rb, Derived* pd); // rb and *pd might actually be the same object
+</code></pre>
+<h4 id="拷贝赋值自身的安全问题"><a href="#拷贝赋值自身的安全问题" class="headerlink" title="拷贝赋值自身的安全问题"></a>拷贝赋值自身的安全问题</h4><p>假设有一个类<code>Widget</code>，存储了一个指向<code>Bitmap</code>的指针：</p>
+<pre><code class="lang-cpp">class Bitmap &#123; ... &#125;;
+class Widget &#123;
+    ...
+    private:
+    Bitmap *pb; // ptr to a heap-allocated object
+&#125;;
+</code></pre>
+<p>在拷贝赋值函数中需要同时拷贝<code>Bitmap</code>，注意下面这种写法看似合理，但当拷贝赋值自身时会抛异常：</p>
+<pre><code class="lang-cpp">Widget&amp; Widget::operator=(const Widget&amp; rhs) // unsafe impl. of operator=
+&#123;
+    delete pb; // stop using current bitmap
+    pb = new Bitmap(*rhs.pb); // start using a copy of rhs’s bitmap
+    return *this; // see Item 10
+&#125;
+</code></pre>
+<p>因为第一步就是<code>delete pb</code>，由于这里的<code>pb</code>和<code>rhs.pb</code>相同，此时<code>rhs.pb</code>指向了一个已经被删除的内存地址，访问这个被删除的内存地址是非常危险的行为。</p>
+<p>一个简单的解决方法是，在最开始进行一次相同检测<code>if (this == &amp;rhs) return *this;</code>，如果发现对自身在进行拷贝赋值，就直接返回。这个方法是有效的，但是另一个问题是，<code>new Bitmap(*rhs.pb)</code>可能会因为各种原因抛异常，比如内存不足，或者<code>Bitmap</code>的构造函数抛异常，这些异常是难以控制的。一旦这一步抛异常，这个<code>Widget</code>示例的<code>pb</code>同样指向了一个被删除的内存地址，这个情况同样极其糟糕。</p>
+<h4 id="异常安全问题"><a href="#异常安全问题" class="headerlink" title="异常安全问题"></a>异常安全问题</h4><p>可以这样修改来解决异常安全问题：</p>
+<pre><code class="lang-cpp">Widget&amp; Widget::operator=(const Widget&amp; rhs)
+&#123;
+    Bitmap *pOrig = pb; // remember original pb
+    pb = new Bitmap(*rhs.pb); // point pb to a copy of rhs’s bitmap
+    delete pOrig; // delete the original pb
+    return *this;
+&#125;
+</code></pre>
+<p>相当于调换了<code>new</code>和<code>delete</code>的顺序，只有确保了一个新的<code>Bitmap</code>已经被正确生成了，才会把原来的<code>pb</code>指向的空间删除。即使在<code>new Bitmap</code>时报错，此时抛异常弹出，<code>pb</code>至少还是指向了原来的地址空间。</p>
+<p>可以发现，在解决异常安全问题的同时，这种实现也同时解决了拷贝复制自身的安全问题。当然此时效率不是最佳的，因为额外进行了一次内存申请和释放，并调用了一次<code>Bitmap</code>的构造函数。如果需要追求效率，可以试着像之前那样进行一次相同检测，但深入一步讲，这里其实存在一个 trade-off，因为相同检测也有代价，会导致源代码和目标代码略微增大，也会导致控制流的分叉，这些都可能导致运行时的效率下降，比如导致指令预取成功率降低，缓存命中率降低等等，需要结合拷贝赋值自身这种情况发生的频率来衡量，涉及到的性能优化问题不在此展开。</p>
+<h4 id="用-“copy-and-swap”-的方式实现拷贝赋值函数"><a href="#用-“copy-and-swap”-的方式实现拷贝赋值函数" class="headerlink" title="用 “copy and swap” 的方式实现拷贝赋值函数"></a>用 “copy and swap” 的方式实现拷贝赋值函数</h4><p>copy and swap 的实现方式是一个同时保证了“拷贝复制自身”和“异常安全”两个问题的方案，这在实际场景中很常见：</p>
+<pre><code class="lang-cpp">class Widget &#123;
+    ...
+    void swap(Widget&amp; rhs); // exchange *this’s and rhs’s data; ... // see Item 29 for details
+&#125;;
+Widget&amp; Widget::operator=(const Widget&amp; rhs)
+&#123;
+    Widget temp(rhs); // make a copy of rhs’s data
+    swap(temp); // swap *this’s data with the copy’s
+    return *this;
+&#125;
+</code></pre>
+<p>下面是一个变种写法，利用到了函数传递的拷贝构造函数，但实质上没有区别：</p>
+<pre><code class="lang-cpp">Widget&amp; Widget::operator=(Widget rhs) // rhs is a copy of the object passed in — note pass by val
+&#123;
+    swap(rhs); // swap *this’s data with the copy’s
+    return *this;
+&#125;
+</code></pre>
+<p>相对来说第一种写法看上去更清晰，但是第二种写法更容易利用编译器进行优化，总体而言差别不大。</p>
+<h3 id="Item-12-Copy-all-parts-of-an-object"><a href="#Item-12-Copy-all-parts-of-an-object" class="headerlink" title="Item 12: Copy all parts of an object."></a>Item 12: Copy all parts of an object.</h3><p>拷贝时需要注意拷贝到了所有部分，这里包括了两种拷贝函数：拷贝构造函数和拷贝赋值函数。</p>
+<h4 id="拷贝函数要包含所有部分"><a href="#拷贝函数要包含所有部分" class="headerlink" title="拷贝函数要包含所有部分"></a>拷贝函数要包含所有部分</h4><p>其中 “all parts” 主要有两个部分需要注意：</p>
+<ul>
+<li><p>拷贝时，初始化所有成员</p>
+<p>当你自己实现拷贝构造/赋值函数时，必须手动初始化/赋值每一个成员。比较容易出这个错的场景是，在你写完一个类的拷贝函数之后再往这个类里加了一个成员，这时必须对拷贝函数作相应的修改，否则这个成员就不会被初始化。</p>
+<p>这个错误的另一个隐蔽性在于，编译器甚至不会对此报 warning，因为它认为你既然自己实现了拷贝函数，就应当清楚地知道在拷贝函数内发生了什么。</p>
+</li>
+<li><p>派生类需要调用所有基类的拷贝函数</p>
+</li>
+</ul>
+<p>当你自己实现派生类的拷贝函数时，应当手动调用基类的拷贝函数来为基类成员初始化，形式如下：</p>
+<pre><code class="lang-cpp">class PriorityCustomer: public Customer &#123; // a derived class
+public:
+    ...
+    PriorityCustomer(const PriorityCustomer&amp; rhs);
+    PriorityCustomer&amp; operator=(const PriorityCustomer&amp; rhs);
+    ...
+private:
+    int priority;
+&#125;;
+
+PriorityCustomer::PriorityCustomer(const PriorityCustomer&amp; rhs)
+: Customer(rhs), // invoke base class copy ctor
+priority(rhs.priority)
+&#123;
+    logCall(&quot;PriorityCustomer copy constructor&quot;);
+&#125;
+PriorityCustomer&amp;
+PriorityCustomer::operator=(const PriorityCustomer&amp; rhs)
+&#123;
+    logCall(&quot;PriorityCustomer copy assignment operator&quot;);
+    Customer::operator=(rhs); // assign base class parts
+    priority = rhs.priority;
+    return *this;
+&#125;
+</code></pre>
+<p>由于基类的一些成员可能是私有的，所以只能通过基类的构造函数去访问并初始化。如果没有手动调用基类的构造函数，则会自动调用无参数的默认拷贝函数。（如果没有定义默认拷贝函数则会在编译阶段报错）</p>
+<p>如果没有自己实现拷贝函数，编译器自动实现的拷贝函数则会调用以拷贝对象引用为参数的拷贝构造函数，这时的原则基于之前提到的，先调用基类构造函数再调用派生类构造函数，对比三种实现方式如下：</p>
+<p>首先定义基类<code>Widget</code>：</p>
+<pre><code class="lang-cpp">class Widget &#123;
+public:
+    Widget() &#123;
+        std::cout &lt;&lt; &quot;Widget default constructor.&quot; &lt;&lt; std::endl;
+    &#125;
+    Widget(const Widget &amp;rhs) &#123;
+        std::cout &lt;&lt; &quot;Widget copy constructor.&quot; &lt;&lt; std::endl;
+    &#125;
+&#125;;
+</code></pre>
+<p> 使用编译器实现的拷贝构造函数：</p>
+<pre><code class="lang-cpp">class DerivedWidget : public Widget &#123;
+public:
+    DerivedWidget() = default;
+//  DerivedWidget(const DerivedWidget &amp;rhs) &#123;&#125;;
+    int c;
+&#125;;
+
+DerivedWidget dw;
+DerivedWidget dw1(dw);
+----------------output--------------------
+Widget default constructor. // DerivedWidget dw;
+Widget copy constructor. // DerivedWidget dw1(dw);
+</code></pre>
+<p>使用自己定义，但不调用基类构造函数的拷贝构造函数：</p>
+<pre><code class="lang-cpp">class DerivedWidget : public Widget &#123;
+public:
+    DerivedWidget() = default;
+    DerivedWidget(const DerivedWidget &amp;rhs) &#123;&#125;;
+    int c;
+&#125;;
+
+DerivedWidget dw;
+DerivedWidget dw1(dw);
+----------------output--------------------
+Widget default constructor. // DerivedWidget dw;
+Widget default constructor. // DerivedWidget dw1(dw);
+</code></pre>
+<p>使用自己定义，且调用基类构造函数的拷贝构造函数：</p>
+<pre><code class="lang-cpp">class DerivedWidget : public Widget &#123;
+ public:
+  DerivedWidget() = default;
+  DerivedWidget(const DerivedWidget &amp;rhs): Widget(rhs) &#123;&#125;;
+  int c;
+&#125;;
+
+DerivedWidget dw;
+DerivedWidget dw1(dw);
+----------------output--------------------
+Widget default constructor. // DerivedWidget dw;
+Widget copy constructor. // DerivedWidget dw1(dw);
+</code></pre>
+<h4 id="减少两种拷贝函数的代码冗余"><a href="#减少两种拷贝函数的代码冗余" class="headerlink" title="减少两种拷贝函数的代码冗余"></a>减少两种拷贝函数的代码冗余</h4><p>拷贝构造函数和拷贝赋值函数，两个函数有时候功能是类似的，那么就会有代码冗余的问题。</p>
+<p>很容易想到，能不能让其中一个函数调用另一个，来起到减少代码冗余的效果呢？作者给出的结论是不行，因为拷贝构造函数是从无到有，需要产生一个新的实例，而拷贝赋值函数则不需要产生新的实例，所有操作都发生在两个已经存在的实例上。</p>
+<p>但是类似于 Item 11 中提到的 “copy and swap” 方法来实现拷贝赋值函数，相当于先调用拷贝构造函数初始化一个局部实例，利用这个局部实例作修改，然后再利用作用域，在返回时将这个局部实例释放掉。这是否可以也算作通过调用拷贝构造函数来实现拷贝赋值函数呢？可能是看待代码冗余的角度不同。</p>
+<p>总之作者始终认为，两种拷贝函数不应该互相调用，而是应该用一个<code>private</code>方法，把相同的操作放进这个<code>private</code>方法里，并在两种拷贝函数中都调用这个<code>private</code>方法。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script> 
+<script>
+    var gitalk = new Gitalk({
+            clientID: 'b8ab854d61e4537d8b06',
+            clientSecret: '2557531f91b562289cfc3025675934139fc97766',
+            repo: 'gitalk-repo',
+            owner: 'liyunfan1223',
+            admin: ['liyunfan1223'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%89/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2023/03/03/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Effective-C-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%80/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/favicon_io/android-chrome-512x512.png" alt="MorphLing's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        liyunfan1223@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2023/03/">三月 2023<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/07/">七月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/06/">六月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/04/">四月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛<span class="sidebar_archives-count">55</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%9A%8F%E4%BE%BF%E8%81%8A%E8%81%8A/">随便聊聊<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">项目总结<span class="sidebar_archives-count">27</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud_circle</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2020&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Moonglade
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=T');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+    
+</html>
